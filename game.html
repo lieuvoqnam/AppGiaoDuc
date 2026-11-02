@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Em Yêu Bản Đồ Việt Nam - Trò Chơi Ghép Hình 34 Tỉnh Thành | Môn Lịch Sử & Địa Lý</title>
+  
+  <!-- Google Fonts for friendly, modern typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app-container">
+    <!-- HEADER -->
+    <header id="game-header">
+      <div class="header-left">
+        <a href="index.html" class="portal-nav-btn" title="Quay lại Cổng học tập các môn Lớp 1 - 12">
+          <span>🏠</span> Cổng Học Tập
+        </a>
+        <div class="app-logo">
+          <span class="flag-icon">🇻🇳</span>
+        </div>
+        <div class="app-titles">
+          <h1 class="main-title">Em Yêu Bản Đồ Việt Nam</h1>
+          <p class="sub-title">Môn Lịch sử & Địa lý • Bản đồ 34 Tỉnh Thành Mới</p>
+        </div>
+      </div>
+
+      <!-- Live Stats Bar -->
+      <div class="header-stats">
+        <!-- Model Dataset Switcher (34 vs 63) -->
+        <div class="dataset-switcher" title="Chọn mô hình địa giới hành chính">
+          <button id="btn-model-34" class="model-btn active" data-dataset="34">
+            <span class="badge-dot">●</span> 34 Tỉnh Thành (Mới)
+          </button>
+          <button id="btn-model-63" class="model-btn" data-dataset="63">
+            63 Tỉnh Thành (Cũ)
+          </button>
+        </div>
+
+        <div class="stat-pill" title="Tiến độ ghép">
+          <span class="stat-icon">🧩</span>
+          <div class="stat-content">
+            <span class="stat-label">Đã ghép</span>
+            <span class="stat-value"><strong id="stat-placed-count">0</strong>/<span id="stat-total-count">34</span></span>
+          </div>
+        </div>
+
+        <div class="stat-pill" title="Điểm số">
+          <span class="stat-icon">⭐</span>
+          <div class="stat-content">
+            <span class="stat-label">Điểm số</span>
+            <span class="stat-value" id="stat-score">0</span>
+          </div>
+        </div>
+
+        <div class="stat-pill" id="streak-container" title="Chuỗi đúng liên tiếp">
+          <span class="stat-icon">🔥</span>
+          <div class="stat-content">
+            <span class="stat-label">Combo</span>
+            <span class="stat-value">x<span id="stat-streak">0</span></span>
+          </div>
+        </div>
+
+        <div class="stat-pill" title="Thời gian chơi">
+          <span class="stat-icon">⏱️</span>
+          <div class="stat-content">
+            <span class="stat-label">Thời gian</span>
+            <span class="stat-value" id="stat-timer">00:00</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Top Quick Controls & User Profile -->
+      <div class="header-actions">
+        <!-- User Profile Widget -->
+        <div id="user-profile-widget" class="user-profile-widget">
+          <div id="user-info-btn" class="user-badge-btn" title="Xem hồ sơ & thành tích">
+            <span id="user-avatar" class="u-avatar">🎓</span>
+            <div class="u-meta">
+              <span id="user-display-name" class="u-name">Học sinh</span>
+              <span id="user-display-class" class="u-class">Lớp học</span>
+            </div>
+          </div>
+          <button id="btn-leaderboard" class="icon-btn" title="Bảng Vàng Thành Tích">🏆</button>
+          <button id="btn-logout" class="icon-btn" title="Đăng xuất / Đổi tài khoản">🚪</button>
+        </div>
+
+        <button id="btn-toggle-sound" class="icon-btn" title="Bật/Tắt âm thanh">🔊</button>
+        <button id="btn-fullscreen" class="icon-btn" title="Toàn màn hình">⛶</button>
+      </div>
+    </header>
+
+    <!-- NAVIGATION & CONTROL BAR -->
+    <div id="control-bar">
+      <!-- Mode Tabs -->
+      <div class="mode-tabs">
+        <button class="mode-btn active" data-mode="region">
+          <span class="icon">🏔️</span> Ghép Theo Vùng Miền
+        </button>
+        <button class="mode-btn" data-mode="all">
+          <span class="icon">🌟</span> Toàn Quốc (63 Tỉnh)
+        </button>
+        <button class="mode-btn" data-mode="quiz">
+          <span class="icon">❓</span> Đố Vui Vị Trí
+        </button>
+        <button class="mode-btn" data-mode="explore">
+          <span class="icon">📖</span> Khám Phá Địa Lý
+        </button>
+      </div>
+
+      <!-- Difficulty Selector -->
+      <div class="difficulty-group">
+        <span class="group-label">Mức độ:</span>
+        <div class="segmented-control">
+          <button class="diff-btn active" data-difficulty="easy" title="Hiện bóng mờ & tên tỉnh gợi ý">Dễ</button>
+          <button class="diff-btn" data-difficulty="medium" title="Hiện đường viền bóng mờ, ẩn tên">Vừa</button>
+          <button class="diff-btn" data-difficulty="hard" title="Chỉ hiện khung bản đồ chữ S, không ranh giới!">Khó</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- REGION SELECTOR BAR (In Region Mode) -->
+    <div id="region-selector" class="region-selector-bar">
+      <!-- Generated dynamically in app.js -->
+    </div>
+
+    <!-- OVERALL PROGRESS BAR -->
+    <div class="progress-bar-container">
+      <div id="stat-progress-bar" class="progress-bar-fill" style="width: 0%;"></div>
+    </div>
+
+    <!-- MAIN GAME WORKSPACE -->
+    <main id="main-stage">
+      <!-- LEFT / CENTER: INTERACTIVE MAP CANVAS -->
+      <div id="map-viewport">
+        <!-- Map Floating Toolbar -->
+        <div class="map-controls">
+          <button id="btn-zoom-in" class="map-ctrl-btn" title="Phóng to">+</button>
+          <button id="btn-zoom-out" class="map-ctrl-btn" title="Thu nhỏ">−</button>
+          <button id="btn-reset-view" class="map-ctrl-btn" title="Đặt lại khung nhìn">⟲</button>
+        </div>
+
+        <!-- Compass Rose decoration -->
+        <div class="compass-badge">
+          <div class="compass-needle"></div>
+          <span class="compass-n">B (Bắc)</span>
+          <span class="compass-s">N (Nam)</span>
+          <span class="compass-w">T (Tây)</span>
+          <span class="compass-e">Đ (Đông)</span>
+        </div>
+
+        <!-- Vietnam Map SVG -->
+        <svg id="vietnam-map" viewBox="0 0 812 873" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <!-- Drop shadow for dragged pieces -->
+            <filter id="piece-shadow" x="-30%" y="-30%" width="160%" height="160%">
+              <feDropShadow dx="3" dy="8" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.45" />
+            </filter>
+            
+            <!-- Glow effect for snap magnetic lock -->
+            <filter id="snap-glow" x="-40%" y="-40%" width="180%" height="180%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+
+            <!-- Subtle ocean background pattern -->
+            <pattern id="sea-pattern" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M 0 20 Q 10 15, 20 20 T 40 20" fill="none" stroke="#e0f2fe" stroke-width="1.2" opacity="0.6"/>
+            </pattern>
+          </defs>
+
+          <!-- Main Zoomable & Pannable Group -->
+          <g id="map-transform-group">
+            <!-- Sea Background Layer -->
+            <rect id="sea-bg" x="-1000" y="-1000" width="3000" height="3000" fill="#f0f9ff" />
+            <rect x="-1000" y="-1000" width="3000" height="3000" fill="url(#sea-pattern)" />
+
+            <!-- Geographic Sea Labels -->
+            <g class="geographic-labels" opacity="0.65" pointer-events="none">
+              <!-- Gulf of Tonkin -->
+              <text x="310" y="160" font-size="16" font-weight="700" fill="#0284c7" letter-spacing="3" text-anchor="middle">VỊNH BẮC BỘ</text>
+              
+              <!-- East Sea (Biển Đông) -->
+              <text x="560" y="520" font-size="22" font-weight="800" fill="#0369a1" letter-spacing="6" text-anchor="middle">BIỂN ĐÔNG</text>
+              <text x="560" y="542" font-size="12" font-weight="600" fill="#0284c7" letter-spacing="1" text-anchor="middle">(VIỆT NAM)</text>
+
+              <!-- Gulf of Thailand -->
+              <text x="60" y="740" font-size="14" font-weight="700" fill="#0284c7" letter-spacing="2" text-anchor="middle">VỊNH THÁI LAN</text>
+            </g>
+
+            <!-- Base Map Outline Layer -->
+            <g id="base-map-layer"></g>
+
+            <!-- Slots Layer (Bóng mờ vị trí mảnh ghép) -->
+            <g id="slots-layer"></g>
+
+            <!-- Placed Provinces Layer (Các mảnh đã ghép) -->
+            <g id="placed-layer"></g>
+
+            <!-- Labels Layer (Tên các tỉnh thành) -->
+            <g id="labels-layer"></g>
+
+            <!-- Dragging Layer (Mảnh ghép đang được kéo) -->
+            <g id="dragging-layer" filter="url(#piece-shadow)"></g>
+
+            <!-- Sacred Archipelagos Callout Boxes (Hoàng Sa & Trường Sa) -->
+            <g class="sacred-territory-callout" pointer-events="none">
+              <!-- Hoang Sa Callout Border -->
+              <rect x="520" y="355" width="170" height="105" rx="8" fill="none" stroke="#ef4444" stroke-width="1.8" stroke-dasharray="4,3" opacity="0.8"/>
+              <text x="530" y="375" font-size="12" font-weight="800" fill="#dc2626">★ QUẦN ĐẢO HOÀNG SA</text>
+              <text x="530" y="390" font-size="10" font-weight="600" fill="#64748b">(TP. Đà Nẵng, Việt Nam)</text>
+
+              <!-- Truong Sa Callout Border -->
+              <rect x="440" y="660" width="350" height="190" rx="8" fill="none" stroke="#ef4444" stroke-width="1.8" stroke-dasharray="4,3" opacity="0.8"/>
+              <text x="450" y="682" font-size="13" font-weight="800" fill="#dc2626">★ QUẦN ĐẢO TRƯỜNG SA</text>
+              <text x="450" y="698" font-size="10" font-weight="600" fill="#64748b">(Tỉnh Khánh Hoà, Việt Nam)</text>
+            </g>
+          </g>
+        </svg>
+
+        <!-- Map Navigation Tip for Students -->
+        <div class="map-tip-toast">
+          💡 <strong>Mẹo:</strong> Dùng chuột cuộn để Phóng to/Thu nhỏ, hoặc kéo nền biển để di chuyển bản đồ!
+        </div>
+      </div>
+
+      <!-- RIGHT: PUZZLE PIECES DOCK / TRAY -->
+      <aside id="puzzle-dock">
+        <!-- Quiz Banner (Shown only in Quiz Mode) -->
+        <div id="quiz-banner" class="quiz-card hidden">
+          <div class="quiz-badge">🎯 THỬ THÁCH ĐỊA LÝ</div>
+          <div class="quiz-prompt">Hãy tìm và đặt vị trí:</div>
+          <div class="quiz-target" id="quiz-target-name">Hà Nội</div>
+          <div class="quiz-hint-box">
+            <span class="hint-icon">💡 Gợi ý:</span>
+            <span id="quiz-hint">Thủ đô nghìn năm văn hiến</span>
+          </div>
+        </div>
+
+        <!-- Tray Header -->
+        <div class="dock-header">
+          <div class="dock-title">
+            <span class="icon">📦</span>
+            <span>Khay Mảnh Ghép</span>
+          </div>
+          <div class="dock-instruction">
+            Kéo mảnh ghép vào bản đồ hoặc nhấp để chọn!
+          </div>
+        </div>
+
+        <!-- Scrollable Pieces Container -->
+        <div id="puzzle-tray" class="tray-grid">
+          <!-- Rendered dynamically in app.js -->
+        </div>
+      </aside>
+    </main>
+
+    <!-- AUTHENTICATION MODAL (Bắt buộc Đăng nhập / Đăng ký) -->
+    <div id="auth-modal" class="modal-backdrop">
+      <div class="auth-card">
+        <div class="auth-header">
+          <div class="auth-logo">🇻🇳</div>
+          <h2>Em Yêu Bản Đồ Việt Nam</h2>
+          <p>Hãy đăng nhập hoặc tạo tài khoản học sinh để bắt đầu chơi và lưu kỷ lục nhé!</p>
+        </div>
+
+        <!-- Auth Tabs -->
+        <div class="auth-tabs">
+          <button id="auth-tab-login" class="auth-tab-btn active">Đăng Nhập</button>
+          <button id="auth-tab-register" class="auth-tab-btn">Đăng Ký Tài Khoản</button>
+        </div>
+
+        <!-- Form Error / Message -->
+        <div id="auth-msg" class="auth-msg-box hidden"></div>
+
+        <!-- LOGIN FORM -->
+        <form id="login-form" class="auth-form" onsubmit="return false;">
+          <div class="form-group">
+            <label for="login-username">Tên đăng nhập:</label>
+            <input type="text" id="login-username" placeholder="Nhập tên đăng nhập (ví dụ: nam5a)" autocomplete="username" required>
+          </div>
+          <div class="form-group">
+            <label for="login-password">Mật khẩu:</label>
+            <input type="password" id="login-password" placeholder="Nhập mật khẩu" autocomplete="current-password" required>
+          </div>
+          <button type="submit" id="btn-submit-login" class="btn-primary auth-submit-btn">Vào Chơi Ngay ➔</button>
+          <div class="auth-switch-text">
+            Chưa có tài khoản? <a href="#" id="link-to-register">Tạo tài khoản học sinh mới ngay</a>
+          </div>
+        </form>
+
+        <!-- REGISTER FORM -->
+        <form id="register-form" class="auth-form hidden" onsubmit="return false;">
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="reg-fullname">Họ và tên học sinh:</label>
+              <input type="text" id="reg-fullname" placeholder="Ví dụ: Nguyễn Văn An" required>
+            </div>
+            <div class="form-group">
+              <label for="reg-classname">Trường / Lớp:</label>
+              <input type="text" id="reg-classname" placeholder="Ví dụ: Lớp 5A" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="reg-username">Tên đăng nhập:</label>
+            <input type="text" id="reg-username" placeholder="Viết liền không dấu (ví dụ: an5a)" autocomplete="username" required>
+          </div>
+          
+          <!-- Avatar Selection Grid -->
+          <div class="form-group">
+            <label>Chọn biểu tượng Avatar của bạn:</label>
+            <div class="avatar-select-grid" id="avatar-grid">
+              <button type="button" class="avt-btn active" data-avatar="🎓">🎓</button>
+              <button type="button" class="avt-btn" data-avatar="🐯">🐯</button>
+              <button type="button" class="avt-btn" data-avatar="🦁">🦁</button>
+              <button type="button" class="avt-btn" data-avatar="🐼">🐼</button>
+              <button type="button" class="avt-btn" data-avatar="🦊">🦊</button>
+              <button type="button" class="avt-btn" data-avatar="🚀">🚀</button>
+              <button type="button" class="avt-btn" data-avatar="🌟">🌟</button>
+              <button type="button" class="avt-btn" data-avatar="🦄">🦄</button>
+              <button type="button" class="avt-btn" data-avatar="⚽">⚽</button>
+              <button type="button" class="avt-btn" data-avatar="🎨">🎨</button>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="reg-password">Mật khẩu:</label>
+            <input type="password" id="reg-password" placeholder="Tối thiểu 4 ký tự" autocomplete="new-password" required>
+          </div>
+          <button type="submit" id="btn-submit-register" class="btn-primary auth-submit-btn">Tạo Tài Khoản & Bắt Đầu Chơi 🎉</button>
+          <div class="auth-switch-text">
+            Đã có tài khoản? <a href="#" id="link-to-login">Đăng nhập tại đây</a>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- LEADERBOARD & PROFILE MODAL -->
+    <div id="leaderboard-modal" class="modal-backdrop hidden">
+      <div class="leaderboard-card">
+        <button id="leaderboard-close" class="modal-close-btn" title="Đóng">&times;</button>
+        <div class="lb-header">
+          <div class="lb-icon">🏆</div>
+          <h2>Bảng Vàng Thành Tích</h2>
+          <p>Tôn vinh các bạn học sinh có điểm số cao nhất!</p>
+        </div>
+
+        <!-- Current User Card -->
+        <div id="lb-current-user-box" class="lb-user-summary">
+          <!-- Rendered in app.js -->
+        </div>
+
+        <!-- Leaderboard Table -->
+        <div class="lb-table-container">
+          <table class="lb-table">
+            <thead>
+              <tr>
+                <th>Hạng</th>
+                <th>Học sinh</th>
+                <th>Lớp</th>
+                <th>Điểm Kỷ Lục</th>
+              </tr>
+            </thead>
+            <tbody id="lb-table-body">
+              <!-- Rendered in app.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROVINCE INFO MODAL (Bách Khoa Toàn Thư Mini) -->
+    <div id="info-modal" class="modal-backdrop hidden">
+      <div class="modal-card">
+        <button id="modal-close" class="modal-close-btn" title="Đóng">&times;</button>
+        <div id="modal-body">
+          <!-- Populated dynamically in app.js -->
+        </div>
+      </div>
+    </div>
+
+    <!-- VICTORY CELEBRATION MODAL -->
+    <div id="victory-modal" class="modal-backdrop hidden">
+      <div class="victory-card">
+        <button id="victory-close" class="modal-close-btn" title="Đóng">&times;</button>
+        <div class="victory-trophy">🏆</div>
+        <h2 id="victory-title" class="victory-heading">Chúc Mừng Bạn!</h2>
+        <p id="victory-desc" class="victory-message">Bạn đã hoàn thành xuất sắc thử thách ghép hình!</p>
+        
+        <div class="victory-stats-box">
+          <div class="v-stat">
+            <span class="v-label">Tổng Điểm:</span>
+            <span class="v-value" id="victory-score">1,500</span>
+          </div>
+          <div class="v-stat">
+            <span class="v-label">Thời Gian:</span>
+            <span class="v-value" id="victory-time">02:30</span>
+          </div>
+        </div>
+
+        <button id="victory-action-btn" class="btn-primary victory-btn">Tiếp Tục ➔</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="audio.js"></script>
+  <script src="confetti.js"></script>
+  <script src="auth.js"></script>
+  <script src="provinces-data.js"></script>
+  <script src="provinces-34-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

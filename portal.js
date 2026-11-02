@@ -1,0 +1,454 @@
+/**
+ * portal.js - Logic điều khiển Cổng Học Liệu Số Tương Tác Lớp 1 - 12
+ */
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Ensure data exists
+  if (!window.PORTAL_DATA) {
+    console.error('Missing PORTAL_DATA');
+    return;
+  }
+
+  // --- PORTAL STATE ---
+  const state = {
+    currentLevel: 'tieu_hoc', // 'tieu_hoc' | 'thcs' | 'thpt'
+    currentGrade: 5, // Default selected grade (1 - 12)
+    selectedSubjectId: 'lich_su_dia_ly', // Default selected subject
+    searchQuery: ''
+  };
+
+  // --- DOM ELEMENTS ---
+  const levelTabsContainer = document.getElementById('level-tabs');
+  const gradePillsContainer = document.getElementById('grade-pills');
+  const gradeTitleEl = document.getElementById('grade-title');
+  const gradeDescEl = document.getElementById('grade-desc');
+  const subjectsGrid = document.getElementById('subjects-grid');
+  const appShowcaseArea = document.getElementById('app-showcase-area');
+  const searchInput = document.getElementById('portal-search-input');
+
+  // Auth & Header DOM
+  const authModal = document.getElementById('auth-modal');
+  const authTabLogin = document.getElementById('auth-tab-login');
+  const authTabRegister = document.getElementById('auth-tab-register');
+  const loginForm = document.getElementById('login-form');
+  const registerForm = document.getElementById('register-form');
+  const authMsg = document.getElementById('auth-msg');
+  const linkToRegister = document.getElementById('link-to-register');
+  const linkToLogin = document.getElementById('link-to-login');
+  const avatarGrid = document.getElementById('avatar-grid');
+
+  const userAvatarEl = document.getElementById('user-avatar');
+  const userDisplayNameEl = document.getElementById('user-display-name');
+  const userDisplayClassEl = document.getElementById('user-display-class');
+  const userInfoBtn = document.getElementById('user-info-btn');
+  const btnLeaderboard = document.getElementById('btn-leaderboard');
+  const btnLogout = document.getElementById('btn-logout');
+
+  const leaderboardModal = document.getElementById('leaderboard-modal');
+  const leaderboardClose = document.getElementById('leaderboard-close');
+  const lbCurrentUserBox = document.getElementById('lb-current-user-box');
+  const lbTableBody = document.getElementById('lb-table-body');
+
+  let selectedAvatar = '🎓';
+
+  // --- INITIALIZATION ---
+  function init() {
+    setupAuthHandlers();
+    checkAuthStatus();
+    renderLevels();
+    renderGradePills();
+    selectGrade(state.currentGrade);
+    setupSearch();
+  }
+
+  // --- AUTH STATUS & UI ---
+  function checkAuthStatus() {
+    if (window.authManager && window.authManager.isLoggedIn()) {
+      const user = window.authManager.currentUser;
+      if (authModal) authModal.classList.add('hidden');
+      updateUserProfileUI(user);
+
+      // Auto-detect grade from user's class name (e.g., "5A" -> Grade 5, "12A1" -> Grade 12)
+      if (user.className) {
+        const match = user.className.match(/\b(1[0-2]|[1-9])\b/);
+        if (match) {
+          const detectedGrade = parseInt(match[1]);
+          if (detectedGrade >= 1 && detectedGrade <= 12) {
+            selectGrade(detectedGrade);
+          }
+        }
+      }
+    } else {
+      if (authModal) authModal.classList.remove('hidden');
+    }
+  }
+
+  function updateUserProfileUI(user) {
+    if (!user) return;
+    if (userAvatarEl) userAvatarEl.textContent = user.avatar || '🎓';
+    if (userDisplayNameEl) userDisplayNameEl.textContent = user.fullName || user.username;
+    if (userDisplayClassEl) userDisplayClassEl.textContent = user.className || 'Học sinh';
+  }
+
+  function setupAuthHandlers() {
+    if (!authModal) return;
+
+    authTabLogin.addEventListener('click', () => showAuthTab('login'));
+    authTabRegister.addEventListener('click', () => showAuthTab('register'));
+    linkToRegister.addEventListener('click', (e) => { e.preventDefault(); showAuthTab('register'); });
+    linkToLogin.addEventListener('click', (e) => { e.preventDefault(); showAuthTab('login'); });
+
+    if (avatarGrid) {
+      avatarGrid.querySelectorAll('.avt-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          avatarGrid.querySelectorAll('.avt-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          selectedAvatar = btn.dataset.avatar;
+        });
+      });
+    }
+
+    loginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const username = document.getElementById('login-username').value;
+      const password = document.getElementById('login-password').value;
+
+      try {
+        const user = await window.authManager.login(username, password);
+        showAuthMessage('Đăng nhập thành công! Chào mừng bạn!', 'success');
+        setTimeout(() => {
+          authModal.classList.add('hidden');
+          updateUserProfileUI(user);
+        }, 500);
+      } catch (err) {
+        showAuthMessage(err.message, 'error');
+      }
+    });
+
+    registerForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const fullName = document.getElementById('reg-fullname').value;
+      const className = document.getElementById('reg-classname').value;
+      const username = document.getElementById('reg-username').value;
+      const password = document.getElementById('reg-password').value;
+
+      try {
+        const user = await window.authManager.register({
+          username, fullName, className, avatar: selectedAvatar, password
+        });
+        showAuthMessage(`Chúc mừng ${user.fullName}! Tài khoản đã tạo thành công!`, 'success');
+        setTimeout(() => {
+          authModal.classList.add('hidden');
+          updateUserProfileUI(user);
+        }, 600);
+      } catch (err) {
+        showAuthMessage(err.message, 'error');
+      }
+    });
+
+    if (btnLogout) {
+      btnLogout.addEventListener('click', () => {
+        if (confirm('Bạn có chắc muốn đăng xuất để chuyển tài khoản khác không?')) {
+          window.authManager.logout();
+          checkAuthStatus();
+        }
+      });
+    }
+
+    if (btnLeaderboard) btnLeaderboard.addEventListener('click', openLeaderboardModal);
+    if (userInfoBtn) userInfoBtn.addEventListener('click', openLeaderboardModal);
+    if (leaderboardClose) leaderboardClose.addEventListener('click', () => leaderboardModal.classList.add('hidden'));
+
+    window.addEventListener('click', (e) => {
+      if (e.target === leaderboardModal) leaderboardModal.classList.add('hidden');
+    });
+  }
+
+  function showAuthTab(tab) {
+    authMsg.classList.add('hidden');
+    if (tab === 'login') {
+      authTabLogin.classList.add('active');
+      authTabRegister.classList.remove('active');
+      loginForm.classList.remove('hidden');
+      registerForm.classList.add('hidden');
+    } else {
+      authTabLogin.classList.remove('active');
+      authTabRegister.classList.add('active');
+      loginForm.classList.add('hidden');
+      registerForm.classList.remove('hidden');
+    }
+  }
+
+  function showAuthMessage(text, type = 'error') {
+    authMsg.textContent = text;
+    authMsg.className = `auth-msg-box ${type}`;
+    authMsg.classList.remove('hidden');
+  }
+
+  function openLeaderboardModal() {
+    const user = window.authManager.currentUser;
+    const leaders = window.authManager.getLeaderboard();
+
+    if (user && lbCurrentUserBox) {
+      lbCurrentUserBox.innerHTML = `
+        <div class="lb-user-info">
+          <div class="lb-user-avt">${user.avatar || '🎓'}</div>
+          <div class="lb-user-names">
+            <h4>${user.fullName}</h4>
+            <span>${user.className} • ${user.username}</span>
+          </div>
+        </div>
+        <div class="lb-user-stats">
+          <div class="lb-user-stat-item">
+            <span class="lb-stat-lbl">Điểm Kỷ Lục</span>
+            <span class="lb-stat-val">${(user.highScore || 0).toLocaleString()}</span>
+          </div>
+          <div class="lb-user-stat-item">
+            <span class="lb-stat-lbl">Combo Đỉnh</span>
+            <span class="lb-stat-val">x${user.maxStreak || 0}</span>
+          </div>
+          <div class="lb-user-stat-item">
+            <span class="lb-stat-lbl">Đã Hoàn Thành</span>
+            <span class="lb-stat-val">${user.totalCompleted || 0} lần</span>
+          </div>
+        </div>
+      `;
+    }
+
+    if (lbTableBody) {
+      lbTableBody.innerHTML = '';
+      if (leaders.length === 0) {
+        lbTableBody.innerHTML = `<tr><td colspan="4" style="text-align:center; padding:20px; color:#94a3b8;">Chưa có dữ liệu. Hãy là người đầu tiên ghi điểm!</td></tr>`;
+      } else {
+        leaders.forEach((u, idx) => {
+          const tr = document.createElement('tr');
+          let rankBadge = `${idx + 1}`;
+          if (idx === 0) rankBadge = '🥇';
+          else if (idx === 1) rankBadge = '🥈';
+          else if (idx === 2) rankBadge = '🥉';
+
+          const isMe = user && user.username === u.username;
+          if (isMe) tr.style.background = '#e0f2fe';
+
+          tr.innerHTML = `
+            <td><span class="rank-badge">${rankBadge}</span></td>
+            <td>
+              <span style="font-size:1.2rem; margin-right:6px;">${u.avatar || '🎓'}</span>
+              <strong>${u.fullName}</strong>
+              ${isMe ? '<span class="lb-badge-pill">Bạn</span>' : ''}
+            </td>
+            <td style="color:#64748b;">${u.className || 'Học sinh'}</td>
+            <td style="color:#0284c7; font-weight:900;">${(u.highScore || 0).toLocaleString()}</td>
+          `;
+          lbTableBody.appendChild(tr);
+        });
+      }
+    }
+
+    if (leaderboardModal) leaderboardModal.classList.remove('hidden');
+  }
+
+  // --- RENDER LEVELS (Tiểu học, THCS, THPT) ---
+  function renderLevels() {
+    if (!levelTabsContainer) return;
+    levelTabsContainer.innerHTML = '';
+
+    window.PORTAL_DATA.levels.forEach(lvl => {
+      const btn = document.createElement('button');
+      btn.className = `level-tab-btn ${lvl.id === state.currentLevel ? 'active' : ''}`;
+      btn.dataset.level = lvl.id;
+      btn.innerHTML = `<span class="icon">${lvl.badge}</span> <span>${lvl.name}</span>`;
+      btn.addEventListener('click', () => {
+        state.currentLevel = lvl.id;
+        renderLevels();
+        // Auto select first grade of level
+        selectGrade(lvl.grades[0]);
+      });
+      levelTabsContainer.appendChild(btn);
+    });
+  }
+
+  // --- RENDER GRADE PILLS (Lớp 1 - 12) ---
+  function renderGradePills() {
+    if (!gradePillsContainer) return;
+    gradePillsContainer.innerHTML = '';
+
+    const currentLevelObj = window.PORTAL_DATA.levels.find(l => l.id === state.currentLevel);
+    const availableGrades = currentLevelObj ? currentLevelObj.grades : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+
+    availableGrades.forEach(gNum => {
+      const btn = document.createElement('button');
+      btn.className = `grade-pill-btn ${gNum === state.currentGrade ? 'active' : ''}`;
+      btn.dataset.grade = gNum;
+      btn.innerHTML = `<span>Lớp ${gNum}</span>`;
+      btn.addEventListener('click', () => {
+        selectGrade(gNum);
+      });
+      gradePillsContainer.appendChild(btn);
+    });
+  }
+
+  // --- SELECT GRADE ---
+  function selectGrade(gradeNum) {
+    state.currentGrade = gradeNum;
+    const gradeData = window.PORTAL_DATA.grades[gradeNum];
+    if (!gradeData) return;
+
+    // Update level if needed
+    if (gradeData.level !== state.currentLevel) {
+      state.currentLevel = gradeData.level;
+      renderLevels();
+    }
+    renderGradePills();
+
+    // Update Header Text
+    if (gradeTitleEl) gradeTitleEl.textContent = `Chương Trình ${gradeData.title}`;
+    if (gradeDescEl) gradeDescEl.textContent = gradeData.desc;
+
+    // Find default subject
+    const hasHistoryGeo = gradeData.subjects.some(s => s.id === 'lich_su_dia_ly' || s.id === 'dia_ly');
+    if (hasHistoryGeo) {
+      state.selectedSubjectId = gradeData.subjects.find(s => s.id === 'lich_su_dia_ly' || s.id === 'dia_ly').id;
+    } else {
+      state.selectedSubjectId = gradeData.subjects[0].id;
+    }
+
+    renderSubjects(gradeData.subjects);
+    renderAppShowcase(gradeData);
+  }
+
+  // --- RENDER SUBJECTS GRID ---
+  function renderSubjects(subjects) {
+    if (!subjectsGrid) return;
+    subjectsGrid.innerHTML = '';
+
+    subjects.forEach(sub => {
+      const isSelected = sub.id === state.selectedSubjectId;
+      const card = document.createElement('div');
+      card.className = `subject-card ${isSelected ? 'selected' : ''} ${sub.hasApp ? 'has-interactive-app' : ''}`;
+      card.dataset.id = sub.id;
+
+      let badgeHtml = '';
+      if (sub.hasApp) {
+        badgeHtml = `<span class="subject-app-badge">${sub.badge}</span>`;
+      }
+
+      card.innerHTML = `
+        <div class="subject-top">
+          <div class="subject-icon-box" style="background:${sub.color}20; color:${sub.color};">
+            ${sub.icon}
+          </div>
+          ${badgeHtml}
+        </div>
+        <h3 class="subject-name">${sub.name}</h3>
+        <p class="subject-desc">${sub.desc}</p>
+        <div class="subject-action">
+          <span>${sub.hasApp ? 'Khám phá ứng dụng ➔' : 'Xem nội dung'}</span>
+        </div>
+      `;
+
+      card.addEventListener('click', () => {
+        state.selectedSubjectId = sub.id;
+        document.querySelectorAll('.subject-card').forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+        renderAppShowcase(window.PORTAL_DATA.grades[state.currentGrade]);
+      });
+
+      subjectsGrid.appendChild(card);
+    });
+  }
+
+  // --- RENDER APP SHOWCASE AREA ---
+  function renderAppShowcase(gradeData) {
+    if (!appShowcaseArea) return;
+    appShowcaseArea.innerHTML = '';
+
+    const subject = gradeData.subjects.find(s => s.id === state.selectedSubjectId);
+    if (!subject) return;
+
+    // If subject has interactive apps (e.g. Lịch sử và Địa lý -> Game Bản Đồ Việt Nam)
+    if (subject.apps && subject.apps.length > 0) {
+      subject.apps.forEach(app => {
+        const showcaseCard = document.createElement('div');
+        showcaseCard.className = 'app-showcase-card featured-game-card';
+
+        let tagsHtml = '';
+        app.tags.forEach(t => {
+          tagsHtml += `<span class="app-tag-pill">${t}</span>`;
+        });
+
+        showcaseCard.innerHTML = `
+          <div class="showcase-banner">
+            <div class="showcase-visual-badge">🇻🇳</div>
+            <div class="showcase-info">
+              <div class="showcase-meta">
+                <span class="subject-tag">${subject.name} • ${gradeData.title}</span>
+                ${tagsHtml}
+              </div>
+              <h2 class="showcase-title">${app.title}</h2>
+              <h4 class="showcase-subtitle">${app.subtitle}</h4>
+              <p class="showcase-goal">🎯 <strong>Yêu cầu cần đạt:</strong> ${app.learningGoal}</p>
+            </div>
+            <div class="showcase-btn-wrap">
+              <a href="${app.url}" class="btn-launch-game">
+                <span class="btn-icon">🚀</span>
+                <span class="btn-text">
+                  <strong>Vào Học & Chơi Ngay</strong>
+                  <small>Bản đồ 34 Tỉnh Thành Mới</small>
+                </span>
+                <span class="arrow">➔</span>
+              </a>
+            </div>
+          </div>
+          <div class="showcase-features-bar">
+            <div class="feat-item">🧩 Kéo - Thả - Bắt Dính Tự Động (Snap)</div>
+            <div class="feat-item">🏔️ 5 Vùng Địa Lý Hài Hòa</div>
+            <div class="feat-item">🏆 Bảng Vàng Điểm Thưởng & Huy Hiệu</div>
+            <div class="feat-item">🇻🇳 Chủ Quyền Hoàng Sa & Trường Sa</div>
+          </div>
+        `;
+        appShowcaseArea.appendChild(showcaseCard);
+      });
+    } else {
+      // Other subjects placeholder
+      const placeholderCard = document.createElement('div');
+      placeholderCard.className = 'app-showcase-card placeholder-card';
+      placeholderCard.innerHTML = `
+        <div class="placeholder-content">
+          <div class="placeholder-icon">${subject.icon}</div>
+          <h3>${subject.name} - ${gradeData.title}</h3>
+          <p>${subject.desc}</p>
+          <div class="placeholder-status-pill">🛠️ Đang cập nhật thêm bài học & ứng dụng tương tác</div>
+          <p class="placeholder-tip">💡 Mời bạn bấm sang môn <strong>🇻🇳 Lịch Sử và Địa Lý</strong> để trải nghiệm Game Ghép Hình Bản Đồ Việt Nam!</p>
+        </div>
+      `;
+      appShowcaseArea.appendChild(placeholderCard);
+    }
+  }
+
+  // --- SEARCH SETUP ---
+  function setupSearch() {
+    if (!searchInput) return;
+    searchInput.addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase().trim();
+      state.searchQuery = q;
+      if (!q) {
+        selectGrade(state.currentGrade);
+        return;
+      }
+
+      // Filter subjects across current grade
+      const currentSubjects = window.PORTAL_DATA.grades[state.currentGrade].subjects;
+      const filtered = currentSubjects.filter(s => 
+        s.name.toLowerCase().includes(q) || 
+        s.desc.toLowerCase().includes(q) ||
+        (s.apps && s.apps.some(a => a.title.toLowerCase().includes(q) || a.tags.some(t => t.toLowerCase().includes(q))))
+      );
+
+      renderSubjects(filtered);
+    });
+  }
+
+  // Launch init
+  init();
+});

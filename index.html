@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Cổng Học Liệu Số Tương Tác Lớp 1 - 12 | Hệ Thống Môn Học & Trò Chơi Giáo Dục</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="portal.css">
+</head>
+<body>
+
+  <!-- TOP HEADER -->
+  <header id="portal-header">
+    <div class="portal-brand">
+      <div class="portal-logo">
+        <span>🎓</span>
+      </div>
+      <div class="portal-brand-text">
+        <h1>CỔNG HỌC LIỆU SỐ TƯƠNG TÁC</h1>
+        <p>Hệ Thống Môn Học Lớp 1 - 12 • Chương Trình GDPT 2018</p>
+      </div>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="header-search">
+      <div class="search-wrap">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="portal-search-input" placeholder="Tìm kiếm môn học, ứng dụng..." autocomplete="off">
+      </div>
+    </div>
+
+    <!-- User Profile & Action Tools -->
+    <div class="header-right">
+      <div class="user-profile-widget">
+        <div id="user-info-btn" class="user-badge-btn" title="Xem thành tích học tập của bạn">
+          <span id="user-avatar" class="u-avatar">🎓</span>
+          <div class="u-meta">
+            <span id="user-display-name" class="u-name">Học Sinh</span>
+            <span id="user-display-class" class="u-class">Lớp 5</span>
+          </div>
+        </div>
+        <button id="btn-leaderboard" class="icon-btn" title="Bảng Vàng Thi Đua Toàn Trường">🏆</button>
+        <button id="btn-logout" class="icon-btn" title="Đăng Xuất / Đổi Tài Khoản">🚪</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main class="portal-main">
+
+    <!-- HERO BANNER -->
+    <section class="hero-banner">
+      <div class="hero-content">
+        <span class="hero-pill">✨ HỌC TẬP TRỰC QUAN & TƯƠNG TÁC</span>
+        <h2>Khám Phá Tri Thức Qua Ứng Dụng Giáo Dục Số</h2>
+        <p>
+          Hệ thống môn học từ <strong>Lớp 1 đến Lớp 12</strong> được tích hợp các ứng dụng số hóa, 
+          trò chơi tương tác và bản đồ sinh động giúp học sinh dễ học, nhớ lâu và yêu thích môn học hơn mỗi ngày.
+        </p>
+        <div class="hero-stats">
+          <div class="hero-stat-box">
+            <span class="num">12</span>
+            <span class="label">Khối Lớp Học<br>(Lớp 1 - 12)</span>
+          </div>
+          <div class="hero-stat-box">
+            <span class="num">100+</span>
+            <span class="label">Môn Học & Bài Giảng<br>Chuẩn GDPT 2018</span>
+          </div>
+          <div class="hero-stat-box">
+            <span class="num">34</span>
+            <span class="label">Tỉnh & Thành Phố<br>Địa Giới Mới Nhất</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEVEL TABS (Tiểu học, THCS, THPT) -->
+    <nav class="level-tabs-bar" id="level-tabs" aria-label="Cấp học">
+      <!-- Dynamic render by portal.js -->
+    </nav>
+
+    <!-- GRADE PILLS (Lớp 1 -> Lớp 12) -->
+    <nav class="grade-pills-bar" id="grade-pills" aria-label="Khối lớp">
+      <!-- Dynamic render by portal.js -->
+    </nav>
+
+    <!-- SECTION TITLE -->
+    <div class="section-header">
+      <h3 id="grade-title">Chương Trình Lớp 5</h3>
+      <p id="grade-desc">Môn Lịch sử và Địa lý cùng các môn học cốt lõi</p>
+    </div>
+
+    <!-- FEATURED APP SHOWCASE (Hiển thị trò chơi môn học tương tác) -->
+    <section id="app-showcase-area">
+      <!-- Dynamic render by portal.js -->
+    </section>
+
+    <!-- SUBJECTS LIST (THƯ MỤC CÁC MÔN HỌC TRONG LỚP) -->
+    <div style="margin: 28px 0 16px 0; display: flex; align-items: center; justify-content: space-between;">
+      <h3 style="font-size: 1.3rem; font-weight: 900; color: #0f172a; display: flex; align-items: center; gap: 8px;">
+        <span>📚</span> Thư Mục Các Môn Học
+      </h3>
+      <span style="font-size: 0.85rem; font-weight: 700; color: #64748b;">
+        Bấm vào từng môn để xem học liệu & ứng dụng
+      </span>
+    </div>
+
+    <section class="subjects-grid" id="subjects-grid">
+      <!-- Dynamic render by portal.js -->
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer style="background:#ffffff; border-top:1.5px solid #e2e8f0; padding:24px 20px; text-align:center; margin-top:auto;">
+    <p style="font-size:0.9rem; font-weight:800; color:#1e293b; margin-bottom:6px;">
+      🇻🇳 CỔNG HỌC LIỆU SỐ TƯƠNG TÁC LỚP 1 - 12
+    </p>
+    <p style="font-size:0.8rem; font-weight:600; color:#64748b; line-height:1.5;">
+      Ứng dụng hỗ trợ giảng dạy & học tập tích hợp công nghệ số • Bản quyền giáo dục tương tác<br>
+      Tích hợp ứng dụng <strong>"Em Yêu Bản Đồ Việt Nam"</strong> trực thuộc bộ môn <strong>Lịch sử và Địa lý</strong>
+    </p>
+  </footer>
+
+  <!-- AUTHENTICATION MODAL (Đăng Ký / Đăng Nhập) -->
+  <div id="auth-modal" class="modal-backdrop hidden">
+    <div class="auth-card">
+      <div class="auth-header">
+        <div class="auth-logo">🎓</div>
+        <h2>CỔNG HỌC TẬP TƯƠNG TÁC</h2>
+        <p>Vui lòng đăng nhập hoặc tạo tài khoản để lưu thành tích học tập</p>
+      </div>
+
+      <!-- Tab Switcher -->
+      <div class="auth-tabs">
+        <button id="auth-tab-login" class="auth-tab-btn active" type="button">Đăng Nhập</button>
+        <button id="auth-tab-register" class="auth-tab-btn" type="button">Đăng Ký Mới</button>
+      </div>
+
+      <!-- Feedback notification message -->
+      <div id="auth-msg" class="auth-msg-box hidden"></div>
+
+      <!-- Form Đăng Nhập -->
+      <form id="login-form" class="auth-form">
+        <div class="form-group">
+          <label for="login-username">Tên đăng nhập hoặc Mã học sinh:</label>
+          <input type="text" id="login-username" required placeholder="Ví dụ: nam_lop5a" autocomplete="username">
+        </div>
+        <div class="form-group">
+          <label for="login-password">Mật khẩu:</label>
+          <input type="password" id="login-password" required placeholder="Nhập mật khẩu..." autocomplete="current-password">
+        </div>
+        <button type="submit" class="btn-primary auth-submit-btn">Đăng Nhập Ngay ➔</button>
+        <p class="auth-switch-text">
+          Chưa có tài khoản? <a href="#" id="link-to-register">Đăng ký học sinh mới tại đây</a>
+        </p>
+      </form>
+
+      <!-- Form Đăng Ký -->
+      <form id="register-form" class="auth-form hidden">
+        <div class="form-row-2">
+          <div class="form-group">
+            <label for="reg-fullname">Họ và Tên học sinh:</label>
+            <input type="text" id="reg-fullname" required placeholder="Ví dụ: Nguyễn Văn Nam">
+          </div>
+          <div class="form-group">
+            <label for="reg-classname">Lớp & Trường:</label>
+            <input type="text" id="reg-classname" required placeholder="Ví dụ: 5A1 - TH Chu Văn An">
+          </div>
+        </div>
+
+        <!-- Avatar selector -->
+        <div class="form-group">
+          <label>Chọn biểu tượng Avatar yêu thích:</label>
+          <div class="avatar-select-grid" id="avatar-grid">
+            <button type="button" class="avt-btn active" data-avatar="🎓">🎓</button>
+            <button type="button" class="avt-btn" data-avatar="🐯">🐯</button>
+            <button type="button" class="avt-btn" data-avatar="🦁">🦁</button>
+            <button type="button" class="avt-btn" data-avatar="🐼">🐼</button>
+            <button type="button" class="avt-btn" data-avatar="🦊">🦊</button>
+            <button type="button" class="avt-btn" data-avatar="🚀">🚀</button>
+            <button type="button" class="avt-btn" data-avatar="🌟">🌟</button>
+            <button type="button" class="avt-btn" data-avatar="🦄">🦄</button>
+            <button type="button" class="avt-btn" data-avatar="⚽">⚽</button>
+            <button type="button" class="avt-btn" data-avatar="🎨">🎨</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="reg-username">Tên đăng nhập (viết liền không dấu):</label>
+          <input type="text" id="reg-username" required placeholder="Ví dụ: vannam5a" autocomplete="username">
+        </div>
+        <div class="form-group">
+          <label for="reg-password">Mật khẩu:</label>
+          <input type="password" id="reg-password" required placeholder="Tối thiểu 4 ký tự..." autocomplete="new-password">
+        </div>
+        <button type="submit" class="btn-primary auth-submit-btn">Đăng Ký Tài Khoản ➔</button>
+        <p class="auth-switch-text">
+          Đã có tài khoản? <a href="#" id="link-to-login">Quay lại Đăng nhập</a>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <!-- LEADERBOARD MODAL (Bảng Vàng Thi Đua) -->
+  <div id="leaderboard-modal" class="modal-backdrop hidden">
+    <div class="leaderboard-card">
+      <button class="modal-close-btn" id="leaderboard-close" title="Đóng">&times;</button>
+      <div class="lb-header">
+        <div class="lb-icon">🏆</div>
+        <h2>BẢNG VÀNG THI ĐUA TOÀN TRƯỜNG</h2>
+        <p>Vinh danh các bạn học sinh có điểm số xuất sắc nhất</p>
+      </div>
+
+      <!-- Thông tin cá nhân học sinh hiện tại -->
+      <div id="lb-current-user-box" class="lb-user-summary"></div>
+
+      <!-- Danh sách bảng xếp hạng -->
+      <div class="lb-table-container">
+        <table class="lb-table">
+          <thead>
+            <tr>
+              <th style="width: 50px;">Hạng</th>
+              <th>Học Sinh</th>
+              <th>Lớp & Trường</th>
+              <th style="text-align: right;">Điểm Số</th>
+            </tr>
+          </thead>
+          <tbody id="lb-table-body">
+            <!-- Dynamic render -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <!-- 1. Authentication Manager -->
+  <script src="auth.js"></script>
+  <!-- 2. Portal Curriculum Data (Grades 1 - 12) -->
+  <script src="portal-data.js"></script>
+  <!-- 3. Portal Controller Logic -->
+  <script src="portal.js"></script>
+
+</body>
+</html>
