@@ -141,6 +141,7 @@
       <div class="auth-tabs">
         <button id="auth-tab-login" class="auth-tab-btn active" type="button">Đăng Nhập</button>
         <button id="auth-tab-register" class="auth-tab-btn" type="button">Đăng Ký Mới</button>
+        <button id="auth-tab-recovery" class="auth-tab-btn" type="button">Quên Mật Khẩu</button>
       </div>
 
       <!-- Feedback notification message -->
@@ -159,6 +160,9 @@
         <button type="submit" class="btn-primary auth-submit-btn">Đăng Nhập Ngay ➔</button>
         <p class="auth-switch-text">
           Chưa có tài khoản? <a href="#" id="link-to-register">Đăng ký học sinh mới tại đây</a>
+        </p>
+        <p class="auth-switch-text" style="margin-top: 8px;">
+          <a href="#" id="link-forgot-pass" style="color: #0284c7; font-weight: 700;">❓ Quên mật khẩu hoặc tên đăng nhập?</a>
         </p>
       </form>
 
@@ -205,6 +209,54 @@
           Đã có tài khoản? <a href="#" id="link-to-login">Quay lại Đăng nhập</a>
         </p>
       </form>
+
+      <!-- Form Quên Mật Khẩu & Tra Cứu Tên -->
+      <form id="recovery-form" class="auth-form hidden">
+        <div style="background:#f0fdf4; border:1px solid #bbf7d0; border-radius:10px; padding:10px 12px; margin-bottom:14px; font-size:0.8rem; color:#166534; line-height:1.4;">
+          💡 <strong>Hỗ trợ tài khoản:</strong> Bạn có thể tìm lại Tên đăng nhập bằng Họ tên & Lớp, hoặc nhờ Thầy Cô/Bố Mẹ đặt lại Mật khẩu mới bằng Mã PIN hỗ trợ.
+        </div>
+
+        <!-- Chuyển đổi giữa 2 chế độ -->
+        <div style="display:flex; gap:8px; margin-bottom:14px;">
+          <button type="button" id="btn-mode-find-user" style="flex:1; padding:8px 10px; font-size:0.82rem; font-weight:800; border-radius:8px; border:1.5px solid #0284c7; background:#0284c7; color:#ffffff; cursor:pointer;">🔍 Tìm Tên Đăng Nhập</button>
+          <button type="button" id="btn-mode-reset-pass" style="flex:1; padding:8px 10px; font-size:0.82rem; font-weight:800; border-radius:8px; border:1.5px solid #cbd5e1; background:#ffffff; color:#475569; cursor:pointer;">🔑 Đặt Lại Mật Khẩu</button>
+        </div>
+
+        <!-- Khối 1: Tìm Tên Đăng Nhập -->
+        <div id="sub-find-user-block">
+          <div class="form-group">
+            <label for="find-fullname">Nhập đúng Họ và Tên học sinh:</label>
+            <input type="text" id="find-fullname" placeholder="Ví dụ: Nguyễn Văn Nam">
+          </div>
+          <div class="form-group">
+            <label for="find-classname">Lớp học (hoặc để trống):</label>
+            <input type="text" id="find-classname" placeholder="Ví dụ: 5A">
+          </div>
+          <button type="button" id="btn-submit-find-user" class="btn-primary auth-submit-btn">🔍 Tìm Tên Đăng Nhập ➔</button>
+          <div id="find-user-result" style="margin-top:12px; font-size:0.85rem; font-weight:700; display:none; padding:10px; border-radius:8px;"></div>
+        </div>
+
+        <!-- Khối 2: Đặt Lại Mật Khẩu -->
+        <div id="sub-reset-pass-block" style="display:none;">
+          <div class="form-group">
+            <label for="reset-username">Tên đăng nhập của học sinh:</label>
+            <input type="text" id="reset-username" placeholder="Ví dụ: vannam5a">
+          </div>
+          <div class="form-group">
+            <label for="reset-admin-pin">Mã PIN Thầy Cô / Phụ Huynh (Mặc định: 2026):</label>
+            <input type="password" id="reset-admin-pin" placeholder="Nhập mã PIN bảo vệ...">
+          </div>
+          <div class="form-group">
+            <label for="reset-new-password">Mật khẩu mới:</label>
+            <input type="password" id="reset-new-password" placeholder="Tối thiểu 4 ký tự...">
+          </div>
+          <button type="button" id="btn-submit-reset-pass" class="btn-primary auth-submit-btn">🔑 Lưu Mật Khẩu Mới ➔</button>
+        </div>
+
+        <p class="auth-switch-text" style="margin-top:14px;">
+          <a href="#" id="link-back-to-login">➔ Quay lại Đăng nhập</a>
+        </p>
+      </form>
     </div>
   </div>
 
@@ -241,6 +293,10 @@
   </div>
 
   <!-- SCRIPTS -->
+  <!-- Google Firebase Firestore SDK (Đồng bộ Đám mây Laptop <-> iPad) -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+  <script src="firebase-config.js"></script>
   <!-- 1. Authentication Manager -->
   <script src="auth.js"></script>
   <!-- 2. Portal Curriculum Data (Grades 1 - 12) -->
