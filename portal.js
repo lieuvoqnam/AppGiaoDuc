@@ -366,20 +366,40 @@ document.addEventListener('DOMContentLoaded', () => {
     const subject = gradeData.subjects.find(s => s.id === state.selectedSubjectId);
     if (!subject) return;
 
-    // If subject has interactive apps (e.g. Lịch sử và Địa lý -> Game Bản Đồ Việt Nam)
+    // If subject has interactive apps (e.g. Lịch sử và Địa lý -> Game Bản Đồ Việt Nam & Thế Giới)
     if (subject.apps && subject.apps.length > 0) {
       subject.apps.forEach(app => {
+        const isWorld = app.id === 'world_map_puzzle';
         const showcaseCard = document.createElement('div');
-        showcaseCard.className = 'app-showcase-card featured-game-card';
+        showcaseCard.className = `app-showcase-card ${isWorld ? 'world-featured-card' : 'featured-game-card'}`;
 
         let tagsHtml = '';
         app.tags.forEach(t => {
           tagsHtml += `<span class="app-tag-pill">${t}</span>`;
         });
 
+        const badgeIcon = isWorld ? '🌍' : '🇻🇳';
+        const buttonSub = app.buttonSub || (isWorld ? 'Khám phá 5 Châu lục thế giới' : 'Bản đồ 34 Tỉnh Thành Mới');
+        const features = app.features || (isWorld ? [
+          '🌍 Khám Phá 5 Châu Lục Lớn',
+          '🚩 Đố Vui Quốc Kỳ & Kỳ Quan Thế Giới',
+          '🧲 Kéo - Thả - Bắt Dính Tự Động (Snap)',
+          '📖 Bách Khoa Toàn Thư Quốc Gia'
+        ] : [
+          '🧩 Kéo - Thả - Bắt Dính Tự Động (Snap)',
+          '🏔️ 5 Vùng Địa Lý Hài Hòa',
+          '🏆 Bảng Vàng Điểm Thưởng & Huy Hiệu',
+          '🇻🇳 Chủ Quyền Hoàng Sa & Trường Sa'
+        ]);
+
+        let featHtml = '';
+        features.forEach(f => {
+          featHtml += `<div class="feat-item">${f}</div>`;
+        });
+
         showcaseCard.innerHTML = `
           <div class="showcase-banner">
-            <div class="showcase-visual-badge">🇻🇳</div>
+            <div class="showcase-visual-badge">${badgeIcon}</div>
             <div class="showcase-info">
               <div class="showcase-meta">
                 <span class="subject-tag">${subject.name} • ${gradeData.title}</span>
@@ -394,17 +414,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 <span class="btn-icon">🚀</span>
                 <span class="btn-text">
                   <strong>Vào Học & Chơi Ngay</strong>
-                  <small>Bản đồ 34 Tỉnh Thành Mới</small>
+                  <small>${buttonSub}</small>
                 </span>
                 <span class="arrow">➔</span>
               </a>
             </div>
           </div>
           <div class="showcase-features-bar">
-            <div class="feat-item">🧩 Kéo - Thả - Bắt Dính Tự Động (Snap)</div>
-            <div class="feat-item">🏔️ 5 Vùng Địa Lý Hài Hòa</div>
-            <div class="feat-item">🏆 Bảng Vàng Điểm Thưởng & Huy Hiệu</div>
-            <div class="feat-item">🇻🇳 Chủ Quyền Hoàng Sa & Trường Sa</div>
+            ${featHtml}
           </div>
         `;
         appShowcaseArea.appendChild(showcaseCard);

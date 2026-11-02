@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Em Khám Phá Bản Đồ Thế Giới - Trò Chơi Ghép Hình 5 Châu Lục | Môn Lịch Sử & Địa Lý</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="world-style.css">
+</head>
+<body>
+  <div id="app-container">
+    <!-- HEADER -->
+    <header id="game-header">
+      <div class="header-left">
+        <a href="index.html" class="portal-nav-btn" title="Quay lại Cổng học tập các môn Lớp 1 - 12">
+          <span>🏠</span> Cổng Học Tập
+        </a>
+        <div class="app-logo">
+          <span class="flag-icon">🌍</span>
+        </div>
+        <div class="app-titles">
+          <h1 class="main-title">Em Khám Phá Bản Đồ Thế Giới</h1>
+          <p class="sub-title">5 Châu Lục & Các Quốc Gia Tiêu Biểu • Môn Lịch sử & Địa lý</p>
+        </div>
+      </div>
+
+      <!-- Live Stats Bar -->
+      <div class="header-stats">
+        <div class="stat-pill" title="Tiến độ ghép quốc gia">
+          <span class="stat-icon">🧩</span>
+          <div class="stat-content">
+            <span class="stat-label">Đã ghép</span>
+            <span class="stat-value"><strong id="stat-placed-count">0</strong>/<span id="stat-total-count">0</span></span>
+          </div>
+        </div>
+
+        <div class="stat-pill" title="Điểm số tích lũy">
+          <span class="stat-icon">⭐</span>
+          <div class="stat-content">
+            <span class="stat-label">Điểm số</span>
+            <span class="stat-value" id="stat-score">0</span>
+          </div>
+        </div>
+
+        <div class="stat-pill" title="Chuỗi đúng liên tiếp">
+          <span class="stat-icon">🔥</span>
+          <div class="stat-content">
+            <span class="stat-label">Combo</span>
+            <span class="stat-value">x<span id="stat-streak">0</span></span>
+          </div>
+        </div>
+
+        <div class="stat-pill" title="Thời gian chơi">
+          <span class="stat-icon">⏱️</span>
+          <div class="stat-content">
+            <span class="stat-label">Thời gian</span>
+            <span class="stat-value" id="stat-timer">00:00</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Header Actions & User Profile -->
+      <div class="header-actions">
+        <div class="user-profile-widget">
+          <div class="user-badge-btn" title="Hồ sơ học sinh">
+            <span id="user-avatar" class="u-avatar">🎓</span>
+            <div class="u-meta">
+              <span id="user-display-name" class="u-name">Học sinh</span>
+              <span id="user-display-class" class="u-class">Lớp 7</span>
+            </div>
+          </div>
+          <button id="btn-leaderboard" class="icon-btn" title="Bảng Vàng Thành Tích">🏆</button>
+          <button id="btn-logout" class="icon-btn" title="Đổi tài khoản">🚪</button>
+        </div>
+
+        <button id="btn-toggle-sound" class="icon-btn" title="Bật/Tắt âm thanh">🔊</button>
+        <button id="btn-fullscreen" class="icon-btn" title="Toàn màn hình">⛶</button>
+      </div>
+    </header>
+
+    <!-- CONTROL BAR -->
+    <div id="control-bar">
+      <!-- Mode Tabs -->
+      <div class="mode-tabs">
+        <button class="mode-btn active" data-mode="continent">
+          <span>🌏</span> Ghép Theo Châu Lục
+        </button>
+        <button class="mode-btn" data-mode="all">
+          <span>🌟</span> Toàn Cầu
+        </button>
+        <button class="mode-btn" data-mode="quiz">
+          <span>🚩</span> Đố Vui Quốc Kỳ & Kỳ Quan
+        </button>
+        <button class="mode-btn" data-mode="explore">
+          <span>📖</span> Khám Phá Thế Giới
+        </button>
+      </div>
+
+      <!-- Difficulty Selector -->
+      <div class="difficulty-group">
+        <span class="group-label">Mức độ:</span>
+        <div class="segmented-control">
+          <button class="diff-btn active" data-difficulty="easy" title="Hiện bóng mờ & highlight vị trí khi chọn">Dễ</button>
+          <button class="diff-btn" data-difficulty="medium" title="Hiện đường viền mờ, ẩn tên & không highlight vị trí trên bản đồ">Vừa</button>
+          <button class="diff-btn" data-difficulty="hard" title="Khung bản đồ, không ranh giới & không highlight!">Khó</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTINENT SELECTOR BAR -->
+    <div id="continent-selector" class="continent-selector-bar">
+      <!-- Dynamic render by world-app.js -->
+    </div>
+
+    <!-- QUIZ BANNER (In Quiz Mode) -->
+    <div id="quiz-banner" class="hidden">
+      <div class="quiz-content">
+        <div class="quiz-flag-badge" id="quiz-target-flag">🚩</div>
+        <div>
+          <div class="quiz-q-title">🎯 Đố bạn tìm thấy vị trí của quốc gia:</div>
+          <div class="quiz-country-name" id="quiz-target-name">Đang tải...</div>
+          <div class="quiz-hint-text" id="quiz-hint-text">Gợi ý câu đố...</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN WORKSPACE -->
+    <main id="workspace">
+      <!-- MAP VIEWPORT -->
+      <section id="map-viewport" aria-label="Bản đồ tương tác thế giới">
+        <svg id="world-svg" viewBox="0 0 1200 670" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <!-- Ocean Radial Gradient -->
+            <radialGradient id="oceanGrad" cx="50%" cy="50%" r="65%">
+              <stop offset="0%" stop-color="#1e293b" />
+              <stop offset="100%" stop-color="#0f172a" />
+            </radialGradient>
+          </defs>
+
+          <!-- 1. Background Ocean -->
+          <rect class="ocean-rect" x="0" y="0" width="1200" height="670" fill="url(#oceanGrad)" />
+
+          <!-- 2. Latitude & Longitude Grid Lines (Tỷ lệ chuẩn 1:1, Font chữ lớn rõ nét) -->
+          <g class="grid-lines-layer" opacity="0.75">
+            <!-- Arctic Circle (Vòng cực Bắc 66.5°B) -->
+            <line class="grid-line" x1="0" y1="128" x2="1200" y2="128" />
+            <text x="1190" y="120" fill="#94a3b8" font-size="13" font-weight="900" text-anchor="end">VÒNG CỰC BẮC (66.5°B)</text>
+
+            <!-- Tropic of Cancer (Chí tuyến Bắc 23.5°B) -->
+            <line class="grid-line" x1="0" y1="305" x2="1200" y2="305" />
+            <text x="1190" y="297" fill="#cbd5e1" font-size="13" font-weight="900" text-anchor="end">CHÍ TUYẾN BẮC (23.5°B)</text>
+
+            <!-- Equator (Đường Xích Đạo 0°) -->
+            <line class="equator-line" x1="0" y1="380" x2="1200" y2="380" stroke-width="2.5" />
+            <text x="1190" y="371" fill="#f59e0b" font-size="16" font-weight="900" text-anchor="end">XÍCH ĐẠO (0°)</text>
+
+            <!-- Tropic of Capricorn (Chí tuyến Nam 23.5°N) -->
+            <line class="grid-line" x1="0" y1="455" x2="1200" y2="455" />
+            <text x="1190" y="447" fill="#cbd5e1" font-size="13" font-weight="900" text-anchor="end">CHÍ TUYẾN NAM (23.5°N)</text>
+
+            <!-- Prime Meridian (Kinh tuyến gốc Greenwich 0°) -->
+            <line class="grid-line" x1="600" y1="0" x2="600" y2="670" stroke-width="2" />
+            <text x="608" y="30" fill="#e2e8f0" font-size="14" font-weight="900">KINH TUYẾN GỐC (0°)</text>
+          </g>
+
+          <!-- 3. Authentic World Landmasses Base Layer (Bản đồ nền thế giới chuẩn địa lý) -->
+          <g id="world-base-layer">
+            <path id="base-world-path" class="world-base-path" d="" />
+          </g>
+
+          <!-- 4. Target Country Slots Layer -->
+          <g id="slots-layer"></g>
+
+          <!-- 5. Placed Countries Layer -->
+          <g id="placed-layer"></g>
+
+          <!-- 6. Country Names Labels Layer -->
+          <g id="labels-layer"></g>
+
+          <!-- 7. Dynamic Floating Dragging Piece Layer -->
+          <g id="dragging-layer"></g>
+        </svg>
+
+        <!-- Floating Zoom Controls -->
+        <div class="map-floating-controls">
+          <button id="btn-zoom-in" class="float-ctrl-btn" title="Phóng to">+</button>
+          <button id="btn-zoom-out" class="float-ctrl-btn" title="Thu nhỏ">-</button>
+          <button id="btn-reset-view" class="float-ctrl-btn" title="Đặt lại khung nhìn">⟲</button>
+        </div>
+      </section>
+
+      <!-- PUZZLE TRAY (SIDEBAR KHAY MẢNH GHÉP) -->
+      <aside id="puzzle-tray-sidebar">
+        <div class="tray-header">
+          <h3><span>📦</span> Khay Mảnh Ghép</h3>
+          <span class="tray-badge">Kéo & Thả</span>
+        </div>
+        <div id="puzzle-tray">
+          <!-- Dynamic render by world-app.js -->
+        </div>
+      </aside>
+    </main>
+
+    <!-- COUNTRY ATLAS PROFILE MODAL -->
+    <div id="info-modal" class="modal-backdrop hidden">
+      <div class="modal-card">
+        <button id="modal-close" class="modal-close-btn" title="Đóng">&times;</button>
+        <div id="modal-body">
+          <!-- Populated dynamically in world-app.js -->
+        </div>
+      </div>
+    </div>
+
+    <!-- VICTORY CELEBRATION MODAL -->
+    <div id="victory-modal" class="modal-backdrop hidden">
+      <div class="victory-card">
+        <button id="victory-close" class="modal-close-btn" title="Đóng">&times;</button>
+        <div class="victory-trophy">🏆</div>
+        <h2 id="victory-title" class="victory-heading">Chúc Mừng Bạn!</h2>
+        <p id="victory-desc" class="victory-message">Bạn đã hoàn thành xuất sắc thử thách ghép hình thế giới!</p>
+        
+        <div class="victory-stats-box">
+          <div class="v-stat">
+            <span class="v-label">Tổng Điểm:</span>
+            <span class="v-value" id="victory-score">1,500</span>
+          </div>
+          <div class="v-stat">
+            <span class="v-label">Thời Gian:</span>
+            <span class="v-value" id="victory-time">02:30</span>
+          </div>
+        </div>
+
+        <button id="victory-action-btn" class="btn-primary" style="width: 100%; padding: 12px;">Khám Phá Tiếp ➔</button>
+      </div>
+    </div>
+
+    <!-- LEADERBOARD MODAL -->
+    <div id="leaderboard-modal" class="modal-backdrop hidden">
+      <div class="leaderboard-card">
+        <button class="modal-close-btn" id="leaderboard-close" title="Đóng">&times;</button>
+        <div style="text-align: center; margin-bottom: 16px;">
+          <div style="font-size: 3rem;">🏆</div>
+          <h2 style="font-size: 1.4rem; font-weight: 900;">BẢNG VÀNG THÀNH TÍCH</h2>
+          <p style="font-size: 0.85rem; color: #64748b;">Vinh danh những nhà thám hiểm địa lý xuất sắc nhất</p>
+        </div>
+        <div id="lb-current-user-box" style="background: linear-gradient(135deg, #0284c7, #0369a1); color: #fff; padding: 14px; border-radius: 12px; margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between;"></div>
+        <div class="lb-table-container">
+          <table class="lb-table">
+            <thead>
+              <tr>
+                <th style="width: 50px;">Hạng</th>
+                <th>Học Sinh</th>
+                <th>Lớp</th>
+                <th style="text-align: right;">Điểm Số</th>
+              </tr>
+            </thead>
+            <tbody id="lb-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="audio.js"></script>
+  <script src="confetti.js"></script>
+  <script src="auth.js"></script>
+  <script src="world-data.js"></script>
+  <script src="world-app.js"></script>
+</body>
+</html>

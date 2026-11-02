@@ -1,6 +1,8 @@
-# 🎓 Cổng Học Liệu Số Tương Tác Lớp 1 - 12 & Trò Chơi Bản Đồ Việt Nam
+# 🎓 Cổng Học Liệu Số Tương Tác Lớp 1 - 12 (Bản Đồ Việt Nam & Bản Đồ Thế Giới)
 
-Cổng thông tin và học liệu số tương tác toàn diện dành cho học sinh từ **Lớp 1 đến Lớp 12** theo Chương trình Giáo dục Phổ thông (GDPT 2018). Trong đó, ứng dụng **"Em Yêu Bản Đồ Việt Nam"** là học liệu số cốt lõi trực thuộc bộ môn **Lịch sử và Địa lý**.
+Cổng thông tin và học liệu số tương tác toàn diện dành cho học sinh từ **Lớp 1 đến Lớp 12** theo Chương trình Giáo dục Phổ thông (GDPT 2018). Tích hợp 2 ứng dụng học liệu số cốt lõi trực thuộc bộ môn **Lịch sử và Địa lý**:
+1. 🇻🇳 **Em Yêu Bản Đồ Việt Nam** (34 Tỉnh Thành mới & 63 Tỉnh Thành truyền thống)
+2. 🌍 **Em Khám Phá Bản Đồ Thế Giới** (5 Châu Lục, Quốc kỳ & Kỳ quan nhân loại)
 
 ---
 
@@ -12,14 +14,19 @@ Cổng thông tin và học liệu số tương tác toàn diện dành cho họ
 ├── portal-data.js          # Dữ liệu phân phối chương trình các môn học từ Lớp 1 đến 12
 ├── portal.js               # Logic điều khiển Cổng, chuyển lớp, lọc môn & trình diễn ứng dụng
 │
-├── game.html               # 🗺️ Ứng dụng Game Ghép Hình Bản Đồ Việt Nam 34/63 Tỉnh Thành
-├── style.css               # Giao diện Game Ghép Hình Bản Đồ
-├── app.js                  # Cơ chế kéo thả (drag & drop), hút dính (snap), tính điểm, đố vui
-├── auth.js                 # Hệ thống Đăng ký, Đăng nhập học sinh, Lưu tiến độ & Bảng Vàng
-│
+├── game.html               # 🇻🇳 Game Ghép Hình Bản Đồ Việt Nam 34/63 Tỉnh Thành
+├── style.css               # Giao diện Game Bản Đồ Việt Nam
+├── app.js                  # Cơ chế kéo thả, hút dính (snap), đố vui, độ khó (bỏ highlight ở Vừa & Khó)
 ├── provinces-34-data.js    # Dữ liệu 34 Tỉnh Thành Mới (5 Vùng Địa Lý)
 ├── provinces-data.js       # Dữ liệu 63 Tỉnh Thành Cũ
-├── vietnam.svg             # Bản đồ Vector SVG tương tác
+│
+├── world-game.html         # 🌍 Game Ghép Hình Bản Đồ Thế Giới 5 Châu Lục
+├── world-style.css         # Giao diện Game Bản Đồ Thế Giới
+├── world-app.js            # Cơ chế kéo thả thế giới, đố vui quốc kỳ, bách khoa toàn thư
+├── world-data.js           # Dữ liệu 5 Châu Lục & các Quốc Gia Tiêu Biểu
+│
+├── auth.js                 # Hệ thống Đăng ký, Đăng nhập học sinh, Lưu tiến độ & Bảng Vàng (SSO)
+├── audio.js & confetti.js  # Hệ thống âm thanh tương tác và hiệu ứng chúc mừng
 └── server.py               # Máy chủ Web chia sẻ qua mạng LAN / Wifi lớp học
 ```
 

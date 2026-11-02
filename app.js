@@ -974,6 +974,18 @@ document.addEventListener('DOMContentLoaded', () => {
       'transform',
       `translate(${state.panOffset.x}, ${state.panOffset.y}) scale(${state.zoomLevel})`
     );
+    updateProvinceLabelsScale();
+  }
+
+  // --- TỰ ĐỘNG ĐIỀU CHỈNH FONT CHỮ CÁC TỈNH THÀNH KHI ZOOM IN / ZOOM OUT ---
+  function updateProvinceLabelsScale() {
+    const zoom = state.zoomLevel || 1.0;
+    // Khi Zoom In: chữ tự thu nhỏ lại để vừa khít địa giới tỉnh, không che lấp nhau.
+    // Khi Zoom Out: chữ giữ kích thước lớn to rõ ràng (11.5px SVG) để luôn dễ đọc.
+    const fontSize = Math.max(6.5, Math.min(14.0, 11.5 / Math.pow(zoom, 0.65)));
+    document.querySelectorAll('.province-label').forEach(label => {
+      label.style.fontSize = `${fontSize.toFixed(1)}px`;
+    });
   }
 
   function zoomMap(delta, centerX = 406, centerY = 436) {

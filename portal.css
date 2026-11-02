@@ -415,6 +415,55 @@ body {
   box-shadow: 0 10px 30px rgba(249, 115, 22, 0.15);
 }
 
+/* World Map Featured Card Theme */
+.app-showcase-card.world-featured-card {
+  border-color: #0284c7;
+  box-shadow: 0 10px 30px rgba(2, 132, 199, 0.18);
+  margin-top: 16px;
+}
+
+.app-showcase-card.world-featured-card .showcase-banner {
+  background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+}
+
+.app-showcase-card.world-featured-card .showcase-visual-badge {
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.25);
+}
+
+.app-showcase-card.world-featured-card .subject-tag {
+  background: #0284c7;
+}
+
+.app-showcase-card.world-featured-card .showcase-title {
+  color: #0369a1;
+}
+
+.app-showcase-card.world-featured-card .showcase-subtitle {
+  color: #0284c7;
+}
+
+.app-showcase-card.world-featured-card .showcase-goal {
+  color: #0c4a6e;
+}
+
+.app-showcase-card.world-featured-card .btn-launch-game {
+  background: linear-gradient(135deg, #0284c7, #0369a1);
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.4);
+}
+
+.app-showcase-card.world-featured-card .btn-launch-game:hover {
+  background: linear-gradient(135deg, #0369a1, #075985);
+  box-shadow: 0 10px 28px rgba(2, 132, 199, 0.5);
+}
+
+.app-showcase-card.world-featured-card .showcase-features-bar {
+  border-top-color: #bae6fd;
+}
+
+.app-showcase-card.world-featured-card .feat-item {
+  color: #0369a1;
+}
+
 .showcase-banner {
   padding: 28px 32px;
   background: linear-gradient(135deg, #fff7ed, #ffedd5);

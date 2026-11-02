@@ -158,13 +158,36 @@ window.PORTAL_DATA = {
           desc: "Đặc điểm tự nhiên các châu lục, lịch sử Việt Nam thời Đinh, Tiền Lê, Lý, Trần, Hồ và khởi nghĩa Lam Sơn.",
           apps: [
             {
+              id: "world_map_puzzle",
+              title: "Em Khám Phá Bản Đồ Thế Giới",
+              subtitle: "Trò Chơi Ghép Hình 5 Châu Lục & Khám Phá Quốc Kỳ",
+              icon: "🌍",
+              url: "world-game.html",
+              tags: ["Trọng Tâm Lớp 7", "5 Châu Lục", "Quốc Kỳ & Kỳ Quan", "Bách Khoa Toàn Thư"],
+              learningGoal: "Học sinh Lớp 7 nắm vững vị trí địa lý của 5 châu lục trên thế giới, nhận diện quốc kỳ và các kỳ quan nổi tiếng của các quốc gia tiêu biểu.",
+              buttonSub: "Khám phá 5 Châu lục thế giới",
+              features: [
+                "🌍 Khám Phá 5 Châu Lục Lớn",
+                "🚩 Đố Vui Quốc Kỳ & Kỳ Quan Thế Giới",
+                "🧲 Kéo - Thả - Bắt Dính Tự Động (Snap)",
+                "📖 Bách Khoa Toàn Thư Quốc Gia Chi Tiết"
+              ]
+            },
+            {
               id: "vn_map_puzzle",
               title: "Em Yêu Bản Đồ Việt Nam",
               subtitle: "Game Ghép Hình 34 Tỉnh Thành & Biển Đảo Quê Hương",
               icon: "🧩",
               url: "game.html",
               tags: ["Bản Đồ Hành Chính", "Vùng Miền Địa Lý", "Địa Danh Lịch Sử"],
-              learningGoal: "Kết nối các địa danh lịch sử (Ải Chi Lăng, Bạch Đằng, Lam Sơn) với bản đồ các tỉnh thành ngày nay."
+              learningGoal: "Kết nối các địa danh lịch sử (Ải Chi Lăng, Bạch Đằng, Lam Sơn) với bản đồ các tỉnh thành ngày nay.",
+              buttonSub: "Bản đồ 34 Tỉnh Thành Mới",
+              features: [
+                "🧩 Kéo - Thả - Bắt Dính Tự Động (Snap)",
+                "🏔️ 5 Vùng Địa Lý Hài Hòa",
+                "🏆 Bảng Vàng Điểm Thưởng & Huy Hiệu",
+                "🇻🇳 Chủ Quyền Hoàng Sa & Trường Sa"
+              ]
             }
           ]
         },
@@ -283,13 +306,36 @@ window.PORTAL_DATA = {
           desc: "Địa lý kinh tế khu vực Đông Nam Á, Hoa Kỳ, Liên minh châu Âu (EU), Nhật Bản, Trung Quốc và vị thế Việt Nam.",
           apps: [
             {
+              id: "world_map_puzzle",
+              title: "Em Khám Phá Bản Đồ Thế Giới",
+              subtitle: "Game Ghép Hình 5 Châu Lục & Các Cường Quốc Toàn Cầu",
+              icon: "🌍",
+              url: "world-game.html",
+              tags: ["Trọng Tâm Lớp 11", "Kinh Tế Thế Giới", "Quốc Kỳ & Kỳ Quan", "Cường Quốc Toàn Cầu"],
+              learningGoal: "Học sinh Lớp 11 nắm bắt các trung tâm kinh tế thế giới (Hoa Kỳ, EU, Nhật Bản, Trung Quốc) và phân vùng lãnh thổ các châu lục.",
+              buttonSub: "Khám phá 5 Châu lục thế giới",
+              features: [
+                "🌍 Khám Phá 5 Châu Lục Lớn",
+                "🚩 Đố Vui Quốc Kỳ & Kỳ Quan Thế Giới",
+                "🧲 Kéo - Thả - Bắt Dính Tự Động (Snap)",
+                "📖 Bách Khoa Toàn Thư Quốc Gia Chi Tiết"
+              ]
+            },
+            {
               id: "vn_map_puzzle",
               title: "Em Yêu Bản Đồ Việt Nam",
               subtitle: "Game Ghép Hình 34 Tỉnh Thành & Biển Đảo Quê Hương",
               icon: "🧩",
               url: "game.html",
               tags: ["Địa Lý 11", "Vị Thế Việt Nam", "34 Tỉnh Mới", "Hội Nhập Quốc Tế"],
-              learningGoal: "Định vị vị thế địa kinh tế của Việt Nam trong khu vực Đông Nam Á và quốc tế qua hệ thống bản đồ số."
+              learningGoal: "Định vị vị thế địa kinh tế của Việt Nam trong khu vực Đông Nam Á và quốc tế qua hệ thống bản đồ số.",
+              buttonSub: "Bản đồ 34 Tỉnh Thành Mới",
+              features: [
+                "🧩 Kéo - Thả - Bắt Dính Tự Động (Snap)",
+                "🏔️ 5 Vùng Địa Lý Hài Hòa",
+                "🏆 Bảng Vàng Điểm Thưởng & Huy Hiệu",
+                "🇻🇳 Chủ Quyền Hoàng Sa & Trường Sa"
+              ]
             }
           ]
         },

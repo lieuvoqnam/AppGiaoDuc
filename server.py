@@ -39,14 +39,17 @@ def main():
         local_url = f"http://localhost:{PORT}/index.html"
         wifi_url = f"http://{local_ip}:{PORT}/index.html"
         game_url = f"http://localhost:{PORT}/game.html"
+        world_url = f"http://localhost:{PORT}/world-game.html"
         
         print("=" * 70)
-        print("  🇻🇳 CỔNG HỌC LIỆU SỐ TƯƠNG TÁC LỚP 1 - 12 (BẢN ĐỒ VIỆT NAM) 🇻🇳")
+        print("  🎓 CỔNG HỌC LIỆU SỐ TƯƠNG TÁC LỚP 1 - 12 (VIỆT NAM & THẾ GIỚI) 🎓")
         print("=" * 70)
         print(f" 💻 Mở Cổng Học Tập Chính (Lớp 1 - 12):")
         print(f"    👉 {local_url}")
-        print(f" 🗺️ Mở Trực Tiếp Trò Chơi Bản Đồ 34 Tỉnh Thành:")
+        print(f" 🇻🇳 Mở Game Bản Đồ Việt Nam (34 Tỉnh Thành):")
         print(f"    👉 {game_url}")
+        print(f" 🌍 Mở Game Bản Đồ Thế Giới (5 Châu Lục):")
+        print(f"    👉 {world_url}")
         print("-" * 70)
         print(f" 📱 CHIA SẺ VỚI HỌC SINH / ĐIỆN THOẠI / IPAD (CÙNG MẠNG WIFI):")
         print(f"    👉 {wifi_url}")
