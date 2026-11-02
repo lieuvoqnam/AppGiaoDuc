@@ -355,12 +355,25 @@ document.addEventListener('DOMContentLoaded', () => {
       // 1. Slots: Can have multiple subpaths if merged
       const subpaths = p.subpaths || [{ id: p.id, d: p.d }];
 
+      // Helper for Tap-to-Place on iPad & Touch devices
+      function onSlotClicked(e) {
+        e.stopPropagation();
+        if (state.selectedPieceId) {
+          if (state.selectedPieceId === p.id) {
+            handleCorrectPlacement(p);
+          } else {
+            handleFailedPlacement(p);
+          }
+        }
+      }
+
       subpaths.forEach((sub, sIdx) => {
         const slotPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
         slotPath.setAttribute('d', sub.d);
         slotPath.setAttribute('id', `slot-sub-${p.id}-${sIdx}`);
         slotPath.setAttribute('class', `slot-path slot-prov-${p.id}`);
         slotPath.dataset.id = p.id;
+        slotPath.addEventListener('click', onSlotClicked);
         slotsLayer.appendChild(slotPath);
       });
 
@@ -372,6 +385,7 @@ document.addEventListener('DOMContentLoaded', () => {
       snapCircle.setAttribute('id', `snap-dot-${p.id}`);
       snapCircle.setAttribute('class', 'snap-dot');
       snapCircle.dataset.id = p.id;
+      snapCircle.addEventListener('click', onSlotClicked);
       slotsLayer.appendChild(snapCircle);
 
       // 2. Placed Group (mảnh ghép hoàn thành)
@@ -657,14 +671,84 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // --- DRAG & DROP ENGINE (POINTER EVENTS) ---
+  // --- DRAG & DROP ENGINE (POINTER EVENTS & TOUCH GESTURES) ---
+  let touchCandidate = null;
+
   function onPiecePointerDown(e, province) {
     if (e.button !== 0 && e.pointerType === 'mouse') return; // Left click only
-    e.preventDefault();
 
+    if (e.pointerType === 'touch') {
+      // Trên iPad / Thiết bị cảm ứng:
+      // Không gọi preventDefault ngay để cho phép người dùng cuộn khay mảnh ghép mượt mà
+      touchCandidate = {
+        province: province,
+        startX: e.clientX,
+        startY: e.clientY,
+        pointerId: e.pointerId,
+        isDragging: false
+      };
+
+      document.addEventListener('pointermove', onTouchMove, { passive: false });
+      document.addEventListener('pointerup', onTouchEnd);
+      document.addEventListener('pointercancel', onTouchCancel);
+      return;
+    }
+
+    // Với chuột máy tính: bắt đầu kéo ngay lập tức
+    e.preventDefault();
+    initiatePieceDrag(e.clientX, e.clientY, province);
+  }
+
+  function onTouchMove(e) {
+    if (!touchCandidate) return;
+
+    if (!touchCandidate.isDragging) {
+      const dx = e.clientX - touchCandidate.startX;
+      const dy = e.clientY - touchCandidate.startY;
+      const dist = Math.hypot(dx, dy);
+
+      // Nếu kéo lệch ngang sang phía bản đồ (hoặc khoảng cách đủ lớn) -> Kích hoạt chế độ kéo thả
+      if (dist > 10) {
+        if (Math.abs(dx) > Math.abs(dy) * 0.75 || dist > 20) {
+          touchCandidate.isDragging = true;
+          e.preventDefault();
+          initiatePieceDrag(e.clientX, e.clientY, touchCandidate.province);
+        } else {
+          // Người dùng đang vuốt dọc để cuộn xem danh sách mảnh ghép -> để trình duyệt cuộn tự nhiên
+          cleanUpTouchCandidate();
+        }
+      }
+    } else {
+      e.preventDefault();
+      onPointerMove(e);
+    }
+  }
+
+  function onTouchEnd(e) {
+    if (touchCandidate && touchCandidate.isDragging) {
+      onPointerUp(e);
+    }
+    cleanUpTouchCandidate();
+  }
+
+  function onTouchCancel() {
+    if (touchCandidate && touchCandidate.isDragging) {
+      onPointerCancel();
+    }
+    cleanUpTouchCandidate();
+  }
+
+  function cleanUpTouchCandidate() {
+    touchCandidate = null;
+    document.removeEventListener('pointermove', onTouchMove);
+    document.removeEventListener('pointerup', onTouchEnd);
+    document.removeEventListener('pointercancel', onTouchCancel);
+  }
+
+  function initiatePieceDrag(clientX, clientY, province) {
     state.isDraggingPiece = true;
     state.draggedProvince = province;
-    state.dragStartScreen = { x: e.clientX, y: e.clientY };
+    state.dragStartScreen = { x: clientX, y: clientY };
 
     window.soundEngine.playPickup();
 
@@ -686,7 +770,7 @@ document.addEventListener('DOMContentLoaded', () => {
     draggingLayer.appendChild(group);
 
     // Initial position in SVG coordinate system
-    updateFloatingPiecePosition(e.clientX, e.clientY);
+    updateFloatingPiecePosition(clientX, clientY);
 
     // Listen on document for smooth global movement
     document.addEventListener('pointermove', onPointerMove);
