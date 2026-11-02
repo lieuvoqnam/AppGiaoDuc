@@ -72,7 +72,26 @@ window.PORTAL_DATA = {
             }
           ]
         },
-        { id: "toan", name: "Toán Học", icon: "📐", color: "#3b82f6", desc: "Phân số, hình bình hành, hình thoi và các bài toán đố có lời văn." },
+        {
+          id: "toan",
+          name: "Toán Học",
+          icon: "📐",
+          color: "#3b82f6",
+          hasApp: true,
+          badge: "🔥 ĐÃ CÓ APP ÔN TẬP",
+          desc: "Phân số, hình bình hành, hình thoi, đại lượng và 5 dạng toán đố có lời văn.",
+          apps: [
+            {
+              id: "math_4_review",
+              title: "Đấu Trí Toán Lớp 4 - Ôn Tập & Thi Thử",
+              subtitle: "Hệ thống lý thuyết, bài tập phân hóa 4 mức độ & đề thi thử tự động chấm điểm",
+              icon: "🧮",
+              url: "math-4.html",
+              tags: ["Toán 4 GDPT 2018", "Số Liệu Random 🎲", "6 Chủ Đề Trọng Tâm", "Thi Thử Có Chấm Điểm"],
+              learningGoal: "Củng cố vững chắc toàn bộ kiến thức Số tự nhiên, Phân số, Hình học, Đại lượng đo lường và rèn luyện kỹ năng giải toán có lời văn từ cơ bản đến nâng cao."
+            }
+          ]
+        },
         { id: "tieng_viet", name: "Tiếng Việt", icon: "📖", color: "#ec4899", desc: "Kể chuyện lịch sử, miêu tả đồ vật, cây cối và loài vật." },
         { id: "khoa_hoc", name: "Khoa Học", icon: "🔬", color: "#10b981", desc: "Nước, không khí, ánh sáng, nhiệt độ và sự sống của sinh vật." },
         { id: "tin_hoc", name: "Tin Học", icon: "💻", color: "#06b6d4", desc: "Soạn thảo văn bản và tìm kiếm thông tin bổ ích trên Internet." },

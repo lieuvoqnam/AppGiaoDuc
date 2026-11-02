@@ -370,27 +370,34 @@ document.addEventListener('DOMContentLoaded', () => {
     if (subject.apps && subject.apps.length > 0) {
       subject.apps.forEach(app => {
         const isWorld = app.id === 'world_map_puzzle';
+        const isMath = app.id === 'math_4_review';
+        const cardTheme = isWorld ? 'world-featured-card' : (isMath ? 'math-featured-card' : 'featured-game-card');
         const showcaseCard = document.createElement('div');
-        showcaseCard.className = `app-showcase-card ${isWorld ? 'world-featured-card' : 'featured-game-card'}`;
+        showcaseCard.className = `app-showcase-card ${cardTheme}`;
 
         let tagsHtml = '';
         app.tags.forEach(t => {
           tagsHtml += `<span class="app-tag-pill">${t}</span>`;
         });
 
-        const badgeIcon = isWorld ? '🌍' : '🇻🇳';
-        const buttonSub = app.buttonSub || (isWorld ? 'Khám phá 5 Châu lục thế giới' : 'Bản đồ 34 Tỉnh Thành Mới');
+        const badgeIcon = app.icon || (isWorld ? '🌍' : '🇻🇳');
+        const buttonSub = app.buttonSub || (isWorld ? 'Khám phá 5 Châu lục thế giới' : (isMath ? '6 Chủ đề & Thi thử' : 'Bản đồ 34 Tỉnh Thành Mới'));
         const features = app.features || (isWorld ? [
           '🌍 Khám Phá 5 Châu Lục Lớn',
           '🚩 Đố Vui Quốc Kỳ & Kỳ Quan Thế Giới',
           '🧲 Kéo - Thả - Bắt Dính Tự Động (Snap)',
           '📖 Bách Khoa Toàn Thư Quốc Gia'
+        ] : (isMath ? [
+          '📖 Ôn Tập Lý Thuyết & Mẹo Tính Nhanh',
+          '🎯 Bài Tập Phân Hóa 4 Mức Độ',
+          '⏱️ Đề Thi Thử Tự Động Chấm Điểm',
+          '💡 Lời Giải Chi Tiết Từng Bước'
         ] : [
           '🧩 Kéo - Thả - Bắt Dính Tự Động (Snap)',
           '🏔️ 5 Vùng Địa Lý Hài Hòa',
           '🏆 Bảng Vàng Điểm Thưởng & Huy Hiệu',
           '🇻🇳 Chủ Quyền Hoàng Sa & Trường Sa'
-        ]);
+        ]));
 
         let featHtml = '';
         features.forEach(f => {
