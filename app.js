@@ -637,12 +637,21 @@ document.addEventListener('DOMContentLoaded', () => {
       card.classList.toggle('selected', card.dataset.id === state.selectedPieceId);
     });
 
-    // Highlight target slot on map
+    // Cập nhật vị trí Highlight trên bản đồ
+    updateSlotHighlight();
+  }
+
+  // --- CẬP NHẬT HIGHLIGHT VỊ TRÍ TRÊN BẢN ĐỒ THEO CẤP ĐỘ ---
+  function updateSlotHighlight() {
+    // Luôn xóa highlight cũ trên toàn bộ bản đồ
     document.querySelectorAll('.slot-path').forEach(slot => {
       slot.classList.remove('highlight-target');
     });
 
-    if (state.selectedPieceId) {
+    // QUY TẮC ĐỘ KHÓ:
+    // - Cấp độ "Dễ" (easy): Làm nổi bật (highlight vàng nhấp nháy) vị trí mục tiêu để học sinh dễ nhận biết.
+    // - Cấp độ "Vừa" (medium) & "Khó" (hard): BỎ HOÀN TOÀN highlight trên bản đồ, học sinh tự định vị theo kiến thức địa lý.
+    if (state.selectedPieceId && state.difficulty === 'easy') {
       const targetSlots = document.querySelectorAll(`.slot-prov-${state.selectedPieceId}`);
       targetSlots.forEach(s => s.classList.add('highlight-target'));
     }
@@ -783,6 +792,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Update Map
     updateSlotsVisibility();
+    updateSlotHighlight();
 
     // Sparkle pulse effect on placed path
     const placedGrp = document.getElementById(`placed-group-${province.id}`);
@@ -894,6 +904,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     renderPuzzleTray();
     updateSlotsVisibility();
+    updateSlotHighlight();
   }
 
   // --- STATS UPDATE ---
@@ -1163,6 +1174,7 @@ document.addEventListener('DOMContentLoaded', () => {
         state.difficulty = btn.dataset.difficulty;
         updateSlotsVisibility();
         renderPuzzleTray();
+        updateSlotHighlight();
       });
     });
 
