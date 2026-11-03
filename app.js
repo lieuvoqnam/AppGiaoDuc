@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     zoomLevel: 1.0,
     panOffset: { x: 0, y: 0 },
     isPanning: false,
+    hasPanned: false,
     panStart: { x: 0, y: 0 },
     isDraggingPiece: false,
     draggedProvince: null,
@@ -50,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- DOM ELEMENTS ---
+  const mapViewport = document.getElementById('map-viewport');
   const mapSvg = document.getElementById('vietnam-map');
   const baseMapLayer = document.getElementById('base-map-layer');
   const slotsLayer = document.getElementById('slots-layer');
@@ -497,6 +499,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Helper for Tap-to-Place on iPad & Touch devices
       function onSlotClicked(e) {
         e.stopPropagation();
+        if (state.hasPanned) return; // Nếu vừa kéo di chuyển bản đồ thì không kích hoạt đặt mảnh
         if (state.selectedPieceId) {
           if (state.selectedPieceId === p.id) {
             handleCorrectPlacement(p);
@@ -555,6 +558,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Click on placed province to view info
       placedGroup.addEventListener('click', (e) => {
         e.stopPropagation();
+        if (state.hasPanned) return; // Nếu vừa kéo rê bản đồ thì không mở modal
         showProvinceInfoModal(p);
       });
     });
@@ -1211,7 +1215,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  function zoomMap(delta, centerX = 406, centerY = 436) {
+  function zoomMap(delta, centerX = 300, centerY = 420) {
     const prevZoom = state.zoomLevel;
     const newZoom = Math.min(3.2, Math.max(0.85, prevZoom + delta));
     if (newZoom === prevZoom) return;
@@ -1219,6 +1223,12 @@ document.addEventListener('DOMContentLoaded', () => {
     state.panOffset.x = centerX - (centerX - state.panOffset.x) * (newZoom / prevZoom);
     state.panOffset.y = centerY - (centerY - state.panOffset.y) * (newZoom / prevZoom);
     state.zoomLevel = newZoom;
+
+    // Giới hạn pan offset sau khi zoom
+    const maxPanX = 420 * state.zoomLevel;
+    const maxPanY = 400 * state.zoomLevel;
+    state.panOffset.x = Math.max(-maxPanX, Math.min(maxPanX, state.panOffset.x));
+    state.panOffset.y = Math.max(-maxPanY, Math.min(maxPanY, state.panOffset.y));
 
     updateMapTransform();
   }
@@ -1247,49 +1257,87 @@ document.addEventListener('DOMContentLoaded', () => {
     const regCx = (minX + maxX) / 2;
     const regCy = (minY + maxY) / 2;
 
-    const svgW = 812;
-    const svgH = 873;
+    const svgW = 1040;
+    const svgH = 920;
+    const centerSvgX = -220 + svgW / 2; // 300
+    const centerSvgY = -40 + svgH / 2;  // 420
 
     const scale = Math.min(2.4, Math.max(1.1, Math.min(svgW / (regW * 1.6), svgH / (regH * 1.6))));
     state.zoomLevel = scale;
-    state.panOffset.x = (svgW / 2) - regCx * scale;
-    state.panOffset.y = (svgH / 2) - regCy * scale;
+    state.panOffset.x = centerSvgX - regCx * scale;
+    state.panOffset.y = centerSvgY - regCy * scale;
 
     updateMapTransform();
   }
 
-  // Map panning with pointer / mouse drag on background
-  baseMapLayer.addEventListener('pointerdown', (e) => {
-    if (e.button !== 0 && e.pointerType === 'mouse') return;
+  // Map panning with pointer / mouse drag on viewport & SVG
+  function onMapPointerDown(e) {
+    // Chỉ xử lý chuột trái (button === 0) hoặc ngón tay cảm ứng
+    if (e.button !== undefined && e.button !== 0 && e.pointerType === 'mouse') return;
+
+    // Bỏ qua nếu bấm vào các nút điều khiển trên bản đồ hoặc la bàn
+    if (e.target.closest('.map-controls') || e.target.closest('.compass-badge')) return;
+
+    // Bỏ qua nếu đang kéo thả mảnh ghép
+    if (state.isDraggingPiece || (touchCandidate && touchCandidate.isDragging)) return;
+
     state.isPanning = true;
+    state.hasPanned = false;
     state.panStart = { x: e.clientX, y: e.clientY };
-    mapSvg.style.cursor = 'grabbing';
-  });
+
+    if (mapViewport) mapViewport.classList.add('is-panning');
+    if (mapSvg) mapSvg.style.cursor = 'grabbing';
+  }
+
+  if (mapViewport) {
+    mapViewport.addEventListener('pointerdown', onMapPointerDown);
+  }
 
   window.addEventListener('pointermove', (e) => {
     if (state.isPanning) {
       const dx = (e.clientX - state.panStart.x);
       const dy = (e.clientY - state.panStart.y);
+
+      if (Math.abs(dx) > 3 || Math.abs(dy) > 3) {
+        state.hasPanned = true;
+      }
+
       state.panOffset.x += dx;
       state.panOffset.y += dy;
+
+      // Giới hạn khung nhìn bản đồ (không bị kéo trôi ra ngoài khoảng trống)
+      const maxPanX = 420 * state.zoomLevel;
+      const maxPanY = 400 * state.zoomLevel;
+      state.panOffset.x = Math.max(-maxPanX, Math.min(maxPanX, state.panOffset.x));
+      state.panOffset.y = Math.max(-maxPanY, Math.min(maxPanY, state.panOffset.y));
+
       state.panStart = { x: e.clientX, y: e.clientY };
       updateMapTransform();
     }
   });
 
-  window.addEventListener('pointerup', () => {
+  function stopMapPanning() {
     if (state.isPanning) {
       state.isPanning = false;
-      mapSvg.style.cursor = 'default';
+      if (mapViewport) mapViewport.classList.remove('is-panning');
+      if (mapSvg) mapSvg.style.cursor = 'grab';
+      setTimeout(() => {
+        state.hasPanned = false;
+      }, 50);
     }
-  });
+  }
 
-  // Mouse wheel zoom
-  mapSvg.addEventListener('wheel', (e) => {
-    e.preventDefault();
-    const zoomDelta = e.deltaY < 0 ? 0.15 : -0.15;
-    zoomMap(zoomDelta, 406, 436);
-  }, { passive: false });
+  window.addEventListener('pointerup', stopMapPanning);
+  window.addEventListener('pointercancel', stopMapPanning);
+
+  // Mouse wheel zoom (hỗ trợ cuộn chuột trên toàn bộ khung bản đồ)
+  if (mapViewport) {
+    mapViewport.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      const zoomDelta = e.deltaY < 0 ? 0.15 : -0.15;
+      zoomMap(zoomDelta, 300, 420);
+    }, { passive: false });
+  }
 
   // --- PROVINCE INFO MODAL (Bách Khoa Tỉnh Thành) ---
   function showProvinceInfoModal(p) {

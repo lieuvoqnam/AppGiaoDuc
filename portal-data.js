@@ -65,7 +65,7 @@ window.PORTAL_DATA = {
               id: "vn_map_puzzle",
               title: "Em Yêu Bản Đồ Việt Nam",
               subtitle: "Game Ghép Hình 34 Tỉnh Thành & Biển Đảo Quê Hương",
-              icon: "🧩",
+              icon: "vietnam-icon.svg",
               url: "game.html",
               tags: ["Game Tương Tác", "34 Tỉnh Mới", "Hoàng Sa & Trường Sa", "Có Tính Điểm"],
               learningGoal: "Giúp học sinh Lớp 4 nhận biết hình dáng, vị trí địa lý, đặc sản và danh lam thắng cảnh các vùng miền trên bản đồ Việt Nam."
@@ -108,20 +108,7 @@ window.PORTAL_DATA = {
           name: "Lịch Sử và Địa Lý",
           icon: "🇻🇳",
           color: "#ea580c",
-          hasApp: true,
-          badge: "⭐ ĐÃ CÓ APP TƯƠNG TÁC",
-          desc: "Đặc điểm địa hình, khí hậu, sông ngòi, các vùng kinh tế Việt Nam và các cuộc kháng chiến vệ quốc vĩ đại.",
-          apps: [
-            {
-              id: "vn_map_puzzle",
-              title: "Em Yêu Bản Đồ Việt Nam",
-              subtitle: "Game Ghép Hình 34 Tỉnh Thành & Biển Đảo Quê Hương",
-              icon: "🧩",
-              url: "game.html",
-              tags: ["Chương Trình Lớp 5", "Địa Lý Vùng Miền", "34 Tỉnh Mới", "Trắc Nghiệm Vị Trí"],
-              learningGoal: "Học sinh Lớp 5 ghi nhớ chính xác vị trí các tỉnh thành, trung tâm kinh tế và khẳng định chủ quyền biển đảo Tổ quốc."
-            }
-          ]
+          desc: "Đặc điểm địa hình, khí hậu, sông ngòi, các vùng kinh tế Việt Nam và các cuộc kháng chiến vệ quốc vĩ đại."
         },
         { id: "toan", name: "Toán Học", icon: "📐", color: "#3b82f6", desc: "Số thập phân, hình tròn, hình hộp chữ nhật, vận tốc - quãng đường - thời gian." },
         { id: "tieng_viet", name: "Tiếng Việt", icon: "📖", color: "#ec4899", desc: "Văn tả cảnh quê hương, mở rộng vốn từ về bảo vệ môi trường và hòa bình." },
@@ -140,20 +127,7 @@ window.PORTAL_DATA = {
           name: "Lịch Sử và Địa Lý",
           icon: "🇻🇳",
           color: "#ea580c",
-          hasApp: true,
-          badge: "⭐ ĐÃ CÓ APP TƯƠNG TÁC",
-          desc: "Bản đồ và phương pháp sử dụng bản đồ, các chuyển động của Trái Đất, lịch sử thế giới cổ đại và dựng nước Văn Lang - Âu Lạc.",
-          apps: [
-            {
-              id: "vn_map_puzzle",
-              title: "Em Yêu Bản Đồ Việt Nam",
-              subtitle: "Game Ghép Hình 34 Tỉnh Thành & Biển Đảo Quê Hương",
-              icon: "🧩",
-              url: "game.html",
-              tags: ["Kỹ Năng Bản Đồ", "Tọa Độ Địa Lý", "34 Tỉnh Thành", "Chủ Quyền Biển Đảo"],
-              learningGoal: "Rèn luyện kỹ năng đọc bản đồ, xác định phương hướng và định vị các đơn vị hành chính Việt Nam."
-            }
-          ]
+          desc: "Bản đồ và phương pháp sử dụng bản đồ, các chuyển động của Trái Đất, lịch sử thế giới cổ đại và dựng nước Văn Lang - Âu Lạc."
         },
         { id: "toan", name: "Toán Học", icon: "📐", color: "#3b82f6", desc: "Tập hợp số tự nhiên, số nguyên, phân số, hình học trực quan." },
         { id: "ngu_van", name: "Ngữ Văn", icon: "📚", color: "#ec4899", desc: "Truyền thuyết, truyện cổ tích, thơ lục bát và văn bản thông tin." },
@@ -191,22 +165,6 @@ window.PORTAL_DATA = {
                 "🧲 Kéo - Thả - Bắt Dính Tự Động (Snap)",
                 "📖 Bách Khoa Toàn Thư Quốc Gia Chi Tiết"
               ]
-            },
-            {
-              id: "vn_map_puzzle",
-              title: "Em Yêu Bản Đồ Việt Nam",
-              subtitle: "Game Ghép Hình 34 Tỉnh Thành & Biển Đảo Quê Hương",
-              icon: "🧩",
-              url: "game.html",
-              tags: ["Bản Đồ Hành Chính", "Vùng Miền Địa Lý", "Địa Danh Lịch Sử"],
-              learningGoal: "Kết nối các địa danh lịch sử (Ải Chi Lăng, Bạch Đằng, Lam Sơn) với bản đồ các tỉnh thành ngày nay.",
-              buttonSub: "Bản đồ 34 Tỉnh Thành Mới",
-              features: [
-                "🧩 Kéo - Thả - Bắt Dính Tự Động (Snap)",
-                "🏔️ 5 Vùng Địa Lý Hài Hòa",
-                "🏆 Bảng Vàng Điểm Thưởng & Huy Hiệu",
-                "🇻🇳 Chủ Quyền Hoàng Sa & Trường Sa"
-              ]
             }
           ]
         },
@@ -226,20 +184,7 @@ window.PORTAL_DATA = {
           name: "Lịch Sử và Địa Lý",
           icon: "🇻🇳",
           color: "#ea580c",
-          hasApp: true,
-          badge: "⭐ ĐÃ CÓ APP TƯƠNG TÁC",
-          desc: "Đặc điểm địa hình, khí hậu, tài nguyên khoáng sản, các hệ thống sông lớn và vùng biển đảo Việt Nam.",
-          apps: [
-            {
-              id: "vn_map_puzzle",
-              title: "Em Yêu Bản Đồ Việt Nam",
-              subtitle: "Game Ghép Hình 34 Tỉnh Thành & Biển Đảo Quê Hương",
-              icon: "🧩",
-              url: "game.html",
-              tags: ["Địa Lý Lớp 8", "34 Tỉnh Thành", "Biển Đảo Việt Nam", "Vùng Tự Nhiên"],
-              learningGoal: "Nắm vững toàn diện 5 vùng tự nhiên và các tỉnh thành ven biển, khẳng định chủ quyền Hoàng Sa & Trường Sa."
-            }
-          ]
+          desc: "Đặc điểm địa hình, khí hậu, tài nguyên khoáng sản, các hệ thống sông lớn và vùng biển đảo Việt Nam."
         },
         { id: "toan", name: "Toán Học", icon: "📐", color: "#3b82f6", desc: "Hằng đẳng thức đáng nhớ, phân thức đại số, định lí Thalès, tứ giác đặc biệt." },
         { id: "ngu_van", name: "Ngữ Văn", icon: "📚", color: "#ec4899", desc: "Văn bản văn học hiện thực, truyện lịch sử và thơ tự do hiện đại." },
@@ -257,20 +202,7 @@ window.PORTAL_DATA = {
           name: "Lịch Sử và Địa Lý",
           icon: "🇻🇳",
           color: "#ea580c",
-          hasApp: true,
-          badge: "⭐ ĐÃ CÓ APP TƯƠNG TÁC",
-          desc: "Nghiên cứu kinh tế - xã hội các vùng miền: Trung du miền núi Bắc Bộ, Đồng bằng sông Hồng, Bắc Trung Bộ & Duyên hải miền Trung, Tây Nguyên, Đông Nam Bộ, ĐBSCL.",
-          apps: [
-            {
-              id: "vn_map_puzzle",
-              title: "Em Yêu Bản Đồ Việt Nam",
-              subtitle: "Game Ghép Hình 34 Tỉnh Thành & Biển Đảo Quê Hương",
-              icon: "🧩",
-              url: "game.html",
-              tags: ["Ôn Thi Vào 10", "Vùng Kinh Tế", "34 Tỉnh Mới", "Thế Mạnh Vùng Miền"],
-              learningGoal: "Hiểu rõ thế mạnh kinh tế, nông - lâm - thủy sản, công nghiệp và du lịch của 34 tỉnh thành và các siêu đô thị mới."
-            }
-          ]
+          desc: "Nghiên cứu kinh tế - xã hội các vùng miền: Trung du miền núi Bắc Bộ, Đồng bằng sông Hồng, Bắc Trung Bộ & Duyên hải miền Trung, Tây Nguyên, Đông Nam Bộ, ĐBSCL."
         },
         { id: "toan", name: "Toán Học", icon: "📐", color: "#3b82f6", desc: "Phương trình bậc hai, hệ thức Viète, đường tròn và hình trụ - nón - cầu (trọng tâm ôn thi vào 10)." },
         { id: "ngu_van", name: "Ngữ Văn", icon: "📚", color: "#ec4899", desc: "Tác phẩm văn học trung đại và hiện đại kinh điển, kỹ năng viết bài văn nghị luận sâu sắc." },
@@ -288,20 +220,7 @@ window.PORTAL_DATA = {
           name: "Địa Lý",
           icon: "🌐",
           color: "#ea580c",
-          hasApp: true,
-          badge: "⭐ ĐÃ CÓ APP TƯƠNG TÁC",
-          desc: "Bản đồ học hiện đại, các quy luật địa lý tự nhiên, địa lý dân cư và địa lý các ngành kinh tế toàn cầu.",
-          apps: [
-            {
-              id: "vn_map_puzzle",
-              title: "Em Yêu Bản Đồ Việt Nam",
-              subtitle: "Game Ghép Hình 34 Tỉnh Thành & Biển Đảo Quê Hương",
-              icon: "🧩",
-              url: "game.html",
-              tags: ["Địa Lý 10", "GIS & Bản Đồ Số", "34 Tỉnh Mới", "Chủ Quyền Quốc Gia"],
-              learningGoal: "Ứng dụng công nghệ bản đồ số vector trực quan trong phân tích địa lý hành chính và kinh tế lãnh thổ."
-            }
-          ]
+          desc: "Bản đồ học hiện đại, các quy luật địa lý tự nhiên, địa lý dân cư và địa lý các ngành kinh tế toàn cầu."
         },
         { id: "lich_su", name: "Lịch Sử", icon: "🏛️", color: "#d97706", desc: "Lịch sử và văn hóa nhân loại, các nền văn minh cổ đại và bản sắc văn hóa Việt Nam." },
         { id: "toan", name: "Toán Học", icon: "📐", color: "#3b82f6", desc: "Mệnh đề tập hợp, hàm số bậc hai, vectơ, thống kê và xác suất." },
@@ -320,43 +239,7 @@ window.PORTAL_DATA = {
           name: "Địa Lý",
           icon: "🌐",
           color: "#ea580c",
-          hasApp: true,
-          badge: "⭐ ĐÃ CÓ APP TƯƠNG TÁC",
-          desc: "Địa lý kinh tế khu vực Đông Nam Á, Hoa Kỳ, Liên minh châu Âu (EU), Nhật Bản, Trung Quốc và vị thế Việt Nam.",
-          apps: [
-            {
-              id: "world_map_puzzle",
-              title: "Em Khám Phá Bản Đồ Thế Giới",
-              subtitle: "Game Ghép Hình 5 Châu Lục & Các Cường Quốc Toàn Cầu",
-              icon: "🌍",
-              url: "world-game.html",
-              tags: ["Trọng Tâm Lớp 11", "Kinh Tế Thế Giới", "Quốc Kỳ & Kỳ Quan", "Cường Quốc Toàn Cầu"],
-              learningGoal: "Học sinh Lớp 11 nắm bắt các trung tâm kinh tế thế giới (Hoa Kỳ, EU, Nhật Bản, Trung Quốc) và phân vùng lãnh thổ các châu lục.",
-              buttonSub: "Khám phá 5 Châu lục thế giới",
-              features: [
-                "🌍 Khám Phá 5 Châu Lục Lớn",
-                "🚩 Đố Vui Quốc Kỳ & Kỳ Quan Thế Giới",
-                "🧲 Kéo - Thả - Bắt Dính Tự Động (Snap)",
-                "📖 Bách Khoa Toàn Thư Quốc Gia Chi Tiết"
-              ]
-            },
-            {
-              id: "vn_map_puzzle",
-              title: "Em Yêu Bản Đồ Việt Nam",
-              subtitle: "Game Ghép Hình 34 Tỉnh Thành & Biển Đảo Quê Hương",
-              icon: "🧩",
-              url: "game.html",
-              tags: ["Địa Lý 11", "Vị Thế Việt Nam", "34 Tỉnh Mới", "Hội Nhập Quốc Tế"],
-              learningGoal: "Định vị vị thế địa kinh tế của Việt Nam trong khu vực Đông Nam Á và quốc tế qua hệ thống bản đồ số.",
-              buttonSub: "Bản đồ 34 Tỉnh Thành Mới",
-              features: [
-                "🧩 Kéo - Thả - Bắt Dính Tự Động (Snap)",
-                "🏔️ 5 Vùng Địa Lý Hài Hòa",
-                "🏆 Bảng Vàng Điểm Thưởng & Huy Hiệu",
-                "🇻🇳 Chủ Quyền Hoàng Sa & Trường Sa"
-              ]
-            }
-          ]
+          desc: "Địa lý kinh tế khu vực Đông Nam Á, Hoa Kỳ, Liên minh châu Âu (EU), Nhật Bản, Trung Quốc và vị thế Việt Nam."
         },
         { id: "lich_su", name: "Lịch Sử", icon: "🏛️", color: "#d97706", desc: "Các cuộc cách mạng tư sản, lịch sử chủ quyền biển đảo Việt Nam thời cận - hiện đại." },
         { id: "toan", name: "Toán Học", icon: "📐", color: "#3b82f6", desc: "Lượng giác, cấp số cộng, cấp số nhân, giới hạn, đạo hàm và hình học không gian." },
@@ -374,20 +257,7 @@ window.PORTAL_DATA = {
           name: "Địa Lý",
           icon: "🇻🇳",
           color: "#ea580c",
-          hasApp: true,
-          badge: "⭐ ĐÃ CÓ APP TƯƠNG TÁC",
-          desc: "Toàn cảnh Địa lý Việt Nam: Tự nhiên, dân cư, đô thị hóa, chuyển dịch cơ cấu kinh tế, các vùng kinh tế trọng điểm và chiến lược biển Đông.",
-          apps: [
-            {
-              id: "vn_map_puzzle",
-              title: "Em Yêu Bản Đồ Việt Nam",
-              subtitle: "Game Ghép Hình 34 Tỉnh Thành & Biển Đảo Quê Hương",
-              icon: "🧩",
-              url: "game.html",
-              tags: ["Ôn Thi THPT Quốc Gia", "Địa Lý Việt Nam", "34 Tỉnh Mới", "Vùng Kinh Tế Trọng Điểm"],
-              learningGoal: "Nắm vững toàn diện 34 đơn vị hành chính cấp tỉnh mới, các vùng kinh tế trọng điểm và giải bài thi Địa lý đạt điểm tối đa."
-            }
-          ]
+          desc: "Toàn cảnh Địa lý Việt Nam: Tự nhiên, dân cư, đô thị hóa, chuyển dịch cơ cấu kinh tế, các vùng kinh tế trọng điểm và chiến lược biển Đông."
         },
         { id: "lich_su", name: "Lịch Sử", icon: "🏛️", color: "#d97706", desc: "Lịch sử Việt Nam từ 1919 đến nay: Các cuộc kháng chiến chống Pháp, Mỹ và công cuộc Đổi mới." },
         { id: "toan", name: "Toán Học", icon: "📐", color: "#3b82f6", desc: "Khảo sát hàm số, nguyên hàm - tích phân, số phức và hình học giải tích Oxyz trong không gian." },

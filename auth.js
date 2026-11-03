@@ -175,6 +175,7 @@ class AuthManager {
       fullName: name,
       className: cls || 'Học sinh',
       avatar: avt,
+      password: (password || '').trim(), // Mật khẩu dạng chữ rõ ràng để Thầy Cô / Phụ Huynh dễ tra cứu trên Firebase
       passwordHash: passwordHash,
       createdAt: nowISO,
       updatedAt: nowISO,
@@ -472,6 +473,7 @@ class AuthManager {
 
     // Cập nhật mật khẩu mới
     const passwordHash = await this.hashPassword(newPass);
+    user.password = newPass; // Cập nhật mật khẩu chữ thường
     user.passwordHash = passwordHash;
     user.updatedAt = new Date().toISOString();
 
@@ -479,6 +481,7 @@ class AuthManager {
     if (this.isCloudActive()) {
       try {
         await window.firebaseDB.collection('users').doc(uName).update({
+          password: newPass,
           passwordHash: passwordHash,
           updatedAt: user.updatedAt
         });

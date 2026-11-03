@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- PORTAL STATE ---
   const state = {
     currentLevel: 'tieu_hoc', // 'tieu_hoc' | 'thcs' | 'thpt'
-    currentGrade: 5, // Default selected grade (1 - 12)
+    currentGrade: 4, // Default selected grade (1 - 12)
     selectedSubjectId: 'lich_su_dia_ly', // Default selected subject
     searchQuery: ''
   };
@@ -511,6 +511,7 @@ document.addEventListener('DOMContentLoaded', () => {
       subject.apps.forEach(app => {
         const isWorld = app.id === 'world_map_puzzle';
         const isMath = app.id === 'math_4_review';
+        const isVnMap = app.id === 'vn_map_puzzle';
         const cardTheme = isWorld ? 'world-featured-card' : (isMath ? 'math-featured-card' : 'featured-game-card');
         const showcaseCard = document.createElement('div');
         showcaseCard.className = `app-showcase-card ${cardTheme}`;
@@ -520,7 +521,12 @@ document.addEventListener('DOMContentLoaded', () => {
           tagsHtml += `<span class="app-tag-pill">${t}</span>`;
         });
 
-        const badgeIcon = app.icon || (isWorld ? '🌍' : '🇻🇳');
+        let badgeIcon = app.icon;
+        if (isVnMap || app.icon === 'vietnam-icon.svg' || app.icon === 'vietnam_map') {
+          badgeIcon = `<img src="vietnam-icon.svg" alt="Bản đồ Việt Nam" class="vn-map-badge-img">`;
+        } else if (!badgeIcon) {
+          badgeIcon = isWorld ? '🌍' : (isMath ? '🧮' : '🇻🇳');
+        }
         const buttonSub = app.buttonSub || (isWorld ? 'Khám phá 5 Châu lục thế giới' : (isMath ? '6 Chủ đề & Thi thử' : 'Bản đồ 34 Tỉnh Thành Mới'));
         const features = app.features || (isWorld ? [
           '🌍 Khám Phá 5 Châu Lục Lớn',
@@ -583,7 +589,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <h3>${subject.name} - ${gradeData.title}</h3>
           <p>${subject.desc}</p>
           <div class="placeholder-status-pill">🛠️ Đang cập nhật thêm bài học & ứng dụng tương tác</div>
-          <p class="placeholder-tip">💡 Mời bạn bấm sang môn <strong>🇻🇳 Lịch Sử và Địa Lý</strong> để trải nghiệm Game Ghép Hình Bản Đồ Việt Nam!</p>
+          <p class="placeholder-tip">💡 Mời bạn bấm sang môn <strong>🇻🇳 Lịch Sử và Địa Lý Lớp 4</strong> (Bản Đồ Việt Nam) hoặc <strong>Lớp 7</strong> (Bản Đồ Thế Giới) để trải nghiệm game học tập tương tác!</p>
         </div>
       `;
       appShowcaseArea.appendChild(placeholderCard);
