@@ -129,10 +129,11 @@ class AuthManager {
   }
 
   // Đăng ký tài khoản học sinh mới (Tự động lưu lên Cloud Firestore & LocalStorage)
-  async register({ username, fullName, className, avatar, password }) {
+  async register({ username, fullName, className, schoolName, avatar, password }) {
     const uName = (username || '').trim().toLowerCase();
     const name = (fullName || '').trim();
     const cls = (className || '').trim();
+    const school = (schoolName || '').trim();
     const avt = avatar || '🎓';
 
     if (!uName || uName.length < 3) {
@@ -174,9 +175,9 @@ class AuthManager {
       username: uName,
       fullName: name,
       className: cls || 'Học sinh',
+      schoolName: school,
       avatar: avt,
-      password: (password || '').trim(), // Mật khẩu dạng chữ rõ ràng để Thầy Cô / Phụ Huynh dễ tra cứu trên Firebase
-      passwordHash: passwordHash,
+            passwordHash: passwordHash,
       createdAt: nowISO,
       updatedAt: nowISO,
       highScore: 0,
@@ -473,16 +474,14 @@ class AuthManager {
 
     // Cập nhật mật khẩu mới
     const passwordHash = await this.hashPassword(newPass);
-    user.password = newPass; // Cập nhật mật khẩu chữ thường
-    user.passwordHash = passwordHash;
+        user.passwordHash = passwordHash;
     user.updatedAt = new Date().toISOString();
 
     // Lưu lên Firebase Firestore
     if (this.isCloudActive()) {
       try {
         await window.firebaseDB.collection('users').doc(uName).update({
-          password: newPass,
-          passwordHash: passwordHash,
+                    passwordHash: passwordHash,
           updatedAt: user.updatedAt
         });
         console.log("☁️ [Firebase] Đã đặt lại mật khẩu thành công cho học sinh:", uName);
@@ -498,6 +497,364 @@ class AuthManager {
 
     return user;
   }
+
+  // Cập nhật thông tin cá nhân (Họ tên, Trường, Lớp, Avatar) và đổi Mật khẩu cho học sinh
+  async updateProfile({ fullName, className, schoolName, avatar, currentPassword, newPassword }) {
+    if (!this.currentUser) {
+      throw new Error('Bạn chưa đăng nhập! Vui lòng đăng nhập lại.');
+    }
+
+    const uName = this.currentUser.username;
+    const users = this.getAllUsers();
+    const user = users[uName] || this.currentUser;
+
+    const trimmedName = (fullName || '').trim();
+    if (!trimmedName) {
+      throw new Error('Vui lòng nhập Họ và Tên của học sinh!');
+    }
+
+    const trimmedClass = (className || '').trim();
+    const trimmedSchool = (schoolName || '').trim();
+
+    let passwordChanged = false;
+
+    // Nếu người dùng nhập đổi mật khẩu
+    if (newPassword || currentPassword) {
+      if (!currentPassword) {
+        throw new Error('Vui lòng nhập Mật khẩu hiện tại để xác nhận đổi mật khẩu mới!');
+      }
+
+      const curHash = await this.hashPassword(currentPassword);
+      const isMatch = (user.passwordHash && user.passwordHash === curHash) ||
+                      (user.password && user.password === currentPassword);
+      if (!isMatch) {
+        throw new Error('Mật khẩu hiện tại không chính xác. Vui lòng kiểm tra lại!');
+      }
+
+      if (!newPassword || newPassword.length < 4) {
+        throw new Error('Mật khẩu mới phải có tối thiểu 4 ký tự!');
+      }
+
+      const newHash = await this.hashPassword(newPassword);
+      user.password = newPassword.trim();
+      user.passwordHash = newHash;
+      passwordChanged = true;
+    }
+
+    // Cập nhật thông tin học sinh
+    user.fullName = trimmedName;
+    if (trimmedClass) user.className = trimmedClass;
+    if (schoolName !== undefined) user.schoolName = trimmedSchool;
+    if (avatar) user.avatar = avatar;
+    user.updatedAt = new Date().toISOString();
+
+    // 1. Lưu vào máy cục bộ (LocalStorage)
+    users[uName] = user;
+    this.saveAllUsers(users);
+    this.currentUser = user;
+    localStorage.setItem(this.STORAGE_KEY_CURRENT, JSON.stringify({ username: uName }));
+
+    // 2. Đồng bộ lên Firebase Firestore nếu Đám mây đang hoạt động
+    if (this.isCloudActive()) {
+      try {
+        await window.firebaseDB.collection('users').doc(uName).set(user, { merge: true });
+        console.log("☁️ [Firebase] Đã đồng bộ thông tin cá nhân mới lên Đám mây:", uName);
+      } catch (err) {
+        console.warn("Lỗi đồng bộ Firebase:", err);
+      }
+    }
+
+    // 3. Bắn event thông báo cập nhật hồ sơ
+    window.dispatchEvent(new CustomEvent('auth-profile-updated', { detail: { user, passwordChanged } }));
+
+    return { user, passwordChanged };
+  }
+  // Khởi tạo và kích hoạt giao diện Modal "Thông Tin Cá Nhân & Đổi Mật Khẩu"
+  initProfileModal(options = {}) {
+    const modal = document.getElementById('profile-modal');
+    if (!modal) return null;
+
+    const userInfoBtn = document.getElementById('user-info-btn');
+    const closeBtn = document.getElementById('profile-close');
+    const cancelBtn = document.getElementById('btn-cancel-profile');
+    const saveBtn = document.getElementById('btn-save-profile');
+    const msgBox = document.getElementById('profile-msg');
+
+    const bannerAvatar = document.getElementById('profile-banner-avatar');
+    const bannerName = document.getElementById('profile-banner-name');
+    const bannerSchoolClass = document.getElementById('profile-banner-school-class');
+    const bannerUsername = document.getElementById('profile-banner-username');
+
+    const inputFullName = document.getElementById('profile-fullname');
+    const inputSchool = document.getElementById('profile-school');
+    const inputClass = document.getElementById('profile-class');
+    const avatarGrid = document.getElementById('profile-avatar-grid');
+
+    const statScore = document.getElementById('profile-stat-score');
+    const statStreak = document.getElementById('profile-stat-streak');
+    const statCompleted = document.getElementById('profile-stat-completed');
+    const badgesContainer = document.getElementById('profile-badges-container');
+
+    const inputCurrentPass = document.getElementById('profile-current-pass');
+    const inputNewPass = document.getElementById('profile-new-pass');
+    const inputConfirmPass = document.getElementById('profile-confirm-pass');
+
+    let selectedAvatar = '🎓';
+
+    const showMsg = (text, type = 'error') => {
+      if (!msgBox) return;
+      msgBox.textContent = text;
+      msgBox.className = `auth-msg-box ${type}`;
+      msgBox.classList.remove('hidden');
+    };
+
+    const hideMsg = () => {
+      if (!msgBox) return;
+      msgBox.textContent = '';
+      msgBox.className = 'auth-msg-box hidden';
+    };
+
+    const openModal = () => {
+      if (!this.currentUser) return;
+      const u = this.currentUser;
+      selectedAvatar = u.avatar || '🎓';
+
+      if (bannerAvatar) bannerAvatar.textContent = selectedAvatar;
+      if (bannerName) bannerName.textContent = u.fullName || u.username;
+      
+      let schoolClassDisplay = u.className || 'Học sinh';
+      if (u.schoolName) {
+        schoolClassDisplay = `${u.className || 'Lớp học'} • ${u.schoolName}`;
+      }
+      if (bannerSchoolClass) bannerSchoolClass.textContent = schoolClassDisplay;
+      if (bannerUsername) bannerUsername.textContent = `@${u.username}`;
+
+      if (inputFullName) inputFullName.value = u.fullName || '';
+      if (inputSchool) inputSchool.value = u.schoolName || '';
+      if (inputClass) inputClass.value = u.className || '';
+
+      // Set active avatar in grid
+      if (avatarGrid) {
+        avatarGrid.querySelectorAll('.profile-avt-btn').forEach(btn => {
+          if (btn.dataset.avatar === selectedAvatar) {
+            btn.classList.add('active');
+          } else {
+            btn.classList.remove('active');
+          }
+        });
+      }
+
+      // Stats
+      if (statScore) statScore.textContent = (u.highScore || 0).toLocaleString();
+      if (statStreak) statStreak.textContent = `x${u.maxStreak || 0}`;
+      if (statCompleted) statCompleted.textContent = `${u.totalCompleted || 0} lần`;
+
+      // Badges
+      if (badgesContainer) {
+        badgesContainer.innerHTML = '';
+        const badges = u.badges || ['🌱 Nhà Thám Hiểm Mới'];
+        badges.forEach(b => {
+          const badgeEl = document.createElement('span');
+          badgeEl.className = 'profile-badge-chip';
+          badgeEl.textContent = b;
+          badgesContainer.appendChild(badgeEl);
+        });
+      }
+
+      // Reset password fields
+      if (inputCurrentPass) inputCurrentPass.value = '';
+      if (inputNewPass) inputNewPass.value = '';
+      if (inputConfirmPass) inputConfirmPass.value = '';
+      hideMsg();
+
+      modal.classList.remove('hidden');
+    };
+
+    const closeModal = () => {
+      modal.classList.add('hidden');
+      hideMsg();
+    };
+
+    // Close events
+    if (closeBtn) closeBtn.onclick = closeModal;
+    if (cancelBtn) cancelBtn.onclick = closeModal;
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    // Avatar selector
+    if (avatarGrid) {
+      avatarGrid.querySelectorAll('.profile-avt-btn').forEach(btn => {
+        btn.onclick = () => {
+          avatarGrid.querySelectorAll('.profile-avt-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          selectedAvatar = btn.dataset.avatar;
+          if (bannerAvatar) bannerAvatar.textContent = selectedAvatar;
+        };
+      });
+    }
+
+    // Toggle password visibility
+    modal.querySelectorAll('.btn-toggle-eye').forEach(btn => {
+      btn.onclick = () => {
+        const targetId = btn.dataset.target;
+        const targetInput = document.getElementById(targetId);
+        if (targetInput) {
+          if (targetInput.type === 'password') {
+            targetInput.type = 'text';
+            btn.textContent = '🙈';
+          } else {
+            targetInput.type = 'password';
+            btn.textContent = '👁️';
+          }
+        }
+      };
+    });
+
+    // Save profile handler
+    const handleSave = async () => {
+      if (!this.currentUser) return;
+
+      const fullName = (inputFullName ? inputFullName.value : '').trim();
+      const schoolName = (inputSchool ? inputSchool.value : '').trim();
+      const className = (inputClass ? inputClass.value : '').trim();
+      const currentPassword = (inputCurrentPass ? inputCurrentPass.value : '').trim();
+      const newPassword = (inputNewPass ? inputNewPass.value : '').trim();
+      const confirmPassword = (inputConfirmPass ? inputConfirmPass.value : '').trim();
+
+      if (!fullName) {
+        showMsg('Vui lòng nhập Họ và tên của học sinh!', 'error');
+        if (inputFullName) inputFullName.focus();
+        return;
+      }
+
+      if (newPassword || currentPassword) {
+        if (!currentPassword) {
+          showMsg('Vui lòng nhập Mật khẩu hiện tại để xác nhận đổi mật khẩu!', 'error');
+          if (inputCurrentPass) inputCurrentPass.focus();
+          return;
+        }
+        if (newPassword.length < 4) {
+          showMsg('Mật khẩu mới phải có ít nhất 4 ký tự!', 'error');
+          if (inputNewPass) inputNewPass.focus();
+          return;
+        }
+        if (newPassword !== confirmPassword) {
+          showMsg('Mật khẩu mới và Nhập lại mật khẩu không trùng khớp!', 'error');
+          if (inputConfirmPass) inputConfirmPass.focus();
+          return;
+        }
+      }
+
+      try {
+        if (saveBtn) {
+          saveBtn.textContent = '⏳ Đang lưu...';
+          saveBtn.disabled = true;
+        }
+
+        const { user: updatedUser, passwordChanged } = await this.updateProfile({
+          fullName,
+          className,
+          schoolName,
+          avatar: selectedAvatar,
+          currentPassword,
+          newPassword
+        });
+
+        // Update banner in modal
+        if (bannerAvatar) bannerAvatar.textContent = updatedUser.avatar || '🎓';
+        if (bannerName) bannerName.textContent = updatedUser.fullName;
+        let schoolClassDisplay = updatedUser.className || 'Học sinh';
+        if (updatedUser.schoolName) {
+          schoolClassDisplay = `${updatedUser.className || 'Lớp học'} • ${updatedUser.schoolName}`;
+        }
+        if (bannerSchoolClass) bannerSchoolClass.textContent = schoolClassDisplay;
+
+        // Reset password fields
+        if (inputCurrentPass) inputCurrentPass.value = '';
+        if (inputNewPass) inputNewPass.value = '';
+        if (inputConfirmPass) inputConfirmPass.value = '';
+
+        let successNotice = '🎉 Đã cập nhật thông tin cá nhân học sinh thành công!';
+        if (passwordChanged) {
+          successNotice = '🎉 Đã đổi mật khẩu và cập nhật thông tin học sinh thành công!';
+        }
+        showMsg(successNotice, 'success');
+
+        if (typeof options.onUpdate === 'function') {
+          options.onUpdate(updatedUser);
+        }
+
+        if (window.soundEngine && typeof window.soundEngine.playSuccess === 'function') {
+          window.soundEngine.playSuccess();
+        }
+
+        setTimeout(() => {
+          closeModal();
+        }, 1200);
+
+      } catch (err) {
+        showMsg(err.message, 'error');
+        if (window.soundEngine && typeof window.soundEngine.playError === 'function') {
+          window.soundEngine.playError();
+        }
+      } finally {
+        if (saveBtn) {
+          saveBtn.textContent = '💾 Lưu Thay Đổi';
+          saveBtn.disabled = false;
+        }
+      }
+    };
+
+    if (saveBtn) saveBtn.onclick = handleSave;
+
+    // Bind userInfoBtn click to openModal (prevent leaderboard open)
+    if (userInfoBtn) {
+      userInfoBtn.onclick = (e) => {
+        if (e) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+        openModal();
+      };
+    }
+
+    return { openModal, closeModal };
+  }
+
 }
 
 window.authManager = new AuthManager();
+
+// EduAuth Global Adapter for Subject Apps
+window.EduAuth = {
+  getCurrentUser: function() {
+    if (window.authManager && window.authManager.currentUser) {
+      return window.authManager.currentUser;
+    }
+    const saved = localStorage.getItem('vn_map_puzzle_current_session');
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        if (window.authManager) {
+          const u = window.authManager.getUser(parsed.username);
+          if (u) return u;
+        }
+        return parsed;
+      } catch (e) {}
+    }
+    return { fullName: 'Học sinh', className: 'Lớp 4', avatar: '🎓' };
+  },
+  openLoginModal: function(callback) {
+    const name = prompt('Nhập Tên hoặc Biệt danh của bạn để hiển thị trên bảng thi đua:', 'Học sinh');
+    if (name && name.trim()) {
+      const cls = prompt('Nhập Lớp học của bạn (ví dụ: 4A, 4B):', '4A') || 'Lớp 4';
+      const user = { username: 'user_' + Date.now().toString(36), fullName: name.trim(), className: cls.trim(), avatar: '🎓' };
+      if (window.authManager) {
+        window.authManager.currentUser = user;
+        localStorage.setItem('vn_map_puzzle_current_session', JSON.stringify(user));
+      }
+      if (typeof callback === 'function') callback(user);
+    }
+  }
+};

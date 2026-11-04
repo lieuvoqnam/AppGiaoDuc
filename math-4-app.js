@@ -35,8 +35,11 @@
 
   // Sound helper
   function playSnd(type) {
-    if (window.EduAudio && typeof window.EduAudio.play === 'function') {
-      window.EduAudio.play(type);
+    if (window.soundEngine && window.soundEngine.enabled) {
+      if (type === 'victory') window.soundEngine.playVictoryFanfare();
+      else if (type === 'levelUp' || type === 'correct') window.soundEngine.playSnap();
+      else if (type === 'wrong') window.soundEngine.playError();
+      else if (type === 'click') window.soundEngine.playPickup();
     }
   }
 
@@ -582,7 +585,7 @@
 
     if (data.score >= 9) {
       playSnd('victory');
-      if (window.launchConfetti) window.launchConfetti();
+      if (typeof window.confetti === 'function') window.confetti({ particleCount: 120, spread: 80, origin: { y: 0.6 } });
     } else if (data.score >= 7) {
       badgeText = 'Khá Giỏi! 👍';
       badgeClass = 'good';
@@ -606,6 +609,19 @@
     }
     if (msgEl) msgEl.textContent = msg;
 
+    // Tự động lưu kết quả thi thử vào hồ sơ học sinh
+    if (window.authManager && window.authManager.isLoggedIn()) {
+      window.authManager.updateProgress(
+        Math.round(data.score * 100),
+        data.correctCount,
+        data.score >= 9.0,
+        'math_4',
+        {
+          lastExamScore: data.score,
+          lastExamDate: new Date().toISOString()
+        }
+      );
+    }
     scoreModal.classList.remove('hidden');
 
     const btnClose = document.getElementById('btn-close-modal');

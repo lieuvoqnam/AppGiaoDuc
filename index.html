@@ -38,7 +38,7 @@
     <!-- User Profile & Action Tools -->
     <div class="header-right">
       <div class="user-profile-widget">
-        <div id="user-info-btn" class="user-badge-btn" title="Xem thành tích học tập của bạn">
+        <div id="user-info-btn" class="user-badge-btn" title="Thông tin cá nhân">
           <span id="user-avatar" class="u-avatar">🎓</span>
           <div class="u-meta">
             <span id="user-display-name" class="u-name">Học Sinh</span>
@@ -92,28 +92,42 @@
 
     <!-- SECTION TITLE -->
     <div class="section-header">
-      <h3 id="grade-title">Chương Trình Lớp 5</h3>
+      <h3 id="grade-title">Chương Trình Lớp 4</h3>
       <p id="grade-desc">Môn Lịch sử và Địa lý cùng các môn học cốt lõi</p>
     </div>
 
-    <!-- FEATURED APP SHOWCASE (Hiển thị trò chơi môn học tương tác) -->
-    <section id="app-showcase-area">
-      <!-- Dynamic render by portal.js -->
-    </section>
+    <!-- CLASSROOM TWO-COLUMN WORKSPACE: LEFT (THƯ MỤC CÁC MÔN HỌC) & RIGHT (HỌC LIỆU / APP TƯƠNG ỨNG) -->
+    <div class="classroom-layout-container">
+      
+      <!-- CỘT BÊN TRÁI: THƯ MỤC CÁC MÔN HỌC -->
+      <aside class="subjects-sidebar-column" aria-label="Thư mục các môn học">
+        <div class="sidebar-header">
+          <div class="sidebar-title-row">
+            <span class="folder-icon">📁</span>
+            <h3>Thư Mục Các Môn Học</h3>
+          </div>
+          <span class="sidebar-count-badge" id="subjects-count-badge">7 môn</span>
+        </div>
+        <p class="sidebar-subtitle">Bấm vào môn để xem ứng dụng & học liệu</p>
 
-    <!-- SUBJECTS LIST (THƯ MỤC CÁC MÔN HỌC TRONG LỚP) -->
-    <div style="margin: 28px 0 16px 0; display: flex; align-items: center; justify-content: space-between;">
-      <h3 style="font-size: 1.3rem; font-weight: 900; color: #0f172a; display: flex; align-items: center; gap: 8px;">
-        <span>📚</span> Thư Mục Các Môn Học
-      </h3>
-      <span style="font-size: 0.85rem; font-weight: 700; color: #64748b;">
-        Bấm vào từng môn để xem học liệu & ứng dụng
-      </span>
+        <!-- DANH SÁCH MÔN HỌC CỘT DỌC -->
+        <nav class="subjects-sidebar-list" id="subjects-grid" aria-label="Danh sách môn học">
+          <!-- Dynamic render by portal.js -->
+        </nav>
+      </aside>
+
+      <!-- CỘT BÊN PHẢI: CHI TIẾT & HỌC LIỆU MÔN HỌC ĐƯỢC CHỌN -->
+      <section class="subject-detail-column" id="subject-detail-column" aria-label="Chi tiết môn học & học liệu">
+        <div class="detail-header-card" id="subject-detail-header">
+          <!-- Dynamic render by portal.js -->
+        </div>
+
+        <div id="app-showcase-area" class="app-showcase-container">
+          <!-- Dynamic render by portal.js -->
+        </div>
+      </section>
+
     </div>
-
-    <section class="subjects-grid" id="subjects-grid">
-      <!-- Dynamic render by portal.js -->
-    </section>
 
   </main>
 
@@ -259,6 +273,136 @@
       </form>
     </div>
   </div>
+
+      <!-- USER PROFILE & PERSONAL INFO MODAL -->
+    <div id="profile-modal" class="modal-backdrop hidden">
+      <div class="profile-card">
+        <button id="profile-close" class="modal-close-btn" title="Đóng">&times;</button>
+        <div class="profile-header">
+          <div class="profile-icon">👤</div>
+          <h2>Thông Tin Cá Nhân</h2>
+          <p>Xem thông tin học sinh, thành tích và cập nhật mật khẩu</p>
+        </div>
+
+        <!-- Identity Banner -->
+        <div class="profile-banner">
+          <div class="profile-banner-left">
+            <div id="profile-banner-avatar" class="profile-current-avatar">🎓</div>
+            <div class="profile-banner-names">
+              <h3 id="profile-banner-name">Học sinh</h3>
+              <div class="profile-banner-meta" id="profile-banner-school-class">Lớp học</div>
+            </div>
+          </div>
+          <div class="profile-username-tag" id="profile-banner-username">@username</div>
+        </div>
+
+        <!-- Message feedback notification -->
+        <div id="profile-msg" class="auth-msg-box hidden"></div>
+
+        <form id="profile-form" onsubmit="return false;">
+          <!-- Section 1: Thông tin học sinh -->
+          <div class="profile-section-title">
+            <span>🎓 Thông Tin Học Sinh</span>
+          </div>
+
+          <div class="form-group">
+            <label for="profile-fullname">Họ và tên học sinh:</label>
+            <input type="text" id="profile-fullname" required placeholder="Ví dụ: Nguyễn Văn Nam">
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="profile-school">Trường đang học:</label>
+              <input type="text" id="profile-school" placeholder="Ví dụ: Tiểu học Chu Văn An">
+            </div>
+            <div class="form-group">
+              <label for="profile-class">Lớp học:</label>
+              <input type="text" id="profile-class" placeholder="Ví dụ: 5A1">
+            </div>
+          </div>
+
+          <!-- Avatar Grid -->
+          <div class="form-group">
+            <label>Chọn biểu tượng Avatar đại diện:</label>
+            <div class="profile-avatar-grid" id="profile-avatar-grid">
+              <button type="button" class="profile-avt-btn" data-avatar="🎓">🎓</button>
+              <button type="button" class="profile-avt-btn" data-avatar="🐯">🐯</button>
+              <button type="button" class="profile-avt-btn" data-avatar="🦁">🦁</button>
+              <button type="button" class="profile-avt-btn" data-avatar="🐼">🐼</button>
+              <button type="button" class="profile-avt-btn" data-avatar="🦊">🦊</button>
+              <button type="button" class="profile-avt-btn" data-avatar="🚀">🚀</button>
+              <button type="button" class="profile-avt-btn" data-avatar="🌟">🌟</button>
+              <button type="button" class="profile-avt-btn" data-avatar="🦄">🦄</button>
+              <button type="button" class="profile-avt-btn" data-avatar="⚽">⚽</button>
+              <button type="button" class="profile-avt-btn" data-avatar="🎨">🎨</button>
+              <button type="button" class="profile-avt-btn" data-avatar="📚">📚</button>
+              <button type="button" class="profile-avt-btn" data-avatar="🏆">🏆</button>
+            </div>
+          </div>
+
+          <!-- Section 2: Thành tích học tập -->
+          <div class="profile-section-title">
+            <span>🏆 Thành Tích Đạt Được</span>
+            <span class="sub">Tự động đồng bộ</span>
+          </div>
+
+          <div class="profile-stats-grid">
+            <div class="profile-stat-box">
+              <span class="stat-num" id="profile-stat-score">0</span>
+              <span class="stat-label">Điểm Kỷ Lục</span>
+            </div>
+            <div class="profile-stat-box">
+              <span class="stat-num" id="profile-stat-streak">0</span>
+              <span class="stat-label">Chuỗi Đúng Max</span>
+            </div>
+            <div class="profile-stat-box">
+              <span class="stat-num" id="profile-stat-completed">0</span>
+              <span class="stat-label">Số Lần Về Đích</span>
+            </div>
+          </div>
+
+          <div class="profile-badges-wrap" id="profile-badges-container">
+            <!-- Badges render dynamically -->
+          </div>
+
+          <!-- Section 3: Đổi mật khẩu -->
+          <div class="profile-section-title">
+            <span>🔑 Đổi Mật Khẩu</span>
+            <span class="sub">(Để trống nếu không đổi)</span>
+          </div>
+
+          <div class="form-group">
+            <label for="profile-current-pass">Mật khẩu hiện tại:</label>
+            <div class="input-with-eye">
+              <input type="password" id="profile-current-pass" placeholder="Nhập mật khẩu hiện tại..." autocomplete="current-password">
+              <button type="button" class="btn-toggle-eye" data-target="profile-current-pass" title="Hiện/Ẩn mật khẩu">👁️</button>
+            </div>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="profile-new-pass">Mật khẩu mới:</label>
+              <div class="input-with-eye">
+                <input type="password" id="profile-new-pass" placeholder="Tối thiểu 4 ký tự..." autocomplete="new-password">
+                <button type="button" class="btn-toggle-eye" data-target="profile-new-pass" title="Hiện/Ẩn mật khẩu">👁️</button>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="profile-confirm-pass">Nhập lại mật khẩu mới:</label>
+              <div class="input-with-eye">
+                <input type="password" id="profile-confirm-pass" placeholder="Nhập lại mật khẩu mới..." autocomplete="new-password">
+                <button type="button" class="btn-toggle-eye" data-target="profile-confirm-pass" title="Hiện/Ẩn mật khẩu">👁️</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="profile-footer-actions">
+            <button type="button" id="btn-save-profile" class="btn-save">💾 Lưu Thay Đổi</button>
+            <button type="button" id="btn-cancel-profile" class="btn-cancel">Đóng</button>
+          </div>
+        </form>
+      </div>
+    </div>
 
   <!-- LEADERBOARD MODAL (Bảng Vàng Thi Đua) -->
   <div id="leaderboard-modal" class="modal-backdrop hidden">

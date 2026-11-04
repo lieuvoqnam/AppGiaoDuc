@@ -53,7 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- DOM ELEMENTS ---
   const mapViewport = document.getElementById('map-viewport');
   const mapSvg = document.getElementById('vietnam-map');
-  const baseMapLayer = document.getElementById('base-map-layer');
   const slotsLayer = document.getElementById('slots-layer');
   const placedLayer = document.getElementById('placed-layer');
   const draggingLayer = document.getElementById('dragging-layer');
@@ -168,9 +167,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateUserProfileUI(user) {
     if (!user) return;
-    userAvatarEl.textContent = user.avatar || '🎓';
-    userDisplayNameEl.textContent = user.fullName || user.username;
-    userDisplayClassEl.textContent = user.className || 'Học sinh';
+    if (userAvatarEl) userAvatarEl.textContent = user.avatar || '🎓';
+    if (userDisplayNameEl) userDisplayNameEl.textContent = user.fullName || user.username;
+    let classText = user.className || 'Học sinh';
+    if (user.schoolName && !classText.includes(user.schoolName)) {
+      classText = `${classText} • ${user.schoolName}`;
+    }
+    if (userDisplayClassEl) userDisplayClassEl.textContent = classText;
   }
 
   function setupAuthHandlers() {
@@ -367,7 +370,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Leaderboard Modal Open
     btnLeaderboard.addEventListener('click', openLeaderboardModal);
-    userInfoBtn.addEventListener('click', openLeaderboardModal);
+    // userInfoBtn opens profile modal via authManager.initProfileModal
     leaderboardClose.addEventListener('click', () => leaderboardModal.classList.add('hidden'));
   }
 
@@ -1034,7 +1037,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Persist student's progress
     if (window.authManager) {
-      window.authManager.updateProgress(state.score, state.streak, false);
+      window.authManager.updateProgress(state.score, state.streak, false, 'vn_map');
     }
 
     // Check completion condition
@@ -1201,7 +1204,6 @@ document.addEventListener('DOMContentLoaded', () => {
       'transform',
       `translate(${state.panOffset.x}, ${state.panOffset.y}) scale(${state.zoomLevel})`
     );
-    updateProvinceLabelsScale();
   }
 
   // --- TỰ ĐỘNG ĐIỀU CHỈNH FONT CHỮ CÁC TỈNH THÀNH KHI ZOOM IN / ZOOM OUT ---
@@ -1215,7 +1217,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  function zoomMap(delta, centerX = 300, centerY = 420) {
+  function zoomMap(delta, centerX = 345, centerY = 420) {
     const prevZoom = state.zoomLevel;
     const newZoom = Math.min(3.2, Math.max(0.85, prevZoom + delta));
     if (newZoom === prevZoom) return;
@@ -1223,10 +1225,11 @@ document.addEventListener('DOMContentLoaded', () => {
     state.panOffset.x = centerX - (centerX - state.panOffset.x) * (newZoom / prevZoom);
     state.panOffset.y = centerY - (centerY - state.panOffset.y) * (newZoom / prevZoom);
     state.zoomLevel = newZoom;
+    updateProvinceLabelsScale();
 
     // Giới hạn pan offset sau khi zoom
-    const maxPanX = 420 * state.zoomLevel;
-    const maxPanY = 400 * state.zoomLevel;
+    const maxPanX = 380 * state.zoomLevel;
+    const maxPanY = 380 * state.zoomLevel;
     state.panOffset.x = Math.max(-maxPanX, Math.min(maxPanX, state.panOffset.x));
     state.panOffset.y = Math.max(-maxPanY, Math.min(maxPanY, state.panOffset.y));
 
@@ -1236,6 +1239,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function resetMapView() {
     state.zoomLevel = 1.0;
     state.panOffset = { x: 0, y: 0 };
+    updateProvinceLabelsScale();
     updateMapTransform();
   }
 
@@ -1257,20 +1261,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const regCx = (minX + maxX) / 2;
     const regCy = (minY + maxY) / 2;
 
-    const svgW = 1040;
-    const svgH = 920;
-    const centerSvgX = -220 + svgW / 2; // 300
-    const centerSvgY = -40 + svgH / 2;  // 420
+    const svgW = 920;
+    const svgH = 890;
+    const centerSvgX = -115 + svgW / 2; // 345
+    const centerSvgY = -25 + svgH / 2;  // 420
 
     const scale = Math.min(2.4, Math.max(1.1, Math.min(svgW / (regW * 1.6), svgH / (regH * 1.6))));
     state.zoomLevel = scale;
     state.panOffset.x = centerSvgX - regCx * scale;
     state.panOffset.y = centerSvgY - regCy * scale;
-
+    updateProvinceLabelsScale();
     updateMapTransform();
   }
 
-  // Map panning with pointer / mouse drag on viewport & SVG
+  // --- MULTI-TOUCH & MAP PANNING / PINCH-TO-ZOOM ---
+  const activePointers = new Map();
+  let pinchInitialDist = 0;
+  let pinchInitialZoom = 1.0;
+  let pinchCenterSvg = { x: 345, y: 420 };
+
   function onMapPointerDown(e) {
     // Chỉ xử lý chuột trái (button === 0) hoặc ngón tay cảm ứng
     if (e.button !== undefined && e.button !== 0 && e.pointerType === 'mouse') return;
@@ -1281,12 +1290,25 @@ document.addEventListener('DOMContentLoaded', () => {
     // Bỏ qua nếu đang kéo thả mảnh ghép
     if (state.isDraggingPiece || (touchCandidate && touchCandidate.isDragging)) return;
 
-    state.isPanning = true;
-    state.hasPanned = false;
-    state.panStart = { x: e.clientX, y: e.clientY };
+    activePointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
 
-    if (mapViewport) mapViewport.classList.add('is-panning');
-    if (mapSvg) mapSvg.style.cursor = 'grabbing';
+    if (activePointers.size === 1) {
+      state.isPanning = true;
+      state.hasPanned = false;
+      state.panStart = { x: e.clientX, y: e.clientY };
+
+      if (mapViewport) mapViewport.classList.add('is-panning');
+      if (mapSvg) mapSvg.style.cursor = 'grabbing';
+    } else if (activePointers.size === 2) {
+      // Bắt đầu thao tác Pinch-to-zoom (2 ngón tay trên iPad/điện thoại)
+      state.isPanning = false;
+      const pts = Array.from(activePointers.values());
+      pinchInitialDist = Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y);
+      pinchInitialZoom = state.zoomLevel;
+      const screenMidX = (pts[0].x + pts[1].x) / 2;
+      const screenMidY = (pts[0].y + pts[1].y) / 2;
+      pinchCenterSvg = screenToSvgCoords(screenMidX, screenMidY);
+    }
   }
 
   if (mapViewport) {
@@ -1294,20 +1316,55 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   window.addEventListener('pointermove', (e) => {
-    if (state.isPanning) {
-      const dx = (e.clientX - state.panStart.x);
-      const dy = (e.clientY - state.panStart.y);
+    if (!activePointers.has(e.pointerId)) return;
+    activePointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
 
-      if (Math.abs(dx) > 3 || Math.abs(dy) > 3) {
+    // 1. Thao tác Pinch-to-zoom khi có 2 ngón tay chạm cùng lúc
+    if (activePointers.size === 2 && pinchInitialDist > 10) {
+      const pts = Array.from(activePointers.values());
+      const currentDist = Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y);
+      const ratio = currentDist / pinchInitialDist;
+      const targetZoom = Math.min(3.2, Math.max(0.85, pinchInitialZoom * ratio));
+
+      if (Math.abs(targetZoom - state.zoomLevel) > 0.008) {
+        state.hasPanned = true;
+        const prevZoom = state.zoomLevel;
+        state.panOffset.x = pinchCenterSvg.x - (pinchCenterSvg.x - state.panOffset.x) * (targetZoom / prevZoom);
+        state.panOffset.y = pinchCenterSvg.y - (pinchCenterSvg.y - state.panOffset.y) * (targetZoom / prevZoom);
+        state.zoomLevel = targetZoom;
+
+        const maxPanX = 380 * state.zoomLevel;
+        const maxPanY = 380 * state.zoomLevel;
+        state.panOffset.x = Math.max(-maxPanX, Math.min(maxPanX, state.panOffset.x));
+        state.panOffset.y = Math.max(-maxPanY, Math.min(maxPanY, state.panOffset.y));
+
+        updateProvinceLabelsScale();
+        updateMapTransform();
+      }
+      return;
+    }
+
+    // 2. Thao tác Pan bản đồ 1 ngón tay / 1 chuột: Chuẩn hóa 1:1 theo ma trận SVG ScreenCTM
+    if (state.isPanning && activePointers.size === 1) {
+      const dxScreen = (e.clientX - state.panStart.x);
+      const dyScreen = (e.clientY - state.panStart.y);
+
+      if (Math.abs(dxScreen) > 3 || Math.abs(dyScreen) > 3) {
         state.hasPanned = true;
       }
 
-      state.panOffset.x += dx;
-      state.panOffset.y += dy;
+      // Chia cho hệ số tỷ lệ CTM để con trỏ chuột và bản đồ bám dính 1:1 không bị trôi lệch
+      const ctm = mapSvg ? mapSvg.getScreenCTM() : null;
+      const scaleFactor = ctm && ctm.a > 0 ? ctm.a : 1.0;
+      const dxSvg = dxScreen / scaleFactor;
+      const dySvg = dyScreen / scaleFactor;
+
+      state.panOffset.x += dxSvg;
+      state.panOffset.y += dySvg;
 
       // Giới hạn khung nhìn bản đồ (không bị kéo trôi ra ngoài khoảng trống)
-      const maxPanX = 420 * state.zoomLevel;
-      const maxPanY = 400 * state.zoomLevel;
+      const maxPanX = 380 * state.zoomLevel;
+      const maxPanY = 380 * state.zoomLevel;
       state.panOffset.x = Math.max(-maxPanX, Math.min(maxPanX, state.panOffset.x));
       state.panOffset.y = Math.max(-maxPanY, Math.min(maxPanY, state.panOffset.y));
 
@@ -1316,26 +1373,39 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  function stopMapPanning() {
-    if (state.isPanning) {
-      state.isPanning = false;
-      if (mapViewport) mapViewport.classList.remove('is-panning');
-      if (mapSvg) mapSvg.style.cursor = 'grab';
+  function stopMapPointer(e) {
+    if (e && e.pointerId) {
+      activePointers.delete(e.pointerId);
+    } else {
+      activePointers.clear();
+    }
+
+    if (activePointers.size === 1) {
+      // Chuyển lại trạng thái pan mượt mà với ngón tay còn lại
+      const remaining = activePointers.values().next().value;
+      state.panStart = { x: remaining.x, y: remaining.y };
+      state.isPanning = true;
+    } else if (activePointers.size === 0) {
+      if (state.isPanning) {
+        state.isPanning = false;
+        if (mapViewport) mapViewport.classList.remove('is-panning');
+        if (mapSvg) mapSvg.style.cursor = 'grab';
+      }
       setTimeout(() => {
         state.hasPanned = false;
       }, 50);
     }
   }
 
-  window.addEventListener('pointerup', stopMapPanning);
-  window.addEventListener('pointercancel', stopMapPanning);
+  window.addEventListener('pointerup', stopMapPointer);
+  window.addEventListener('pointercancel', stopMapPointer);
 
   // Mouse wheel zoom (hỗ trợ cuộn chuột trên toàn bộ khung bản đồ)
   if (mapViewport) {
     mapViewport.addEventListener('wheel', (e) => {
       e.preventDefault();
       const zoomDelta = e.deltaY < 0 ? 0.15 : -0.15;
-      zoomMap(zoomDelta, 300, 420);
+      zoomMap(zoomDelta, 345, 420);
     }, { passive: false });
   }
 
@@ -1397,7 +1467,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- VICTORY & REGION COMPLETE MODALS ---
   function triggerRegionCompleteModal(region) {
     if (window.authManager) {
-      window.authManager.updateProgress(state.score, state.streak, false);
+      window.authManager.updateProgress(state.score, state.streak, false, 'vn_map');
     }
     victoryTitle.textContent = `Chúc mừng bạn! 🎉`;
     victoryDesc.innerHTML = `Bạn đã xuất sắc hoàn thành tất cả các mảnh ghép của <strong>${region.name}</strong> (${region.badge})!`;

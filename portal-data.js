@@ -27,12 +27,148 @@ window.PORTAL_DATA = {
     2: {
       title: "Lớp 2",
       level: "tieu_hoc",
-      desc: "Mở rộng vốn từ vựng, tính toán nhanh và tìm hiểu thiên nhiên.",
+      desc: "Chương trình cốt lõi GDPT 2018 - Đầy đủ 5 môn học tích hợp các ứng dụng số hóa & thi đấu tương tác!",
       subjects: [
-        { id: "toan", name: "Toán Học", icon: "📐", color: "#3b82f6", desc: "Phép nhân, chia trong bảng, các hình khối cơ bản." },
-        { id: "tieng_viet", name: "Tiếng Việt", icon: "📖", color: "#ec4899", desc: "Tập làm văn, luyện từ và câu, đọc hiểu các câu chuyện." },
-        { id: "tnxh", name: "Tự Nhiên & Xã Hội", icon: "🌱", color: "#10b981", desc: "Cây cối, con vật xung quanh ta và giữ gìn sức khỏe." },
-        { id: "tieng_anh", name: "Tiếng Anh", icon: "🌍", color: "#f59e0b", desc: "Giao tiếp tiếng Anh cơ bản về bạn bè và đồ vật." }
+        {
+          id: "toan",
+          name: "Toán Học",
+          icon: "📐",
+          color: "#3b82f6",
+          hasApp: true,
+          badge: "🔥 ĐÃ CÓ APP ÔN TẬP",
+          desc: "Bảng nhân chia 2 và 5, số trong phạm vi 1000, cộng trừ có nhớ, hình gấp khúc & toán đố nhiều hơn - ít hơn.",
+          apps: [
+            {
+              id: "math_2",
+              title: "Đấu Trí Toán Lớp 2",
+              subtitle: "Lý thuyết trọng tâm, bài tập phân hóa 4 mức độ & đề thi thử tự động chấm điểm",
+              icon: "🧮",
+              url: "math-2.html",
+              cardTheme: "math-featured-card",
+              buttonSub: "5 Chủ đề & Thi thử định kỳ",
+              tags: ["Toán 2 GDPT 2018", "Bảng Nhân Chia 2 & 5", "Phạm Vi 1000", "Phân Hóa 4 Mức Độ"],
+              learningGoal: "Nắm vững cấu tạo số đến 1000, thuộc lòng bảng nhân chia 2 và 5, đo lường đại lượng, tính độ dài đường gấp khúc và giải bài toán nhiều hơn ít hơn.",
+              features: [
+                "🔢 Cấu tạo số & Cộng trừ có nhớ đến 1000",
+                "✖️ Thuộc làu bảng nhân & chia 2, 5",
+                "📏 Đo lường dm, m, km, kg, lít & xem giờ",
+                "⏱️ Đề thi thử Toán 2 bấm giờ tự động chấm"
+              ]
+            }
+          ]
+        },
+        {
+          id: "tieng_viet",
+          name: "Tiếng Việt",
+          icon: "📖",
+          color: "#db2777",
+          hasApp: true,
+          badge: "✨ ĐÃ CÓ APP TƯƠNG TÁC",
+          desc: "Từ chỉ sự vật - hoạt động - đặc điểm; 3 kiểu câu Ai là gì - Ai làm gì - Ai thế nào; quy tắc chính tả & tập làm văn.",
+          apps: [
+            {
+              id: "vietnamese_2",
+              title: "Đấu Trí Tiếng Việt Lớp 2",
+              subtitle: "Hành trình chinh phục ngôn từ, phân biệt từ ngữ, mẫu câu chuẩn & đề thi thử định kỳ",
+              icon: "📖",
+              url: "vietnamese-2.html",
+              cardTheme: "vietnamese-featured-card",
+              buttonSub: "5 Chủ đề & Luyện viết văn",
+              tags: ["Tiếng Việt 2 GDPT 2018", "Từ Loại Cơ Bản", "3 Kiểu Câu Chuẩn", "Quy Tắc Chính Tả"],
+              learningGoal: "Phân biệt từ chỉ sự vật, hoạt động, đặc điểm; sử dụng thành thạo câu Ai là gì, Ai làm gì, Ai thế nào; chuẩn quy tắc chính tả c/k, g/gh, ng/ngh và đọc hiểu cảm thụ thơ ca thiếu nhi.",
+              features: [
+                "🔤 Từ chỉ sự vật, hoạt động & đặc điểm",
+                "❓ Ba kiểu câu: Ai là gì? Ai làm gì? Ai thế nào?",
+                "✍️ Quy tắc chính tả c/k, g/gh, ng/ngh, s/x",
+                "⏱️ Đề thi thử Tiếng Việt 2 tự động chấm điểm"
+              ]
+            }
+          ]
+        },
+        {
+          id: "tnxh",
+          name: "Tự Nhiên & Xã Hội",
+          icon: "🌱",
+          color: "#10b981",
+          hasApp: true,
+          badge: "✨ ĐÃ CÓ APP TƯƠNG TÁC",
+          desc: "Gia đình & an toàn tại nhà, trường học thân thiện, giao thông an toàn, sinh vật quanh em, cơ thể khỏe mạnh & bầu trời 4 mùa.",
+          apps: [
+            {
+              id: "tnxh_2",
+              title: "Khám Phá Tự Nhiên & Xã Hội Lớp 2",
+              subtitle: "Phòng thí nghiệm thực tế, 6 chủ đề chuẩn GDPT 2018 & kỹ năng an toàn cuộc sống",
+              icon: "🌱",
+              url: "tnxh-2.html",
+              cardTheme: "tnxh-featured-card",
+              buttonSub: "6 Chủ đề & Kỹ năng sống",
+              tags: ["TN&XH 2 GDPT 2018", "6 Chủ Đề Chuẩn", "An Toàn Giao Thông", "Cơ Thể Khỏe Mạnh"],
+              learningGoal: "Hiểu biết về gia đình và trường học, nhận biết biển báo giao thông cơ bản, môi trường sống của động thực vật, giữ tư thế ngồi học chống cong vẹo cột sống và nhận biết hiện tượng thời tiết 4 mùa.",
+              features: [
+                "🏡 Gia đình & Phòng tránh bỏng, ngộ độc tại nhà",
+                "🚦 Giao thông an toàn & Nhận biết biển báo",
+                "🦴 Cơ quan vận động, tiêu hóa & bài tiết",
+                "⛅ Bầu trời ngày đêm & Phòng tránh mưa dông bão"
+              ]
+            }
+          ]
+        },
+        {
+          id: "tieng_anh",
+          name: "Tiếng Anh (English)",
+          icon: "🌍",
+          color: "#6366f1",
+          hasApp: true,
+          badge: "🔊 CÓ PHÁT ÂM BẢN XỨ",
+          desc: "Từ vựng số đếm 1-20, màu sắc & hình khối, gia đình & cơ thể, động vật thú cưng, thức ăn & đồ chơi kèm phát âm bản xứ.",
+          apps: [
+            {
+              id: "english_2",
+              title: "English 2 Explorer",
+              subtitle: "Interactive Global Success & Family and Friends with Native AI Speech Pronunciation",
+              icon: "🌍",
+              url: "english-2.html",
+              cardTheme: "english-featured-card",
+              buttonSub: "Vocabulary, Phonics & Audio",
+              tags: ["English 2 Global Success", "Text-To-Speech 🔊", "Phonics & Rhymes", "Mock Semester Exam"],
+              learningGoal: "Phát triển phản xạ nghe - nói tiếng Anh cơ bản, ghi nhớ từ vựng qua âm thanh chuẩn bản xứ và tự tin giao tiếp qua các câu hỏi - đáp quen thuộc hàng ngày.",
+              features: [
+                "🔊 Phát âm chuẩn bản xứ Text-to-Speech từng từ",
+                "📚 5 Unit chủ điểm cốt lõi chuẩn GDPT 2018",
+                "🎯 Luyện tập phân hóa 4 cấp độ quốc tế",
+                "⏱️ Bài thi thử học kỳ 20 phút chấm điểm tự động"
+              ]
+            }
+          ]
+        },
+        {
+          id: "dao_duc",
+          name: "Đạo Đức & Kỹ Năng Sống",
+          icon: "❤️",
+          color: "#d97706",
+          hasApp: true,
+          badge: "✨ ĐÃ CÓ APP TƯƠNG TÁC",
+          desc: "Quý trọng thời gian, dũng cảm nhận lỗi & sửa lỗi, bảo quản đồ dùng, kính trọng thầy cô và bộ quy tắc 5 ngón tay phòng chống xâm hại.",
+          apps: [
+            {
+              id: "ethics_2",
+              title: "Đạo Đức & Kỹ Năng Sống Lớp 2",
+              subtitle: "Vườn ươm nhân cách, ứng xử văn minh & bộ quy tắc 5 ngón tay tự bảo vệ bản thân",
+              icon: "❤️",
+              url: "ethics-2.html",
+              cardTheme: "ethics-featured-card",
+              buttonSub: "Tình huống & Giá trị sống",
+              tags: ["Đạo Đức 2 GDPT 2018", "Quy Tắc 5 Ngón Tay", "Quý Trọng Thời Gian", "Dũng Cảm Nhận Lỗi"],
+              learningGoal: "Bồi dưỡng nhân cách trung thực, dũng cảm nhận lỗi, thói quen quý trọng thời gian, giữ gìn tài sản cá nhân và trang bị kỹ năng sinh tồn, tự bảo vệ trước nguy cơ bị xâm hại hoặc đi lạc.",
+              features: [
+                "⏳ Lập thời gian biểu & Không trì hoãn",
+                "🤝 Dũng cảm nhận lỗi & Nói lời xin lỗi chân thành",
+                "🖐️ Quy tắc 5 ngón tay phòng chống xâm hại",
+                "🚨 Nhớ 4 số điện thoại cứu hộ khẩn cấp 111-113-114-115"
+              ]
+            }
+          ]
+        }
       ]
     },
     3: {
@@ -50,7 +186,7 @@ window.PORTAL_DATA = {
     4: {
       title: "Lớp 4",
       level: "tieu_hoc",
-      desc: "Bước vào môn Lịch sử và Địa lý chính thức - Khám phá dải đất hình chữ S Việt Nam!",
+      desc: "Chương trình cốt lõi GDPT 2018 - Đầy đủ 7 môn học tích hợp các ứng dụng số hóa & thi đấu tương tác!",
       subjects: [
         {
           id: "lich_su_dia_ly",
@@ -92,10 +228,146 @@ window.PORTAL_DATA = {
             }
           ]
         },
-        { id: "tieng_viet", name: "Tiếng Việt", icon: "📖", color: "#ec4899", desc: "Kể chuyện lịch sử, miêu tả đồ vật, cây cối và loài vật." },
-        { id: "khoa_hoc", name: "Khoa Học", icon: "🔬", color: "#10b981", desc: "Nước, không khí, ánh sáng, nhiệt độ và sự sống của sinh vật." },
-        { id: "tin_hoc", name: "Tin Học", icon: "💻", color: "#06b6d4", desc: "Soạn thảo văn bản và tìm kiếm thông tin bổ ích trên Internet." },
-        { id: "tieng_anh", name: "Tiếng Anh", icon: "🌍", color: "#f59e0b", desc: "Luyện 4 kỹ năng Nghe - Nói - Đọc - Viết theo chuẩn tiểu học." }
+        {
+          id: "tieng_viet",
+          name: "Tiếng Việt",
+          icon: "📖",
+          color: "#db2777",
+          hasApp: true,
+          badge: "✨ ĐÃ CÓ APP TƯƠNG TÁC",
+          desc: "Danh từ, động từ, tính từ; biện pháp so sánh, nhân hóa; đọc hiểu văn bản & tập làm văn miêu tả.",
+          apps: [
+            {
+              id: "vietnamese_4",
+              title: "Đấu Trí Tiếng Việt Lớp 4",
+              subtitle: "Hành trình chinh phục ngôn từ, mẹo phân biệt từ loại & đề thi thử định kỳ",
+              icon: "📖",
+              url: "vietnamese-4.html",
+              cardTheme: "vietnamese-featured-card",
+              buttonSub: "5 Chủ đề & Thi thử định kỳ",
+              tags: ["Tiếng Việt 4 GDPT 2018", "Từ Loại Cốt Lõi", "Biện Pháp Tu Từ", "Phân Hóa 4 Mức Độ"],
+              learningGoal: "Làm chủ từ loại (Danh từ, Động từ, Tính từ), biện pháp nghệ thuật (So sánh, Nhân hóa), rèn luyện kỹ năng viết văn miêu tả và đọc hiểu cảm thụ văn học.",
+              features: [
+                "🔤 Nắm chắc Danh từ, Động từ, Tính từ",
+                "✨ Biện pháp tu từ So sánh & Nhân hóa",
+                "✍️ Rèn luyện mở bài & kết bài miêu tả",
+                "⏱️ Đề thi thử Tiếng Việt bấm giờ có chấm điểm"
+              ]
+            }
+          ]
+        },
+        {
+          id: "khoa_hoc",
+          name: "Khoa Học",
+          icon: "🔬",
+          color: "#059669",
+          hasApp: true,
+          badge: "✨ ĐÃ CÓ APP TƯƠNG TÁC",
+          desc: "Nước & không khí, năng lượng ánh sáng - âm thanh - nhiệt, thế giới thực vật & sức khỏe dinh dưỡng.",
+          apps: [
+            {
+              id: "science_4",
+              title: "Khám Phá Khoa Học Lớp 4",
+              subtitle: "Phòng thí nghiệm ảo, chuỗi thức ăn tự nhiên & đề thi thử chuẩn GDPT 2018",
+              icon: "🔬",
+              url: "science-4.html",
+              cardTheme: "science-featured-card",
+              buttonSub: "4 Chủ đề & Thí nghiệm",
+              tags: ["Khoa Học 4 GDPT 2018", "Nước & Không Khí", "Năng Lượng & Ánh Sáng", "Dinh Dưỡng Cân Bằng"],
+              learningGoal: "Hiểu sâu sắc tính chất của nước và không khí, 3 thể và vòng tuần hoàn, quy luật năng lượng, chuỗi thức ăn và kiến thức bảo vệ sức khỏe qua 4 nhóm dưỡng chất.",
+              features: [
+                "💧 Khám phá 3 thể & Vòng tuần hoàn của nước",
+                "⚡ Bí ẩn ánh sáng, âm thanh & dẫn nhiệt",
+                "🌱 Chuỗi thức ăn & Thế giới nấm tự nhiên",
+                "🥗 Tháp dinh dưỡng 4 nhóm chất khoa học"
+              ]
+            }
+          ]
+        },
+        {
+          id: "tin_hoc",
+          name: "Tin Học & Công Nghệ",
+          icon: "💻",
+          color: "#0891b2",
+          hasApp: true,
+          badge: "✨ ĐÃ CÓ APP TƯƠNG TÁC",
+          desc: "Gõ phím 10 ngón, soạn thảo Word, thiết kế trình chiếu PowerPoint, trồng hoa & lắp ghép mô hình.",
+          apps: [
+            {
+              id: "it_4",
+              title: "Hiệp Sĩ Tin Học & Sáng Tạo Công Nghệ",
+              subtitle: "Thực hành gõ 10 ngón, kỹ năng số an toàn, kỹ thuật trồng hoa & lắp ráp mô hình",
+              icon: "💻",
+              url: "it-4.html",
+              cardTheme: "it-featured-card",
+              buttonSub: "Kỹ năng số & Lắp ghép",
+              tags: ["Tin Học 4", "Công Nghệ 4", "Gõ 10 Ngón", "An Toàn Internet"],
+              learningGoal: "Trang bị kỹ năng số thực tiễn: định vị hàng phím cơ sở gõ 10 ngón, soạn thảo Telex chuẩn, kỹ năng an toàn mạng cùng kiến thức công nghệ trồng cây và an toàn điện gia đình.",
+              features: [
+                "⌨️ Quy tắc gõ 10 ngón hàng phím cơ sở",
+                "📑 Kỹ năng Word & PowerPoint trực quan",
+                "🌸 Quy trình trồng hoa & cây cảnh trong chậu",
+                "🔌 An toàn điện & Kỹ thuật lắp ghép mô hình"
+              ]
+            }
+          ]
+        },
+        {
+          id: "tieng_anh",
+          name: "Tiếng Anh (English)",
+          icon: "🌍",
+          color: "#6366f1",
+          hasApp: true,
+          badge: "🔊 CÓ PHÁT ÂM BẢN XỨ",
+          desc: "Luyện 4 kỹ năng theo khung Global Success, flashcards ngữ pháp và luyện phát âm chuẩn AI.",
+          apps: [
+            {
+              id: "english_4",
+              title: "English 4 Explorer",
+              subtitle: "Interactive Global Success Learning & Native English Voice Pronunciation",
+              icon: "🌍",
+              url: "english-4.html",
+              cardTheme: "english-featured-card",
+              buttonSub: "Vocabulary, Grammar & AI Audio",
+              tags: ["English 4 Global Success", "Text-To-Speech 🔊", "Grammar & Phonics", "Mock Semester Exam"],
+              learningGoal: "Phát triển toàn diện vốn từ vựng theo chủ điểm (Quốc gia, Thời gian, Môn học, Đồ ăn, Động vật, Thời tiết) và phản xạ giao tiếp tiếng Anh tự tin chuẩn bản xứ.",
+              features: [
+                "🔊 Phát âm chuẩn Text-to-Speech từng từ vựng",
+                "📚 Ôn tập ngữ pháp & Mẫu câu hỏi đáp",
+                "🎯 Luyện tập phân hóa 4 cấp độ quốc tế",
+                "⏱️ Bài thi thử học kỳ 20 phút chấm điểm tự động"
+              ]
+            }
+          ]
+        },
+        {
+          id: "dao_duc",
+          name: "Đạo Đức & Kỹ Năng Sống",
+          icon: "❤️",
+          color: "#d97706",
+          hasApp: true,
+          badge: "✨ ĐÃ CÓ APP TƯƠNG TÁC",
+          desc: "Biết ơn thầy cô, tôn trọng sự khác biệt, tự lập vượt khó, bảo vệ của công và kỹ năng phòng chống xâm hại.",
+          apps: [
+            {
+              id: "ethics_4",
+              title: "Đạo Đức & Kỹ Năng Sống Lớp 4",
+              subtitle: "Vườn ươm nhân cách, xử lý tình huống thực tế & bộ quy tắc 5 ngón tay an toàn",
+              icon: "❤️",
+              url: "ethics-4.html",
+              cardTheme: "ethics-featured-card",
+              buttonSub: "Tình huống & Giá trị sống",
+              tags: ["Đạo Đức 4 GDPT 2018", "Quy Tắc 5 Ngón Tay", "Kỹ Năng Sống", "Tự Lập Vượt Khó"],
+              learningGoal: "Bồi dưỡng nhân cách, lòng biết ơn, tinh thần tự lập vượt khó, ý thức bảo vệ tài sản công và trang bị kỹ năng sinh tồn, phòng chống bạo lực, xâm hại.",
+              features: [
+                "❤️ Bồi dưỡng lòng biết ơn & Tôn sư trọng đạo",
+                "🧗 Tinh thần tự lập & Ý chí vượt khó vươn lên",
+                "🖐️ Quy tắc 5 ngón tay phòng chống xâm hại",
+                "🔥 Kỹ năng thoát hiểm hỏa hoạn & An toàn sông nước"
+              ]
+            }
+          ]
+        }
       ]
     },
     5: {

@@ -8,6 +8,7 @@ class SoundEngine {
     this.ctx = null;
     this.enabled = true;
     this.initContext();
+    this.setupGestureUnlock();
   }
 
   initContext() {
@@ -18,8 +19,21 @@ class SoundEngine {
       }
     }
     if (this.ctx && this.ctx.state === 'suspended') {
-      this.ctx.resume();
+      this.ctx.resume().catch(() => {});
     }
+  }
+
+  // Tự động kích hoạt âm thanh ngay cú chạm đầu tiên trên màn hình mà không báo warning
+  setupGestureUnlock() {
+    const unlock = () => {
+      this.initContext();
+      window.removeEventListener('pointerdown', unlock);
+      window.removeEventListener('touchstart', unlock);
+      window.removeEventListener('keydown', unlock);
+    };
+    window.addEventListener('pointerdown', unlock, { passive: true });
+    window.addEventListener('touchstart', unlock, { passive: true });
+    window.addEventListener('keydown', unlock, { passive: true });
   }
 
   toggleSound() {
@@ -196,3 +210,26 @@ class SoundEngine {
 }
 
 window.soundEngine = new SoundEngine();
+
+// EduAudio Global Adapter for Subject Apps
+window.EduAudio = {
+  play: function(type) {
+    if (!window.soundEngine) return;
+    if (type === 'correct' || type === 'success') {
+      window.soundEngine.playSnap();
+    } else if (type === 'wrong' || type === 'error') {
+      window.soundEngine.playError();
+    } else if (type === 'fanfare' || type === 'complete') {
+      window.soundEngine.playVictoryFanfare();
+    } else if (type === 'level') {
+      window.soundEngine.playRegionComplete();
+    } else {
+      window.soundEngine.playPickup();
+    }
+  },
+  toggleMute: function() {
+    if (!window.soundEngine) return false;
+    const isMuted = !window.soundEngine.toggleSound();
+    return isMuted;
+  }
+};

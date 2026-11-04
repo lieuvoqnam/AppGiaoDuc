@@ -114,6 +114,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (btnLeaderboard) btnLeaderboard.addEventListener('click', openLeaderboard);
+    if (window.authManager && window.authManager.initProfileModal) {
+      window.authManager.initProfileModal({
+        onUpdate: (u) => {
+          if (userAvatarEl) userAvatarEl.textContent = u.avatar || '🎓';
+          if (userDisplayNameEl) userDisplayNameEl.textContent = u.fullName || u.username;
+          let classText = u.className || 'Học sinh';
+          if (u.schoolName && !classText.includes(u.schoolName)) {
+            classText = `${classText} • ${u.schoolName}`;
+          }
+          if (userDisplayClassEl) userDisplayClassEl.textContent = classText;
+        }
+      });
+    }
     if (leaderboardClose) leaderboardClose.addEventListener('click', () => leaderboardModal.classList.add('hidden'));
   }
 
@@ -596,7 +609,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateStats();
 
     if (window.authManager) {
-      window.authManager.updateProgress(state.score, state.streak, false);
+      window.authManager.updateProgress(state.score, state.streak, false, 'world_map');
     }
 
     checkCompletionCondition();
@@ -739,7 +752,7 @@ document.addEventListener('DOMContentLoaded', () => {
     victoryModal.classList.remove('hidden');
 
     if (window.authManager) {
-      window.authManager.updateProgress(state.score, state.maxStreak, true);
+      window.authManager.updateProgress(state.score, state.maxStreak, true, 'world_map');
     }
   }
 

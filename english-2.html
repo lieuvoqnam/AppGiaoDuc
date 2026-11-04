@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>English 2 Explorer - Đấu Trí & Phát Âm Tiếng Anh Lớp 2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="subject-style.css">
+</head>
+<body class="theme-english">
+
+  <!-- APP HEADER -->
+  <header id="app-header">
+    <div class="header-left">
+      <a href="index.html" class="btn-back-hub" title="Quay lại Cổng Học Tập Lớp 1 - 12">
+        <span>⬅</span> Cổng Học Tập
+      </a>
+      <div class="app-branding">
+        <span class="app-logo-icon">🌍</span>
+        <div class="app-titles">
+          <h1>English 2 Explorer</h1>
+          <span>Chương trình GDPT 2018 • Global Success, Family and Friends & Phát âm chuẩn AI</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-right">
+      <div class="user-profile-badge">
+        <div id="user-avatar" class="u-avatar">🎓</div>
+        <div class="u-meta">
+          <span id="user-display-name" class="u-name">Học sinh</span>
+          <span id="user-display-class" class="u-class">Lớp 2</span>
+        </div>
+      </div>
+
+      <button id="btn-leaderboard" class="icon-btn" title="Bảng Vàng Thành Tích">🏆</button>
+      <button id="btn-logout" class="icon-btn" title="Đổi tài khoản">🚪</button>
+      <button id="btn-toggle-sound" class="icon-btn" title="Bật/Tắt âm thanh">🔊</button>
+      <button id="btn-fullscreen" class="icon-btn" title="Toàn màn hình">⛶</button>
+    </div>
+  </header>
+
+  <!-- NAVIGATION CONTROL BAR -->
+  <nav id="nav-bar">
+    <div class="mode-tabs">
+      <button class="mode-tab-btn" data-mode="theory">
+        <span>📖</span> Flashcards & Grammar
+      </button>
+      <button class="mode-tab-btn active" data-mode="practice">
+        <span>🎯</span> Practice Exercises
+      </button>
+      <button class="mode-tab-btn" data-mode="exam">
+        <span>⏱️</span> Semester Mock Exam
+      </button>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTAINER -->
+  <main id="main-container">
+    <!-- TOPIC SELECTOR -->
+    <div id="topic-bar-wrapper">
+      <div id="topic-pills" class="topic-pills-bar">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+
+    <!-- 1. THEORY VIEW -->
+    <section id="theory-view" class="hidden">
+      <div class="theory-header-card">
+        <div id="theory-header-icon" class="theory-header-icon">🎒</div>
+        <div class="theory-header-info">
+          <h2 id="theory-header-title">Unit 1: Numbers & School Things</h2>
+          <p id="theory-header-desc">Listen to native English pronunciation and learn essential vocabulary & sentence patterns.</p>
+        </div>
+      </div>
+
+      <div id="theory-grid" class="theory-grid">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+
+    <!-- 2. PRACTICE VIEW -->
+    <section id="practice-view">
+      <div class="practice-filter-bar">
+        <div id="level-filters" class="level-filters">
+          <span class="level-filter-label">Level Filter:</span>
+          <button class="level-btn active" data-lvl="all">All Levels</button>
+          <button class="level-btn" data-lvl="1">Level 1: Recognize</button>
+          <button class="level-btn" data-lvl="2">Level 2: Understand</button>
+          <button class="level-btn" data-lvl="3">Level 3: Apply</button>
+          <button class="level-btn" data-lvl="4">Level 4: Master</button>
+        </div>
+        <div class="practice-actions">
+          <span class="lock-hint-tag">🔒 Lời giải chi tiết chỉ mở sau khi Nộp bài</span>
+          <button id="btn-reroll-practice" class="btn-reroll" title="Shuffle questions and options">
+            <span>🎲</span> Shuffle Practice
+          </button>
+        </div>
+      </div>
+
+      <div id="practice-questions-list" class="questions-list">
+        <!-- Rendered by JS -->
+      </div>
+
+      <button id="btn-submit-practice" class="btn-submit-exam">
+        📝 Submit Practice & Check Score
+      </button>
+    </section>
+
+    <!-- 3. MOCK EXAM VIEW -->
+    <section id="exam-view" class="hidden">
+      <div class="exam-banner-card">
+        <div class="exam-banner-info">
+          <h2>⏱️ English 2 Semester Mock Test</h2>
+          <p>Time Limit: 20 minutes • 10 questions covering vocabulary, listening recognition, grammar & daily conversation</p>
+        </div>
+        <div class="exam-actions-group">
+          <button id="btn-reroll-exam" class="btn-reroll-exam" title="Generate brand new exam">
+            <span>🎲</span> New Exam Paper
+          </button>
+          <div class="exam-timer-box">
+            <span style="font-size:1.4rem;">⏳</span>
+            <span id="exam-timer" class="exam-timer-val">20:00</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="exam-questions-list" class="questions-list">
+        <!-- Rendered by JS -->
+      </div>
+
+      <button id="btn-submit-exam" class="btn-submit-exam">
+        📝 Submit Test & Check Score
+      </button>
+    </section>
+  </main>
+
+  <!-- SCORE MODAL -->
+  <div id="score-modal" class="modal-overlay hidden">
+    <div class="score-modal-card">
+      <div class="score-trophy">🏆</div>
+      <h3 id="modal-score-title" class="score-title">Your Test Result</h3>
+      <div id="modal-score-val" class="score-val-big">10.0 / 10.0</div>
+      <div>
+        <span id="modal-score-tag" class="score-badge-tag perfect">Outstanding! 🌟</span>
+      </div>
+      <p id="modal-score-msg" style="font-size:1.1rem; color:#475569; margin-bottom:20px;">
+        Awesome job! You have mastered English 2 topics!
+      </p>
+
+      <div class="modal-btn-row">
+        <button id="btn-close-modal" class="btn-secondary">📖 View Step-by-Step Solutions</button>
+        <button id="btn-retry-exam" class="btn-primary">Try New Exam 🎲</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="auth.js"></script>
+  <script src="audio.js"></script>
+  <script src="confetti.js"></script>
+  <script src="english-2-data.js"></script>
+  <script src="subject-engine.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      window.english2Engine = window.SubjectEngine.createEngine({
+        data: window.ENGLISH2_DATA,
+        lang: 'en-US',
+        isLanguageSubject: true
+      });
+      window.english2Engine.init();
+    });
+  </script>
+</body>
+</html>

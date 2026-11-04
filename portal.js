@@ -24,6 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const gradeDescEl = document.getElementById('grade-desc');
   const subjectsGrid = document.getElementById('subjects-grid');
   const appShowcaseArea = document.getElementById('app-showcase-area');
+  const subjectsCountBadge = document.getElementById('subjects-count-badge');
+  const subjectDetailHeader = document.getElementById('subject-detail-header');
   const searchInput = document.getElementById('portal-search-input');
 
   // Auth & Header DOM
@@ -106,7 +108,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!user) return;
     if (userAvatarEl) userAvatarEl.textContent = user.avatar || '🎓';
     if (userDisplayNameEl) userDisplayNameEl.textContent = user.fullName || user.username;
-    if (userDisplayClassEl) userDisplayClassEl.textContent = user.className || 'Học sinh';
+    let classText = user.className || 'Học sinh';
+    if (user.schoolName && !classText.includes(user.schoolName)) {
+      classText = `${classText} • ${user.schoolName}`;
+    }
+    if (userDisplayClassEl) userDisplayClassEl.textContent = classText;
   }
 
   function setupAuthHandlers() {
@@ -287,7 +293,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (btnLeaderboard) btnLeaderboard.addEventListener('click', openLeaderboardModal);
-    if (userInfoBtn) userInfoBtn.addEventListener('click', openLeaderboardModal);
+    // userInfoBtn opens profile modal via authManager.initProfileModal
     if (leaderboardClose) leaderboardClose.addEventListener('click', () => leaderboardModal.classList.add('hidden'));
 
     window.addEventListener('click', (e) => {
@@ -457,48 +463,85 @@ document.addEventListener('DOMContentLoaded', () => {
     renderAppShowcase(gradeData);
   }
 
-  // --- RENDER SUBJECTS GRID ---
+  // --- RENDER SUBJECTS (CỘT BÊN TRÁI: THƯ MỤC CÁC MÔN HỌC) ---
   function renderSubjects(subjects) {
     if (!subjectsGrid) return;
     subjectsGrid.innerHTML = '';
 
+    if (subjectsCountBadge) {
+      subjectsCountBadge.textContent = `${subjects.length} môn`;
+    }
+
+    if (!subjects || subjects.length === 0) {
+      subjectsGrid.innerHTML = `
+        <div class="sidebar-empty-box">
+          <span style="font-size:1.8rem;">🔍</span>
+          <p style="font-size:0.85rem; color:#64748b; margin-top:6px; font-weight:700;">Không tìm thấy môn học phù hợp.</p>
+        </div>
+      `;
+      if (subjectDetailHeader) {
+        subjectDetailHeader.innerHTML = `
+          <div style="padding:16px; color:#64748b; font-weight:700;">Không có kết quả môn học phù hợp.</div>
+        `;
+      }
+      if (appShowcaseArea) appShowcaseArea.innerHTML = '';
+      return;
+    }
+
+    // Ensure selectedSubjectId is in current subjects list
+    if (!subjects.some(s => s.id === state.selectedSubjectId)) {
+      state.selectedSubjectId = subjects[0].id;
+    }
+
     subjects.forEach(sub => {
       const isSelected = sub.id === state.selectedSubjectId;
       const card = document.createElement('div');
-      card.className = `subject-card ${isSelected ? 'selected' : ''} ${sub.hasApp ? 'has-interactive-app' : ''}`;
+      card.className = `subject-sidebar-item ${isSelected ? 'selected' : ''} ${sub.hasApp ? 'has-interactive-app' : ''}`;
       card.dataset.id = sub.id;
 
       let badgeHtml = '';
       if (sub.hasApp) {
-        badgeHtml = `<span class="subject-app-badge">${sub.badge}</span>`;
+        badgeHtml = `<span class="sub-item-badge app-badge">⭐ Có App</span>`;
+      } else {
+        badgeHtml = `<span class="sub-item-badge normal-badge">GDPT 2018</span>`;
       }
 
       card.innerHTML = `
-        <div class="subject-top">
-          <div class="subject-icon-box" style="background:${sub.color}20; color:${sub.color};">
-            ${sub.icon}
-          </div>
-          ${badgeHtml}
+        <div class="sub-item-icon-box" style="background:${sub.color}18; color:${sub.color}; border: 1.5px solid ${sub.color}40;">
+          ${sub.icon}
         </div>
-        <h3 class="subject-name">${sub.name}</h3>
-        <p class="subject-desc">${sub.desc}</p>
-        <div class="subject-action">
-          <span>${sub.hasApp ? 'Khám phá ứng dụng ➔' : 'Xem nội dung'}</span>
+        <div class="sub-item-content">
+          <div class="sub-item-title-row">
+            <h4 class="sub-item-name">${sub.name}</h4>
+            ${badgeHtml}
+          </div>
+          <p class="sub-item-desc">${sub.desc}</p>
+        </div>
+        <div class="sub-item-arrow-wrap">
+          <span class="sub-item-arrow">›</span>
         </div>
       `;
 
       card.addEventListener('click', () => {
         state.selectedSubjectId = sub.id;
-        document.querySelectorAll('.subject-card').forEach(c => c.classList.remove('selected'));
+        document.querySelectorAll('.subject-sidebar-item').forEach(c => c.classList.remove('selected'));
         card.classList.add('selected');
         renderAppShowcase(window.PORTAL_DATA.grades[state.currentGrade]);
+
+        // Smooth scroll to detail column on mobile/tablet
+        if (window.innerWidth <= 960) {
+          const detailCol = document.getElementById('subject-detail-column');
+          if (detailCol) {
+            detailCol.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
       });
 
       subjectsGrid.appendChild(card);
     });
   }
 
-  // --- RENDER APP SHOWCASE AREA ---
+  // --- RENDER APP SHOWCASE AREA (CỘT BÊN PHẢI: CHI TIẾT & HỌC LIỆU MÔN HỌC) ---
   function renderAppShowcase(gradeData) {
     if (!appShowcaseArea) return;
     appShowcaseArea.innerHTML = '';
@@ -506,13 +549,34 @@ document.addEventListener('DOMContentLoaded', () => {
     const subject = gradeData.subjects.find(s => s.id === state.selectedSubjectId);
     if (!subject) return;
 
-    // If subject has interactive apps (e.g. Lịch sử và Địa lý -> Game Bản Đồ Việt Nam & Thế Giới)
+    // Render Right Column Header Card
+    if (subjectDetailHeader) {
+      subjectDetailHeader.innerHTML = `
+        <div class="sdh-left">
+          <div class="sdh-icon-box" style="background:${subject.color}20; color:${subject.color}; border: 2px solid ${subject.color}45;">
+            ${subject.icon}
+          </div>
+          <div class="sdh-text-wrap">
+            <div class="sdh-meta-tags">
+              <span class="sdh-grade-pill">${gradeData.title}</span>
+              ${subject.hasApp ? `<span class="sdh-status-pill app-available">🎮 Đã Có Ứng Dụng Tương Tác</span>` : `<span class="sdh-status-pill in-progress">📖 Khung Kiến Thức GDPT 2018</span>`}
+            </div>
+            <h2 class="sdh-subject-name">${subject.name}</h2>
+          </div>
+        </div>
+        <div class="sdh-desc-wrap">
+          <p class="sdh-desc-text">🎯 <strong>Trọng tâm môn học:</strong> ${subject.desc}</p>
+        </div>
+      `;
+    }
+
+    // If subject has interactive apps (e.g. Lịch sử và Địa lý, Toán, Tiếng Việt, Khoa học...)
     if (subject.apps && subject.apps.length > 0) {
       subject.apps.forEach(app => {
         const isWorld = app.id === 'world_map_puzzle';
         const isMath = app.id === 'math_4_review';
         const isVnMap = app.id === 'vn_map_puzzle';
-        const cardTheme = isWorld ? 'world-featured-card' : (isMath ? 'math-featured-card' : 'featured-game-card');
+        const cardTheme = app.cardTheme || (isWorld ? 'world-featured-card' : (isMath ? 'math-featured-card' : 'featured-game-card'));
         const showcaseCard = document.createElement('div');
         showcaseCard.className = `app-showcase-card ${cardTheme}`;
 
@@ -588,8 +652,8 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="placeholder-icon">${subject.icon}</div>
           <h3>${subject.name} - ${gradeData.title}</h3>
           <p>${subject.desc}</p>
-          <div class="placeholder-status-pill">🛠️ Đang cập nhật thêm bài học & ứng dụng tương tác</div>
-          <p class="placeholder-tip">💡 Mời bạn bấm sang môn <strong>🇻🇳 Lịch Sử và Địa Lý Lớp 4</strong> (Bản Đồ Việt Nam) hoặc <strong>Lớp 7</strong> (Bản Đồ Thế Giới) để trải nghiệm game học tập tương tác!</p>
+          <div class="placeholder-status-pill">🛠️ Đang cập nhật thêm bài học & ứng dụng tương tác số hóa</div>
+          <p class="placeholder-tip">💡 Mời bạn bấm sang các môn đã có ứng dụng tương tác như <strong>🇻🇳 Lịch Sử và Địa Lý Lớp 4</strong> (Bản Đồ Việt Nam), <strong>Toán Học</strong> hoặc <strong>Lớp 7</strong> (Bản Đồ Thế Giới) để trải nghiệm trò chơi học tập!</p>
         </div>
       `;
       appShowcaseArea.appendChild(placeholderCard);
@@ -616,6 +680,9 @@ document.addEventListener('DOMContentLoaded', () => {
       );
 
       renderSubjects(filtered);
+      if (filtered.length > 0) {
+        renderAppShowcase(window.PORTAL_DATA.grades[state.currentGrade]);
+      }
     });
   }
 

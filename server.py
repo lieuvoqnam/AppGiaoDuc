@@ -25,6 +25,13 @@ def get_local_ip():
     return ip
 
 class UTF8HTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
+    extensions_map = {
+        **http.server.SimpleHTTPRequestHandler.extensions_map,
+        '.js': 'application/javascript; charset=utf-8',
+        '.css': 'text/css; charset=utf-8',
+        '.svg': 'image/svg+xml; charset=utf-8',
+        '.html': 'text/html; charset=utf-8',
+    }
     def end_headers(self):
         self.send_header('Access-Control-Allow-Origin', '*')
         self.send_header('Cache-Control', 'no-cache, no-store, must-revalidate')
@@ -35,11 +42,13 @@ def main():
     local_ip = get_local_ip()
     handler = UTF8HTTPRequestHandler
     
+    socketserver.TCPServer.allow_reuse_address = True
     with socketserver.TCPServer(("", PORT), handler) as httpd:
         local_url = f"http://localhost:{PORT}/index.html"
         wifi_url = f"http://{local_ip}:{PORT}/index.html"
         game_url = f"http://localhost:{PORT}/game.html"
         world_url = f"http://localhost:{PORT}/world-game.html"
+        math_url = f"http://localhost:{PORT}/math-4.html"
         
         print("=" * 70)
         print("  🎓 CỔNG HỌC LIỆU SỐ TƯƠNG TÁC LỚP 1 - 12 (VIỆT NAM & THẾ GIỚI) 🎓")
