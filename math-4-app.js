@@ -53,8 +53,10 @@
 
   // User Profile
   function initUserWidget() {
-    if (!window.EduAuth) return;
-    const user = window.EduAuth.getCurrentUser();
+    const auth = window.authManager || window.EduAuth;
+    if (!auth) return;
+    const user = (window.authManager && window.authManager.currentUser) ||
+                 (auth.getCurrentUser ? auth.getCurrentUser() : null);
     const avatarEl = document.getElementById('user-avatar');
     const nameEl = document.getElementById('user-display-name');
     const classEl = document.getElementById('user-display-class');
@@ -69,7 +71,12 @@
     if (btnLogout) {
       btnLogout.addEventListener('click', () => {
         if (confirm('Bạn có muốn đổi tài khoản học sinh khác không?')) {
-          window.EduAuth.openLoginModal(() => initUserWidget());
+          if (window.authManager && typeof window.authManager.logout === 'function') {
+            window.authManager.logout();
+            window.location.reload();
+          } else if (auth.openLoginModal) {
+            auth.openLoginModal(() => initUserWidget());
+          }
         }
       });
     }
@@ -84,7 +91,10 @@
     const btnSound = document.getElementById('btn-toggle-sound');
     if (btnSound) {
       btnSound.addEventListener('click', () => {
-        if (window.EduAudio) {
+        if (window.soundEngine && typeof window.soundEngine.toggleSound === 'function') {
+          const isMuted = !window.soundEngine.toggleSound();
+          btnSound.textContent = isMuted ? '🔇' : '🔊';
+        } else if (window.EduAudio) {
           const isMuted = window.EduAudio.toggleMute();
           btnSound.textContent = isMuted ? '🔇' : '🔊';
         }

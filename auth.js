@@ -268,7 +268,7 @@ class AuthManager {
   }
 
   // Cập nhật điểm và thành tích của học sinh hiện tại (Đồng bộ real-time lên Cloud)
-  updateProgress(score, streak, isFullCompleted = false) {
+  updateProgress(score, streak = 0, isFullCompleted = false, appKey = 'vn_map', extraData = {}) {
     if (!this.currentUser) return;
 
     const uName = this.currentUser.username;
@@ -276,6 +276,32 @@ class AuthManager {
     const user = users[uName] || this.currentUser;
 
     user.gamesPlayed = (user.gamesPlayed || 0) + 1;
+
+    // Phân mục điểm riêng biệt cho từng App (Bản đồ VN, Bản đồ Thế giới, Toán Lớp 4)
+    user.scores = user.scores || {};
+    user.scores[appKey] = user.scores[appKey] || {
+      highScore: 0,
+      maxStreak: 0,
+      totalCompleted: 0,
+      gamesPlayed: 0
+    };
+
+    const appScore = user.scores[appKey];
+    appScore.gamesPlayed = (appScore.gamesPlayed || 0) + 1;
+    if (score > (appScore.highScore || 0)) {
+      appScore.highScore = score;
+    }
+    if (streak > (appScore.maxStreak || 0)) {
+      appScore.maxStreak = streak;
+    }
+    if (isFullCompleted) {
+      appScore.totalCompleted = (appScore.totalCompleted || 0) + 1;
+    }
+    if (extraData && typeof extraData === 'object') {
+      Object.assign(appScore, extraData);
+    }
+
+    // Giữ trường highScore tổng thể để tương thích ngược với Leaderboard
     if (score > (user.highScore || 0)) {
       user.highScore = score;
     }
@@ -286,7 +312,7 @@ class AuthManager {
       user.totalCompleted = (user.totalCompleted || 0) + 1;
     }
 
-    // Cập nhật huy hiệu đạt được
+    // Cập nhật huy hiệu đạt được theo từng phân hệ
     user.badges = user.badges || ['🌱 Nhà Thám Hiểm Mới'];
     if (user.highScore >= 1000 && !user.badges.includes('⭐ Thợ Ghép Điêu Luyện')) {
       user.badges.push('⭐ Thợ Ghép Điêu Luyện');
@@ -294,11 +320,14 @@ class AuthManager {
     if (user.maxStreak >= 10 && !user.badges.includes('🔥 Chiến Thần Combo')) {
       user.badges.push('🔥 Chiến Thần Combo');
     }
-    if (user.totalCompleted >= 1 && !user.badges.includes('👑 Bậc Thầy Bản Đồ Việt Nam')) {
+    if (appKey === 'vn_map' && isFullCompleted && !user.badges.includes('👑 Bậc Thầy Bản Đồ Việt Nam')) {
       user.badges.push('👑 Bậc Thầy Bản Đồ Việt Nam');
     }
-    if (user.totalCompleted >= 5 && !user.badges.includes('🏆 Đại Sứ Địa Lý')) {
-      user.badges.push('🏆 Đại Sứ Địa Lý');
+    if (appKey === 'world_map' && isFullCompleted && !user.badges.includes('🌍 Nhà Thám Hiểm Năm Châu')) {
+      user.badges.push('🌍 Nhà Thám Hiểm Năm Châu');
+    }
+    if (appKey === 'math_4' && score >= 900 && !user.badges.includes('🧮 Trạng Nguyên Toán Học')) {
+      user.badges.push('🧮 Trạng Nguyên Toán Học');
     }
 
     user.updatedAt = new Date().toISOString();
@@ -311,7 +340,7 @@ class AuthManager {
     // Tự động đẩy lên Firebase Firestore
     if (this.isCloudActive()) {
       window.firebaseDB.collection('users').doc(uName).set(user, { merge: true })
-        .then(() => console.log("☁️ [Firebase] Đã đồng bộ điểm số lên Đám mây!"))
+        .then(() => console.log(`☁️ [Firebase] Đã đồng bộ điểm số [${appKey}] lên Đám mây!`))
         .catch(err => console.warn("Lỗi lưu điểm lên Firebase:", err));
     }
   }
@@ -536,7 +565,7 @@ class AuthManager {
       }
 
       const newHash = await this.hashPassword(newPassword);
-      user.password = newPassword.trim();
+      delete user.password;
       user.passwordHash = newHash;
       passwordChanged = true;
     }
@@ -569,12 +598,22 @@ class AuthManager {
 
     return { user, passwordChanged };
   }
+  // Hiển thị Avatar linh hoạt: hỗ trợ cả Emoji lẫn Ảnh tải lên (Data URL / Image URL)
+  renderAvatar(container, avatar) {
+    if (!container) return;
+    const avt = avatar || '🎓';
+    if (typeof avt === 'string' && (avt.startsWith('data:image') || avt.startsWith('http') || avt.startsWith('blob:'))) {
+      container.innerHTML = `<img src="${avt}" alt="Avatar" style="width:100%; height:100%; object-fit:cover; border-radius:inherit; display:block;">`;
+    } else {
+      container.textContent = avt;
+    }
+  }
+
   // Khởi tạo và kích hoạt giao diện Modal "Thông Tin Cá Nhân & Đổi Mật Khẩu"
   initProfileModal(options = {}) {
     const modal = document.getElementById('profile-modal');
     if (!modal) return null;
 
-    const userInfoBtn = document.getElementById('user-info-btn');
     const closeBtn = document.getElementById('profile-close');
     const cancelBtn = document.getElementById('btn-cancel-profile');
     const saveBtn = document.getElementById('btn-save-profile');
@@ -615,11 +654,33 @@ class AuthManager {
     };
 
     const openModal = () => {
-      if (!this.currentUser) return;
+      // 1. Phục hồi phiên nếu currentUser bị mất trong RAM
+      if (!this.currentUser) {
+        const saved = localStorage.getItem(this.STORAGE_KEY_CURRENT);
+        if (saved) {
+          try {
+            const parsed = JSON.parse(saved);
+            const u = this.getUser(parsed.username);
+            if (u) this.currentUser = u;
+          } catch (e) {}
+        }
+      }
+
+      // 2. Nếu vẫn chưa có tài khoản đăng nhập -> Mở khung Đăng Nhập
+      if (!this.currentUser) {
+        const authModal = document.getElementById('auth-modal');
+        if (authModal) {
+          authModal.classList.remove('hidden');
+        } else {
+          alert('Vui lòng đăng nhập để xem thông tin cá nhân!');
+        }
+        return;
+      }
+
       const u = this.currentUser;
       selectedAvatar = u.avatar || '🎓';
 
-      if (bannerAvatar) bannerAvatar.textContent = selectedAvatar;
+      if (bannerAvatar) this.renderAvatar(bannerAvatar, selectedAvatar);
       if (bannerName) bannerName.textContent = u.fullName || u.username;
       
       let schoolClassDisplay = u.className || 'Học sinh';
@@ -633,7 +694,14 @@ class AuthManager {
       if (inputSchool) inputSchool.value = u.schoolName || '';
       if (inputClass) inputClass.value = u.className || '';
 
-      // Set active avatar in grid
+      // Tự động phân tách nếu trường học trước đó gộp trong className
+      if (!u.schoolName && u.className && u.className.includes(' - ')) {
+        const parts = u.className.split(' - ');
+        if (inputClass) inputClass.value = parts[0].trim();
+        if (inputSchool) inputSchool.value = parts[1].trim();
+      }
+
+      // Đánh dấu avatar đang chọn
       if (avatarGrid) {
         avatarGrid.querySelectorAll('.profile-avt-btn').forEach(btn => {
           if (btn.dataset.avatar === selectedAvatar) {
@@ -644,12 +712,12 @@ class AuthManager {
         });
       }
 
-      // Stats
+      // Thành tích học sinh
       if (statScore) statScore.textContent = (u.highScore || 0).toLocaleString();
       if (statStreak) statStreak.textContent = `x${u.maxStreak || 0}`;
       if (statCompleted) statCompleted.textContent = `${u.totalCompleted || 0} lần`;
 
-      // Badges
+      // Danh sách huy hiệu
       if (badgesContainer) {
         badgesContainer.innerHTML = '';
         const badges = u.badges || ['🌱 Nhà Thám Hiểm Mới'];
@@ -661,7 +729,7 @@ class AuthManager {
         });
       }
 
-      // Reset password fields
+      // Reset các ô nhập mật khẩu
       if (inputCurrentPass) inputCurrentPass.value = '';
       if (inputNewPass) inputNewPass.value = '';
       if (inputConfirmPass) inputConfirmPass.value = '';
@@ -675,26 +743,66 @@ class AuthManager {
       hideMsg();
     };
 
-    // Close events
+    // Đóng modal
     if (closeBtn) closeBtn.onclick = closeModal;
     if (cancelBtn) cancelBtn.onclick = closeModal;
     window.addEventListener('click', (e) => {
       if (e.target === modal) closeModal();
     });
 
-    // Avatar selector
+    // Tải ảnh đại diện cá nhân từ máy tính / điện thoại
+    const uploadInput = document.getElementById('profile-avatar-upload-input');
+    if (uploadInput) {
+      uploadInput.onchange = (e) => {
+        const file = e.target.files && e.target.files[0];
+        if (!file) return;
+        if (!file.type.startsWith('image/')) {
+          showMsg('Vui lòng chọn tệp hình ảnh hợp lệ (PNG, JPG, WebP)!', 'error');
+          return;
+        }
+        const reader = new FileReader();
+        reader.onload = (readerEvent) => {
+          const img = new Image();
+          img.onload = () => {
+            // Tối ưu ảnh vuông 120x120 để lưu trữ nhẹ nhàng và hiển thị đẹp
+            const canvas = document.createElement('canvas');
+            canvas.width = 120;
+            canvas.height = 120;
+            const ctx = canvas.getContext('2d');
+            const minSide = Math.min(img.width, img.height);
+            const sx = (img.width - minSide) / 2;
+            const sy = (img.height - minSide) / 2;
+            ctx.drawImage(img, sx, sy, minSide, minSide, 0, 0, 120, 120);
+
+            selectedAvatar = canvas.toDataURL('image/jpeg', 0.85);
+
+            if (avatarGrid) {
+              avatarGrid.querySelectorAll('.profile-avt-btn').forEach(b => b.classList.remove('active'));
+            }
+            if (bannerAvatar) {
+              this.renderAvatar(bannerAvatar, selectedAvatar);
+            }
+            showMsg('🎉 Đã chọn ảnh từ máy! Bạn nhớ bấm nút "Lưu Thay Đổi" phía dưới nhé.', 'success');
+          };
+          img.src = readerEvent.target.result;
+        };
+        reader.readAsDataURL(file);
+      };
+    }
+
+    // Chọn avatar
     if (avatarGrid) {
       avatarGrid.querySelectorAll('.profile-avt-btn').forEach(btn => {
         btn.onclick = () => {
           avatarGrid.querySelectorAll('.profile-avt-btn').forEach(b => b.classList.remove('active'));
           btn.classList.add('active');
           selectedAvatar = btn.dataset.avatar;
-          if (bannerAvatar) bannerAvatar.textContent = selectedAvatar;
+          if (bannerAvatar) this.renderAvatar(bannerAvatar, selectedAvatar);
         };
       });
     }
 
-    // Toggle password visibility
+    // Nút ẩn/hiện mật khẩu
     modal.querySelectorAll('.btn-toggle-eye').forEach(btn => {
       btn.onclick = () => {
         const targetId = btn.dataset.target;
@@ -711,7 +819,7 @@ class AuthManager {
       };
     });
 
-    // Save profile handler
+    // Lưu thông tin cá nhân
     const handleSave = async () => {
       if (!this.currentUser) return;
 
@@ -761,8 +869,8 @@ class AuthManager {
           newPassword
         });
 
-        // Update banner in modal
-        if (bannerAvatar) bannerAvatar.textContent = updatedUser.avatar || '🎓';
+        // Cập nhật banner trong modal
+        if (bannerAvatar) this.renderAvatar(bannerAvatar, updatedUser.avatar || '🎓');
         if (bannerName) bannerName.textContent = updatedUser.fullName;
         let schoolClassDisplay = updatedUser.className || 'Học sinh';
         if (updatedUser.schoolName) {
@@ -770,7 +878,7 @@ class AuthManager {
         }
         if (bannerSchoolClass) bannerSchoolClass.textContent = schoolClassDisplay;
 
-        // Reset password fields
+        // Reset mật khẩu
         if (inputCurrentPass) inputCurrentPass.value = '';
         if (inputNewPass) inputNewPass.value = '';
         if (inputConfirmPass) inputConfirmPass.value = '';
@@ -808,16 +916,18 @@ class AuthManager {
 
     if (saveBtn) saveBtn.onclick = handleSave;
 
-    // Bind userInfoBtn click to openModal (prevent leaderboard open)
-    if (userInfoBtn) {
-      userInfoBtn.onclick = (e) => {
+    // Gắn sự kiện click mở modal cho tất cả nút user badge trên trang
+    const userButtons = document.querySelectorAll('#user-info-btn, .user-badge-btn');
+    userButtons.forEach(btn => {
+      btn.style.cursor = 'pointer';
+      btn.onclick = (e) => {
         if (e) {
           e.preventDefault();
           e.stopPropagation();
         }
         openModal();
       };
-    }
+    });
 
     return { openModal, closeModal };
   }
@@ -858,3 +968,17 @@ window.EduAuth = {
     }
   }
 };
+
+// Tự động kích hoạt Profile Modal trên bất kỳ trang nào có #profile-modal
+if (typeof window !== 'undefined') {
+  const autoSetupProfile = () => {
+    if (window.authManager && typeof window.authManager.initProfileModal === 'function') {
+      window.authManager.initProfileModal();
+    }
+  };
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', autoSetupProfile);
+  } else {
+    autoSetupProfile();
+  }
+}

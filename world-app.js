@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function setupAuthUI() {
     if (window.authManager && window.authManager.isLoggedIn()) {
       const user = window.authManager.currentUser;
-      if (userAvatarEl) userAvatarEl.textContent = user.avatar || '🎓';
+      if (userAvatarEl) { if (window.authManager && window.authManager.renderAvatar) window.authManager.renderAvatar(userAvatarEl, user.avatar); else userAvatarEl.textContent = user.avatar || '🎓'; }
       if (userDisplayNameEl) userDisplayNameEl.textContent = user.fullName || user.username;
       if (userDisplayClassEl) userDisplayClassEl.textContent = user.className || 'Học sinh';
     }
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.authManager && window.authManager.initProfileModal) {
       window.authManager.initProfileModal({
         onUpdate: (u) => {
-          if (userAvatarEl) userAvatarEl.textContent = u.avatar || '🎓';
+          if (userAvatarEl) { if (window.authManager && window.authManager.renderAvatar) window.authManager.renderAvatar(userAvatarEl, u.avatar); else userAvatarEl.textContent = u.avatar || '🎓'; }
           if (userDisplayNameEl) userDisplayNameEl.textContent = u.fullName || u.username;
           let classText = u.className || 'Học sinh';
           if (u.schoolName && !classText.includes(u.schoolName)) {

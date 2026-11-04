@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateUserProfileUI(user) {
     if (!user) return;
-    if (userAvatarEl) userAvatarEl.textContent = user.avatar || '🎓';
+    if (userAvatarEl) { if (window.authManager && window.authManager.renderAvatar) window.authManager.renderAvatar(userAvatarEl, user.avatar); else userAvatarEl.textContent = user.avatar || '🎓'; }
     if (userDisplayNameEl) userDisplayNameEl.textContent = user.fullName || user.username;
     let classText = user.className || 'Học sinh';
     if (user.schoolName && !classText.includes(user.schoolName)) {
@@ -370,8 +370,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Leaderboard Modal Open
     btnLeaderboard.addEventListener('click', openLeaderboardModal);
-    // userInfoBtn opens profile modal via authManager.initProfileModal
     leaderboardClose.addEventListener('click', () => leaderboardModal.classList.add('hidden'));
+
+    // User Profile Modal Open
+    if (window.authManager && typeof window.authManager.initProfileModal === 'function') {
+      const profileCtrl = window.authManager.initProfileModal({
+        onUpdate: (user) => updateUserProfileUI(user)
+      });
+      if (userInfoBtn && profileCtrl) {
+        userInfoBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          profileCtrl.openModal();
+        });
+      }
+    }
   }
 
   function showAuthTab(tab) {
@@ -1483,7 +1496,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function triggerVictoryModal(isQuiz) {
     if (window.authManager) {
-      window.authManager.updateProgress(state.score, state.streak, true);
+      window.authManager.updateProgress(state.score, state.streak, true, 'vn_map');
     }
     victoryTitle.textContent = `ĐỈNH CAO ĐỊA LÝ! 👑`;
     const totalCount = getProvincesList().length;

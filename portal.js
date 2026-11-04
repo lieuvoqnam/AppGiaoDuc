@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateUserProfileUI(user) {
     if (!user) return;
-    if (userAvatarEl) userAvatarEl.textContent = user.avatar || '🎓';
+    if (userAvatarEl) { if (window.authManager && window.authManager.renderAvatar) window.authManager.renderAvatar(userAvatarEl, user.avatar); else userAvatarEl.textContent = user.avatar || '🎓'; }
     if (userDisplayNameEl) userDisplayNameEl.textContent = user.fullName || user.username;
     let classText = user.className || 'Học sinh';
     if (user.schoolName && !classText.includes(user.schoolName)) {
@@ -293,8 +293,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (btnLeaderboard) btnLeaderboard.addEventListener('click', openLeaderboardModal);
-    // userInfoBtn opens profile modal via authManager.initProfileModal
     if (leaderboardClose) leaderboardClose.addEventListener('click', () => leaderboardModal.classList.add('hidden'));
+
+    // User Profile Modal Open
+    if (window.authManager && typeof window.authManager.initProfileModal === 'function') {
+      const profileCtrl = window.authManager.initProfileModal({
+        onUpdate: (user) => updateUserProfileUI(user)
+      });
+      if (userInfoBtn && profileCtrl) {
+        userInfoBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          profileCtrl.openModal();
+        });
+      }
+    }
 
     window.addEventListener('click', (e) => {
       if (e.target === leaderboardModal) leaderboardModal.classList.add('hidden');
