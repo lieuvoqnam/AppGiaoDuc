@@ -390,6 +390,23 @@ window.PORTAL_DATA = {
           desc: "Tìm hiểu vị trí địa lý, thiên nhiên, con người các vùng miền và lịch sử dựng nước của dân tộc Việt Nam.",
           apps: [
             {
+              id: "history_geo_4_review",
+              title: "Đấu Trí Lịch Sử & Địa Lý Lớp 4",
+              subtitle: "Hệ thống kiến thức 5 vùng miền, mốc son hào hùng dựng nước & đề thi thử học kỳ",
+              icon: "🇻🇳",
+              url: "history-geo-4.html",
+              cardTheme: "history-featured-card",
+              buttonSub: "7 Chủ đề & Thi thử định kỳ",
+              tags: ["Lịch Sử 4 GDPT 2018", "Địa Lý 5 Vùng Miền", "Hoàng Sa - Trường Sa", "Thi Thử Có Chấm Điểm"],
+              learningGoal: "Nắm vững đặc trưng địa lý, thiên nhiên, con người các vùng miền và các mốc son lịch sử dựng nước, giữ nước của dân tộc.",
+              features: [
+                "🏔️ Khám phá thiên nhiên 5 vùng địa lý & biển đảo",
+                "📜 Mốc son hào hùng: Bạch Đằng, Thăng Long, Lam Sơn, Điện Biên Phủ",
+                "🎯 56 câu hỏi phân hóa 4 mức độ nhận thức",
+                "⏱️ Đề thi thử học kỳ 20 phút tự động chấm điểm"
+              ]
+            },
+            {
               id: "vn_map_puzzle",
               title: "Em Yêu Bản Đồ Việt Nam",
               subtitle: "Game Ghép Hình 34 Tỉnh Thành & Biển Đảo Quê Hương",
