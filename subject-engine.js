@@ -41,12 +41,23 @@ window.SubjectEngine = (function () {
     const btnSubmitExam = document.getElementById('btn-submit-exam');
     const scoreModal = document.getElementById('score-modal');
 
+    // Clean text for speech synthesis
+    function getCleanSpeechText(text) {
+      if (!text) return '';
+      return text
+        .replace(/<[^>]*>/g, ' ')
+        .replace(/_{2,}/g, ' blank ')
+        .replace(/["“”'‘’]/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+    }
+
     // TTS Helper
     function speakText(text, lang = defaultLang) {
       if (!('speechSynthesis' in window)) return;
       window.speechSynthesis.cancel();
-      const cleanText = text.replace(/<[^>]*>/g, '').trim();
-      const utterance = new SpeechSynthesisUtterance(cleanText);
+      const clean = getCleanSpeechText(text);
+      const utterance = new SpeechSynthesisUtterance(clean);
       utterance.lang = lang;
       utterance.rate = 0.9;
       window.speechSynthesis.speak(utterance);
@@ -237,7 +248,7 @@ window.SubjectEngine = (function () {
 
           let speakBtnHtml = '';
           if (isLanguageSubject && item.english) {
-            speakBtnHtml = `<button class="btn-speak-word" data-speech="${item.english}" title="Nghe phát âm chuẩn">🔊</button>`;
+            speakBtnHtml = `<button type="button" class="btn-speak-word" title="Nghe phát âm chuẩn">🔊</button>`;
           }
 
           card.innerHTML = `
@@ -250,7 +261,7 @@ window.SubjectEngine = (function () {
             if (btn) {
               btn.addEventListener('click', (e) => {
                 e.stopPropagation();
-                speakText(btn.dataset.speech);
+                speakText(item.english);
               });
             }
           }
@@ -315,6 +326,8 @@ window.SubjectEngine = (function () {
         card.className = 'q-card';
         card.id = `practice-q-${q.id}`;
 
+        const cleanSpeech = getCleanSpeechText(q.question);
+
         let optionsHtml = '';
         q.options.forEach((opt, optIdx) => {
           let optClass = 'opt-btn';
@@ -329,7 +342,7 @@ window.SubjectEngine = (function () {
 
           let optSpeakBtn = '';
           if (isLanguageSubject) {
-            optSpeakBtn = `<button class="btn-speak-word" data-speech="${opt}" title="Nghe phát âm" style="margin-left:auto; width:28px; height:28px; font-size:0.85rem;">🔊</button>`;
+            optSpeakBtn = `<span class="opt-speak-btn" data-opt-idx="${optIdx}" title="Nghe phát âm đáp án">🔊</span>`;
           }
 
           optionsHtml += `
@@ -341,17 +354,16 @@ window.SubjectEngine = (function () {
           `;
         });
 
-        let qSpeakBtn = '';
-        if (isLanguageSubject) {
-          qSpeakBtn = `<button class="btn-speak-word" data-speech="${q.question}" title="Nghe câu hỏi">🔊</button>`;
-        }
+        const qSpeakHtml = isLanguageSubject 
+          ? `<button type="button" class="btn-speak-q" id="practice-speak-q-${q.id}" title="Bấm để nghe câu hỏi" aria-label="Nghe câu hỏi">🔊</button>` 
+          : '';
 
         card.innerHTML = `
           <div class="q-card-header">
             <span class="q-badge lvl-${q.level}">${levelLabels[q.level] || 'Luyện tập'}</span>
             <span style="font-size:0.95rem; font-weight:800; color:#64748b;">Câu ${idx + 1}/${state.practiceQuestions.length}</span>
           </div>
-          <div class="q-text">${q.question} ${qSpeakBtn}</div>
+          <div class="q-text">${q.question} ${qSpeakHtml}</div>
           <div class="options-grid">
             ${optionsHtml}
           </div>
@@ -361,13 +373,26 @@ window.SubjectEngine = (function () {
           </div>
         `;
 
-        // Handle TTS buttons
-        card.querySelectorAll('.btn-speak-word').forEach(sBtn => {
-          sBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            speakText(sBtn.dataset.speech);
+        if (isLanguageSubject) {
+          // Listen question
+          const btnSpeak = card.querySelector(`#practice-speak-q-${q.id}`);
+          if (btnSpeak) {
+            btnSpeak.addEventListener('click', (e) => {
+              e.stopPropagation();
+              speakText(cleanSpeech);
+            });
+          }
+
+          // Option audio
+          card.querySelectorAll('.opt-speak-btn').forEach(sBtn => {
+            sBtn.addEventListener('click', (e) => {
+              e.stopPropagation();
+              const optIdx = parseInt(sBtn.dataset.optIdx);
+              const optText = q.options[optIdx];
+              speakText(optText);
+            });
           });
-        });
+        }
 
         // Option selection
         card.querySelectorAll('.opt-btn').forEach(btn => {
@@ -470,6 +495,8 @@ window.SubjectEngine = (function () {
         card.className = 'q-card';
         card.id = `exam-q-${q.id}`;
 
+        const cleanSpeech = getCleanSpeechText(q.question);
+
         let optionsHtml = '';
         q.options.forEach((opt, optIdx) => {
           let optClass = 'opt-btn';
@@ -484,7 +511,7 @@ window.SubjectEngine = (function () {
 
           let optSpeakBtn = '';
           if (isLanguageSubject) {
-            optSpeakBtn = `<button class="btn-speak-word" data-speech="${opt}" title="Nghe phát âm" style="margin-left:auto; width:28px; height:28px; font-size:0.85rem;">🔊</button>`;
+            optSpeakBtn = `<span class="opt-speak-btn" data-opt-idx="${optIdx}" title="Nghe phát âm đáp án">🔊</span>`;
           }
 
           optionsHtml += `
@@ -496,17 +523,16 @@ window.SubjectEngine = (function () {
           `;
         });
 
-        let qSpeakBtn = '';
-        if (isLanguageSubject) {
-          qSpeakBtn = `<button class="btn-speak-word" data-speech="${q.question}" title="Nghe câu hỏi">🔊</button>`;
-        }
+        const qSpeakHtml = isLanguageSubject 
+          ? `<button type="button" class="btn-speak-q" id="exam-speak-q-${q.id}" title="Bấm để nghe câu hỏi" aria-label="Nghe câu hỏi">🔊</button>` 
+          : '';
 
         card.innerHTML = `
           <div class="q-card-header">
             <span class="q-badge lvl-${q.level}">Chủ đề: ${q.topicName || 'Lớp 4'}</span>
             <span style="font-size:0.95rem; font-weight:800; color:#64748b;">Câu ${idx + 1}/${state.examQuestions.length} (1.0 điểm)</span>
           </div>
-          <div class="q-text">${q.question} ${qSpeakBtn}</div>
+          <div class="q-text">${q.question} ${qSpeakHtml}</div>
           <div class="options-grid">
             ${optionsHtml}
           </div>
@@ -516,12 +542,26 @@ window.SubjectEngine = (function () {
           </div>
         `;
 
-        card.querySelectorAll('.btn-speak-word').forEach(sBtn => {
-          sBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            speakText(sBtn.dataset.speech);
+        if (isLanguageSubject) {
+          // Listen question
+          const btnSpeak = card.querySelector(`#exam-speak-q-${q.id}`);
+          if (btnSpeak) {
+            btnSpeak.addEventListener('click', (e) => {
+              e.stopPropagation();
+              speakText(cleanSpeech);
+            });
+          }
+
+          // Option audio
+          card.querySelectorAll('.opt-speak-btn').forEach(sBtn => {
+            sBtn.addEventListener('click', (e) => {
+              e.stopPropagation();
+              const optIdx = parseInt(sBtn.dataset.optIdx);
+              const optText = q.options[optIdx];
+              speakText(optText);
+            });
           });
-        });
+        }
 
         card.querySelectorAll('.opt-btn').forEach(btn => {
           btn.addEventListener('click', () => {

@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- GAME STATE ---
   const state = {
     dataset: '34', // Default to the updated 34 provinces/cities! ('34' | '63')
-    mode: 'region', // 'region' | 'all' | 'quiz' | 'explore'
+    mode: 'all', // 'all' | 'region' | 'quiz' | 'explore'
     currentRegionId: 'bac_bo', // Default starting region in 34-mode
     difficulty: 'easy', // 'easy' | 'medium' | 'hard'
     placedProvinces: new Set(),

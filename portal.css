@@ -2095,3 +2095,45 @@ body {
     font-size: 1.15rem;
   }
 }
+
+
+/* History & Geography Featured Card Theme */
+.app-showcase-card.history-featured-card {
+  border-color: #ea580c;
+  box-shadow: 0 10px 30px rgba(234, 88, 12, 0.18);
+  margin-top: 16px;
+}
+.app-showcase-card.history-featured-card .showcase-banner {
+  background: linear-gradient(135deg, #fff7ed, #ffedd5);
+}
+.app-showcase-card.history-featured-card .showcase-visual-badge {
+  box-shadow: 0 6px 18px rgba(234, 88, 12, 0.25);
+  background: linear-gradient(135deg, #ea580c, #c2410c);
+  color: #ffffff;
+}
+.app-showcase-card.history-featured-card .subject-tag {
+  background: #ea580c;
+}
+.app-showcase-card.history-featured-card .showcase-title {
+  color: #9a3412;
+}
+.app-showcase-card.history-featured-card .showcase-subtitle {
+  color: #ea580c;
+}
+.app-showcase-card.history-featured-card .showcase-goal {
+  color: #7c2d12;
+}
+.app-showcase-card.history-featured-card .btn-launch-game {
+  background: linear-gradient(135deg, #ea580c, #c2410c);
+  box-shadow: 0 6px 20px rgba(234, 88, 12, 0.4);
+}
+.app-showcase-card.history-featured-card .btn-launch-game:hover {
+  background: linear-gradient(135deg, #c2410c, #9a3412);
+  box-shadow: 0 10px 28px rgba(234, 88, 12, 0.5);
+}
+.app-showcase-card.history-featured-card .showcase-features-bar {
+  border-top-color: #fed7aa;
+}
+.app-showcase-card.history-featured-card .feat-item {
+  color: #9a3412;
+}

@@ -37,9 +37,16 @@ Cổng thông tin và học liệu số tương tác toàn diện dành cho họ
 Cổng học tập chia thành 3 Cấp học và 12 Khối lớp theo chuẩn Bộ GD&ĐT:
 
 ### 1. 🎒 Cấp Tiểu Học (Lớp 1 - Lớp 5)
-- **Lớp 1 - 3**: Tiếng Việt, Toán, Tự nhiên và Xã hội (TNXH), Đạo đức, Âm nhạc, Mỹ thuật, Hoạt động trải nghiệm.
+- **Lớp 2** (Đã số hóa 5 môn tương tác): Toán Học (`math-2.html`), Tiếng Việt (`vietnamese-2.html`), Tự Nhiên & Xã Hội (`tnxh-2.html`), Tiếng Anh (`english-2.html`), Đạo Đức (`ethics-2.html`).
+- **Lớp 3** (Đã số hóa 7 môn tương tác chuẩn GDPT 2018):
+  - 📐 **Toán Học 3** (`math-3.html`): Bảng nhân chia 6-9, số đến 100.000, số La Mã, góc vuông, chu vi & diện tích, toán 2 bước rút về đơn vị.
+  - 📖 **Tiếng Việt 3** (`vietnamese-3.html`): 7 chủ điểm từ ngữ, nghệ thuật so sánh & nhân hóa, dấu hai chấm & ngoặc kép, chính tả, tập làm văn.
+  - 🌱 **Tự Nhiên & Xã Hội 3** (`tnxh-3.html`): 6 chủ đề chuẩn GDPT (Gia đình hỏa hoạn, Trường học, Cộng đồng làng nghề, Cơ quan thực - động vật, Tuần hoàn - thần kinh - bài tiết, 4 phương trời & Trái Đất).
+  - 💻 **Tin Học & Công Nghệ 3** (`it-3.html`): Thao tác chuột, định vị phím F & J hàng phím cơ sở gõ 10 ngón, an toàn thông tin mạng, an toàn thiết bị điện & thủ công sáng tạo.
+  - 🌍 **Tiếng Anh 3 (English Explorer)** (`english-3.html`): 6 Unit Global Success, phát âm chuẩn Text-to-Speech native, ngữ pháp câu hỏi & đề thi thử học kỳ.
+  - ❤️ **Đạo Đức & Kỹ Năng Sống 3** (`ethics-3.html`): Bác Hồ kính yêu & 5 điều Bác dạy, giữ lời hứa & trung thực, hiếu thảo gia đình, tự lập học tập, tôn trọng sự khác biệt & số khẩn cấp 111-115.
 - **Lớp 4 - 5**: Môn **Lịch sử và Địa lý** chính thức được đưa vào chương trình giảng dạy.
-  - 👉 **Ứng dụng tích hợp**: Trò chơi *"Em Yêu Bản Đồ Việt Nam"* - Khám phá các tỉnh thành, đặc sản, danh lam thắng cảnh và chủ quyền biển đảo.
+  - 👉 **Ứng dụng tích hợp**: Trò chơi *"Em Yêu Bản Đồ Việt Nam"* - Khám phá các tỉnh thành, đặc sản, danh lam thắng cảnh và chủ quyền biển đảo (`game.html`), cùng hệ thống 6 môn học cốt lõi lớp 4 (`math-4.html`, `vietnamese-4.html`, `science-4.html`, `it-4.html`, `english-4.html`, `ethics-4.html`).
 
 ### 2. 🏫 Cấp Trung Học Cơ Sở (Lớp 6 - Lớp 9)
 - Ngữ văn, Toán, Ngoại ngữ 1, Khoa học Tự nhiên (KHTN), Giáo dục công dân, Tin học, Công nghệ...
