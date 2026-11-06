@@ -132,14 +132,41 @@
   </main>
 
   <!-- FOOTER -->
-  <footer style="background:#ffffff; border-top:1.5px solid #e2e8f0; padding:24px 20px; text-align:center; margin-top:auto;">
-    <p style="font-size:0.9rem; font-weight:800; color:#1e293b; margin-bottom:6px;">
-      🇻🇳 CỔNG HỌC LIỆU SỐ TƯƠNG TÁC LỚP 1 - 12
-    </p>
-    <p style="font-size:0.8rem; font-weight:600; color:#64748b; line-height:1.5;">
-      Ứng dụng hỗ trợ giảng dạy & học tập tích hợp công nghệ số • Bản quyền giáo dục tương tác<br>
-      Tích hợp ứng dụng <strong>"Em Yêu Bản Đồ Việt Nam"</strong> trực thuộc bộ môn <strong>Lịch sử và Địa lý</strong>
-    </p>
+  <footer class="portal-site-footer">
+    <div class="footer-inner-container">
+      
+      <!-- VISITOR COUNTER WIDGET -->
+      <div class="visitor-counter-wrapper">
+        <div class="visitor-counter-pill" title="Thống kê lượng truy cập hệ thống">
+          <span class="visitor-indicator-dot" aria-hidden="true"></span>
+          <span class="visitor-counter-item">
+            <span class="visitor-counter-label">Số lượng truy cập hôm nay:</span>
+            <strong id="visitor-today-count" class="visitor-counter-number">...</strong>
+          </span>
+          <span class="visitor-counter-separator" aria-hidden="true">|</span>
+          <span class="visitor-counter-item">
+            <span class="visitor-counter-label">Tổng số lượng truy cập:</span>
+            <strong id="visitor-total-count" class="visitor-counter-number">...</strong>
+          </span>
+        </div>
+      </div>
+
+      <!-- PORTAL BRAND & COPYRIGHT -->
+      <div class="footer-brand-info">
+        <p class="footer-title">
+          🇻🇳 CỔNG HỌC LIỆU SỐ TƯƠNG TÁC LỚP 1 - 12
+        </p>
+        <p class="footer-desc">
+          Ứng dụng hỗ trợ giảng dạy & học tập tích hợp công nghệ số • Chương trình GDPT 2018<br>
+          Tích hợp ứng dụng <strong>"Em Yêu Bản Đồ Việt Nam"</strong> trực thuộc bộ môn <strong>Lịch sử và Địa lý</strong>
+        </p>
+      </div>
+
+      <div class="footer-bottom-meta">
+        <span>© Bản quyền giáo dục tương tác • Đồng bộ đám mây đa thiết bị (Máy tính, iPad, Điện thoại)</span>
+      </div>
+
+    </div>
   </footer>
 
   <!-- AUTHENTICATION MODAL (Đăng Ký / Đăng Nhập) -->
@@ -460,6 +487,9 @@
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
   <script src="firebase-config.js"></script>
   <!-- 1. Authentication Manager -->
+  <!-- Visitor Analytics Counter -->
+  <script src="visitor-counter.js"></script>
+  <!-- Authentication Manager -->
   <script src="auth.js"></script>
   <!-- 2. Portal Curriculum Data (Grades 1 - 12) -->
   <script src="portal-data.js"></script>
