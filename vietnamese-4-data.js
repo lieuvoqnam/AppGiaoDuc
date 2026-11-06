@@ -174,9 +174,7 @@ window.VIETNAMESE4_DATA = {
         {
           id: "vn4_1_14",
           level: 4,
-          question: "Xác định từ loại của từ 'ước mơ' trong hai câu sau:
-(1) Em ước mơ trở thành phi công.
-(2) Ước mơ của em là trở thành bác sĩ.",
+          question: "Xác định từ loại của từ 'ước mơ' trong hai câu sau:<br/>(1) Em ước mơ trở thành phi công.<br/>(2) Ước mơ của em là trở thành bác sĩ.",
           options: ["Câu (1) là động từ; Câu (2) là danh từ", "Cả hai câu đều là động từ", "Cả hai câu đều là danh từ", "Câu (1) là tính từ; Câu (2) là động từ"],
           correct: 0,
           explanation: "Trong câu (1), 'ước mơ' là vị ngữ chỉ hành động ➔ Động từ. Trong câu (2), 'ước mơ' làm chủ ngữ ➔ Danh từ."

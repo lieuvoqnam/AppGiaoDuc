@@ -31,6 +31,12 @@ window.ENGLISH4_DATA = {
             title: "Days, Months & Birthdays",
             english: "When is your birthday? It's in October. What day is it today? It's Monday.",
             content: "• <strong>Thứ trong tuần:</strong> Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday.<br/>• <strong>12 Tháng:</strong> January, February, March, April, May, June, July, August, September, October, November, December.<br/>• <strong>Hỏi sinh nhật:</strong> When is your birthday? ➔ It's in + [Tháng] / It's on the + [Ngày] of [Tháng]."
+          },
+          {
+            icon: "🔊",
+            title: "Phonics & Word Stress",
+            english: "I am Vietnamese. She is Japanese. He is American.",
+            content: "• <strong>Quy tắc trọng âm đuôi -ese:</strong> Nhấn trọng âm ngay chính âm tiết đó: Vietna'mese, Ja'panese.<br/>• <strong>Trọng âm từ khác:</strong> 'English, 'American, Aus'tralian.<br/>• <strong>Phát âm nguyên âm:</strong> Phân biệt âm /eɪ/ (n<strong>a</strong>me, d<strong>a</strong>y, M<strong>a</strong>y) và âm /æ/ (c<strong>a</strong>t, m<strong>a</strong>p, h<strong>a</strong>ve)."
           }
         ]
       },
@@ -146,8 +152,7 @@ window.ENGLISH4_DATA = {
         {
           id: "en4_1_12",
           level: 3,
-          question: "Choose the word with the underlined part pronounced differently from the others:
-(A) c<u>a</u>t  (B) m<u>a</u>p  (C) n<u>a</u>me  (D) b<u>a</u>g",
+          question: "Choose the word with the underlined part pronounced differently from the others:<br/>(A) c<u>a</u>t &nbsp; (B) m<u>a</u>p &nbsp; (C) n<u>a</u>me &nbsp; (D) b<u>a</u>g",
           options: ["name", "cat", "map", "bag"],
           correct: 0,
           explanation: "'name' phát âm âm /eɪ/, các từ còn lại phát âm âm /æ/."
@@ -155,9 +160,7 @@ window.ENGLISH4_DATA = {
         {
           id: "en4_1_13",
           level: 3,
-          question: "Complete the dialogue:
-- 'What's your nationality?'
-- '_______.'",
+          question: "Complete the dialogue:<br/>- <em>'What\'s your nationality?'</em><br/>- <em>'_______.'</em>",
           options: ["I'm Vietnamese.", "I'm from Vietnam.", "I live in Hanoi.", "I speak English."],
           correct: 0,
           explanation: "Câu hỏi 'What's your nationality?' (Quốc tịch của bạn là gì?) ➔ Trả lời bằng quốc tịch: 'I'm Vietnamese.'"
@@ -165,8 +168,7 @@ window.ENGLISH4_DATA = {
         {
           id: "en4_1_14",
           level: 4,
-          question: "Reorder the words to make a meaningful sentence:
-'can / She / play / piano / the / very / well.'",
+          question: "Reorder the words to make a meaningful sentence:<br/><em>'can / She / play / piano / the / very / well.'</em>",
           options: ["She can play the piano very well.", "She play can the piano very well.", "The piano she can play very well.", "Very well she can play the piano."],
           correct: 0,
           explanation: "Cấu trúc: S + can + V(nguyên thể) + the + nhạc cụ + adv (She can play the piano very well)."
@@ -198,6 +200,12 @@ window.ENGLISH4_DATA = {
             title: "Hobbies & Free Time",
             english: "What is your hobby? I like reading comic books and cooking.",
             content: "• <strong>Cấu trúc:</strong> What is your hobby? / What do you like doing in your free time?<br/>➔ I like + V-ing (reading books, swimming, drawing pictures, listening to music, collecting stamps)."
+          },
+          {
+            icon: "🏫",
+            title: "Favourite Subjects & School Rooms",
+            english: "What is your favourite subject? I like English because it is fun. I was in the library yesterday.",
+            content: "• <strong>Môn học yêu thích:</strong> What's your favourite subject? ➔ I like [môn học] because it is [lý do: fun, interesting, useful].<br/>• <strong>Các phòng chức năng ở trường:</strong> classroom (phòng học), computer room (phòng tin học), science lab (phòng thí nghiệm), school library (thư viện), music room (phòng âm nhạc), playground (sân trường)."
           }
         ]
       },
@@ -308,8 +316,7 @@ window.ENGLISH4_DATA = {
         {
           id: "en4_2_12",
           level: 3,
-          question: "Find the odd one out (chọn từ khác loại):
-(A) reading  (B) swimming  (C) painting  (D) teacher",
+          question: "Find the odd one out (chọn từ khác loại):<br/>(A) reading &nbsp; (B) swimming &nbsp; (C) painting &nbsp; (D) teacher",
           options: ["teacher", "reading", "swimming", "painting"],
           correct: 0,
           explanation: "'teacher' là danh từ chỉ nghề nghiệp; các từ còn lại là danh động từ chỉ sở thích (V-ing)."
@@ -357,6 +364,12 @@ window.ENGLISH4_DATA = {
             title: "Clothes and Prices",
             english: "How much is this T-shirt? It's eighty thousand dong. How much are these shoes?",
             content: "• <strong>Quần áo:</strong> T-shirt (áo phông), shirt (áo sơ mi), dress (váy liền), skirt (chân váy), trousers (quần dài), shoes (giày).<br/>• <strong>Hỏi giá tiền:</strong><br/>- Số ít: How much is this + [đồ vật]? ➔ It's + [số tiền].<br/>- Số nhiều: How much are these + [đồ vật số nhiều]? ➔ They're + [số tiền]."
+          },
+          {
+            icon: "💼",
+            title: "Family Members & Occupations",
+            english: "What does your father do? He is a doctor. He works in a hospital.",
+            content: "• <strong>Hỏi nghề nghiệp:</strong> What does your father/mother do? ➔ He/She is a/an [nghề nghiệp: teacher, doctor, nurse, farmer, driver, worker, clerk].<br/>• <strong>Nơi làm việc:</strong> Where does he/she work? ➔ In a hospital (bệnh viện), in a primary school (trường tiểu học), on a farm (nông trại), in a factory (nhà máy), in an office (văn phòng)."
           }
         ]
       },
@@ -473,8 +486,7 @@ window.ENGLISH4_DATA = {
         {
           id: "en4_3_14",
           level: 4,
-          question: "Choose the best sentence to describe appearance:
-'My sister is tall and she _______ long black hair.'",
+          question: "Choose the best sentence to describe appearance:<br/><em>'My sister is tall and she _______ long black hair.'</em>",
           options: ["has", "have", "is", "having"],
           correct: 0,
           explanation: "Chủ ngữ 'she' đi với 'has' để miêu tả đặc điểm ngoại hình (has long black hair: có mái tóc đen dài)."
@@ -506,6 +518,12 @@ window.ENGLISH4_DATA = {
             title: "Holidays and Trips",
             english: "Where are you going this summer? I'm going to Phu Quoc Island. How will you get there? By plane.",
             content: "• <strong>Điểm du lịch:</strong> Ha Long Bay, Nha Trang, Da Nang, Hue, Phu Quoc Island, Da Lat.<br/>• <strong>Hỏi dự định:</strong> Where are you going this weekend? ➔ I am going to + [địa điểm].<br/>• <strong>Phương tiện:</strong> by train (tàu hỏa), by plane (máy bay), by coach/bus (xe khách/xe buýt), by car (ô tô)."
+          },
+          {
+            icon: "🏕️",
+            title: "Summer Vacation Activities",
+            english: "What did you do on your holiday? I swam in the sea and ate delicious seafood.",
+            content: "• <strong>Hoạt động kỳ nghỉ:</strong> swim in the sea (tắm biển), build sandcastles (xây lâu đài cát), take photos (chụp ảnh), eat delicious seafood (ăn hải sản ngon), go on a boat trip (đi thuyền du ngoạn), visit ancient town (thăm phố cổ).<br/>• <strong>Kể về chuyến đi:</strong> How was your trip? ➔ It was wonderful / great / exciting!"
           }
         ]
       },
@@ -619,8 +637,7 @@ window.ENGLISH4_DATA = {
         {
           id: "en4_4_13",
           level: 3,
-          question: "Choose the correct sentence about the zoo:
-'I like tigers because they are _______.'",
+          question: "Choose the correct sentence about the zoo:<br/><em>'I like tigers because they are _______.'</em>",
           options: ["fast and strong", "very small and slow", "lazy and sleepy", "sweet and soft"],
           correct: 0,
           explanation: "Những chú hổ (tigers) chạy rất nhanh và dũng mãnh (fast and strong)."
