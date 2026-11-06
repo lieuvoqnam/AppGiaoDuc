@@ -285,9 +285,8 @@ body {
 /* --- TOPIC SELECTOR TABS --- */
 .topic-pills-bar {
   display: flex;
-  gap: 10px;
-  overflow-x: auto;
-  padding-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 10px 12px;
   margin-bottom: 24px;
 }
 
