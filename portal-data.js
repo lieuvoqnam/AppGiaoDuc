@@ -658,56 +658,578 @@ window.PORTAL_DATA = {
     8: {
       title: "Lớp 8",
       level: "thcs",
-      desc: "Trọng tâm Địa lý tự nhiên Việt Nam: Địa hình, khoáng sản, khí hậu, sông ngòi và biển đảo.",
+      desc: "Chương trình cốt lõi GDPT 2018 - Hệ thống giáo án, bài tập phân hóa 4 mức độ & phòng thi thử Học kỳ 1, Học kỳ 2!",
       subjects: [
+        {
+          id: "toan",
+          name: "Toán Học",
+          icon: "📐",
+          color: "#3b82f6",
+          hasApp: true,
+          badge: "🔥 ĐÃ CÓ APP ÔN TẬP",
+          desc: "Hằng đẳng thức đáng nhớ, phân thức đại số, hàm số bậc nhất, định lí Thalès, hình chóp tam giác đều và các tứ giác đặc biệt.",
+          apps: [
+            {
+              id: "math_8",
+              title: "Đấu Trí Toán Lớp 8",
+              subtitle: "Giáo án trọng tâm, bài tập phân hóa 4 mức độ & đề thi thử Học kỳ 1, Học kỳ 2",
+              icon: "🧮",
+              url: "math-8.html",
+              cardTheme: "math-featured-card",
+              buttonSub: "4 Chủ đề & Thi thử HK1, HK2",
+              tags: ["Toán 8 GDPT 2018", "7 Hằng Đẳng Thức", "Định Lí Thalès", "Thi Thử HK1 & HK2"],
+              learningGoal: "Nắm vững 7 hằng đẳng thức đáng nhớ, phân tích đa thức thành nhân tử, rút gọn phân thức, vẽ đồ thị hàm số bậc nhất và tính thể tích hình chóp đều.",
+              features: [
+                "🔢 7 Hằng đẳng thức & Phân tích đa thức thành nhân tử",
+                "📊 Phân thức đại số & Tính chất cơ bản",
+                "📈 Hàm số bậc nhất & Phương trình một ẩn",
+                "⏱️ Đề thi thử Toán 8 bấm giờ tự động chấm HK1 & HK2"
+              ]
+            }
+          ]
+        },
+        {
+          id: "ngu_van",
+          name: "Ngữ Văn",
+          icon: "📚",
+          color: "#ec4899",
+          hasApp: true,
+          badge: "✨ ĐÃ CÓ APP TƯƠNG TÁC",
+          desc: "Truyện lịch sử, văn bản nghị luận xã hội, thơ tự do, hài kịch trào phúng và kỹ năng phân tích, cảm thụ văn học hiện thực.",
+          apps: [
+            {
+              id: "literature_8",
+              title: "Khám Phá Ngữ Văn Lớp 8",
+              subtitle: "Hào khí sử thi, truyện ngắn hiện thực, thơ tự do & bí quyết viết văn nghị luận điểm cao",
+              icon: "📖",
+              url: "literature-8.html",
+              cardTheme: "vietnamese-featured-card",
+              buttonSub: "Giáo án & Cảm thụ văn học",
+              tags: ["Ngữ Văn 8 GDPT 2018", "Truyện Lịch Sử", "Hài Kịch Molière", "Nghị Luận Xã Hội"],
+              learningGoal: "Phân tích đặc sắc truyện lịch sử, giá trị nhân đạo truyện ngắn hiện thực Lão Hạc, cảm thụ thơ tự do và nắm vững kỹ năng viết bài văn nghị luận xã hội giàu sức thuyết phục.",
+              features: [
+                "📜 Khí phách anh hùng Quang Trung & Trần Quốc Toản",
+                "🏡 Bức tranh hiện thực & Tình phụ tử cảm động Lão Hạc",
+                "🎭 Nghệ thuật trào lộng tiếng cười hài kịch Molière",
+                "⏱️ Đề thi thử Ngữ Văn 8 phân hóa 4 cấp độ HK1, HK2"
+              ]
+            }
+          ]
+        },
+        {
+          id: "tieng_anh",
+          name: "Tiếng Anh",
+          icon: "🌍",
+          color: "#6366f1",
+          hasApp: true,
+          badge: "🔊 CÓ PHÁT ÂM BẢN XỨ",
+          desc: "Chương trình Tiếng Anh 8 Global Success: Phát triển 4 kỹ năng Nghe - Nói - Đọc - Viết về phong cách sống, cuộc sống nông thôn & thành thị, môi trường và công nghệ tương lai.",
+          apps: [
+            {
+              id: "english_8",
+              title: "English 8 Explorer",
+              subtitle: "Interactive Global Success 8 with Native Pronunciation & Semester Exams",
+              icon: "🌍",
+              url: "english-8.html",
+              cardTheme: "english-featured-card",
+              buttonSub: "Vocabulary, Grammar & Mock Exams",
+              tags: ["English 8 Global Success", "Text-To-Speech 🔊", "Conditionals & Reported", "Mock Semester 1 & 2"],
+              learningGoal: "Làm chủ từ vựng 12 Units Global Success, sử dụng thành thạo câu điều kiện loại 1 & 2, câu gián tiếp, trạng từ so sánh và tự tin giao tiếp tiếng Anh chuẩn bản ngữ.",
+              features: [
+                "🔊 Phát âm chuẩn Native Text-to-Speech từng từ vựng",
+                "📚 12 Units ngữ pháp cốt lõi chuẩn GDPT 2018",
+                "🎯 Luyện tập phân hóa 4 cấp độ quốc tế",
+                "⏱️ Đề thi thử học kỳ 1 & 2 tự động chấm điểm"
+              ]
+            }
+          ]
+        },
+        {
+          id: "khtn",
+          name: "Khoa Học Tự Nhiên",
+          icon: "🔬",
+          color: "#10b981",
+          hasApp: true,
+          badge: "✨ ĐÃ CÓ APP TƯƠNG TÁC",
+          desc: "Phản ứng hóa học, acid - base - oxide - muối, phân bón; khối lượng riêng, áp suất, lực đẩy Archimedes; hệ cơ quan cơ thể người và hệ sinh thái.",
+          apps: [
+            {
+              id: "science_8",
+              title: "Khám Phá KHTN Lớp 8",
+              subtitle: "Phòng thí nghiệm ảo, định luật bảo toàn khối lượng, áp suất Archimedes & cơ thể người",
+              icon: "🔬",
+              url: "science-8.html",
+              cardTheme: "science-featured-card",
+              buttonSub: "Thí nghiệm & Đề thi HK1, HK2",
+              tags: ["KHTN 8 GDPT 2018", "Acid & Base", "Lực Đẩy Archimedes", "Hệ Tuần Hoàn"],
+              learningGoal: "Hiểu sâu bản chất phản ứng hóa học, thang pH, áp suất chất lỏng - khí, nguyên lý lực đẩy Archimedes, chức năng hệ tuần hoàn và quy luật cân bằng sinh thái.",
+              features: [
+                "🧪 Khám phá Acid, Base, Oxide, Muối & Thang pH",
+                "⚖️ Tính toán Mol, Tỉ khối & Bảo toàn khối lượng",
+                "🌊 Áp suất chất rắn, chất lỏng & Lực đẩy Archimedes",
+                "⏱️ Đề thi thử KHTN 8 tự động chấm điểm HK1 & HK2"
+              ]
+            }
+          ]
+        },
         {
           id: "lich_su_dia_ly",
           name: "Lịch Sử và Địa Lý",
           icon: "🧭",
           color: "#ea580c",
-          desc: "Đặc điểm địa hình, khí hậu, tài nguyên khoáng sản, các hệ thống sông lớn và vùng biển đảo Việt Nam."
+          hasApp: true,
+          badge: "⭐ ĐÃ CÓ APP & GAME BẢN ĐỒ",
+          desc: "Đặc điểm địa hình, khoáng sản, khí hậu, sông ngòi và vùng biển đảo Việt Nam; phong trào yêu nước chống thực dân Pháp thế kỉ XIX - đầu XX.",
+          apps: [
+            {
+              id: "history_geo_8",
+              title: "Đấu Trí Lịch Sử & Địa Lý Lớp 8",
+              subtitle: "Non sông gấm vóc, tài nguyên biển đảo Hoàng Sa - Trường Sa & hào khí chống giặc ngoại xâm",
+              icon: "🧭",
+              url: "history-geo-8.html",
+              cardTheme: "history-featured-card",
+              buttonSub: "Giáo án & Đề thi HK1, HK2",
+              tags: ["Lịch Sử & Địa Lý 8", "Địa Lý Tự Nhiên VN", "Hoàng Sa & Trường Sa", "Cần Vương & Yên Thế"],
+              learningGoal: "Nắm vững đặc điểm địa hình, khí hậu, thủy văn, khoáng sản và chủ quyền biển đảo Việt Nam; hiểu rõ nguyên nhân và ý nghĩa các phong trào yêu nước cuối thế kỉ XIX - đầu thế kỉ XX.",
+              features: [
+                "🏔️ Khám phá địa hình đồi núi, đồng bằng & sông ngòi VN",
+                "🇻🇳 Khẳng định chủ quyền biển đảo Hoàng Sa - Trường Sa",
+                "⚔️ Phong trào Cần Vương, Hương Khê & Khởi nghĩa Yên Thế",
+                "⏱️ Đề thi thử Lịch Sử & Địa Lý 8 bấm giờ tự động chấm"
+              ]
+            },
+            {
+              id: "vn_map_puzzle_8",
+              title: "Em Yêu Bản Đồ Việt Nam",
+              subtitle: "Game Ghép Hình 34 Tỉnh Thành Mới, Đồi Núi & Biển Đảo Quê Hương",
+              icon: "vietnam-icon.svg",
+              url: "game.html",
+              cardTheme: "featured-game-card",
+              buttonSub: "Ghép hình bản đồ 34 tỉnh",
+              tags: ["Game Tương Tác", "34 Tỉnh Mới", "Hoàng Sa - Trường Sa", "Bắt Dính Snap"],
+              learningGoal: "Giúp học sinh Lớp 8 nhận diện hình dạng, vị trí địa lý, sông ngòi và đặc sản 34 tỉnh thành trên bản đồ số Việt Nam."
+            }
+          ]
         },
-        { id: "toan", name: "Toán Học", icon: "📐", color: "#3b82f6", desc: "Hằng đẳng thức đáng nhớ, phân thức đại số, định lí Thalès, tứ giác đặc biệt." },
-        { id: "ngu_van", name: "Ngữ Văn", icon: "📚", color: "#ec4899", desc: "Văn bản văn học hiện thực, truyện lịch sử và thơ tự do hiện đại." },
-        { id: "khtn", name: "Khoa Học Tự Nhiên", icon: "🔬", color: "#10b981", desc: "Phản ứng hóa học, acid - base - muối, áp suất, lực đẩy Archimedes." },
-        { id: "tin_hoc", name: "Tin Học", icon: "💻", color: "#06b6d4", desc: "Lập trình thuật toán cơ bản và xử lý dữ liệu số." }
+        { id: "tin_hoc", name: "Tin Học", icon: "💻", color: "#06b6d4", desc: "Lập trình thuật toán rẽ nhánh & lặp với Python/Scratch, cấu trúc dữ liệu, sử dụng bảng tính nâng cao và ứng xử văn hóa trên không gian số." },
+        { id: "gdcd", name: "Giáo Dục Công Dân", icon: "⚖️", color: "#d97706", desc: "Tự hào truyền thống dân tộc, tôn trọng sự đa dạng, phòng chống bạo lực học đường, kỹ năng quản lý chi tiêu và bảo vệ quyền trẻ em." },
+        { id: "cong_nghe", name: "Công Nghệ", icon: "🛠️", color: "#0284c7", desc: "Tiêu chuẩn bản vẽ kỹ thuật, gia công cơ khí bằng tay, an toàn điện gia đình và sơ đồ mạch điện điều khiển đơn giản." },
+        { id: "gdtc", name: "Giáo Dục Thể Chất", icon: "🏃", color: "#16a34a", desc: "Rèn luyện thể lực bền bỉ, kỹ thuật điền kinh, chạy cự ly ngắn - trung bình, bóng đá, bóng rổ, cầu lông và bơi lội phòng chống đuối nước." },
+        { id: "nghe_thuat", name: "Âm Nhạc & Mĩ Thuật", icon: "🎨", color: "#8b5cf6", desc: "Hát bè, hòa tấu sáo recorder/kèn phím; thiết kế đồ họa thị giác, nghệ thuật tạo hình đa chất liệu và mỹ thuật ứng dụng." },
+        { id: "hdtn_hn", name: "Hoạt Động Trải Nghiệm, Hướng Nghiệp", icon: "🧭", color: "#f43f5e", desc: "Khám phá tiềm năng và sở trường cá nhân, rèn luyện tư duy phản biện, kỹ năng thích ứng học đường và lập kế hoạch nghề nghiệp tương lai." }
       ]
     },
     9: {
       title: "Lớp 9",
       level: "thcs",
-      desc: "Địa lý kinh tế - xã hội các vùng kinh tế Việt Nam và lịch sử Việt Nam hiện đại.",
+      desc: "Chương trình cốt lõi GDPT 2018 - Hệ thống giáo án, bài tập phân hóa 4 mức độ & đề thi thử Học kỳ 1, Học kỳ 2 (Trọng tâm ôn thi vào lớp 10)!",
       subjects: [
+        {
+          id: "toan",
+          name: "Toán Học",
+          icon: "📐",
+          color: "#3b82f6",
+          hasApp: true,
+          badge: "🔥 ĐÃ CÓ APP ÔN TẬP",
+          desc: "Căn bậc hai & ba, hệ hai phương trình bậc nhất, phương trình bậc hai, hệ thức Viète, đường tròn và hình trụ - nón - cầu (trọng tâm ôn thi tuyển sinh vào lớp 10).",
+          apps: [
+            {
+              id: "math_9",
+              title: "Đấu Trí Toán Lớp 9 - Ôn Thi Vào 10",
+              subtitle: "Căn thức, hệ thức Viète, tứ giác nội tiếp & chiến lược giải toán thi vào 10",
+              icon: "🧮",
+              url: "math-9.html",
+              cardTheme: "math-featured-card",
+              buttonSub: "Trọng tâm ôn thi vào lớp 10",
+              tags: ["Toán 9 GDPT 2018", "Căn Bậc Hai", "Hệ Thức Viète", "Tứ Giác Nội Tiếp", "Thi Thử HK1 & HK2"],
+              learningGoal: "Làm chủ kỹ năng rút gọn căn thức, giải bài toán bằng cách lập hệ phương trình, ứng dụng định lí Viète tìm tham số m và chứng minh tứ giác nội tiếp điểm 9-10 thi vào lớp 10.",
+              features: [
+                "🔢 Rút gọn biểu thức chứa căn bậc hai & Tìm x nguyên",
+                "📈 Phương trình bậc hai & Định lí Viète nâng cao",
+                "⭕ Góc với đường tròn & Chứng minh tứ giác nội tiếp",
+                "⏱️ Đề thi thử Toán 9 bấm giờ tự động chấm HK1 & HK2"
+              ]
+            }
+          ]
+        },
+        {
+          id: "ngu_van",
+          name: "Ngữ Văn",
+          icon: "📚",
+          color: "#ec4899",
+          hasApp: true,
+          badge: "✨ ĐÃ CÓ APP TƯƠNG TÁC",
+          desc: "Tác phẩm văn học trung đại và hiện đại kinh điển, truyện ngắn, thơ trữ tình, kỹ năng viết bài văn nghị luận xã hội và cảm thụ văn học sâu sắc ôn thi vào 10.",
+          apps: [
+            {
+              id: "literature_9",
+              title: "Đấu Trí Ngữ Văn Lớp 9",
+              subtitle: "Kiệt tác Truyện Kiều, thơ ca cách mạng, truyện ngắn hiện đại & bí quyết viết văn nghị luận vào 10",
+              icon: "📖",
+              url: "literature-9.html",
+              cardTheme: "vietnamese-featured-card",
+              buttonSub: "Bí quyết ôn thi vào lớp 10",
+              tags: ["Ngữ Văn 9 GDPT 2018", "Truyện Kiều", "Lặng Lẽ Sa Pa", "Nghị Luận Văn Học", "Ôn Thi Vào 10"],
+              learningGoal: "Cảm thụ sâu sắc vẻ đẹp Truyện Kiều, tình đồng chí thời kháng chiến, vẻ đẹp cống hiến thầm lặng trong Lặng lẽ Sa Pa và rèn luyện kỹ năng viết bài văn nghị luận xã hội, nghị luận văn học đạt điểm 8.5+.",
+              features: [
+                "📜 Nghệ thuật tả cảnh ngụ tình bậc thầy trong Truyện Kiều",
+                "🎖️ Vẻ đẹp hào hùng người lính trong 'Đồng chí' & 'Xe không kính'",
+                "🏔️ Chân dung con người cống hiến thầm lặng trong 'Lặng lẽ Sa Pa'",
+                "⏱️ Đề thi thử Ngữ Văn 9 chuẩn cấu trúc thi vào 10 HK1, HK2"
+              ]
+            }
+          ]
+        },
+        {
+          id: "tieng_anh",
+          name: "Tiếng Anh",
+          icon: "🌍",
+          color: "#6366f1",
+          hasApp: true,
+          badge: "🔊 CÓ PHÁT ÂM BẢN XỨ",
+          desc: "Chương trình Tiếng Anh 9 Global Success: Ngữ pháp nâng cao (mệnh đề quan hệ, câu điều kiện, câu gián tiếp, cấu trúc so sánh) và chiến lược giải đề thi tuyển sinh vào lớp 10.",
+          apps: [
+            {
+              id: "english_9",
+              title: "English 9 Explorer",
+              subtitle: "Interactive Global Success 9 with High School Entrance Mastery & Native Voice",
+              icon: "🌍",
+              url: "english-9.html",
+              cardTheme: "english-featured-card",
+              buttonSub: "Chiến lược thi vào lớp 10",
+              tags: ["English 9 Global Success", "Text-To-Speech 🔊", "Relative Clauses", "High School Entrance Exam"],
+              learningGoal: "Nắm vững toàn bộ các chuyên đề ngữ pháp thi vào 10 (Mệnh đề quan hệ, Phrasal verbs, Passive, Conditionals, Reported speech), phát âm đuôi -s/ed và kỹ năng đọc hiểu chuyên sâu.",
+              features: [
+                "🔊 Phát âm chuẩn Native Voice Text-to-Speech từng từ vựng",
+                "📚 Tổng ôn 12 Units cốt lõi SGK Global Success",
+                "🎯 Phân hóa 4 cấp độ câu hỏi cấu trúc thi tuyển sinh",
+                "⏱️ Bài thi thử học kỳ 1 & 2 format 20 phút tự động chấm"
+              ]
+            }
+          ]
+        },
+        {
+          id: "khtn",
+          name: "Khoa Học Tự Nhiên",
+          icon: "🔬",
+          color: "#10b981",
+          hasApp: true,
+          badge: "✨ ĐÃ CÓ APP TƯƠNG TÁC",
+          desc: "Năng lượng & biến đổi: Điện học nâng cao, từ trường, cảm ứng điện từ, thấu kính khúc xạ; Hóa học hữu cơ (hydrocarbon, polymer); Di truyền học nhiễm sắc thể và biến dị Mendel.",
+          apps: [
+            {
+              id: "science_9",
+              title: "Khám Phá KHTN Lớp 9",
+              subtitle: "Điện học nâng cao, quang học thấu kính, hóa hữu cơ & di truyền học Mendel",
+              icon: "🔬",
+              url: "science-9.html",
+              cardTheme: "science-featured-card",
+              buttonSub: "Thí nghiệm & Đề thi HK1, HK2",
+              tags: ["KHTN 9 GDPT 2018", "Định Luật Ohm", "Thấu Kính", "Hóa Hữu Cơ", "Di Truyền Mendel"],
+              learningGoal: "Làm chủ định luật Ohm cho đoạn mạch nối tiếp - song song, thấu kính hội tụ - phân kì, tính chất Methane - Ethylene - Rượu - Acid và các quy luật di truyền nhiễm sắc thể Mendel.",
+              features: [
+                "💡 Định luật Ohm, Công suất điện & Truyền tải điện năng",
+                "🔍 Quang học thấu kính & Tật cận thị của mắt",
+                "🧪 Phản ứng Hydrocarbon, Rượu ethylic & Axit axetic",
+                "⏱️ Đề thi thử KHTN 9 tự động chấm điểm HK1 & HK2"
+              ]
+            }
+          ]
+        },
         {
           id: "lich_su_dia_ly",
           name: "Lịch Sử và Địa Lý",
           icon: "🧭",
           color: "#ea580c",
-          desc: "Nghiên cứu kinh tế - xã hội các vùng miền: Trung du miền núi Bắc Bộ, Đồng bằng sông Hồng, Bắc Trung Bộ & Duyên hải miền Trung, Tây Nguyên, Đông Nam Bộ, ĐBSCL."
+          hasApp: true,
+          badge: "⭐ ĐÃ CÓ APP & GAME BẢN ĐỒ",
+          desc: "Nghiên cứu kinh tế - xã hội các vùng miền: Trung du miền núi Bắc Bộ, Đồng bằng sông Hồng, Bắc Trung Bộ & Duyên hải miền Trung, Tây Nguyên, Đông Nam Bộ, ĐBSCL; Lịch sử Việt Nam hiện đại từ 1945 đến nay.",
+          apps: [
+            {
+              id: "history_geo_9",
+              title: "Đấu Trí Lịch Sử & Địa Lý Lớp 9",
+              subtitle: "7 Vùng kinh tế trọng điểm, Mốc son Điện Biên Phủ 1954, Đại thắng 1975 & Đổi mới hội nhập",
+              icon: "🧭",
+              url: "history-geo-9.html",
+              cardTheme: "history-featured-card",
+              buttonSub: "Giáo án & Đề thi HK1, HK2",
+              tags: ["Lịch Sử & Địa Lý 9", "7 Vùng Kinh Tế", "Điện Biên Phủ 1954", "Mùa Xuân 1975"],
+              learningGoal: "Phân tích đặc trưng kinh tế - xã hội các vùng miền (Bắc Bộ, Miền Trung, Tây Nguyên, Nam Bộ); nắm vững các mốc son chói lọi trong hai cuộc kháng chiến chống Pháp, Mỹ và công cuộc Đổi mới đất nước.",
+              features: [
+                "🌾 Thế mạnh kinh tế các vùng miền & Phát triển biển đảo",
+                "📜 Cách mạng tháng Tám 1945 & Bản Tuyên ngôn Độc lập",
+                "🎖️ Chiến thắng Điện Biên Phủ 1954 & Đại thắng 30/4/1975",
+                "⏱️ Đề thi thử Lịch Sử & Địa Lý 9 bấm giờ tự động chấm"
+              ]
+            },
+            {
+              id: "vn_map_puzzle_9",
+              title: "Khám Phá Các Vùng Kinh Tế & Địa Giới Việt Nam",
+              subtitle: "Game Ghép Hình 34 Tỉnh Thành Theo Vùng Kinh Tế & Biển Đảo Quê Hương",
+              icon: "vietnam-icon.svg",
+              url: "game.html",
+              cardTheme: "featured-game-card",
+              buttonSub: "Luyện bản đồ vùng kinh tế",
+              tags: ["Địa Lý 9 GDPT 2018", "7 Vùng Kinh Tế", "34 Tỉnh Thành", "Bắt Dính Snap"],
+              learningGoal: "Học sinh Lớp 9 phân tích được vị trí địa lý, tiềm năng kinh tế vùng miền và ghi nhớ bản đồ 34 tỉnh thành Việt Nam phục vụ ôn thi vào 10."
+            }
+          ]
         },
-        { id: "toan", name: "Toán Học", icon: "📐", color: "#3b82f6", desc: "Phương trình bậc hai, hệ thức Viète, đường tròn và hình trụ - nón - cầu (trọng tâm ôn thi vào 10)." },
-        { id: "ngu_van", name: "Ngữ Văn", icon: "📚", color: "#ec4899", desc: "Tác phẩm văn học trung đại và hiện đại kinh điển, kỹ năng viết bài văn nghị luận sâu sắc." },
-        { id: "khtn", name: "Khoa Học Tự Nhiên", icon: "🔬", color: "#10b981", desc: "Điện học, từ học, hóa học hữu cơ, di truyền học và biến dị Mendel." },
-        { id: "tieng_anh", name: "Tiếng Anh", icon: "🌍", color: "#f59e0b", desc: "Luyện đề thi tuyển sinh vào lớp 10 các trường THPT." }
+        { id: "tin_hoc", name: "Tin Học", icon: "💻", color: "#06b6d4", desc: "Tư duy giải thuật và lập trình Python nâng cao, đa phương tiện & đồ họa số, quản trị cơ sở dữ liệu và nhận thức về trí tuệ nhân tạo (AI)." },
+        { id: "gdcd", name: "Giáo Dục Công Dân", icon: "⚖️", color: "#d97706", desc: "Sống có lý tưởng, chí công vô tư, bảo vệ hòa bình, dân chủ và kỷ luật; quyền và nghĩa vụ công dân trong hôn nhân, lao động và kinh doanh." },
+        { id: "cong_nghe", name: "Công Nghệ", icon: "🛠️", color: "#0284c7", desc: "Kỹ thuật điện dân dụng: Thiết kế, lắp đặt mạng điện sinh hoạt trong nhà, khí cụ đóng cắt - bảo vệ; trải nghiệm nghề nghiệp định hướng tương lai." },
+        { id: "gdtc", name: "Giáo Dục Thể Chất", icon: "🏃", color: "#16a34a", desc: "Phát triển thể lực đỉnh cao, chiến thuật thi đấu đối kháng trong bóng đá, bóng rổ, bóng chuyền, cầu lông và duy trì phong cách sống năng động." },
+        { id: "nghe_thuat", name: "Âm Nhạc & Mĩ Thuật", icon: "🎨", color: "#8b5cf6", desc: "Cảm thụ âm nhạc đa thể loại và biểu diễn hòa tấu; sáng tạo mỹ thuật đương đại, thiết kế đồ họa truyền thông thị giác và mỹ thuật ứng dụng." },
+        { id: "hdtn_hn", name: "Hoạt Động Trải Nghiệm, Hướng Nghiệp", icon: "🎯", color: "#f43f5e", desc: "Kỹ năng lập kế hoạch tài chính cá nhân, quản trị căng thẳng mùa thi, tự đánh giá năng lực để chọn trường THPT và chọn tổ hợp môn học lớp 10." }
       ]
     },
     10: {
       title: "Lớp 10",
       level: "thpt",
-      desc: "Bắt đầu cấp THPT với các môn học chuyên sâu theo định hướng nghề nghiệp.",
+      desc: "Chương trình cốt lõi GDPT 2018 cấp THPT - Hệ thống giáo án chuyên sâu, bài tập phân hóa 4 mức độ & đề thi thử Học kỳ 1, Học kỳ 2 theo định hướng nghề nghiệp!",
       subjects: [
+        {
+          id: "toan",
+          name: "Toán Học",
+          icon: "📐",
+          color: "#3b82f6",
+          hasApp: true,
+          badge: "🔥 ĐÃ CÓ APP ÔN TẬP",
+          desc: "Mệnh đề & tập hợp, bất phương trình bậc nhất hai ẩn, hàm số bậc hai, hệ thức lượng trong tam giác, vectơ, phương pháp tọa độ trong mặt phẳng, thống kê & xác suất.",
+          apps: [
+            {
+              id: "math_10",
+              title: "Đấu Trí Toán Lớp 10",
+              subtitle: "Mệnh đề, vectơ, hàm số bậc hai, đại số tổ hợp & xác suất chuẩn GDPT 2018",
+              icon: "🧮",
+              url: "math-10.html",
+              cardTheme: "math-featured-card",
+              buttonSub: "Giáo án & Đề thi HK1, HK2",
+              tags: ["Toán 10 GDPT 2018", "Vectơ Mặt Phẳng", "Hàm Số Bậc Hai", "Tổ Hợp & Xác Suất"],
+              learningGoal: "Làm chủ các phép toán tập hợp, hệ thức lượng tam giác, tính tích vô hướng vectơ, xét dấu tam thức bậc hai, giải bài toán đếm tổ hợp và tính xác suất biến cố.",
+              features: [
+                "📐 Mệnh đề, Tập hợp & Hệ thức lượng trong tam giác",
+                "🎯 Vectơ & Phương pháp tọa độ trong mặt phẳng",
+                "📈 Hàm số bậc hai, Dấu tam thức & Phương trình đường tròn",
+                "⏱️ Đề thi thử Toán 10 bấm giờ tự động chấm HK1 & HK2"
+              ]
+            }
+          ]
+        },
+        {
+          id: "ngu_van",
+          name: "Ngữ Văn",
+          icon: "📚",
+          color: "#ec4899",
+          hasApp: true,
+          badge: "✨ ĐÃ CÓ APP TƯƠNG TÁC",
+          desc: "Thần thoại, sử thi anh hùng, chèo - tuồng cổ truyền, thơ trữ tình hiện đại, văn bản thông tin và kỹ năng viết bài văn nghị luận phân tích, đánh giá tác phẩm.",
+          apps: [
+            {
+              id: "literature_10",
+              title: "Khám Phá Ngữ Văn Lớp 10",
+              subtitle: "Thần thoại kì vĩ, sử thi Đăm Săn, kịch bản chèo cổ & văn chính luận Nguyễn Trãi",
+              icon: "📖",
+              url: "literature-10.html",
+              cardTheme: "vietnamese-featured-card",
+              buttonSub: "Giáo án & Cảm thụ văn học",
+              tags: ["Ngữ Văn 10 GDPT 2018", "Sử Thi Đăm Săn", "Bình Ngô Đại Cáo", "Chèo Cổ Xúy Vân"],
+              learningGoal: "Khám phá vẻ đẹp thần thoại sử thi, cảm thụ tư tưởng nhân nghĩa vì dân trong Bình Ngô đại cáo và làm chủ kỹ năng viết bài luận phân tích, đánh giá tác phẩm văn học.",
+              features: [
+                "🏛️ Tầm vóc kì vĩ của người anh hùng sử thi Đăm Săn",
+                "🎭 Bi kịch nội tâm và nghệ thuật ước lệ trong chèo cổ",
+                "📜 Tư tưởng nhân nghĩa & Bản tuyên ngôn Bình Ngô đại cáo",
+                "⏱️ Đề thi thử Ngữ Văn 10 phân hóa 4 cấp độ HK1, HK2"
+              ]
+            }
+          ]
+        },
+        {
+          id: "tieng_anh",
+          name: "Tiếng Anh",
+          icon: "🌍",
+          color: "#6366f1",
+          hasApp: true,
+          badge: "🔊 CÓ PHÁT ÂM BẢN XỨ",
+          desc: "Chương trình Tiếng Anh 10 Global Success học thuật: Nâng cao vốn từ vựng & ngữ pháp về Bình đẳng giới, Môi trường sinh thái, Âm nhạc quốc tế, Du lịch bền vững và Trí tuệ nhân tạo.",
+          apps: [
+            {
+              id: "english_10",
+              title: "English 10 Explorer",
+              subtitle: "Interactive Global Success 10 with Academic Reading, Writing & Native Audio",
+              icon: "🌍",
+              url: "english-10.html",
+              cardTheme: "english-featured-card",
+              buttonSub: "Vocabulary, Grammar & Mock Exams",
+              tags: ["English 10 Global Success", "Text-To-Speech 🔊", "Academic Writing", "Mock Semester 1 & 2"],
+              learningGoal: "Phát triển toàn diện 4 kỹ năng tiếng Anh học thuật: từ vựng chủ đề môi trường - bình đẳng giới - AI, mệnh đề quan hệ với giới từ, câu bị động với modal verbs và làm chủ bài thi học kỳ.",
+              features: [
+                "🔊 Phát âm chuẩn Native Text-to-Speech từng từ vựng học thuật",
+                "📚 Tổng ôn 10 Units trọng điểm SGK Global Success 10",
+                "🎯 Luyện tập phân hóa 4 cấp độ chuẩn format quốc tế",
+                "⏱️ Đề thi thử học kỳ 1 & 2 tự động chấm điểm"
+              ]
+            }
+          ]
+        },
+        {
+          id: "vat_li",
+          name: "Vật Lí",
+          icon: "⚡",
+          color: "#06b6d4",
+          hasApp: true,
+          badge: "✨ ĐÃ CÓ APP TƯƠNG TÁC",
+          desc: "Mô tả chuyển động thẳng biến đổi đều, ba định luật Newton, các lực cơ học, cân bằng vật rắn & mômen lực, năng lượng, công cơ học và định luật bảo toàn động lượng.",
+          apps: [
+            {
+              id: "physics_10",
+              title: "Đấu Trí Vật Lí Lớp 10",
+              subtitle: "Động học, Ba định luật Newton, Năng lượng, Công cơ học & Bảo toàn động lượng",
+              icon: "⚡",
+              url: "physics-10.html",
+              cardTheme: "science-featured-card",
+              buttonSub: "Giáo án & Đề thi HK1, HK2",
+              tags: ["Vật Lí 10 GDPT 2018", "Định Luật Newton", "Bảo Toàn Cơ Năng", "Động Lượng Tên Lửa"],
+              learningGoal: "Hiểu sâu sắc chuyển động biến đổi đều, vận dụng linh hoạt 3 định luật Newton giải bài toán lực, định luật bảo toàn cơ năng và nguyên lý chuyển động phản lực của tên lửa.",
+              features: [
+                "🏎️ Chuyển động thẳng biến đổi đều & Rơi tự do",
+                "⚡ Ba định luật Newton & Lực ma sát, Lực đàn hồi",
+                "🔋 Công, Công suất & Định luật bảo toàn cơ năng",
+                "⏱️ Đề thi thử Vật Lí 10 bấm giờ tự động chấm HK1 & HK2"
+              ]
+            }
+          ]
+        },
+        {
+          id: "hoa_hoc",
+          name: "Hóa Học",
+          icon: "🧪",
+          color: "#10b981",
+          hasApp: true,
+          badge: "✨ ĐÃ CÓ APP TƯƠNG TÁC",
+          desc: "Cấu tạo nguyên tử, bảng tuần hoàn các nguyên tố hóa học, liên kết hóa học (ion, cộng hóa trị, hydrogen), phản ứng oxi hóa - khử và năng lượng hóa học (enthalpy).",
+          apps: [
+            {
+              id: "chemistry_10",
+              title: "Khám Phá Hóa Học Lớp 10",
+              subtitle: "Cấu hình electron, Bảng tuần hoàn, Thăng bằng phản ứng oxi hóa khử & Biến thiên Enthalpy",
+              icon: "🧪",
+              url: "chemistry-10.html",
+              cardTheme: "science-featured-card",
+              buttonSub: "Giáo án & Đề thi HK1, HK2",
+              tags: ["Hóa Học 10 GDPT 2018", "Cấu Hình Electron", "Liên Kết Ion & CHT", "Biến Thiên Enthalpy"],
+              learningGoal: "Viết thành thạo cấu hình electron, giải thích quy luật tuần hoàn, bản chất các loại liên kết, cân bằng phản ứng oxi hóa khử theo phương pháp thăng bằng electron và tính biến thiên enthalpy chuẩn.",
+              features: [
+                "⚛️ Cấu tạo hạt nhân nguyên tử & Cấu hình electron",
+                "🔗 Liên kết ion, cộng hóa trị & Liên kết hydrogen",
+                "🔥 Phản ứng oxi hóa - khử & Enthalpy chuẩn Δr H°₂₉₈",
+                "⏱️ Đề thi thử Hóa Học 10 tự động chấm điểm HK1 & HK2"
+              ]
+            }
+          ]
+        },
+        {
+          id: "sinh_hoc",
+          name: "Sinh Học",
+          icon: "🧬",
+          color: "#059669",
+          hasApp: true,
+          badge: "✨ ĐÃ CÓ APP TƯƠNG TÁC",
+          desc: "Giới thiệu khái quát thế giới sống, sinh học tế bào: các phân tử sinh học (carbohydrate, lipid, protein, nucleic acid), cấu trúc tế bào nhân thực, trao đổi chất & chu kỳ phân bào.",
+          apps: [
+            {
+              id: "biology_10",
+              title: "Khám Phá Sinh Học Lớp 10",
+              subtitle: "Thế giới vi mô tế bào, 4 đại phân tử sinh học, chu kỳ phân bào & công nghệ vi sinh",
+              icon: "🧬",
+              url: "biology-10.html",
+              cardTheme: "science-featured-card",
+              buttonSub: "Giáo án & Đề thi HK1, HK2",
+              tags: ["Sinh Học 10 GDPT 2018", "Đại Phân Tử Sinh Học", "Nguyên Phân & Giảm Phân", "Virus & Vi Sinh"],
+              learningGoal: "Khám phá cấu trúc và chức năng của protein - DNA, bào quan tế bào nhân thực, cơ chế quang hợp - hô hấp tế bào, phân biệt nguyên phân - giảm phân và ứng dụng công nghệ vi sinh vật.",
+              features: [
+                "🔬 4 nhóm phân tử sinh học cơ bản cấu tạo tế bào",
+                "🧫 Cấu trúc màng khảm động & Các bào quan nội màng",
+                "🧬 Chu kỳ tế bào, Nguyên phân & Biến dị Giảm phân",
+                "⏱️ Đề thi thử Sinh Học 10 tự động chấm điểm HK1 & HK2"
+              ]
+            }
+          ]
+        },
+        {
+          id: "lich_su",
+          name: "Lịch Sử",
+          icon: "🏛️",
+          color: "#d97706",
+          hasApp: true,
+          badge: "✨ ĐÃ CÓ APP TƯƠNG TÁC",
+          desc: "Khái niệm Lịch sử & Sử học, các nền văn minh thế giới cổ - trung đại, các cuộc cách mạng công nghiệp và cội nguồn văn minh Đông Nam Á, văn minh Đại Việt.",
+          apps: [
+            {
+              id: "history_10",
+              title: "Đấu Trí Lịch Sử Lớp 10",
+              subtitle: "Văn minh thế giới cổ - trung đại, Cách mạng công nghiệp & Nền văn hiến Đại Việt ngàn năm",
+              icon: "🏛️",
+              url: "history-10.html",
+              cardTheme: "history-featured-card",
+              buttonSub: "Giáo án & Đề thi HK1, HK2",
+              tags: ["Lịch Sử 10 GDPT 2018", "Văn Minh Cổ Đại", "Cách Mạng Công Nghiệp", "Văn Minh Đại Việt"],
+              learningGoal: "Hiểu sâu sắc bản chất hiện thực lịch sử, các thành tựu rực rỡ của văn minh Ai Cập - Hy Lạp - La Mã, bước ngoặt của các cuộc cách mạng công nghiệp và đỉnh cao văn hiến Đại Việt.",
+              features: [
+                "📜 Hiện thực lịch sử khách quan & Nhận thức lịch sử",
+                "🏛️ Kỳ quan Kim tự tháp, Đấu trường & Chữ cái Latinh",
+                "👑 Văn minh Văn Lang - Âu Lạc & Nền văn hiến Đại Việt",
+                "⏱️ Đề thi thử Lịch Sử 10 tự động chấm điểm HK1 & HK2"
+              ]
+            }
+          ]
+        },
         {
           id: "dia_ly",
           name: "Địa Lý",
           icon: "🌐",
           color: "#ea580c",
-          desc: "Bản đồ học hiện đại, các quy luật địa lý tự nhiên, địa lý dân cư và địa lý các ngành kinh tế toàn cầu."
+          hasApp: true,
+          badge: "⭐ ĐÃ CÓ APP & GAME BẢN ĐỒ",
+          desc: "Bản đồ học hiện đại, công nghệ viễn thám GIS, các quy luật địa lý tự nhiên Trái Đất (khí quyển, thạch quyển, thủy quyển, sinh quyển), địa lý dân cư và địa lý các ngành kinh tế toàn cầu.",
+          apps: [
+            {
+              id: "geography_10",
+              title: "Đấu Trí Địa Lý Lớp 10",
+              subtitle: "Bản đồ học GIS, các quyển Trái Đất, kiến tạo mảng, dân cư & phát triển bền vững",
+              icon: "🌐",
+              url: "geography-10.html",
+              cardTheme: "history-featured-card",
+              buttonSub: "Giáo án & Đề thi HK1, HK2",
+              tags: ["Địa Lý 10 GDPT 2018", "Bản Đồ Học GIS", "Kiến Tạo Mảng", "Kinh Tế Tuần Hoàn"],
+              learningGoal: "Ứng dụng bản đồ học và công nghệ GIS, phân tích cơ chế nội lực - ngoại lực, các đai khí áp và gió mùa Trái Đất, đặc điểm đô thị hóa và nguyên tắc phát triển kinh tế tuần hoàn bền vững.",
+              features: [
+                "🗺️ Công nghệ định vị GPS & Hệ thống thông tin địa lí GIS",
+                "🌋 Thuyết kiến tạo mảng, Khí quyển & Quy luật địa đới",
+                "🏭 Địa lí dân cư, nông nghiệp, công nghiệp & dịch vụ",
+                "⏱️ Đề thi thử Địa Lý 10 tự động chấm điểm HK1 & HK2"
+              ]
+            },
+            {
+              id: "world_map_puzzle_10",
+              title: "Em Khám Phá Bản Đồ Thế Giới",
+              subtitle: "Trò Chơi Ghép Hình 5 Châu Lục, Khám Phá Quốc Kỳ & Bách Khoa Toàn Thư Quốc Gia",
+              icon: "🌍",
+              url: "world-game.html",
+              cardTheme: "world-featured-card",
+              buttonSub: "Khám phá bản đồ thế giới",
+              tags: ["Địa Lý Thế Giới", "5 Châu Lục", "Quốc Kỳ & Kỳ Quan", "Bách Khoa Địa Lý"],
+              learningGoal: "Học sinh Lớp 10 vận dụng kiến thức bản đồ học để nhận diện chính xác vị trí địa lý của các châu lục, quốc gia trên thế giới cùng các đặc điểm tự nhiên và kinh tế - xã hội tiêu biểu."
+            }
+          ]
         },
-        { id: "lich_su", name: "Lịch Sử", icon: "🏛️", color: "#d97706", desc: "Lịch sử và văn hóa nhân loại, các nền văn minh cổ đại và bản sắc văn hóa Việt Nam." },
-        { id: "toan", name: "Toán Học", icon: "📐", color: "#3b82f6", desc: "Mệnh đề tập hợp, hàm số bậc hai, vectơ, thống kê và xác suất." },
-        { id: "ngu_van", name: "Ngữ Văn", icon: "📚", color: "#ec4899", desc: "Sử thi anh hùng, thần thoại và kịch bản văn học kinh điển." },
-        { id: "vat_li", name: "Vật Lí", icon: "⚡", color: "#06b6d4", desc: "Chuyển động thẳng biến đổi, ba định luật Newton, năng lượng và công." },
-        { id: "hoa_hoc", name: "Hóa Học", icon: "🧪", color: "#10b981", desc: "Cấu tạo nguyên tử, liên kết hóa học và phản ứng oxi hóa - khử." }
+        { id: "ktpl", name: "Giáo Dục Kinh Tế & Pháp Luật", icon: "⚖️", color: "#e11d48", desc: "Nền kinh tế và các chủ thể kinh tế, cơ chế thị trường, thuế, ngân sách nhà nước, sản xuất kinh doanh; Hiến pháp nước CHXHCN Việt Nam và hệ thống pháp luật chuẩn mực." },
+        { id: "tin_hoc", name: "Tin Học", icon: "💻", color: "#0284c7", desc: "Máy tính & xã hội tri thức, mạng máy tính và Internet, an toàn không gian số, lập trình cơ bản và giải quyết bài toán thực tế bằng ngôn ngữ Python chuẩn quốc tế." },
+        { id: "cong_nghe", name: "Công Nghệ", icon: "🛠️", color: "#f59e0b", desc: "Thiết kế & Công nghệ công nghiệp (tiêu chuẩn vẽ kỹ thuật, hình chiếu vuông góc, bản vẽ chi tiết) hoặc Công nghệ trồng trọt hiện đại (đất trồng, phân bón và bảo vệ thực vật)." },
+        { id: "gdqp_an", name: "Giáo Dục Quốc Phòng & An Ninh", icon: "🛡️", color: "#dc2626", desc: "Truyền thống đánh giặc giữ nước của dân tộc Việt Nam, bảo vệ chủ quyền lãnh thổ và an ninh biên giới quốc gia, phòng chống tệ nạn xã hội và kỹ năng cấp cứu vết thương chiến thuật." },
+        { id: "gdtc", name: "Giáo Dục Thể Chất", icon: "🏃", color: "#16a34a", desc: "Nâng cao thể lực chung và thể lực chuyên môn, kỹ chiến thuật thi đấu nâng cao các môn thể thao (bóng đá, bóng rổ, cầu lông, bóng chuyền) và kỹ năng phòng ngừa chấn thương." },
+        { id: "hdtn_hn", name: "Hoạt Động Trải Nghiệm, Hướng Nghiệp", icon: "🎯", color: "#f43f5e", desc: "Thích ứng với môi trường THPT, tự hoàn thiện năng lực bản thân, tư vấn định hướng chọn tổ hợp nghề nghiệp đại học và xây dựng dự án hành động vì cộng đồng." },
+        { id: "nghe_thuat", name: "Âm Nhạc & Mĩ Thuật", icon: "🎨", color: "#8b5cf6", desc: "Lý thuyết âm nhạc cơ bản, thanh nhạc và biểu diễn nhạc cụ; hội họa hình họa, đồ họa tạo hình, điêu khắc và thiết kế mỹ thuật đa phương tiện." }
       ]
     },
     11: {

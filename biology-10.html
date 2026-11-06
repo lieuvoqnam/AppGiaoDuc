@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sinh Học Lớp 10 - Ôn Tập & Thi Thử Tương Tác</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="subject-style.css">
+</head>
+<body class="theme-science">
+
+  <!-- APP HEADER -->
+  <header id="app-header">
+    <div class="header-left">
+      <a href="index.html" class="btn-back-hub" title="Quay lại Cổng Học Tập Lớp 1 - 12">
+        <span>⬅</span> Cổng Học Tập
+      </a>
+      <div class="app-branding">
+        <span class="app-logo-icon">🧬</span>
+        <div class="app-titles">
+          <h1>Sinh Học Lớp 10</h1>
+          <span>Chương trình chuẩn GDPT 2018 • Sinh học tế bào, phân tử sinh học, chu kỳ phân bào & công nghệ vi sinh</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-right">
+      <div class="user-profile-badge">
+        <div id="user-avatar" class="u-avatar">🎓</div>
+        <div class="u-meta">
+          <span id="user-display-name" class="u-name">Học sinh</span>
+          <span id="user-display-class" class="u-class">Lớp 10</span>
+        </div>
+      </div>
+
+      <button id="btn-leaderboard" class="icon-btn" title="Bảng Vàng Thành Tích">🏆</button>
+      <button id="btn-logout" class="icon-btn" title="Đổi tài khoản">🚪</button>
+      <button id="btn-toggle-sound" class="icon-btn" title="Bật/Tắt âm thanh">🔊</button>
+      <button id="btn-fullscreen" class="icon-btn" title="Toàn màn hình">⛶</button>
+    </div>
+  </header>
+
+  <!-- NAVIGATION CONTROL BAR -->
+  <nav id="nav-bar">
+    <div class="mode-tabs">
+      <button class="mode-tab-btn active" data-mode="theory">
+        <span>📖</span> Giáo Án & Trọng Tâm
+      </button>
+      <button class="mode-tab-btn" data-mode="practice">
+        <span>🎯</span> Luyện Tập Phân Hóa
+      </button>
+      <button class="mode-tab-btn" data-mode="exam">
+        <span>⏱️</span> Phòng Thi Thử Học Kỳ
+      </button>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTAINER -->
+  <main id="main-container">
+    <!-- TOPIC SELECTOR -->
+    <div id="topic-bar-wrapper">
+      <div id="topic-pills" class="topic-pills-bar">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+
+    <!-- 1. THEORY VIEW -->
+    <section id="theory-view">
+      <div class="theory-header-card">
+        <div id="theory-header-icon" class="theory-header-icon">🧬</div>
+        <div class="theory-header-info">
+          <h2 id="theory-header-title">Sinh Học Lớp 10</h2>
+          <p id="theory-header-desc">Hệ thống giáo án, kiến thức trọng tâm, kỹ năng giải bài và phương pháp tư duy GDPT 2018.</p>
+        </div>
+      </div>
+
+      <div id="theory-grid" class="theory-grid">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+
+    <!-- 2. PRACTICE VIEW -->
+    <section id="practice-view" class="hidden">
+      <div class="practice-filter-bar">
+        <div id="level-filters" class="level-filters">
+          <span class="level-filter-label">Cấp độ câu hỏi:</span>
+          <button class="level-btn active" data-lvl="all">Tất cả</button>
+          <button class="level-btn" data-lvl="1">Mức 1: Nhận biết</button>
+          <button class="level-btn" data-lvl="2">Mức 2: Thông hiểu</button>
+          <button class="level-btn" data-lvl="3">Mức 3: Vận dụng</button>
+          <button class="level-btn" data-lvl="4">Mức 4: Vận dụng cao</button>
+        </div>
+        <div class="practice-actions">
+          <span class="lock-hint-tag">🔒 Lời giải chi tiết chỉ mở sau khi Nộp bài</span>
+          <button id="btn-reroll-practice" class="btn-reroll" title="Đổi câu hỏi mới">
+            <span>🎲</span> Đổi Đề Mới (Đổi Câu & Đáp Án)
+          </button>
+        </div>
+      </div>
+
+      <div id="practice-questions-list" class="questions-list">
+        <!-- Rendered by JS -->
+      </div>
+
+      <button id="btn-submit-practice" class="btn-submit-exam">
+        📝 Nộp Bài & Xem Điểm Số
+      </button>
+    </section>
+
+    <!-- 3. MOCK EXAM VIEW -->
+    <section id="exam-view" class="hidden">
+      <!-- EXAM SEMESTER SELECTOR TABS -->
+      <div id="exam-semester-bar" class="exam-semester-bar">
+        <button class="exam-term-tab active" data-term="1">
+          <span class="term-icon">🌸</span>
+          <div class="term-content">
+            <span class="term-title">Đề Thi Thử Học Kỳ 1</span>
+            <span class="term-subtitle">Nội dung & kiến thức trọng tâm Học kỳ 1</span>
+          </div>
+        </button>
+        <button class="exam-term-tab" data-term="2">
+          <span class="term-icon">🌻</span>
+          <div class="term-content">
+            <span class="term-title">Đề Thi Thử Học Kỳ 2</span>
+            <span class="term-subtitle">Nội dung & kiến thức trọng tâm Học kỳ 2</span>
+          </div>
+        </button>
+      </div>
+      <div class="exam-banner-card">
+        <div class="exam-banner-info">
+          <h2>⏱️ Đề Thi Thử Sinh Học Lớp 10</h2>
+          <p>Thời gian: 20 phút • 10 câu hỏi ngẫu nhiên bao quát nội dung học kỳ tương ứng</p>
+        </div>
+        <div class="exam-actions-group">
+          <button id="btn-reroll-exam" class="btn-reroll-exam" title="Sinh đề thi mới hoàn toàn">
+            <span>🎲</span> Đổi Đề Thi Mới
+          </button>
+          <div class="exam-timer-box">
+            <span style="font-size:1.4rem;">⏳</span>
+            <span id="exam-timer" class="exam-timer-val">20:00</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="exam-questions-list" class="questions-list">
+        <!-- Rendered by JS -->
+      </div>
+
+      <button id="btn-submit-exam" class="btn-submit-exam">
+        📝 Nộp Bài & Xem Điểm Số
+      </button>
+    </section>
+  </main>
+
+  <!-- SCORE MODAL -->
+  <div id="score-modal" class="modal-overlay hidden">
+    <div class="score-modal-card">
+      <div class="score-trophy">🏆</div>
+      <h3 id="modal-score-title" class="score-title">Kết Quả Bài Làm</h3>
+      <div id="modal-score-val" class="score-val-big">10.0 / 10.0</div>
+      <div>
+        <span id="modal-score-tag" class="score-badge-tag perfect">Xuất Sắc! 🌟</span>
+      </div>
+      <p id="modal-score-msg" style="font-size:1.1rem; color:#475569; margin-bottom:20px;">
+        Tuyệt vời! Bạn đã hoàn thành xuất sắc bài làm!
+      </p>
+
+      <div class="modal-btn-row">
+        <button id="btn-close-modal" class="btn-secondary">📖 Xem Lời Giải Chi Tiết</button>
+        <button id="btn-retry-exam" class="btn-primary">Làm Đề Mới 🎲</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="auth.js"></script>
+  <script src="audio.js"></script>
+  <script src="confetti.js"></script>
+  <script src="biology-10-data.js"></script>
+  <script src="subject-engine.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      window.biology10Engine = window.SubjectEngine.createEngine({
+        data: window.BIOLOGY10_DATA,
+        lang: 'vi-VN',
+        isLanguageSubject: false
+      });
+      window.biology10Engine.init();
+    });
+  </script>
+</body>
+</html>
