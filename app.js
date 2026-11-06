@@ -1215,6 +1215,12 @@ document.addEventListener('DOMContentLoaded', () => {
       b.classList.toggle('active', b.dataset.region === state.currentRegionId);
     });
 
+    // Ẩn mức độ Dễ/Vừa/Khó khi ở chế độ Khám Phá Địa Lý
+    const diffGroup = document.querySelector('.difficulty-group');
+    if (diffGroup) {
+      diffGroup.style.display = (mode === 'explore') ? 'none' : 'flex';
+    }
+
     // Xử lý riêng cho chế độ Khám Phá Địa Lý (Explore Mode)
     if (mode === 'explore') {
       regionSelector.style.display = 'flex';
