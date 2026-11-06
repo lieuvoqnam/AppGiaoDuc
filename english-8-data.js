@@ -1,91 +1,91 @@
 /**
- * english-8-data.js - Dữ liệu Ôn tập & Ngân hàng câu hỏi Môn English 8 Explorer
+ * english-8-data.js - Dữ liệu Ôn tập & Ngân hàng câu hỏi Tiếng Anh Lớp 8
  * Chuẩn GDPT 2018 - Học kỳ 1 & Học kỳ 2
  */
 
 window.ENGLISH8_DATA = {
-  "name": "Tiếng Anh Lớp 8 (English 8)",
+  "name": "Tiếng Anh Lớp 8",
   "grade": 8,
   "topics": [
     {
-      "id": "leisure_countryside_community",
+      "id": "e8_leisure_countryside",
       "terms": [
         1
       ],
-      "name": "Chủ Đề 1: Leisure Time, Countryside & Ethnic Groups",
-      "icon": "🌍",
-      "desc": "Vocabulary Units 1-6 Global Success: Verbs of liking/disliking, Comparative adverbs, Questions words & Articles.",
+      "name": "Topic 1: Leisure Time & Life in the Countryside",
+      "icon": "🏕️",
+      "desc": "Verbs of liking/disliking followed by gerunds/to-infinitives, comparative forms of adverbs, and vocabulary about rural lifestyles.",
       "theory": {
         "highlights": [
           {
-            "icon": "🎧",
-            "title": "Verbs of liking & disliking + V-ing / to V",
-            "content": "• Like, love, enjoy, adore, fancy, detest, dislike, hate + <strong>V-ing</strong> (Gerund).<br/>  - <em>Example:</em> I fancy skateboarding in my free time. She detests washing the dishes.<br/>• Like, love, hate, prefer can also be followed by <strong>to V</strong>."
+            "icon": "❤️",
+            "title": "Verbs of liking & disliking",
+            "content": "• Followed by V-ing: <em>enjoy, fancy, adore, dislike, mind, detest</em>.<br/>• Followed by either V-ing or To V: <em>like, love, prefer, hate</em>.<br/>• Example: <em>She fancies <strong>doing</strong> DIY projects at weekends.</em>"
           },
           {
             "icon": "⚡",
-            "title": "Comparative forms of Adverbs (So sánh hơn của trạng từ)",
-            "content": "• <strong>Short adverbs (1 âm tiết):</strong> adv + <em>-er</em> + than (hard ➔ harder, fast ➔ faster, early ➔ earlier).<br/>• <strong>Long adverbs (2 âm tiết trở lên kết thúc bằng -ly):</strong> <em>more / less</em> + adv + than (slowly ➔ more slowly, carefully ➔ more carefully).<br/>• <strong>Bất quy tắc:</strong> well ➔ better, badly ➔ worse, far ➔ farther/further."
+            "title": "Comparative forms of Adverbs",
+            "content": "• Short adverbs: <em>adv + -er + than</em> (fast → faster, hard → harder, early → earlier).<br/>• Long adverbs: <em>more + adv + than</em> (slowly → more slowly, skillfully → more skillfully).<br/>• Irregular: <em>well → better, badly → worse, far → farther/further</em>."
           }
         ]
       },
       "questions": [
         {
-          "id": "en8_1_1",
+          "id": "e8_t1_01",
           "level": 1,
-          "question": "She enjoys ______ DIY projects with her friends on Sundays.",
+          "question": "My brother really enjoys ________ board games with his friends on Sundays.",
           "options": [
-            "doing",
-            "to do",
-            "did",
-            "does"
+            "playing",
+            "to play",
+            "play",
+            "played"
           ],
           "correct": 0,
-          "explanation": "Động từ 'enjoy' luôn đi cùng danh động từ V-ing: enjoy doing."
+          "explanation": "Enjoy is followed by a gerund (V-ing): enjoy playing."
         },
         {
-          "id": "en8_1_2",
+          "id": "e8_t1_02",
           "level": 1,
-          "question": "Life in the countryside is often ______ than life in the busy city.",
+          "question": "People in the countryside usually wake up ________ than city dwellers.",
           "options": [
-            "more peaceful",
-            "peacefuler",
-            "peaceful",
-            "most peaceful"
+            "earlier",
+            "more early",
+            "more earlier",
+            "early than"
           ],
           "correct": 0,
-          "explanation": "'Peaceful' là tính từ dài hai âm tiết, so sánh hơn là 'more peaceful than'."
+          "explanation": "Early is a special adverb whose comparative form is earlier."
         },
         {
-          "id": "en8_1_3",
+          "id": "e8_t1_03",
+          "level": 1,
+          "question": "Nam detests ________ in crowded shopping malls.",
+          "options": [
+            "shopping",
+            "to shop",
+            "shop",
+            "shopped"
+          ],
+          "correct": 0,
+          "explanation": "Detest (ghét cay ghét đắng) takes V-ing: detest shopping."
+        },
+        {
+          "id": "e8_t1_04",
           "level": 2,
-          "question": "Nick can speak Vietnamese ______ than Peter can.",
+          "question": "A buffalo ploughs ________ than a horse.",
           "options": [
-            "more fluently",
-            "fluently",
-            "more fluent",
-            "fluentlier"
+            "more slowly",
+            "slowlier",
+            "slow",
+            "as slow"
           ],
           "correct": 0,
-          "explanation": "Bổ nghĩa cho động từ 'speak' là trạng từ 'fluently'. So sánh hơn của trạng từ dài là 'more fluently'."
+          "explanation": "Slowly is a 2-syllable adverb ending in -ly, comparative form is more slowly."
         },
         {
-          "id": "en8_1_4",
+          "id": "e8_t1_05",
           "level": 2,
-          "question": "______ ethnic groups are there living in Viet Nam? - There are 54 groups.",
-          "options": [
-            "How many",
-            "How much",
-            "How long",
-            "How often"
-          ],
-          "correct": 0,
-          "explanation": "'Ethnic groups' là danh từ đếm được số nhiều, dùng 'How many' để hỏi số lượng."
-        },
-        {
-          "id": "en8_1_5",
-          "level": 3,
-          "question": "Farmers in my village usually work ______ during the harvesting season than during the rest of the year.",
+          "question": "During harvest time, farmers work ________ than usual.",
           "options": [
             "harder",
             "more hard",
@@ -93,175 +93,589 @@ window.ENGLISH8_DATA = {
             "more hardly"
           ],
           "correct": 0,
-          "explanation": "'Hard' vừa là tính từ vừa là trạng từ ngắn. Dạng so sánh hơn của trạng từ hard là 'harder'."
+          "explanation": "Hard is a short adverb: hard → harder."
         },
         {
-          "id": "en8_1_6",
+          "id": "e8_t1_06",
+          "level": 2,
+          "question": "Which word is CLOSEST in meaning to 'vast' in: 'The vast paddy fields look like a golden sea'?",
+          "options": [
+            "enormous",
+            "narrow",
+            "tiny",
+            "crowded"
+          ],
+          "correct": 0,
+          "explanation": "Vast means extremely large or enormous (bao la, bát ngát)."
+        },
+        {
+          "id": "e8_t1_07",
           "level": 3,
-          "question": "Which word has the underlined part pronounced differently from the others?",
+          "question": "Tom runs ________ than anyone else in our sports club.",
           "options": [
-            "leisure",
-            "pressure",
-            "pleasure",
-            "measure"
-          ],
-          "correct": 1,
-          "explanation": "'pressure' có âm /ʃ/, trong khi 'leisure', 'pleasure', 'measure' đều phát âm là /ʒ/."
-        },
-        {
-          "id": "en8_1_7",
-          "level": 4,
-          "question": "Despite living in a remote mountainous area, the ethnic children study ______ to achieve their dreams.",
-          "options": [
-            "assiduously",
-            "reluctantly",
-            "indifferently",
-            "superficially"
+            "faster",
+            "more fast",
+            "fastly",
+            "more faster"
           ],
           "correct": 0,
-          "explanation": "'assiduously' nghĩa là chăm chỉ, siêng năng và kiên trì, phù hợp với ngữ cảnh vượt khó đạt ước mơ."
+          "explanation": "Fast is both an adjective and adverb; comparative form is faster."
         },
         {
-          "id": "en8_1_8",
-          "level": 4,
-          "question": "Choose the best sentence transformation: 'Mark drives more carefully than Tom.'",
+          "id": "e8_t1_08",
+          "level": 3,
+          "question": "Lan doesn't mind ________ her mother with loading the rice onto the truck.",
           "options": [
-            "Tom drives less carefully than Mark.",
-            "Tom drives as carefully as Mark.",
-            "Mark drives more carelessly than Tom.",
-            "Tom doesn't drive so carelessly as Mark."
+            "helping",
+            "to help",
+            "help",
+            "helped"
           ],
           "correct": 0,
-          "explanation": "'Mark lái xe cẩn thận hơn Tom' đồng nghĩa với 'Tom lái xe kém cẩn thận hơn Mark'."
+          "explanation": "Don't mind + V-ing: không phiền/ngại làm việc gì."
+        },
+        {
+          "id": "e8_t1_09",
+          "level": 3,
+          "question": "Living in a small peaceful village is much ________ than living in a bustling city.",
+          "options": [
+            "healthier",
+            "more healthy",
+            "healthy",
+            "healthiest"
+          ],
+          "correct": 0,
+          "explanation": "Healthy → healthier (tính từ 2 âm tiết tận cùng -y)."
+        },
+        {
+          "id": "e8_t1_10",
+          "level": 4,
+          "question": "Choose the sentence that has the SAME meaning: 'He drives more carefully than his sister.'",
+          "options": [
+            "His sister drives less carefully than him.",
+            "His sister drives as carefully as him.",
+            "He drives worse than his sister.",
+            "His sister is a more careful driver than him."
+          ],
+          "correct": 0,
+          "explanation": "'He drives more carefully than his sister' = Chị anh ấy lái xe kém cẩn thận hơn anh ấy."
+        },
+        {
+          "id": "e8_t1_11",
+          "level": 4,
+          "question": "They fancy ________ into the canal in hot summer afternoons.",
+          "options": [
+            "diving",
+            "to dive",
+            "dive",
+            "dove"
+          ],
+          "correct": 0,
+          "explanation": "Fancy + V-ing: thích làm gì đó."
         }
       ]
     },
     {
-      "id": "environment_tech_future",
+      "id": "e8_ethnic_customs",
       "terms": [
-        2
+        1
       ],
-      "name": "Chủ Đề 2: Environmental Protection & Science Technology",
-      "icon": "🤖",
-      "desc": "Vocabulary Units 7-12 Global Success: Conditional sentences Type 1 & 2, Reported speech, Passive voice & Future continuous.",
+      "name": "Topic 2: Ethnic Groups & Traditions of Viet Nam",
+      "icon": "🏮",
+      "desc": "Articles (a, an, the, zero article), compound and complex sentences, cultural traditions, folk heritage and festivals.",
       "theory": {
         "highlights": [
           {
-            "icon": "🌿",
-            "title": "Conditional Sentence Type 1 & 2 (Câu điều kiện loại 1 & 2)",
-            "content": "• <strong>Type 1 (Điều kiện có thật ở hiện tại/tương lai):</strong><br/>  <em>If + S + V(hiện tại đơn), S + will / can / must + V(nguyên thể).</em><br/>  - If we recycle paper, we will save trees.<br/>• <strong>Type 2 (Điều kiện không có thật ở hiện tại):</strong><br/>  <em>If + S + V(quá khứ đơn / were), S + would / could + V(nguyên thể).</em><br/>  - If I had a flying car, I would fly to school every day."
+            "icon": "✨",
+            "title": "Articles: A, An, The & Zero Article (Ø)",
+            "content": "• <strong>A / An:</strong> Singular countable nouns mentioned for the first time.<br/>• <strong>The:</strong> Specific nouns known to both speaker and listener, unique things (<em>the sun</em>), superlatives (<em>the best</em>), or whole ethnic group pluralized (<em>the Tay, the Hmong</em>).<br/>• <strong>Zero article (Ø):</strong> Plural or uncountable nouns in general sense, names of countries/continents/languages."
           },
           {
-            "icon": "📡",
-            "title": "Reported Speech (Câu gián tiếp)",
-            "content": "• Lùi thì: Hiện tại đơn ➔ Quá khứ đơn; Hiện tại tiếp diễn ➔ Quá khứ tiếp diễn; Will ➔ Would; Can ➔ Could.<br/>• Đổi đại từ chỉ định và thời gian: today ➔ that day; now ➔ then; yesterday ➔ the day before; tomorrow ➔ the next day."
+            "icon": "🔗",
+            "title": "Connectors & Sentence Types",
+            "content": "• <strong>Compound sentence:</strong> Joined by FANBOYS (<em>for, and, nor, but, or, yet, so</em>) or conjunctive adverbs (<em>however, therefore, otherwise</em>).<br/>• <strong>Complex sentence:</strong> Main clause + subordinate clause (<em>because, although, if, when, while</em>)."
           }
         ]
       },
       "questions": [
         {
-          "id": "en8_2_1",
+          "id": "e8_t2_01",
           "level": 1,
-          "question": "If people ______ public transport more often, there will be less air pollution.",
+          "question": "________ Tay have the largest population among ethnic minority groups in Viet Nam.",
           "options": [
-            "use",
-            "used",
-            "will use",
-            "are using"
+            "The",
+            "A",
+            "An",
+            "Ø"
           ],
           "correct": 0,
-          "explanation": "Mệnh đề 'if' của câu điều kiện loại 1 chia ở thì hiện tại đơn: If people use."
+          "explanation": "'The + tên dân tộc số nhiều' chỉ toàn bộ cộng đồng dân tộc đó: The Tay."
         },
         {
-          "id": "en8_2_2",
+          "id": "e8_t2_02",
           "level": 1,
-          "question": "If I were you, I ______ join the volunteer club to protect the local environment.",
+          "question": "It is a tradition for Vietnamese families to gather together ________ Tet holiday.",
           "options": [
-            "would",
-            "will",
-            "can",
-            "am going to"
+            "at",
+            "on",
+            "in",
+            "with"
           ],
           "correct": 0,
-          "explanation": "Câu điều kiện loại 2 giả định lời khuyên: If I were you, I would + V."
+          "explanation": "At Tet holiday / on Tet Day."
         },
         {
-          "id": "en8_2_3",
+          "id": "e8_t2_03",
+          "level": 1,
+          "question": "Ethnic minority women often wear beautiful ________ costumes during festivals.",
+          "options": [
+            "traditional",
+            "tradition",
+            "traditionally",
+            "traditionalize"
+          ],
+          "correct": 0,
+          "explanation": "Traditional costume (tính từ đứng trước danh từ)."
+        },
+        {
+          "id": "e8_t2_04",
           "level": 2,
-          "question": "Scientists predict that artificial intelligence (AI) ______ human life significantly in the next decade.",
+          "question": "Viet Nam is ________ multicultural country with 54 ethnic groups.",
           "options": [
-            "will transform",
-            "transforms",
-            "transformed",
-            "is transforming"
+            "a",
+            "an",
+            "the",
+            "Ø"
           ],
           "correct": 0,
-          "explanation": "Dự đoán trong tương lai với 'predict that... will transform'."
+          "explanation": "'a multicultural country' (một quốc gia đa văn hóa, danh từ số ít đếm được bắt đầu bằng phụ âm)."
         },
         {
-          "id": "en8_2_4",
+          "id": "e8_t2_05",
           "level": 2,
-          "question": "Lan asked Nam: 'Do you like science fiction films?' ➔ Lan asked Nam ______.",
+          "question": "You should take off your shoes before entering the house; ________, you will bring in dirt.",
           "options": [
-            "if he liked science fiction films",
-            "if did he like science fiction films",
-            "whether he likes science fiction films",
-            "that he liked science fiction films"
+            "otherwise",
+            "therefore",
+            "however",
+            "moreover"
           ],
           "correct": 0,
-          "explanation": "Câu hỏi Yes/No chuyển sang gián tiếp dùng 'if/whether + S + V(lùi thì)': if he liked."
+          "explanation": "Otherwise = nếu không thì (chỉ hậu quả nếu không làm điều trước)."
         },
         {
-          "id": "en8_2_5",
+          "id": "e8_t2_06",
+          "level": 2,
+          "question": "Although the weather was harsh, ________ the stilt house remained firm and safe.",
+          "options": [
+            "Ø (no word)",
+            "but",
+            "so",
+            "however"
+          ],
+          "correct": 0,
+          "explanation": "Trong tiếng Anh, đã có 'Although' thì mệnh đề chính không dùng 'but'."
+        },
+        {
+          "id": "e8_t2_07",
           "level": 3,
-          "question": "If the ice at the polar caps continues to melt rapidly, sea levels ______ drastically.",
+          "question": "Gong culture in the Central Highlands was recognized by UNESCO as ________ Masterpiece of the Oral and Intangible Heritage of Humanity.",
           "options": [
-            "will rise",
-            "would rise",
-            "rose",
-            "has risen"
+            "a",
+            "an",
+            "the",
+            "Ø"
           ],
           "correct": 0,
-          "explanation": "Điều kiện loại 1 diễn tả sự việc có thể xảy ra: If + continues ➔ will rise."
+          "explanation": "Recognized as a Masterpiece (được công nhận như một kiệt tác)."
         },
         {
-          "id": "en8_2_6",
+          "id": "e8_t2_08",
           "level": 3,
-          "question": "At this time next Monday, the astronauts ______ around the Earth inside the new space capsule.",
+          "question": "The Cham people have a custom of weaving ________ brocade fabrics.",
           "options": [
-            "will be orbiting",
-            "orbit",
-            "will orbit",
-            "have orbited"
+            "colourful",
+            "colour",
+            "colourfully",
+            "colourless"
           ],
           "correct": 0,
-          "explanation": "'At this time next Monday' là mốc thời gian cụ thể trong tương lai ➔ dùng thì Tương lai tiếp diễn: will be orbiting."
+          "explanation": "Colourful brocade fabrics (vải thổ cẩm rực rỡ sắc màu)."
         },
         {
-          "id": "en8_2_7",
-          "level": 4,
-          "question": "Unless we take immediate actions to reduce single-use plastic, our oceans ______ with plastic waste.",
+          "id": "e8_t2_09",
+          "level": 3,
+          "question": "She studied very hard; ________, she achieved high scores in her exam.",
           "options": [
-            "will be overwhelmed",
-            "would be overwhelmed",
-            "are overwhelming",
-            "overwhelm"
+            "therefore",
+            "however",
+            "otherwise",
+            "although"
           ],
           "correct": 0,
-          "explanation": "Unless = If not. Mệnh đề chính mang nghĩa bị động ở thì tương lai đơn: will be overwhelmed."
+          "explanation": "Therefore (do đó / vì vậy) diễn tả kết quả hợp logic."
         },
         {
-          "id": "en8_2_8",
+          "id": "e8_t2_10",
           "level": 4,
-          "question": "Choose the sentence that has the closest meaning: 'He doesn't have enough money, so he can't buy that high-tech telescope.'",
+          "question": "Find the MISTAKE: 'The Hmong people is known for their colorful embroidered skirts.'",
           "options": [
-            "If he had enough money, he could buy that high-tech telescope.",
-            "If he has enough money, he will buy that high-tech telescope.",
-            "Unless he had enough money, he could buy that high-tech telescope.",
-            "If he didn't have enough money, he could buy that telescope."
+            "is",
+            "for",
+            "colorful",
+            "embroidered"
           ],
           "correct": 0,
-          "explanation": "Viết lại tình huống thực tế ở hiện tại thành câu điều kiện loại 2 giả định ngược lại: If he had..., he could buy..."
+          "explanation": "'The Hmong people' mang nghĩa số nhiều nên động từ phải chia là 'are known', không dùng 'is'."
+        },
+        {
+          "id": "e8_t2_11",
+          "level": 4,
+          "question": "Which sentence is correctly punctuated?",
+          "options": [
+            "We wanted to attend the Elephant Race Festival, but the tickets were sold out.",
+            "We wanted to attend the Elephant Race Festival but, the tickets were sold out.",
+            "We wanted to attend the Elephant Race Festival; but the tickets were sold out.",
+            "We wanted to attend the Elephant Race Festival but the tickets, were sold out."
+          ],
+          "correct": 0,
+          "explanation": "Dấu phẩy đứng trước liên từ 'but' nối hai mệnh đề độc lập."
+        }
+      ]
+    },
+    {
+      "id": "e8_environment_disasters",
+      "terms": [
+        2
+      ],
+      "name": "Topic 3: Environment & Natural Disasters",
+      "icon": "🌊",
+      "desc": "Complex sentences with adverbial clauses (reason, concession, time), Passive Voice, eco-friendly habits and disaster preparedness.",
+      "theory": {
+        "highlights": [
+          {
+            "icon": "🌱",
+            "title": "Adverbial Clauses (Reason & Condition)",
+            "content": "• <strong>Because / Since / As:</strong> Clause of reason (<em>Because plastic bags take centuries to decompose, we should use cloth bags.</em>)<br/>• <strong>Conditional Type 1:</strong> <em>If + S + V(present simple), S + will + V(bare)</em> (real possibility in present or future)."
+          },
+          {
+            "icon": "⚙️",
+            "title": "Passive Voice in Present & Past Simple",
+            "content": "• Present Simple Passive: <em>S + am/is/are + V(p.p) + (by O)</em>.<br/>• Past Simple Passive: <em>S + was/were + V(p.p) + (by O)</em>.<br/>• Example: <em>Hundreds of trees were uprooted by the fierce typhoon yesterday.</em>"
+          }
+        ]
+      },
+      "questions": [
+        {
+          "id": "e8_t3_01",
+          "level": 1,
+          "question": "Many houses and roads ________ destroyed by the massive flood last week.",
+          "options": [
+            "were",
+            "was",
+            "are",
+            "have been"
+          ],
+          "correct": 0,
+          "explanation": "Houses and roads là danh từ số nhiều, thời quá khứ (last week) bị động: were destroyed."
+        },
+        {
+          "id": "e8_t3_02",
+          "level": 1,
+          "question": "If we reduce our single-use plastic consumption, the oceans ________ cleaner.",
+          "options": [
+            "will be",
+            "is",
+            "would be",
+            "were"
+          ],
+          "correct": 0,
+          "explanation": "Câu điều kiện loại 1: If + HTĐ, S + will + V-bare."
+        },
+        {
+          "id": "e8_t3_03",
+          "level": 1,
+          "question": "A violent storm with very strong winds that moves in a circle is a ________.",
+          "options": [
+            "tornado",
+            "drought",
+            "flood",
+            "landslide"
+          ],
+          "correct": 0,
+          "explanation": "Tornado: lốc xoáy, bão xoáy di chuyển hình phễu ốc."
+        },
+        {
+          "id": "e8_t3_04",
+          "level": 2,
+          "question": "Single-use plastic bottles should be ________ to protect our living environment.",
+          "options": [
+            "recycled",
+            "recycle",
+            "recycling",
+            "recycles"
+          ],
+          "correct": 0,
+          "explanation": "Bị động với khiếm khuyết từ: Modal verb + be + V(p.p) → should be recycled."
+        },
+        {
+          "id": "e8_t3_05",
+          "level": 2,
+          "question": "Residents had to evacuate their homes ________ the water level rose rapidly.",
+          "options": [
+            "because",
+            "although",
+            "so",
+            "unless"
+          ],
+          "correct": 0,
+          "explanation": "Because = bởi vì (chỉ nguyên nhân người dân phải sơ tán)."
+        },
+        {
+          "id": "e8_t3_06",
+          "level": 2,
+          "question": "Emergency food and rescue supplies ________ to the isolated villages by helicopters yesterday.",
+          "options": [
+            "were sent",
+            "sent",
+            "was sent",
+            "are sent"
+          ],
+          "correct": 0,
+          "explanation": "Chủ ngữ số nhiều 'supplies', quá khứ bị động 'yesterday' → were sent."
+        },
+        {
+          "id": "e8_t3_07",
+          "level": 3,
+          "question": "If we ________ fossil fuels at the current rate, severe air pollution will worsen.",
+          "options": [
+            "burn",
+            "burned",
+            "will burn",
+            "are burning"
+          ],
+          "correct": 0,
+          "explanation": "Mệnh đề If loại 1 chia hiện tại đơn: If we burn."
+        },
+        {
+          "id": "e8_t3_08",
+          "level": 3,
+          "question": "The rescue team worked day and night; as a result, many victims ________ saved.",
+          "options": [
+            "were",
+            "are",
+            "is",
+            "was"
+          ],
+          "correct": 0,
+          "explanation": "Victims (những nạn nhân - số nhiều), thời quá khứ → were saved."
+        },
+        {
+          "id": "e8_t3_09",
+          "level": 3,
+          "question": "What is the opposite of 'natural disaster'?",
+          "options": [
+            "man-made disaster",
+            "calamity",
+            "catastrophe",
+            "earthquake"
+          ],
+          "correct": 0,
+          "explanation": "Trái nghĩa với thảm họa thiên nhiên (natural) là thảm họa do con người gây ra (man-made)."
+        },
+        {
+          "id": "e8_t3_10",
+          "level": 4,
+          "question": "Change into Passive: 'Volunteers planted thousands of green trees along the river bank.'",
+          "options": [
+            "Thousands of green trees were planted along the river bank by volunteers.",
+            "Thousands of green trees are planted along the river bank by volunteers.",
+            "Thousands of green trees were plant along the river bank by volunteers.",
+            "Along the river bank planted thousands of green trees."
+          ],
+          "correct": 0,
+          "explanation": "Quá khứ đơn bị động: S (trees) + were + planted + ... + by volunteers."
+        },
+        {
+          "id": "e8_t3_11",
+          "level": 4,
+          "question": "Choose the best connector: '________ the warning sirens sounded early, many local fishermen managed to return ashore safely.'",
+          "options": [
+            "Because",
+            "Although",
+            "However",
+            "Despite"
+          ],
+          "correct": 0,
+          "explanation": "Because (bởi vì còi báo động vang lên sớm nên ngư dân kịp vào bờ an toàn)."
+        }
+      ]
+    },
+    {
+      "id": "e8_tech_future_planets",
+      "terms": [
+        2
+      ],
+      "name": "Topic 4: Communication, Science & Outer Space",
+      "icon": "🚀",
+      "desc": "Reported speech (statements), prepositions of time and place, future forms, robotics, AI and space exploration.",
+      "theory": {
+        "highlights": [
+          {
+            "icon": "💬",
+            "title": "Reported Speech: Statements",
+            "content": "• Change of tenses: Present Simple → Past Simple, Present Continuous → Past Continuous, Will → Would, Can → Could.<br/>• Change of pronouns: I → he/she, we → they, my → his/her.<br/>• Change of time/place: today → that day, tomorrow → the following day, here → there."
+          },
+          {
+            "icon": "🛰️",
+            "title": "Science & Future Technology Vocabulary",
+            "content": "• High-tech devices: <em>holography, video conference, telepathy, wearable devices, humanoid robots</em>.<br/>• Outer space: <em>solar system, alien, UFO, weightless, gravitational pull, space station</em>."
+          }
+        ]
+      },
+      "questions": [
+        {
+          "id": "e8_t4_01",
+          "level": 1,
+          "question": "Astronauts float inside a space shuttle because of ________ environment.",
+          "options": [
+            "weightless",
+            "heavy",
+            "gravity",
+            "weight"
+          ],
+          "correct": 0,
+          "explanation": "Weightless environment: môi trường không trọng lực."
+        },
+        {
+          "id": "e8_t4_02",
+          "level": 1,
+          "question": "Tom said: 'I am learning English online.' → Tom said that he ________ English online.",
+          "options": [
+            "was learning",
+            "is learning",
+            "learned",
+            "has learned"
+          ],
+          "correct": 0,
+          "explanation": "Lùi thì từ Hiện tại tiếp diễn (am learning) sang Quá khứ tiếp diễn (was learning)."
+        },
+        {
+          "id": "e8_t4_03",
+          "level": 1,
+          "question": "Our science presentation will begin ________ 8:30 a.m. tomorrow morning.",
+          "options": [
+            "at",
+            "on",
+            "in",
+            "by"
+          ],
+          "correct": 0,
+          "explanation": "Giới từ chỉ giờ cụ thể là 'at': at 8:30 a.m."
+        },
+        {
+          "id": "e8_t4_04",
+          "level": 2,
+          "question": "Nick said to me, 'I will buy a new smartphone next month.' → Nick told me that he ________ a new smartphone the following month.",
+          "options": [
+            "would buy",
+            "will buy",
+            "bought",
+            "buys"
+          ],
+          "correct": 0,
+          "explanation": "Will lùi thì thành would: would buy."
+        },
+        {
+          "id": "e8_t4_05",
+          "level": 2,
+          "question": "In the near future, students ________ using 3D holographic images in their science lessons.",
+          "options": [
+            "will be",
+            "were",
+            "are being",
+            "have been"
+          ],
+          "correct": 0,
+          "explanation": "Hành động diễn ra trong tương lai: will be."
+        },
+        {
+          "id": "e8_t4_06",
+          "level": 2,
+          "question": "Which planet is known as the 'Red Planet' in our solar system?",
+          "options": [
+            "Mars",
+            "Jupiter",
+            "Venus",
+            "Saturn"
+          ],
+          "correct": 0,
+          "explanation": "Mars (sao Hỏa) được mệnh danh là Hành tinh Đỏ."
+        },
+        {
+          "id": "e8_t4_07",
+          "level": 3,
+          "question": "'I cannot attend the video meeting today,' Linda said. → Linda said that she ________ attend the video meeting that day.",
+          "options": [
+            "could not",
+            "cannot",
+            "will not",
+            "could"
+          ],
+          "correct": 0,
+          "explanation": "Cannot lùi thì thành could not; today đổi thành that day."
+        },
+        {
+          "id": "e8_t4_08",
+          "level": 3,
+          "question": "By communicating via ________, people may be able to transmit thoughts directly from brain to brain.",
+          "options": [
+            "telepathy",
+            "letters",
+            "payphones",
+            "smoke signals"
+          ],
+          "correct": 0,
+          "explanation": "Telepathy: thần giao cách cảm."
+        },
+        {
+          "id": "e8_t4_09",
+          "level": 3,
+          "question": "The Mars rover was launched into outer space ________ July 2020.",
+          "options": [
+            "in",
+            "on",
+            "at",
+            "during"
+          ],
+          "correct": 0,
+          "explanation": "Tháng và năm dùng giới từ 'in': in July 2020."
+        },
+        {
+          "id": "e8_t4_10",
+          "level": 4,
+          "question": "Transform into indirect speech: 'We will test this intelligent robot here tomorrow,' the scientists said.",
+          "options": [
+            "The scientists said that they would test that intelligent robot there the next day.",
+            "The scientists said that they will test this intelligent robot here tomorrow.",
+            "The scientists said that they would test this intelligent robot here the following day.",
+            "The scientists said that they tested that intelligent robot there the next day."
+          ],
+          "correct": 0,
+          "explanation": "Đổi đúng: we → they, will → would, this → that, here → there, tomorrow → the next day."
+        },
+        {
+          "id": "e8_t4_11",
+          "level": 4,
+          "question": "What is the primary benefit of video conferencing over traditional audio phone calls?",
+          "options": [
+            "It allows participants to see facial expressions and share visual presentation slides in real time.",
+            "It does not need any internet connection.",
+            "It is always free without any device.",
+            "It only works when people are in the same room."
+          ],
+          "correct": 0,
+          "explanation": "Video conference cho phép tương tác nhìn thấy hình ảnh trực quan, nét mặt và tài liệu theo thời gian thực."
         }
       ]
     }
