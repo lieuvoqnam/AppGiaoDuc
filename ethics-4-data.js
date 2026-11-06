@@ -8,6 +8,7 @@ window.ETHICS4_DATA = {
   topics: [
     {
       id: "biet_on_va_ton_trong",
+        terms: [1],
       name: "Biết Ơn & Tôn Trọng Sự Khác Biệt",
       icon: "❤️",
       desc: "Biết ơn thầy cô, quý trọng người lao động và tôn trọng tính cách, hoàn cảnh của mọi người.",
@@ -187,6 +188,7 @@ window.ETHICS4_DATA = {
     },
     {
       id: "tu_lap_va_vuot_kho",
+        terms: [1],
       name: "Tự Lập & Kiên Trì Vượt Khó",
       icon: "🧗",
       desc: "Tự giác học bài, làm việc nhà, kiên trì giải bài tập khó và không nản lòng trước thất bại.",
@@ -361,6 +363,7 @@ window.ETHICS4_DATA = {
     },
     {
       id: "bao_ve_cua_cong_tiet_kiem",
+        terms: [2],
       name: "Bảo Vệ Của Công & Tiết Kiệm",
       icon: "🏫",
       desc: "Giữ gìn tài sản trường lớp, nơi công cộng; tiết kiệm tiền của, thời gian, điện nước.",
@@ -540,6 +543,7 @@ window.ETHICS4_DATA = {
     },
     {
       id: "ky_nang_song_an_toan",
+        terms: [2],
       name: "Kỹ Năng Sống & An Toàn Bản Thân",
       icon: "🛡️",
       desc: "Quy tắc 5 ngón tay phòng chống xâm hại, phòng tránh bắt nạt học đường và kỹ năng thoát hiểm khi gặp hỏa hoạn.",

@@ -9,6 +9,7 @@ window.HISTORY_GEO4_DATA = {
   topics: [
     {
       id: "phuong_tien_hoc_tap",
+        terms: [1],
       name: "Chủ Đề 1: Phương Tiện Học Tập Lịch Sử & Địa Lý",
       icon: "🧭",
       desc: "Làm quen bản đồ, lược đồ địa lý, tranh ảnh, hiện vật lịch sử và trục thời gian (TCN, SCN, cách tính thế kỉ).",
@@ -174,6 +175,7 @@ window.HISTORY_GEO4_DATA = {
 
     {
       id: "trung_du_mien_nui_bac_bo",
+        terms: [1],
       name: "Chủ Đề 2: Thiên Nhiên & Lịch Sử Vùng Trung Du & Miền Núi Bắc Bộ",
       icon: "🏔️",
       desc: "Dãy Hoàng Liên Sơn, Phan-xi-păng, ruộng bậc thang, Đền Hùng giỗ Tổ, chiến thắng Bạch Đằng & chiến dịch Điện Biên Phủ.",
@@ -354,6 +356,7 @@ window.HISTORY_GEO4_DATA = {
 
     {
       id: "dong_bang_bac_bo",
+        terms: [1],
       name: "Chủ Đề 3: Thiên Nhiên & Lịch Sử Vùng Đồng Bằng Bắc Bộ",
       icon: "🌾",
       desc: "Đồng bằng sông Hồng, hệ thống đê ngăn lũ, Thăng Long - Hà Nội nghìn năm văn hiến, Văn Miếu - Quốc Tử Giám.",
@@ -529,6 +532,7 @@ window.HISTORY_GEO4_DATA = {
 
     {
       id: "duyen_hai_mien_trung",
+        terms: [1, 2],
       name: "Chủ Đề 4: Thiên Nhiên & Lịch Sử Vùng Duyên Hải Miền Trung",
       icon: "🏰",
       desc: "Dải đất hẹp ngang, cồn cát biển, Cố đô Huế, Phố cổ Hội An và Khởi nghĩa Lam Sơn hào hùng.",
@@ -694,6 +698,7 @@ window.HISTORY_GEO4_DATA = {
 
     {
       id: "tay_nguyen",
+        terms: [2],
       name: "Chủ Đề 5: Thiên Nhiên & Lịch Sử Vùng Tây Nguyên",
       icon: "🪵",
       desc: "Các cao nguyên xếp tầng đất bazan, cây công nghiệp lâu năm, Không gian văn hóa Cồng chiêng & Anh hùng Núp.",
@@ -859,6 +864,7 @@ window.HISTORY_GEO4_DATA = {
 
     {
       id: "nam_bo",
+        terms: [2],
       name: "Chủ Đề 6: Thiên Nhiên & Lịch Sử Vùng Nam Bộ",
       icon: "🛶",
       desc: "Đồng bằng sông Cửu Long sông nước, vựa lúa trái cây, Bến Nhà Rồng nơi Bác Hồ ra đi tìm đường cứu nước & Địa đạo Củ Chi.",
@@ -1039,6 +1045,7 @@ window.HISTORY_GEO4_DATA = {
 
     {
       id: "bien_dao_viet_nam",
+        terms: [2],
       name: "Chủ Đề 7: Biển, Đảo Việt Nam & Bảo Vệ Chủ Quyền",
       icon: "🏝️",
       desc: "Đường bờ biển 3.260 km, quần đảo Hoàng Sa và Trường Sa thiêng liêng, đảo Phú Quốc & trách nhiệm bảo vệ biển đảo quê hương.",

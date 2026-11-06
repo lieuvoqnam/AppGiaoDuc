@@ -179,7 +179,7 @@ window.PORTAL_DATA = {
         {
           id: "lich_su_dia_ly",
           name: "Lịch Sử và Địa Lý",
-          icon: "🇻🇳",
+          icon: "🧭",
           color: "#ea580c",
           hasApp: true,
           badge: "⭐ ĐÃ CÓ APP TƯƠNG TÁC",
@@ -189,7 +189,7 @@ window.PORTAL_DATA = {
               id: "history_geo_3",
               title: "Khám Phá Lịch Sử & Địa Lý Lớp 3",
               subtitle: "Hào khí non sông gấm vóc, danh lam thắng cảnh 3 miền & cội nguồn dân tộc Việt Nam",
-              icon: "🇻🇳",
+              icon: "🧭",
               url: "history-geo-3.html",
               cardTheme: "history-featured-card",
               buttonSub: "6 Chủ đề & Thi thử định kỳ",
@@ -383,7 +383,7 @@ window.PORTAL_DATA = {
         {
           id: "lich_su_dia_ly",
           name: "Lịch Sử và Địa Lý",
-          icon: "🇻🇳",
+          icon: "🧭",
           color: "#ea580c",
           hasApp: true,
           badge: "⭐ ĐÃ CÓ APP TƯƠNG TÁC",
@@ -393,7 +393,7 @@ window.PORTAL_DATA = {
               id: "history_geo_4_review",
               title: "Đấu Trí Lịch Sử & Địa Lý Lớp 4",
               subtitle: "Hệ thống kiến thức 5 vùng miền, mốc son hào hùng dựng nước & đề thi thử học kỳ",
-              icon: "🇻🇳",
+              icon: "🧭",
               url: "history-geo-4.html",
               cardTheme: "history-featured-card",
               buttonSub: "7 Chủ đề & Thi thử định kỳ",
@@ -587,7 +587,7 @@ window.PORTAL_DATA = {
         {
           id: "lich_su_dia_ly",
           name: "Lịch Sử và Địa Lý",
-          icon: "🇻🇳",
+          icon: "🧭",
           color: "#ea580c",
           desc: "Đặc điểm địa hình, khí hậu, sông ngòi, các vùng kinh tế Việt Nam và các cuộc kháng chiến vệ quốc vĩ đại."
         },
@@ -606,7 +606,7 @@ window.PORTAL_DATA = {
         {
           id: "lich_su_dia_ly",
           name: "Lịch Sử và Địa Lý",
-          icon: "🇻🇳",
+          icon: "🧭",
           color: "#ea580c",
           desc: "Bản đồ và phương pháp sử dụng bản đồ, các chuyển động của Trái Đất, lịch sử thế giới cổ đại và dựng nước Văn Lang - Âu Lạc."
         },
@@ -625,7 +625,7 @@ window.PORTAL_DATA = {
         {
           id: "lich_su_dia_ly",
           name: "Lịch Sử và Địa Lý",
-          icon: "🇻🇳",
+          icon: "🧭",
           color: "#ea580c",
           hasApp: true,
           badge: "⭐ ĐÃ CÓ APP TƯƠNG TÁC",
@@ -663,7 +663,7 @@ window.PORTAL_DATA = {
         {
           id: "lich_su_dia_ly",
           name: "Lịch Sử và Địa Lý",
-          icon: "🇻🇳",
+          icon: "🧭",
           color: "#ea580c",
           desc: "Đặc điểm địa hình, khí hậu, tài nguyên khoáng sản, các hệ thống sông lớn và vùng biển đảo Việt Nam."
         },
@@ -681,7 +681,7 @@ window.PORTAL_DATA = {
         {
           id: "lich_su_dia_ly",
           name: "Lịch Sử và Địa Lý",
-          icon: "🇻🇳",
+          icon: "🧭",
           color: "#ea580c",
           desc: "Nghiên cứu kinh tế - xã hội các vùng miền: Trung du miền núi Bắc Bộ, Đồng bằng sông Hồng, Bắc Trung Bộ & Duyên hải miền Trung, Tây Nguyên, Đông Nam Bộ, ĐBSCL."
         },

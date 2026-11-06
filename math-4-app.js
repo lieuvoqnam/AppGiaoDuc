@@ -16,7 +16,8 @@
     examAnswers: {}, // { [qId]: idx }
     examTimeLeft: 20 * 60, // 20 minutes
     examTimer: null,
-    isExamSubmitted: false
+    isExamSubmitted: false,
+    examTerm: 1 // 1: Học kỳ 1, 2: Học kỳ 2
   };
 
   // DOM Elements
@@ -166,6 +167,16 @@
       });
     }
 
+    document.querySelectorAll('.exam-term-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        const tVal = parseInt(tab.dataset.term) || 1;
+        if (state.examTerm !== tVal) {
+          playSnd('click');
+          switchExamTerm(tVal);
+        }
+      });
+    });
+
     const btnRerollExam = document.getElementById('btn-reroll-exam');
     if (btnRerollExam) {
       btnRerollExam.addEventListener('click', () => {
@@ -220,6 +231,10 @@
     } else if (newMode === 'exam') {
       if (topicBar) topicBar.classList.add('hidden');
       examView.classList.remove('hidden');
+      const bannerTitle = document.querySelector('.exam-banner-info h2');
+      if (bannerTitle) {
+        bannerTitle.innerHTML = `⏱️ Đấu Trí Đề Thi Thử Toán Lớp 4 - <strong>Học Kỳ ${state.examTerm || 1}</strong>`;
+      }
       if (!state.examQuestions || state.examQuestions.length === 0) {
         startExam(true);
       }
@@ -433,11 +448,26 @@
     });
   }
 
+  function switchExamTerm(newTerm) {
+    state.examTerm = newTerm;
+    document.querySelectorAll('.exam-term-tab').forEach(tab => {
+      const tVal = parseInt(tab.dataset.term) || 1;
+      tab.classList.toggle('active', tVal === newTerm);
+    });
+
+    const bannerTitle = document.querySelector('.exam-banner-info h2');
+    if (bannerTitle) {
+      bannerTitle.innerHTML = `⏱️ Đấu Trí Đề Thi Thử Toán Lớp 4 - <strong>Học Kỳ ${newTerm}</strong>`;
+    }
+
+    startExam(true);
+  }
+
   // --- 3. RENDER MOCK EXAM ---
   function startExam(forceNew = true) {
     if (forceNew || !state.examQuestions || state.examQuestions.length === 0) {
       if (window.Math4Generator && typeof window.Math4Generator.generateMockExam === 'function') {
-        state.examQuestions = window.Math4Generator.generateMockExam();
+        state.examQuestions = window.Math4Generator.generateMockExam(state.examTerm || 1);
       } else if (window.MATH4_DATA) {
         state.examQuestions = [...window.MATH4_DATA.mockExam];
       }

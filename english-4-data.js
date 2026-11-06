@@ -8,6 +8,7 @@ window.ENGLISH4_DATA = {
   topics: [
     {
       id: "me_and_my_friends",
+        terms: [1],
       name: "Me and My Friends",
       icon: "🌍",
       desc: "Countries & Nationalities, Daily Routines, Telling the Time, Days of the Week & Birthdays.",
@@ -174,6 +175,7 @@ window.ENGLISH4_DATA = {
     },
     {
       id: "school_and_hobbies",
+        terms: [1],
       name: "School & Hobbies",
       icon: "🎨",
       desc: "School Subjects, Days of Timetable, What can you do? Sports, Musical Instruments & Hobbies.",
@@ -332,6 +334,7 @@ window.ENGLISH4_DATA = {
     },
     {
       id: "family_food_clothes",
+        terms: [2],
       name: "Family, Food & Clothes",
       icon: "🍔",
       desc: "Physical Appearance, Favourite Food & Drink, Would you like some...? Clothes & Prices.",
@@ -480,6 +483,7 @@ window.ENGLISH4_DATA = {
     },
     {
       id: "animals_weather_trips",
+        terms: [2],
       name: "Animals, Weather & Trips",
       icon: "🦁",
       desc: "Zoo Animals, Why do you like...? Weather & Seasons, Going on a Holiday & Summer Vacation.",

@@ -8,6 +8,7 @@ window.VIETNAMESE4_DATA = {
   topics: [
     {
       id: "tu_loai",
+        terms: [1],
       name: "Danh Từ, Động Từ & Tính Từ",
       icon: "🔤",
       desc: "Phân biệt 3 từ loại cốt lõi trong tiếng Việt, quy tắc viết hoa danh từ riêng và mở rộng vốn từ.",
@@ -184,6 +185,7 @@ window.VIETNAMESE4_DATA = {
     },
     {
       id: "luyen_tu_va_cau",
+        terms: [1],
       name: "Biện Pháp Tu Từ & Dấu Câu",
       icon: "✨",
       desc: "Nắm vững biện pháp So sánh, Nhân hóa và tác dụng của Dấu gạch ngang, Dấu hai chấm, Dấu ngoặc kép.",
@@ -358,6 +360,7 @@ window.VIETNAMESE4_DATA = {
     },
     {
       id: "doc_hieu_cam_thu",
+        terms: [1, 2],
       name: "Đọc Hiểu Văn Bản & Cảm Thụ Văn Học",
       icon: "📚",
       desc: "Rèn luyện kỹ năng đọc hiểu văn bản, nắm bắt ý chính, tìm chi tiết nghệ thuật và bài học nhân văn sâu sắc.",
@@ -532,6 +535,7 @@ window.VIETNAMESE4_DATA = {
     },
     {
       id: "tap_lam_van",
+        terms: [2],
       name: "Tập Làm Văn Miêu Tả",
       icon: "✍️",
       desc: "Nắm vững bố cục 3 phần của bài văn miêu tả cây cối, con vật, đồ vật; kỹ năng mở bài gián tiếp và kết bài mở rộng.",
@@ -711,6 +715,7 @@ window.VIETNAMESE4_DATA = {
     },
     {
       id: "thanh_ngu_chinh_ta",
+        terms: [2],
       name: "Thành Ngữ, Tục Ngữ & Chính Tả",
       icon: "📜",
       desc: "Kho tàng thành ngữ, tục ngữ giàu ý nghĩa giáo dục và quy tắc phân biệt lỗi chính tả thường gặp.",

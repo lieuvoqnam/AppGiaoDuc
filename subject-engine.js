@@ -24,7 +24,8 @@ window.SubjectEngine = (function () {
       examAnswers: {}, // { [qId]: selectedOptIdx }
       examTimeLeft: 20 * 60, // 20 minutes
       examTimer: null,
-      isExamSubmitted: false
+      isExamSubmitted: false,
+      examTerm: 1 // 1: Học kỳ 1, 2: Học kỳ 2
     };
 
     // DOM Elements
@@ -216,6 +217,10 @@ window.SubjectEngine = (function () {
         }
         renderPracticeQuestions();
       } else if (newMode === 'exam') {
+        const bannerTitle = document.querySelector('.exam-banner-info h2');
+        if (bannerTitle) {
+          bannerTitle.innerHTML = `⏱️ Đề Thi Thử ${data.name || ''} - <strong>Học Kỳ ${state.examTerm || 1}</strong>`;
+        }
         if (!state.examQuestions || state.examQuestions.length === 0) {
           generateExam();
         }
@@ -469,16 +474,55 @@ window.SubjectEngine = (function () {
       });
     }
 
+    // Switch Exam Term (Học kỳ 1 / Học kỳ 2)
+    function switchExamTerm(newTerm) {
+      state.examTerm = newTerm;
+      document.querySelectorAll('.exam-term-tab').forEach(tab => {
+        const tVal = parseInt(tab.dataset.term) || 1;
+        tab.classList.toggle('active', tVal === newTerm);
+      });
+
+      const bannerTitle = document.querySelector('.exam-banner-info h2');
+      if (bannerTitle) {
+        bannerTitle.innerHTML = `⏱️ Đề Thi Thử ${data.name || ''} - <strong>Học Kỳ ${newTerm}</strong>`;
+      }
+
+      generateExam();
+      renderExamQuestions();
+      startExamTimer();
+    }
+
     // 3. EXAM VIEW
     function generateExam() {
       const allQs = [];
-      data.topics.forEach(t => {
-        if (t.questions && t.questions.length > 0) {
+      const term = state.examTerm || 1;
+      const nTopics = (data.topics && data.topics.length) || 0;
+      const mid = Math.ceil(nTopics / 2);
+
+      data.topics.forEach((t, idx) => {
+        let isMatch = false;
+        if (t.terms && Array.isArray(t.terms)) {
+          isMatch = t.terms.includes(term);
+        } else if (t.term !== undefined) {
+          isMatch = t.term === term;
+        } else {
+          isMatch = (term === 1) ? (idx < mid) : (idx >= mid || idx === mid - 1);
+        }
+
+        if (isMatch && t.questions && t.questions.length > 0) {
           t.questions.forEach(q => {
             allQs.push({ ...q, topicName: t.name });
           });
         }
       });
+
+      if (allQs.length === 0) {
+        data.topics.forEach(t => {
+          if (t.questions) {
+            t.questions.forEach(q => allQs.push({ ...q, topicName: t.name }));
+          }
+        });
+      }
 
       // Sample 10 questions across topics with varied levels
       const sampled = shuffle(allQs).slice(0, 10);
@@ -666,7 +710,7 @@ window.SubjectEngine = (function () {
       }
 
       showScoreModal({
-        title: 'Kết Quả Bài Thi Thử Học Kỳ',
+        title: `Kết Quả Bài Thi Thử Học Kỳ ${state.examTerm || 1}`,
         score: score,
         correctCount: correctCount,
         totalCount: questions.length,
@@ -754,6 +798,16 @@ window.SubjectEngine = (function () {
           renderPracticeQuestions();
         });
       }
+
+      document.querySelectorAll('.exam-term-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+          const tVal = parseInt(tab.dataset.term) || 1;
+          if (state.examTerm !== tVal) {
+            playSnd('click');
+            switchExamTerm(tVal);
+          }
+        });
+      });
 
       const btnRerollExam = document.getElementById('btn-reroll-exam');
       if (btnRerollExam) {

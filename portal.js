@@ -666,7 +666,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <h3>${subject.name} - ${gradeData.title}</h3>
           <p>${subject.desc}</p>
           <div class="placeholder-status-pill">🛠️ Đang cập nhật thêm bài học & ứng dụng tương tác số hóa</div>
-          <p class="placeholder-tip">💡 Mời bạn bấm sang các môn đã có ứng dụng tương tác như <strong>🇻🇳 Lịch Sử và Địa Lý Lớp 4</strong> (Bản Đồ Việt Nam), <strong>Toán Học</strong> hoặc <strong>Lớp 7</strong> (Bản Đồ Thế Giới) để trải nghiệm trò chơi học tập!</p>
+          <p class="placeholder-tip">💡 Mời bạn bấm sang các môn đã có ứng dụng tương tác như <strong>🧭 Lịch Sử và Địa Lý Lớp 4</strong> (Bản Đồ Việt Nam), <strong>Toán Học</strong> hoặc <strong>Lớp 7</strong> (Bản Đồ Thế Giới) để trải nghiệm trò chơi học tập!</p>
         </div>
       `;
       appShowcaseArea.appendChild(placeholderCard);

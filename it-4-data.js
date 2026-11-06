@@ -8,6 +8,7 @@ window.IT4_DATA = {
   topics: [
     {
       id: "may_tinh_va_em",
+        terms: [1],
       name: "Máy Tính & Em: Phần Cứng & Gõ 10 Ngón",
       icon: "💻",
       desc: "Thiết bị vào - ra, tư thế ngồi học máy tính đúng cách, hàng phím cơ sở và an toàn Internet.",
@@ -177,6 +178,7 @@ window.IT4_DATA = {
     },
     {
       id: "soan_thao_van_ban",
+        terms: [1],
       name: "Soạn Thảo Văn Bản & Bài Trình Chiếu",
       icon: "📑",
       desc: "Kiểu gõ tiếng Việt Telex, định dạng văn bản Word và thiết kế bài trình chiếu PowerPoint.",
@@ -336,6 +338,7 @@ window.IT4_DATA = {
     },
     {
       id: "trong_hoa_cay_canh",
+        terms: [2],
       name: "Công Nghệ: Trồng Hoa & Cây Cảnh",
       icon: "🌸",
       desc: "Quy trình chọn chậu, chuẩn bị đất và giá thể, gieo hạt, trồng cây con và kỹ thuật chăm sóc tưới tiêu.",
@@ -515,6 +518,7 @@ window.IT4_DATA = {
     },
     {
       id: "lap_ghep_mo_hinh",
+        terms: [2],
       name: "Lắp Ghép Mô Hình Kỹ Thuật & Đồ Dùng Điện",
       icon: "⚙️",
       desc: "Chi tiết bộ lắp ghép mô hình kỹ thuật, an toàn sử dụng đồ điện gia đình (quạt, nồi cơm điện, đèn bàn).",

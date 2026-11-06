@@ -828,37 +828,49 @@ window.Math4Generator = (function () {
   }
 
   /**
-   * Sinh một Đề thi thử Học Kỳ ngẫu nhiên hoàn toàn mới (10 câu)
+   * Sinh một Đề thi thử Học Kỳ ngẫu nhiên hoàn toàn mới (10 câu) tách riêng HK1 và HK2
    */
-  function generateMockExam() {
+  function generateMockExam(term = 1) {
     const examQuestions = [];
 
-    // Chọn từ mỗi chủ đề 1-2 câu hỏi ngẫu nhiên được sinh mới
-    const topicKeys = ['natural_numbers', 'fractions', 'measurements', 'geometry', 'word_problems'];
-    
-    // 2 câu Số tự nhiên
-    examQuestions.push(generators.natural_numbers[0]());
-    examQuestions.push(generators.natural_numbers[3]());
+    if (term === 1) {
+      // Đề Thi Học Kỳ 1: Số tự nhiên, Phép tính lớn, Đo lường HK1, Góc & Đường thẳng song song, Tổng-Hiệu / TBC
+      examQuestions.push(generators.natural_numbers[0]()); // Hàng và lớp
+      examQuestions.push(generators.natural_numbers[1]()); // Dấu hiệu chia hết
+      examQuestions.push(generators.natural_numbers[3]()); // Phép nhân / chia
+      examQuestions.push(generators.natural_numbers[4]()); // Tính thuận tiện
+      
+      examQuestions.push(generators.measurements[0]()); // Yến, tạ, tấn
+      examQuestions.push(generators.measurements[1]()); // Giây, thế kỉ
 
-    // 2 câu Phân số
-    examQuestions.push(generators.fractions[1]());
-    examQuestions.push(generators.fractions[3]());
+      examQuestions.push(generators.geometry[0]()); // Góc nhọn, góc vuông, góc tù, góc bẹt
 
-    // 2 câu Đo lường
-    examQuestions.push(generators.measurements[0]());
-    examQuestions.push(generators.measurements[1]());
+      examQuestions.push(generators.word_problems[0]()); // Trung bình cộng
+      examQuestions.push(generators.word_problems[1]()); // Tìm hai số khi biết Tổng và Hiệu
+      examQuestions.push(generators.word_problems[4]()); // TBC nâng cao
+    } else {
+      // Đề Thi Học Kỳ 2: Phân số & 4 phép tính, Hình bình hành, Hình thoi, Diện tích, Tổng-Tỉ, Hiệu-Tỉ, Thống kê
+      examQuestions.push(generators.fractions[0]()); // Khái niệm phân số & rút gọn
+      examQuestions.push(generators.fractions[1]()); // Phép cộng trừ phân số
+      examQuestions.push(generators.fractions[2]()); // Tìm x với phân số
+      examQuestions.push(generators.fractions[3]()); // Tìm phân số của một số
 
-    // 2 câu Hình học
-    examQuestions.push(generators.geometry[1]());
-    examQuestions.push(generators.geometry[2]());
+      examQuestions.push(generators.geometry[1]()); // Hình bình hành (chu vi, diện tích)
+      examQuestions.push(generators.geometry[2]()); // Hình thoi (diện tích)
 
-    // 2 câu Toán lời văn (Tổng - Tỉ hoặc Hiệu - Tỉ hoặc TBC nâng cao)
-    examQuestions.push(generators.word_problems[2]());
-    examQuestions.push(generators.word_problems[4]());
+      examQuestions.push(generators.measurements[2]()); // Đơn vị đo diện tích mm2, dm2, m2
+
+      examQuestions.push(generators.word_problems[2]()); // Tìm hai số khi biết Tổng và Tỉ số
+      examQuestions.push(generators.word_problems[3]()); // Tìm hai số khi biết Hiệu và Tỉ số
+      
+      let statQ = generators.statistics_probability[0]();
+      statQ = fixProbGen(statQ);
+      examQuestions.push(statQ); // Xác suất thống kê
+    }
 
     // Gán topic label và xáo trộn vị trí
     const labeled = examQuestions.map((q, idx) => {
-      q.id = `mock_exam_${Date.now()}_${idx}`;
+      q.id = `mock_exam_t${term}_${Date.now()}_${idx}`;
       return q;
     });
 

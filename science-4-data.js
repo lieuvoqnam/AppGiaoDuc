@@ -8,6 +8,7 @@ window.SCIENCE4_DATA = {
   topics: [
     {
       id: "chat_nuoc_khong_khi",
+        terms: [1],
       name: "Chất: Nước & Không Khí",
       icon: "💧",
       desc: "Tính chất của nước, 3 thể của nước, vòng tuần hoàn của nước và thành phần của không khí.",
@@ -187,6 +188,7 @@ window.SCIENCE4_DATA = {
     },
     {
       id: "nang_luong_anh_sang_nhiet",
+        terms: [1],
       name: "Năng Lượng: Ánh Sáng, Âm Thanh & Nhiệt",
       icon: "⚡",
       desc: "Vật phát sáng, sự truyền âm, ô nhiễm tiếng ồn, vật dẫn nhiệt và an toàn năng lượng.",
@@ -361,6 +363,7 @@ window.SCIENCE4_DATA = {
     },
     {
       id: "thuc_vat_dong_vat_chuoi_thuc_an",
+        terms: [2],
       name: "Thực Vật, Động Vật & Chuỗi Thức Ăn",
       icon: "🌱",
       desc: "Quá trình quang hợp của cây xanh, nhu cầu sống của động vật, chuỗi thức ăn và thế giới nấm.",
@@ -530,6 +533,7 @@ window.SCIENCE4_DATA = {
     },
     {
       id: "dinh_duong_suc_khoe",
+        terms: [2],
       name: "Con Người & Dinh Dưỡng Sức Khỏe",
       icon: "🥗",
       desc: "4 nhóm chất dinh dưỡng cốt lõi, phòng bệnh suy dinh dưỡng, béo phì và an toàn thực phẩm.",
