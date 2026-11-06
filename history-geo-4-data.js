@@ -120,6 +120,54 @@ window.HISTORY_GEO4_DATA = {
           ],
           correct: 1,
           explanation: "Bảng chú giải giải thích màu sắc, mũi tên quy ước (mũi tên đỏ là hướng tấn công của quân ta, mũi tên đen/đứt đoạn là hướng rút lui của địch...)."
+        },
+        {
+          id: "hg4_1_9",
+          level: 1,
+          question: "Trên bản đồ địa lý, hướng phía trên của bản đồ theo quy ước quốc tế luôn chỉ về hướng nào?",
+          options: ["Hướng Bắc", "Hướng Nam", "Hướng Đông", "Hướng Tây"],
+          correct: 0,
+          explanation: "Theo quy ước thông thường trên bản đồ: phía trên là hướng Bắc, phía dưới là hướng Nam, bên phải là hướng Đông, bên trái là hướng Tây."
+        },
+        {
+          id: "hg4_1_10",
+          level: 2,
+          question: "Năm 1789, vua Quang Trung đại phá 29 vạn quân Thanh tiến vào Thăng Long vào dịp Tết Kỷ Dậu. Sự kiện vẻ vang này thuộc thế kỉ nào?",
+          options: ["Thế kỉ XVII", "Thế kỉ XVIII", "Thế kỉ XIX", "Thế kỉ XVI"],
+          correct: 1,
+          explanation: "Năm 1789: bỏ hai chữ số cuối (89), ta lấy 17 + 1 = 18 ➔ Thế kỉ XVIII (thế kỉ mười tám)."
+        },
+        {
+          id: "hg4_1_11",
+          level: 3,
+          question: "Bản đồ có ghi tỉ lệ 1 : 200 000. Nếu đo trên bản đồ khoảng cách từ trường học đến bảo tàng là 3 cm, thì cự li thực tế ngoài đời là bao nhiêu?",
+          options: ["600 mét", "6 ki-lô-mét", "60 ki-lô-mét", "600 ki-lô-mét"],
+          correct: 1,
+          explanation: "Khoảng cách thực tế = 3 cm × 200 000 = 600 000 cm = 6 000 m = 6 km."
+        },
+        {
+          id: "hg4_1_12",
+          level: 3,
+          question: "Lược đồ địa lý khác với bản đồ thông thường ở điểm cốt lõi nào sau đây?",
+          options: ["Lược đồ chỉ vẽ hình tròn và không có chữ viết", "Lược đồ thu nhỏ tương đối và tập trung làm nổi bật một chủ đề chuyên biệt", "Lược đồ không bao giờ có bảng chú giải", "Lược đồ chỉ được dùng cho học sinh mẫu giáo"],
+          correct: 1,
+          explanation: "Lược đồ là hình vẽ mang tính chất tương đối thu nhỏ, tinh giản các chi tiết phụ để làm nổi bật một nội dung hoặc chủ đề lịch sử, địa lý trọng tâm."
+        },
+        {
+          id: "hg4_1_13",
+          level: 4,
+          question: "Năm 179 TCN (Triệu Đà xâm lược Âu Lạc) và năm 40 SCN (Hai Bà Trưng khởi nghĩa) cách nhau bao nhiêu năm trên trục thời gian?",
+          options: ["218 năm", "219 năm", "139 năm", "220 năm"],
+          correct: 0,
+          explanation: "Vì lịch không có năm 0 (từ năm 1 TCN chuyển thẳng sang năm 1 SCN), khoảng cách thời gian giữa năm 179 TCN và năm 40 SCN là: 179 + 40 - 1 = 218 năm."
+        },
+        {
+          id: "hg4_1_14",
+          level: 2,
+          question: "Khi muốn tìm vị trí của thủ đô, sông ngòi, ranh giới tỉnh trên bản đồ, phần nào giúp người đọc hiểu các kí hiệu đó?",
+          options: ["Tỉ lệ bản đồ", "Bảng chú giải", "Tên bản đồ", "Khung viền bản đồ"],
+          correct: 1,
+          explanation: "Bảng chú giải giải thích ý nghĩa các ký hiệu, màu sắc, đường nét quy ước trên bản đồ."
         }
       ]
     },
@@ -252,6 +300,54 @@ window.HISTORY_GEO4_DATA = {
           ],
           correct: 0,
           explanation: "Lời dạy bất hủ của Bác Hồ nhắc nhở mọi thế hệ người Việt Nam về lòng biết ơn các Vua Hùng và nghĩa vụ thiêng liêng cùng chung tay bảo vệ, xây dựng non sông gấm vóc."
+        },
+        {
+          id: "hg4_2_9",
+          level: 1,
+          question: "Di tích lịch sử Đền Hùng - nơi thờ phụng các vua Hùng có công dựng nước Văn Lang nằm trên ngọn núi nào thuộc tỉnh Phú Thọ?",
+          options: ["Núi Nghĩa Lĩnh", "Núi Ba Vì", "Núi Tam Đảo", "Núi Phan-xi-păng"],
+          correct: 0,
+          explanation: "Khu di tích lịch sử Đền Hùng tọa lạc trang nghiêm trên núi Nghĩa Lĩnh, thành phố Việt Trì, tỉnh Phú Thọ."
+        },
+        {
+          id: "hg4_2_10",
+          level: 2,
+          question: "Đặc điểm nổi bật nhất của địa hình vùng Trung du Bắc Bộ (như Phú Thọ, Thái Nguyên) là gì?",
+          options: ["Bằng phẳng như lòng chảo", "Gồm các đồi hình bát úp xen kẽ các thung lũng", "Có nhiều đụn cát cao và đầm phá lầy lội", "Chủ yếu là các đảo đá vôi ngập mặn"],
+          correct: 1,
+          explanation: "Vùng Trung du Bắc Bộ có địa hình đặc trưng là vùng đồi núi thấp dạng bát úp, sườn thoải, đỉnh tròn, xen kẽ các thung lũng lòng máng."
+        },
+        {
+          id: "hg4_2_11",
+          level: 2,
+          question: "Cây công nghiệp lâu năm được trồng phổ biến và là niềm tự hào nổi tiếng của vùng trung du Thái Nguyên, Phú Thọ là cây gì?",
+          options: ["Cây chè (trà)", "Cây cà phê", "Cây cao su", "Cây tiêu"],
+          correct: 0,
+          explanation: "Vùng trung du Bắc Bộ nổi tiếng cả nước với những đồi chè xanh mướt, bạt ngàn tại Thái Nguyên, Phú Thọ."
+        },
+        {
+          id: "hg4_2_12",
+          level: 3,
+          question: "Vì sao đồng bào các dân tộc thiểu số vùng núi cao Hoàng Liên Sơn lại đắp đập tạo nên những ruộng bậc thang kì vĩ?",
+          options: ["Để xây nhà ở trên cao tránh lũ lụt", "Để giữ nước và đất canh tác lúa nước trên sườn núi dốc", "Để làm điểm biểu diễn ca múa nhạc", "Để tạo cảnh quan thu hút quay phim"],
+          correct: 1,
+          explanation: "Ruộng bậc thang là phát kiến canh tác tuyệt vời thích ứng với địa hình núi cao dốc đứng, giúp ngăn xói mòn rửa trôi và giữ nước tưới cho cây lúa nước."
+        },
+        {
+          id: "hg4_2_13",
+          level: 3,
+          question: "Nhà máy thủy điện Hòa Bình được xây dựng trên dòng sông lớn nào của vùng miền núi phía Bắc?",
+          options: ["Sông Đà", "Sông Hồng", "Sông Lô", "Sông Chảy"],
+          correct: 0,
+          explanation: "Nhà máy thủy điện Hòa Bình và thủy điện Sơn La đều được xây dựng trên dòng sông Đà hùng vĩ, cung cấp nguồn điện dồi dào cho đất nước."
+        },
+        {
+          id: "hg4_2_14",
+          level: 4,
+          question: "Đỉnh núi Phan-xi-păng được mệnh danh là 'Nóc nhà Đông Dương' có độ cao bao nhiêu mét so với mực nước biển?",
+          options: ["3 143 mét", "2 850 mét", "1 980 mét", "4 150 mét"],
+          correct: 0,
+          explanation: "Đỉnh Phan-xi-păng thuộc dãy Hoàng Liên Sơn có độ cao 3 143 m, là đỉnh núi cao nhất Việt Nam và cả bán đảo Đông Dương."
         }
       ]
     },
@@ -379,6 +475,54 @@ window.HISTORY_GEO4_DATA = {
           ],
           correct: 0,
           explanation: "Làng Bát Tràng có nguồn đất sét dẻo đặc trưng rất tốt để làm gốm và nằm ngay bên bờ sông Hồng, giúp việc vận chuyển gốm sứ đi khắp nơi rất thuận tiện."
+        },
+        {
+          id: "hg4_3_9",
+          level: 1,
+          question: "Hệ thống đê sông Hồng được nhân dân ta đắp dựng kiên cố qua nhiều thế kỉ nhằm mục đích chính là gì?",
+          options: ["Làm đường đua xe đạp thể thao", "Ngăn chặn lũ lụt bảo vệ mùa màng và xóm làng", "Nuôi cá lồng bè trên đỉnh đê", "Phân chia ranh giới giữa các huyện"],
+          correct: 1,
+          explanation: "Đê sông Hồng là công trình phòng chống thiên tai vĩ đại của tổ tiên ta để ngăn dòng nước lũ cuồn cuộn vào mùa mưa bão."
+        },
+        {
+          id: "hg4_3_10",
+          level: 2,
+          question: "Năm 1076, vua Lý Nhân Tông cho dựng Quốc Tử Giám bên cạnh Văn Miếu Thăng Long. Đây được coi là gì của nước ta?",
+          options: ["Trường đại học đầu tiên của Việt Nam", "Bệnh viện đa khoa đầu tiên", "Bảo tàng lịch sử quốc gia", "Trung tâm huấn luyện võ thuật"],
+          correct: 0,
+          explanation: "Quốc Tử Giám Thăng Long (Hà Nội) được xây dựng năm 1076 dưới thời nhà Lý, là trường đại học đầu tiên của Việt Nam."
+        },
+        {
+          id: "hg4_3_11",
+          level: 2,
+          question: "Làng gốm Bát Tràng nổi tiếng với các sản phẩm gốm sứ tinh xảo nằm ở ngoại thành địa phương nào?",
+          options: ["Thủ đô Hà Nội", "Tỉnh Bắc Ninh", "Tỉnh Hưng Yên", "Tỉnh Ninh Bình"],
+          correct: 0,
+          explanation: "Làng gốm cổ Bát Tràng nằm ven bờ sông Hồng, thuộc huyện Gia Lâm, thành phố Hà Nội."
+        },
+        {
+          id: "hg4_3_12",
+          level: 3,
+          question: "Bia tiến sĩ tại Văn Miếu - Quốc Tử Giám được đặt trên lưng con vật gì biểu trưng cho sự vững bền và trường tồn?",
+          options: ["Rùa đá", "Rồng vàng", "Voi chiến", "Kỳ lân"],
+          correct: 0,
+          explanation: "82 tấm bia tiến sĩ tại Văn Miếu - Quốc Tử Giám đều được đặt trang trọng trên lưng rùa đá, khắc tên các vị đỗ đại khoa."
+        },
+        {
+          id: "hg4_3_13",
+          level: 3,
+          question: "Đồng bằng Bắc Bộ được bồi đắp chủ yếu bởi phù sa màu mỡ của hai hệ thống sông lớn nào?",
+          options: ["Sông Hồng và sông Thái Bình", "Sông Tiền và sông Hậu", "Sông Đồng Nai và sông Sài Gòn", "Sông Hương và sông Gianh"],
+          correct: 0,
+          explanation: "Đồng bằng Bắc Bộ là đồng bằng châu thổ lớn thứ hai nước ta, được bồi đắp bởi hệ thống sông Hồng và sông Thái Bình."
+        },
+        {
+          id: "hg4_3_14",
+          level: 4,
+          question: "Tên gọi 'Thăng Long' do vua Lý Thái Tổ đặt cho kinh đô mới vào năm 1010 mang ý nghĩa tốt đẹp gì?",
+          options: ["Thành phố bên bờ sông lớn", "Rồng bay lên (biểu trưng cho đất nước hưng thịnh vươn lên)", "Vùng đất bình yên thanh bình", "Kinh đô của ngàn hoa sắc màu"],
+          correct: 1,
+          explanation: "Theo truyền thuyết, khi thuyền vua Lý Thái Tổ vừa cập bến dưới chân thành Đại La thì thấy rồng vàng bay lên, nên vua đặt tên kinh đô là Thăng Long (Rồng bay lên)."
         }
       ]
     },
@@ -496,6 +640,54 @@ window.HISTORY_GEO4_DATA = {
           options: ["Nguyễn Trãi", "Chu Văn An", "Lê Văn Hưu", "Nguyễn Du"],
           correct: 0,
           explanation: "Nguyễn Trãi (hiệu Ức Trai) là quân sư lỗi lạc của Lê Lợi, soạn thảo 'Bình Ngô đại cáo' tổng kết thắng lợi huy hoàng của khởi nghĩa Lam Sơn."
+        },
+        {
+          id: "hg4_4_9",
+          level: 1,
+          question: "Địa danh Cố đô Huế gắn liền với triều đại phong kiến nào trong lịch sử Việt Nam?",
+          options: ["Nhà Nguyễn", "Nhà Lê", "Nhà Trần", "Nhà Lý"],
+          correct: 0,
+          explanation: "Huế từng là kinh đô của triều đại nhà Nguyễn (1802 - 1945), với Quần thể di tích Cố đô được UNESCO công nhận là Di sản Văn hóa Thế giới."
+        },
+        {
+          id: "hg4_4_10",
+          level: 2,
+          question: "Nghề làm muối ở Duyên hải miền Trung phát triển mạnh mẽ và nổi tiếng cả nước nhờ vào điều kiện tự nhiên nào?",
+          options: ["Nước biển có độ mặn cao, nhiều nắng và gió, ít sông lớn đổ ra biển", "Mưa quanh năm và nhiều bão lốc", "Nhiệt độ quanh năm mát mẻ như mùa đông", "Có nhiều rừng ngập mặn che chắn"],
+          correct: 0,
+          explanation: "Duyên hải miền Trung có số giờ nắng cao trong năm, nhiều gió khô và nước biển có độ mặn cao nên rất thuận lợi cho nghề làm muối (Sa Huỳnh, Cà Ná...)."
+        },
+        {
+          id: "hg4_4_11",
+          level: 2,
+          question: "Di tích lịch sử Địa đạo Vịnh Mốc - kỳ tích làng hầm trong lòng đất thời kháng chiến chống Mỹ nằm ở tỉnh nào?",
+          options: ["Quảng Trị", "Quảng Bình", "Thừa Thiên Huế", "Nghệ An"],
+          correct: 0,
+          explanation: "Địa đạo Vịnh Mốc nằm ở huyện Vĩnh Linh, tỉnh Quảng Trị, là công trình làng hầm độc đáo phục vụ chiến đấu và bảo vệ tính mạng quân dân ta."
+        },
+        {
+          id: "hg4_4_12",
+          level: 3,
+          question: "Phố cổ Hội An (Quảng Nam) vào các thế kỉ XVII - XVIII từng là nơi giao thương sầm uất nổi tiếng với tên gọi là gì?",
+          options: ["Thương cảng quốc tế sầm uất bậc nhất Đông Nam Á", "Trung tâm khai thác mỏ than đá lớn", "Khu chợ nổi trên sông nước", "Xưởng đóng tàu chiến hiện đại"],
+          correct: 0,
+          explanation: "Phố cổ Hội An từng là một trong những thương cảng quốc tế sầm uất nhất khu vực Đông Nam Á, nơi gặp gỡ giao thương của các tàu buôn Nhật Bản, Trung Hoa, Hà Lan, Bồ Đào Nha..."
+        },
+        {
+          id: "hg4_4_13",
+          level: 3,
+          question: "Công trình kiến trúc độc đáo bắc qua sông Hoài ở Phố cổ Hội An do các thương nhân nước ngoài xây dựng thế kỉ XVII là gì?",
+          options: ["Chùa Cầu (Cầu Nhật Bản)", "Cầu Tràng Tiền", "Cầu Rồng", "Cầu Long Biên"],
+          correct: 0,
+          explanation: "Chùa Cầu (còn gọi là Cầu Nhật Bản) là biểu tượng lịch sử văn hóa đặc sắc của đô thị cổ Hội An."
+        },
+        {
+          id: "hg4_4_14",
+          level: 4,
+          question: "Sông Hương và núi Ngự Bình là hai biểu tượng thiên nhiên thơ mộng gắn liền với thành phố nào?",
+          options: ["Thành phố Huế", "Thành phố Đà Nẵng", "Thành phố Nha Trang", "Thành phố Quy Nhơn"],
+          correct: 0,
+          explanation: "Núi Ngự Bình và dòng sông Hương êm đềm là cặp danh thắng non nước biểu tượng cho xứ Huế mộng mơ."
         }
       ]
     },
@@ -613,6 +805,54 @@ window.HISTORY_GEO4_DATA = {
           ],
           correct: 1,
           explanation: "Vào mùa khô, nắng nóng kéo dài nhiều tháng không có mưa khiến mực nước sông suối hạ thấp, gây hạn hán nghiêm trọng và thiếu nước tưới cho cây cà phê, hồ tiêu."
+        },
+        {
+          id: "hg4_5_9",
+          level: 1,
+          question: "Không gian văn hóa Cồng chiêng Tây Nguyên của nước ta được tổ chức UNESCO vinh danh là gì?",
+          options: ["Kiệt tác di sản truyền khẩu và phi vật thể của nhân loại", "Kỳ quan thiên nhiên mới của thế giới", "Di sản khảo cổ học lòng đất", "Vườn quốc gia động vật quý hiếm"],
+          correct: 0,
+          explanation: "Không gian văn hóa Cồng chiêng Tây Nguyên được UNESCO công nhận là Kiệt tác di sản văn hóa phi vật thể của nhân loại vào năm 2005."
+        },
+        {
+          id: "hg4_5_10",
+          level: 2,
+          question: "Nhà Rông - ngôi nhà truyền thống to lớn và đẹp nhất của buôn làng Tây Nguyên được dùng để làm gì?",
+          options: ["Làm nơi sinh hoạt chung, hội họp của buôn làng và tổ chức lễ hội", "Làm chuồng nuôi trâu, voi và ngựa", "Làm kho chứa lương thực riêng của già làng", "Chỉ mở cửa mỗi năm một lần vào ngày Tết"],
+          correct: 0,
+          explanation: "Nhà Rông là trung tâm sinh hoạt văn hóa cộng đồng, nơi già làng họp bàn việc chung và tổ chức các lễ hội cồng chiêng tưng bừng."
+        },
+        {
+          id: "hg4_5_11",
+          level: 2,
+          question: "Thổ nhưỡng nổi tiếng nhất của các cao nguyên Tây Nguyên (Đắk Lắk, Gia Lai, Lâm Đồng) giúp cây cà phê phát triển tốt là loại đất nào?",
+          options: ["Đất đỏ ba-dan", "Đất phù sa ngọt", "Đất cát pha biển", "Đất phèn ngập mặn"],
+          correct: 0,
+          explanation: "Đất đỏ ba-dan màu mỡ, tầng đất dày xốp trải rộng trên các cao nguyên lượn sóng tạo điều kiện lý tưởng cho cây cà phê, cao su, hồ tiêu."
+        },
+        {
+          id: "hg4_5_12",
+          level: 3,
+          question: "Lễ hội đua voi nổi tiếng ở Bản Đôn (Đắk Lắk) thể hiện điều gì của đồng bào các dân tộc Tây Nguyên?",
+          options: ["Tinh thần thượng võ và tài năng thuần dưỡng thú rừng của con người", "Tập dượt cho voi làm xiếc đường phố", "Cuộc thi tuyển chọn voi bán cho nước ngoài", "Nghi thức chia đều ruộng đất"],
+          correct: 0,
+          explanation: "Hội đua voi ở Buôn Đôn phản ánh tinh thần dũng cảm, sự gắn kết chan hòa với thiên nhiên và tài nghệ thuần dưỡng voi rừng thiện nghệ của người dân."
+        },
+        {
+          id: "hg4_5_13",
+          level: 3,
+          question: "Thành phố Đà Lạt (tỉnh Lâm Đồng) nằm trên cao nguyên Lâm Viên có khí hậu mát mẻ quanh năm nên nổi tiếng với đặc sản gì?",
+          options: ["Rau quả ôn đới và muôn hoa rực rỡ sắc màu", "Nước mắm cá cơm và cá khô", "Đường mía và mật mía sông Trà", "Lúa gạo thơm ngon xuất khẩu"],
+          correct: 0,
+          explanation: "Đà Lạt nằm ở độ cao 1 500 m so với mực nước biển, khí hậu trong lành mát rượi, là thủ phủ hoa và rau quả tươi ngon của cả nước."
+        },
+        {
+          id: "hg4_5_14",
+          level: 4,
+          question: "Hệ thống các cao nguyên xếp tầng nối tiếp nhau ở Tây Nguyên gồm có những cao nguyên tiêu biểu nào?",
+          options: ["Kon Tum, Pleiku, Đắk Lắk, Mơ Nông, Lâm Viên, Di Linh", "Đồng Văn, Quản Bạ, Mèo Vạc", "Mộc Châu, Nà Sản", "Bát Xát, Bắc Hà"],
+          correct: 0,
+          explanation: "Tây Nguyên là vùng đất của các cao nguyên xếp tầng với các độ cao khác nhau như Kon Tum (500m), Pleiku (800m), Đắk Lắk (500m), Lâm Viên (1500m)..."
         }
       ]
     },
@@ -745,6 +985,54 @@ window.HISTORY_GEO4_DATA = {
           ],
           correct: 0,
           explanation: "Người thanh niên Nguyễn Tất Thành nhận làm phụ bếp trên tàu Đô đốc Latouche-Tréville của hãng vận tải Hợp thành để bắt đầu hành trình sang phương Tây tìm đường cứu nước."
+        },
+        {
+          id: "hg4_6_9",
+          level: 1,
+          question: "Vùng Nam Bộ có mạng lưới sông ngòi, kênh rạch chằng chịt, trong đó vựa lúa lớn nhất cả nước là vùng nào?",
+          options: ["Đồng bằng sông Cửu Long", "Đồng bằng sông Mã", "Vùng duyên hải Nam Trung Bộ", "Vùng trung du Thái Nguyên"],
+          correct: 0,
+          explanation: "Đồng bằng sông Cửu Long ở Nam Bộ là vựa lúa, vựa trái cây và thủy hải sản lớn nhất Việt Nam."
+        },
+        {
+          id: "hg4_6_10",
+          level: 2,
+          question: "Hình thức chợ độc đáo họp trên sông bằng ghe thuyền xuồng ba lá nổi tiếng ở miền Tây Nam Bộ gọi là gì?",
+          options: ["Chợ nổi (như Cái Răng, Ngã Bảy)", "Chợ phiên vùng cao", "Chợ đêm bến cảng", "Siêu thị nổi ven biển"],
+          correct: 0,
+          explanation: "Chợ nổi là nét sinh hoạt văn hóa sông nước đặc sắc của miền Tây Nam Bộ, người bán treo hàng mẫu trên cây bẹo đầu thuyền để khách nhận biết."
+        },
+        {
+          id: "hg4_6_11",
+          level: 2,
+          question: "Địa đạo Củ Chi (Thành phố Hồ Chí Minh) được mệnh danh là 'Thành đồng đất thép' có chiều dài hệ thống hầm khoảng bao nhiêu?",
+          options: ["Hơn 200 ki-lô-mét", "Khoảng 5 ki-lô-mét", "Khoảng 20 ki-lô-mét", "Hơn 1000 ki-lô-mét"],
+          correct: 0,
+          explanation: "Hệ thống địa đạo Củ Chi dài hơn 200 km đào hoàn toàn bằng tay, gồm 3 tầng hầm thông nhau, là căn cứ kháng chiến kiên cường."
+        },
+        {
+          id: "hg4_6_12",
+          level: 3,
+          question: "Loại cây ăn trái nào sau đây là đặc sản nổi tiếng trĩu cành của vùng miệt vườn Nam Bộ?",
+          options: ["Sầu riêng, chôm chôm, măng cụt, xoài cát", "Đào, lê, mận tam hoa", "Táo mèo, quả mắc cọp", "Vải thiều, nhãn lồng"],
+          correct: 0,
+          explanation: "Miệt vườn Nam Bộ phù sa phì nhiêu cho những trái ngọt nổi tiếng: sầu riêng Cái Mơn, xoài cát Hòa Lộc, măng cụt, chôm chôm..."
+        },
+        {
+          id: "hg4_6_13",
+          level: 3,
+          question: "Thành phố Hồ Chí Minh là trung tâm lớn hàng đầu cả nước về các lĩnh vực nào sau đây?",
+          options: ["Kinh tế, văn hóa, khoa học công nghệ, giáo dục và giao lưu quốc tế", "Chỉ phát triển nông nghiệp trồng lúa nước", "Khai thác mỏ khoáng sản sắt và than đá", "Chăn nuôi tuần lộc và gấu tuyết"],
+          correct: 0,
+          explanation: "Thành phố Hồ Chí Minh là đô thị đặc biệt, đầu tàu kinh tế, văn hóa, công nghệ năng động bậc nhất của cả nước."
+        },
+        {
+          id: "hg4_6_14",
+          level: 4,
+          question: "Lễ hội Oóc Om Bóc của đồng bào dân tộc Khmer ở Nam Bộ có hoạt động thể thao truyền thống sôi nổi nhất là gì?",
+          options: ["Đua ghe Ngo", "Đua ngựa trên cát", "Đấu vật cổ truyền", "Thi bắn nỏ"],
+          correct: 0,
+          explanation: "Hội đua ghe Ngo rộn rã trên sông là điểm nhấn tưng bừng của lễ hội Oóc Om Bóc mừng mùa màng của đồng bào Khmer Nam Bộ."
         }
       ]
     },
@@ -867,6 +1155,54 @@ window.HISTORY_GEO4_DATA = {
           ],
           correct: 0,
           explanation: "Tuổi nhỏ làm việc nhỏ, học tập tốt kiến thức văn hóa, bảo vệ môi trường xanh sạch và lan tỏa lòng yêu nước chính là hành động thiết thực nhất của học sinh."
+        },
+        {
+          id: "hg4_7_9",
+          level: 1,
+          question: "Vùng biển Việt Nam là một bộ phận gắn liền với biển lớn nào sau đây?",
+          options: ["Biển Đông", "Biển Đỏ", "Biển Đen", "Biển Ban-tích"],
+          correct: 0,
+          explanation: "Biển Việt Nam là một phần của Biển Đông - vùng biển chiến lược quan trọng của khu vực châu Á - Thái Bình Dương."
+        },
+        {
+          id: "hg4_7_10",
+          level: 2,
+          question: "Hai quần đảo Hoàng Sa và Trường Sa lần lượt thuộc quyền quản lý hành chính của hai tỉnh/thành phố nào?",
+          options: ["Thành phố Đà Nẵng và Tỉnh Khánh Hòa", "Tỉnh Quảng Ninh và Tỉnh Kiên Giang", "Thành phố Hải Phòng và Tỉnh Bà Rịa - Vũng Tàu", "Tỉnh Bình Định và Tỉnh Ninh Thuận"],
+          correct: 0,
+          explanation: "Quần đảo Hoàng Sa là huyện đảo thuộc TP. Đà Nẵng; quần đảo Trường Sa là huyện đảo thuộc tỉnh Khánh Hòa."
+        },
+        {
+          id: "hg4_7_11",
+          level: 2,
+          question: "Hòn đảo lớn nhất Việt Nam được mệnh danh là 'Đảo Ngọc' có nhiều bãi biển đẹp và sản vật hồ tiêu, ngọc trai là đảo nào?",
+          options: ["Đảo Phú Quốc", "Đảo Cát Bà", "Đảo Côn Đảo", "Đảo Lý Sơn"],
+          correct: 0,
+          explanation: "Đảo Phú Quốc (tỉnh Kiên Giang) có diện tích gần 590 km2, là đảo lớn nhất nước ta."
+        },
+        {
+          id: "hg4_7_12",
+          level: 3,
+          question: "Khoáng sản có giá trị kinh tế cao nhất đang được khai thác ở thềm lục địa phía nam vùng biển nước ta là gì?",
+          options: ["Dầu mỏ và khí đốt tự nhiên", "Than đá và quặng bô-xít", "Vàng và đá quý", "Quặng titan và thiếc"],
+          correct: 0,
+          explanation: "Thềm lục địa biển Nam Bộ sở hữu các mỏ dầu khí lớn như Bạch Hổ, Rạng Đông, Đại Hùng..."
+        },
+        {
+          id: "hg4_7_13",
+          level: 3,
+          question: "Nhà nước ta thời các Chúa Nguyễn đã thành lập hai đội hải thuyền nào để cắm mốc và thực thi chủ quyền ở Hoàng Sa, Trường Sa?",
+          options: ["Đội Hoàng Sa và Đội Bắc Hải", "Đội Hàng hải Viễn Đông", "Đội Tuần dương Côn Lôn", "Đội Thám hiểm Biển Đông"],
+          correct: 0,
+          explanation: "Đội Hoàng Sa và Đội Bắc Hải định kỳ hàng năm ra biển thu lượm hải vật, đo đạc và cắm mốc khẳng định chủ quyền liên tục."
+        },
+        {
+          id: "hg4_7_14",
+          level: 4,
+          question: "Hành động nào sau đây góp phần tích cực nhất vào việc bảo vệ môi trường biển đảo của học sinh tiểu học?",
+          options: ["Không vứt rác thải nhựa bừa bãi khi đi biển, bảo vệ san hô và tự hào giới thiệu chủ quyền biển đảo quê hương", "Đánh bắt cá con bằng lưới dày", "Khai thác san hô biển về bán làm kỉ niệm", "Đổ rác thải sinh hoạt xuống ven bãi biển"],
+          correct: 0,
+          explanation: "Bảo vệ môi trường biển sạch đẹp, không xả rác nhựa và lan tỏa tình yêu biển đảo là hành động thiết thực của mỗi học sinh."
         }
       ]
     }

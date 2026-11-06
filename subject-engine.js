@@ -14,7 +14,7 @@ window.SubjectEngine = (function () {
     const isLanguageSubject = config.isLanguageSubject || false;
 
     const state = {
-      mode: 'practice', // 'theory', 'practice', 'exam'
+      mode: 'theory', // 'theory', 'practice', 'exam'
       topicId: data.topics && data.topics.length > 0 ? data.topics[0].id : '',
       level: 'all', // 'all', 1, 2, 3, 4
       practiceAnswers: {}, // { [qId]: selectedOptIdx }
@@ -102,7 +102,7 @@ window.SubjectEngine = (function () {
       initUserWidget();
       renderTopicPills();
       bindEvents();
-      switchMode('practice');
+      switchMode('theory');
     }
 
     // User Profile Widget
@@ -284,11 +284,19 @@ window.SubjectEngine = (function () {
       // Filter by level
       if (state.level !== 'all') {
         const lvlNum = parseInt(state.level);
-        qs = qs.filter(q => q.level === lvlNum);
+        const filtered = qs.filter(q => q.level === lvlNum);
+        if (filtered.length >= 5) {
+          qs = filtered;
+        }
       }
 
-      // Randomize options for each question
-      state.practiceQuestions = qs.map(q => randomizeQuestion(q));
+      // Trộn ngẫu nhiên câu hỏi từ ngân hàng phong phú (xác suất lặp lại thấp)
+      const shuffledQs = shuffle(qs);
+      // Lấy đủ 10 câu hỏi cho mỗi lần làm bài
+      const selected = shuffledQs.slice(0, 10);
+
+      // Đổi cả câu hỏi lẫn xáo trộn vị trí các phương án A, B, C, D
+      state.practiceQuestions = selected.map(q => randomizeQuestion(q));
       state.practiceAnswers = {};
       state.isPracticeSubmitted = false;
     }
@@ -683,14 +691,20 @@ window.SubjectEngine = (function () {
       let badgeClass = 'perfect';
       let msg = `Tuyệt vời! Bạn đã trả lời đúng ${scoreData.correctCount}/${scoreData.totalCount} câu hỏi! Bấm "Xem Lời Giải Chi Tiết" để đối chiếu đáp án nhé.`;
 
-      if (numScore >= 9.0) {
+      if (numScore >= 8.5) {
+        badgeText = 'Xuất Sắc! 🌟';
+        badgeClass = 'perfect';
+        msg = `Tuyệt vời! Bạn đã trả lời đúng ${scoreData.correctCount}/${scoreData.totalCount} câu hỏi! Bấm "Xem Lời Giải Chi Tiết" để đối chiếu đáp án nhé.`;
         playSnd('victory');
         if (typeof window.launchConfetti === 'function') window.launchConfetti();
+        else if (typeof window.confetti === 'function') window.confetti({ particleCount: 140 });
       } else if (numScore >= 7.0) {
         badgeText = 'Khá Giỏi! 👍';
         badgeClass = 'good';
         msg = `Làm tốt lắm! Bạn đúng ${scoreData.correctCount}/${scoreData.totalCount} câu. Tiếp tục phát huy nhé!`;
-        playSnd('level');
+        playSnd('victory');
+        if (typeof window.launchConfetti === 'function') window.launchConfetti();
+        else if (typeof window.confetti === 'function') window.confetti({ particleCount: 100 });
       } else if (numScore >= 5.0) {
         badgeText = 'Đạt Yêu Cầu 📚';
         badgeClass = 'pass';

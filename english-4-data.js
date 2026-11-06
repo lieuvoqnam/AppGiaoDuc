@@ -117,6 +117,58 @@ window.ENGLISH4_DATA = {
           ],
           correct: 0,
           explanation: "Trật tự câu chuẩn: Chủ ngữ (I) + Động từ (have breakfast) + Cụm từ (with my family) + Trạng từ chỉ thời gian (at seven o'clock)."
+        },
+        {
+          id: "en4_1_9",
+          level: 1,
+          question: "Choose the correct sentence to ask where someone is from:",
+          options: ["Where are you from?", "Where do you from?", "Where are you come?", "Where you from?"],
+          correct: 0,
+          explanation: "Cấu trúc hỏi xuất xứ chuẩn: 'Where are you from?' - Trả lời: 'I'm from Vietnam.'"
+        },
+        {
+          id: "en4_1_10",
+          level: 2,
+          question: "Complete the sentence: 'Tom is from London, England. He is _______.'",
+          options: ["English", "Vietnamese", "American", "Australian"],
+          correct: 0,
+          explanation: "England (nước Anh) ➔ Quốc tịch là English (người Anh)."
+        },
+        {
+          id: "en4_1_11",
+          level: 2,
+          question: "What is the correct answer to: 'When is your birthday?'",
+          options: ["It's on the fifth of May.", "It's on Monday morning.", "I am nine years old.", "I like my birthday party."],
+          correct: 0,
+          explanation: "Hỏi về ngày sinh dùng 'on + the + ngày thứ tự + of + tháng' (on the fifth of May)."
+        },
+        {
+          id: "en4_1_12",
+          level: 3,
+          question: "Choose the word with the underlined part pronounced differently from the others:
+(A) c<u>a</u>t  (B) m<u>a</u>p  (C) n<u>a</u>me  (D) b<u>a</u>g",
+          options: ["name", "cat", "map", "bag"],
+          correct: 0,
+          explanation: "'name' phát âm âm /eɪ/, các từ còn lại phát âm âm /æ/."
+        },
+        {
+          id: "en4_1_13",
+          level: 3,
+          question: "Complete the dialogue:
+- 'What's your nationality?'
+- '_______.'",
+          options: ["I'm Vietnamese.", "I'm from Vietnam.", "I live in Hanoi.", "I speak English."],
+          correct: 0,
+          explanation: "Câu hỏi 'What's your nationality?' (Quốc tịch của bạn là gì?) ➔ Trả lời bằng quốc tịch: 'I'm Vietnamese.'"
+        },
+        {
+          id: "en4_1_14",
+          level: 4,
+          question: "Reorder the words to make a meaningful sentence:
+'can / She / play / piano / the / very / well.'",
+          options: ["She can play the piano very well.", "She play can the piano very well.", "The piano she can play very well.", "Very well she can play the piano."],
+          correct: 0,
+          explanation: "Cấu trúc: S + can + V(nguyên thể) + the + nhạc cụ + adv (She can play the piano very well)."
         }
       ]
     },
@@ -226,6 +278,55 @@ window.ENGLISH4_DATA = {
           ],
           correct: 1,
           explanation: "Câu trả lời nêu rõ thời gian vào các ngày thứ Hai và thứ Năm ('on Mondays and Thursdays'), nên câu hỏi phù hợp nhất là 'When do you have English?'."
+        },
+        {
+          id: "en4_2_9",
+          level: 1,
+          question: "Which subject teaches students about numbers, calculations and shapes?",
+          options: ["Maths", "Science", "Music", "History"],
+          correct: 0,
+          explanation: "Maths (Toán học) dạy về các con số, phép tính và hình học."
+        },
+        {
+          id: "en4_2_10",
+          level: 2,
+          question: "Choose the correct sentence to ask about someone's hobby:",
+          options: ["What is your hobby?", "What hobby are you?", "What do your hobby?", "How is your hobby?"],
+          correct: 0,
+          explanation: "'What is your hobby?' (Sở thích của bạn là gì?) - 'I like swimming / reading books.'"
+        },
+        {
+          id: "en4_2_11",
+          level: 2,
+          question: "Complete: 'We have English lessons _______ Tuesdays and Fridays.'",
+          options: ["on", "in", "at", "to"],
+          correct: 0,
+          explanation: "Trước các ngày trong tuần (Tuesdays, Fridays) luôn sử dụng giới từ 'on'."
+        },
+        {
+          id: "en4_2_12",
+          level: 3,
+          question: "Find the odd one out (chọn từ khác loại):
+(A) reading  (B) swimming  (C) painting  (D) teacher",
+          options: ["teacher", "reading", "swimming", "painting"],
+          correct: 0,
+          explanation: "'teacher' là danh từ chỉ nghề nghiệp; các từ còn lại là danh động từ chỉ sở thích (V-ing)."
+        },
+        {
+          id: "en4_2_13",
+          level: 3,
+          question: "Complete: '- What do you like doing in your free time? - I like _______ photos.'",
+          options: ["taking", "take", "to taking", "takes"],
+          correct: 0,
+          explanation: "Sau động từ 'like' thường đi với V-ing (like taking photos: thích chụp ảnh)."
+        },
+        {
+          id: "en4_2_14",
+          level: 4,
+          question: "Read and answer: 'Linda loves drawing and colouring pictures. What is her favourite subject?'",
+          options: ["Art", "Music", "PE (Physical Education)", "IT (Information Technology)"],
+          correct: 0,
+          explanation: "Vẽ (drawing) và tô màu (colouring pictures) là hoạt động của môn Mỹ thuật (Art)."
         }
       ]
     },
@@ -325,6 +426,55 @@ window.ENGLISH4_DATA = {
           ],
           correct: 1,
           explanation: "Câu hỏi 'What does she look like?' hỏi về diện mạo/ngoại hình bên ngoài ('She is tall and has long blonde hair')."
+        },
+        {
+          id: "en4_3_9",
+          level: 1,
+          question: "Which of the following is a healthy drink?",
+          options: ["Orange juice", "Coffee with too much sugar", "Fizzy soda", "Beer"],
+          correct: 0,
+          explanation: "Orange juice (nước cam ép tươi) là đồ uống hoa quả lành mạnh giàu vitamin C."
+        },
+        {
+          id: "en4_3_10",
+          level: 2,
+          question: "Complete the polite invitation: '- Would you like some milk? - _______.'",
+          options: ["Yes, please. / No, thanks.", "Yes, I am.", "No, I can't.", "I like milk very much."],
+          correct: 0,
+          explanation: "Đáp lại lời mời lịch sự 'Would you like...?' dùng: 'Yes, please' (Vâng, cho mình xin) hoặc 'No, thanks' (Không, cảm ơn bạn)."
+        },
+        {
+          id: "en4_3_11",
+          level: 2,
+          question: "Complete: 'My father is a doctor. He works in a _______.'",
+          options: ["hospital", "school", "farm", "factory"],
+          correct: 0,
+          explanation: "Bác sĩ (doctor) làm việc tại bệnh viện (hospital)."
+        },
+        {
+          id: "en4_3_12",
+          level: 3,
+          question: "Choose the correct sentence to ask about the price of a pair of shoes:",
+          options: ["How much are these shoes?", "How much is these shoes?", "How many is these shoes?", "How price are these shoes?"],
+          correct: 0,
+          explanation: "'shoes' là danh từ số nhiều nên dùng 'How much are...?'."
+        },
+        {
+          id: "en4_3_13",
+          level: 3,
+          question: "Complete: 'Look at that boy. What _______ he wearing today?'",
+          options: ["is", "are", "do", "does"],
+          correct: 0,
+          explanation: "Chủ ngữ ngôi thứ ba số ít 'that boy' / 'he' đi với to be 'is' trong thì Hiện tại tiếp diễn."
+        },
+        {
+          id: "en4_3_14",
+          level: 4,
+          question: "Choose the best sentence to describe appearance:
+'My sister is tall and she _______ long black hair.'",
+          options: ["has", "have", "is", "having"],
+          correct: 0,
+          explanation: "Chủ ngữ 'she' đi với 'has' để miêu tả đặc điểm ngoại hình (has long black hair: có mái tóc đen dài)."
         }
       ]
     },
@@ -429,6 +579,55 @@ window.ENGLISH4_DATA = {
           ],
           correct: 0,
           explanation: "Cấu trúc tương lai gần đúng chuẩn ngữ pháp: S + be going to + V + O + Trạng ngữ (We are going to visit Ha Long Bay next weekend by coach)."
+        },
+        {
+          id: "en4_4_9",
+          level: 1,
+          question: "What is the weather like when there are lots of clouds in the sky?",
+          options: ["Cloudy", "Sunny", "Snowy", "Rainy"],
+          correct: 0,
+          explanation: "Nhiều mây trên bầu trời là thời tiết 'Cloudy' (có mây, râm mát)."
+        },
+        {
+          id: "en4_4_10",
+          level: 2,
+          question: "Which animal has a very long trunk and two big ears?",
+          options: ["An elephant", "A monkey", "A tiger", "A kangaroo"],
+          correct: 0,
+          explanation: "Con voi (elephant) có chiếc vòi dài (long trunk) và đôi tai to như cánh quạt."
+        },
+        {
+          id: "en4_4_11",
+          level: 2,
+          question: "Complete: '- Where are you going this summer holiday? - I'm going to visit _______.'",
+          options: ["Ha Long Bay", "playing football", "swimming pool", "my homework"],
+          correct: 0,
+          explanation: "Ha Long Bay (Vịnh Hạ Long) là danh lam thắng cảnh du lịch nổi tiếng."
+        },
+        {
+          id: "en4_4_12",
+          level: 3,
+          question: "Complete the question: '- _______ do you want to see the monkeys? - Because they are funny and clever.'",
+          options: ["Why", "What", "Where", "When"],
+          correct: 0,
+          explanation: "Câu trả lời bắt đầu bằng 'Because' (bởi vì) ➔ Câu hỏi nguyên nhân dùng từ hỏi 'Why' (Tại sao)."
+        },
+        {
+          id: "en4_4_13",
+          level: 3,
+          question: "Choose the correct sentence about the zoo:
+'I like tigers because they are _______.'",
+          options: ["fast and strong", "very small and slow", "lazy and sleepy", "sweet and soft"],
+          correct: 0,
+          explanation: "Những chú hổ (tigers) chạy rất nhanh và dũng mãnh (fast and strong)."
+        },
+        {
+          id: "en4_4_14",
+          level: 4,
+          question: "Read and choose: 'Take an umbrella with you because it is going to _______ this afternoon.'",
+          options: ["rain", "sunny", "hot", "wind"],
+          correct: 0,
+          explanation: "Mang ô (umbrella) vì trời sắp mưa (going to rain)."
         }
       ]
     }

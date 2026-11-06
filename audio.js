@@ -215,13 +215,17 @@ window.soundEngine = new SoundEngine();
 window.EduAudio = {
   play: function(type) {
     if (!window.soundEngine) return;
-    if (type === 'correct' || type === 'success') {
+    if (window.soundEngine.ctx && window.soundEngine.ctx.state === 'suspended') {
+      window.soundEngine.ctx.resume().catch(() => {});
+    }
+    const t = (type || '').toLowerCase();
+    if (t === 'correct' || t === 'success' || t === 'snap' || t === 'ding') {
       window.soundEngine.playSnap();
-    } else if (type === 'wrong' || type === 'error') {
+    } else if (t === 'wrong' || t === 'error' || t === 'fail') {
       window.soundEngine.playError();
-    } else if (type === 'fanfare' || type === 'complete') {
+    } else if (t === 'victory' || t === 'fanfare' || t === 'complete' || t === 'reward' || t === 'cheer' || t === 'perfect') {
       window.soundEngine.playVictoryFanfare();
-    } else if (type === 'level') {
+    } else if (t === 'level' || t === 'levelup' || t === 'good' || t === 'pass') {
       window.soundEngine.playRegionComplete();
     } else {
       window.soundEngine.playPickup();

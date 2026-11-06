@@ -124,6 +124,54 @@ window.IT4_DATA = {
           ],
           correct: 1,
           explanation: "Ngồi khom lưng, dí sát mắt vào màn hình và không nghỉ ngơi sau mỗi 30-45 phút gây cong vẹo cột sống và hội chứng mỏi thị giác màn hình."
+        },
+        {
+          id: "it4_1_9",
+          level: 1,
+          question: "Thiết bị nào sau đây là thiết bị đưa thông tin vào máy tính (Thiết bị vào - Input device)?",
+          options: ["Bàn phím và Chuột", "Màn hình", "Máy in", "Loa máy tính"],
+          correct: 0,
+          explanation: "Bàn phím và chuột giúp người dùng nhập văn bản và điều khiển lệnh vào máy tính (thiết bị vào)."
+        },
+        {
+          id: "it4_1_10",
+          level: 2,
+          question: "Tư thế ngồi học máy tính nào sau đây là đúng khoa học giúp bảo vệ mắt và cột sống?",
+          options: ["Lưng thẳng, mắt ngang tầm đỉnh màn hình và cách màn hình khoảng 50 - 70 cm, hai bàn chân đặt bằng phẳng trên sàn", "Nằm ngửa trên giường kê máy tính lên bụng", "Ghé sát mắt cách màn hình 10 cm để nhìn rõ", "Ngồi vẹo sang một bên và bắt chéo chân liên tục"],
+          correct: 0,
+          explanation: "Tư thế ngồi chuẩn công thái học giúp bảo vệ thị lực, chống gù lưng vẹo cột sống và giảm mỏi cổ vai gáy."
+        },
+        {
+          id: "it4_1_11",
+          level: 2,
+          question: "Bộ phận nào được coi là 'Bộ não' của máy tính, thực hiện các phép tính và điều khiển mọi hoạt động của hệ thống?",
+          options: ["Bộ vi xử lý (CPU)", "Thanh RAM", "Ổ đĩa cứng", "Chuột quang"],
+          correct: 0,
+          explanation: "CPU (Central Processing Unit) là bộ xử lý trung tâm, đóng vai trò như bộ não điều khiển máy tính."
+        },
+        {
+          id: "it4_1_12",
+          level: 3,
+          question: "Hành vi nào sau đây là NGUY HIỂM và tuyệt đối không được làm trong phòng máy tính của trường?",
+          options: ["Dùng tay hoặc kim loại chọc vào ổ cắm điện, dây điện và vừa ăn uống vừa dùng bàn phím", "Bật máy tính bằng nút nguồn theo hướng dẫn của thầy cô", "Dùng chuột rê nhẹ nhàng trên bàn di chuột", "Tắt máy tính bằng lệnh Shut down sau khi học xong"],
+          correct: 0,
+          explanation: "Chọc vào dây điện gây nguy cơ giật điện chết người; ăn uống trong phòng máy dễ làm đổ nước chập cháy mạch điện tử."
+        },
+        {
+          id: "it4_1_13",
+          level: 3,
+          question: "Phần mềm máy tính (Software) khác với phần cứng máy tính (Hardware) ở đặc điểm nào?",
+          options: ["Phần mềm là các chương trình, dữ liệu chạy trong máy tính (không cầm nắm được); phần cứng là các thiết bị vật lý cụ thể", "Phần mềm là vỏ ngoài của máy tính", "Phần cứng là hình ảnh hiển thị trên màn hình", "Cả hai là một không có gì khác nhau"],
+          correct: 0,
+          explanation: "Phần cứng là các linh kiện vật lý (màn hình, chuột, bàn phím); phần mềm là các chương trình (Windows, Word, game học tập)."
+        },
+        {
+          id: "it4_1_14",
+          level: 4,
+          question: "Quy trình tắt máy tính an toàn, đúng chuẩn sau khi kết thúc buổi học là gì?",
+          options: ["Lưu lại bài làm ➔ Đóng các phần mềm đang mở ➔ Bấm nút Start chọn Power chọn Shut down", "Rút phích cắm điện ra khỏi ổ ngay lập tức", "Bấm giữ nút nguồn trên thùng máy 10 giây", "Chỉ cần tắt màn hình và bỏ đi"],
+          correct: 0,
+          explanation: "Tắt máy tính qua lệnh 'Shut down' giúp hệ điều hành lưu trữ dữ liệu an toàn, bảo vệ tuổi thọ ổ cứng."
         }
       ]
     },
@@ -235,6 +283,54 @@ window.IT4_DATA = {
           options: ["Phím Esc", "Phím Enter", "Phím F5", "Phím F1"],
           correct: 2,
           explanation: "Phím F5 là phím tắt tiêu chuẩn để bắt đầu trình chiếu Slide Show từ slide đầu tiên."
+        },
+        {
+          id: "it4_2_9",
+          level: 1,
+          question: "Hàng phím cơ sở (Home row) trên bàn phím máy tính có hai phím có gờ định vị cho ngón trỏ của hai bàn tay là hai phím nào?",
+          options: ["Phím F và phím J", "Phím A và phím L", "Phím G và phím H", "Phím Space và phím Enter"],
+          correct: 0,
+          explanation: "Phím F (ngón trỏ tay trái) và phím J (ngón trỏ tay phải) có gờ nổi nhỏ giúp định vị bàn tay gõ 10 ngón không cần nhìn."
+        },
+        {
+          id: "it4_2_10",
+          level: 2,
+          question: "Phím dài nhất nằm ở hàng phím dưới cùng của bàn phím dùng để tạo khoảng cách giữa các từ là phím gì?",
+          options: ["Phím Space (phím cách)", "Phím Enter", "Phím Shift", "Phím Backspace"],
+          correct: 0,
+          explanation: "Phím Space bar (phím cách) do hai ngón tay cái phụ trách dùng để gõ dấu cách giữa các từ."
+        },
+        {
+          id: "it4_2_11",
+          level: 2,
+          question: "Trong phần mềm gõ tiếng Việt kiểu Telex, để gõ được chữ 'Ô' và dấu 'Hỏi' ta gõ theo quy tắc nào?",
+          options: ["Gõ 'oo' ra chữ 'ô' và gõ chữ 'r' ra dấu hỏi", "Gõ 'o7' ra chữ 'ô'", "Gõ 'ow' ra chữ 'ô'", "Gõ 'os' ra chữ 'ô'"],
+          correct: 0,
+          explanation: "Kiểu Telex: oo ➔ ô, aa ➔ â, ee ➔ ê; s: sắc, f: huyền, r: hỏi, x: ngã, j: nặng."
+        },
+        {
+          id: "it4_2_12",
+          level: 3,
+          question: "Tổ hợp phím tắt nào trong phần mềm soạn thảo văn bản Word dùng để Lưu bài (Save) nhanh nhất?",
+          options: ["Ctrl + S", "Ctrl + C", "Ctrl + V", "Ctrl + Z"],
+          correct: 0,
+          explanation: "Ctrl + S (Save) là phím tắt tiêu chuẩn quốc tế để lưu tệp văn bản."
+        },
+        {
+          id: "it4_2_13",
+          level: 3,
+          question: "Để xóa một ký tự đứng ngay PHÍA TRƯỚC con trỏ soạn thảo văn bản, ta nhấn phím nào?",
+          options: ["Phím Backspace (←)", "Phím Delete", "Phím Enter", "Phím Tab"],
+          correct: 0,
+          explanation: "Backspace xóa ký tự bên trái (phía trước) con trỏ; Delete xóa ký tự bên phải (phía sau) con trỏ."
+        },
+        {
+          id: "it4_2_14",
+          level: 4,
+          question: "Quy tắc đặt dấu thanh tiếng Việt chuẩn trong soạn thảo văn bản quy định như thế nào?",
+          options: ["Gõ hết các chữ cái của tiếng trước rồi mới gõ phím dấu thanh ở cuối tiếng", "Gõ dấu thanh trước rồi mới gõ chữ cái", "Gõ dấu thanh ở bất cứ vị trí nào cũng được", "Chỉ gõ dấu thanh sau khi kết thúc cả câu dài"],
+          correct: 0,
+          explanation: "Quy tắc gõ chuẩn: Gõ liền các chữ cái rồi gõ dấu thanh ở cuối từ (ví dụ: t-o-a-n-s ➔ toán)."
         }
       ]
     },
@@ -366,6 +462,54 @@ window.IT4_DATA = {
           ],
           correct: 1,
           explanation: "Cây xanh làm mát dịu mắt, lọc bụi bẩn, đem lại năng lượng tích cực và rèn luyện đức tính lao động tự giác cho học sinh."
+        },
+        {
+          id: "it4_3_9",
+          level: 1,
+          question: "Dưới đáy chậu trồng hoa, cây cảnh thường được đục một hoặc vài lỗ nhỏ nhằm mục đích chính là gì?",
+          options: ["Thoát nước thừa để tránh ngập úng rễ cây", "Cho rễ cây thò ra ngoài hóng gió", "Tiết kiệm đất trồng", "Trang trí cho đáy chậu đẹp hơn"],
+          correct: 0,
+          explanation: "Lỗ thoát nước ở đáy chậu giúp nước tưới thừa thoát ra, ngăn ngừa rễ cây bị thối ủng do thiếu khí."
+        },
+        {
+          id: "it4_3_10",
+          level: 2,
+          question: "Giá thể (đất) dùng để trồng hoa trong chậu cần đảm bảo các điều kiện kỹ thuật cơ bản nào?",
+          options: ["Tơi xốp, giữ ẩm tốt, giàu chất dinh dưỡng hữu cơ và sạch mầm bệnh", "Cát vàng tinh khiết không có chất khoáng", "Đất sét đặc quánh không thoát nước", "Đá cuội khô ráo hoàn toàn"],
+          correct: 0,
+          explanation: "Đất trồng cây cảnh trong chậu cần độ tơi xốp (trộn xơ dừa, trấu hun, phân trùn quế) để rễ phát triển hô hấp tốt."
+        },
+        {
+          id: "it4_3_11",
+          level: 2,
+          question: "Thời điểm lý tưởng nhất trong ngày để tưới nước cho hoa và cây cảnh là lúc nào?",
+          options: ["Sáng sớm hoặc chiều mát", "Giữa trưa nắng gắt 12 giờ trưa", "Ban đêm lúc nửa đêm", "Lúc nào cây cũng phải ngập trong nước"],
+          correct: 0,
+          explanation: "Tưới cây lúc sáng sớm hoặc chiều mát giúp cây hấp thụ nước từ từ; tưới lúc trưa nắng gắt làm cây bị 'sốc nhiệt' rụng lá."
+        },
+        {
+          id: "it4_3_12",
+          level: 3,
+          question: "Các bước trồng cây con vào chậu theo đúng quy trình công nghệ gồm thứ tự nào sau đây?",
+          options: ["Lót lưới/sỏi đáy chậu ➔ Cho đất vào 1/2 chậu ➔ Đặt bầu cây ngay ngắn ➔ Bổ sung đất xung quanh và nén nhẹ ➔ Tưới nước ẩm đất", "Cho cây vào trước rồi đổ đất lên ngọn", "Tưới nước đầy chậu rồi mới thả rễ cây vào", "Đổ đầy đất đến miệng chậu rồi cắm cành cây vào"],
+          correct: 0,
+          explanation: "Quy trình trồng cây khoa học đảm bảo gốc cây đứng vững, rễ tiếp xúc tốt với đất tơi xốp mà không bị dập nát."
+        },
+        {
+          id: "it4_3_13",
+          level: 3,
+          question: "Khi chăm sóc cây hoa trong chậu, việc thường xuyên tỉa bỏ cành khô, lá vàng úa có lợi ích gì cho cây?",
+          options: ["Giúp cây thông thoáng, tập trung dinh dưỡng nuôi chồi non và phòng ngừa sâu bệnh hại trú ngụ", "Làm cho cây trụi lá mau già", "Để cây không bao giờ nở hoa", "Chỉ để lấy cành khô làm củi đun"],
+          correct: 0,
+          explanation: "Tỉa bỏ cành lá sâu bệnh giúp cây khỏe mạnh, đón ánh sáng tốt và kích thích nụ hoa đâm chồi."
+        },
+        {
+          id: "it4_3_14",
+          level: 4,
+          question: "Việc học sinh tự tay trồng và chăm sóc một chậu hoa nhỏ ở góc học tập hoặc hành lang trường mang lại ý nghĩa giáo dục gì?",
+          options: ["Bồi dưỡng tình yêu thiên nhiên, rèn luyện tính kiên nhẫn, tinh thần trách nhiệm và tạo không gian xanh thư thái", "Để bán hoa kiếm thật nhiều tiền", "Để đỡ phải học bài môn khác", "Không có ý nghĩa gì đối với việc học"],
+          correct: 0,
+          explanation: "Trồng cây giáo dục lòng yêu lao động, trân trọng sự sống và ý thức bảo vệ môi trường sinh thái xanh."
         }
       ]
     },
@@ -492,6 +636,54 @@ window.IT4_DATA = {
           ],
           correct: 1,
           explanation: "Sử dụng điện lãng phí làm tốn kém chi phí, gây quá tải lưới điện và gia tăng lượng khí thải nhà kính trong sản xuất điện."
+        },
+        {
+          id: "it4_4_9",
+          level: 1,
+          question: "Dụng cụ dùng để vặn siết chặt ốc vít và đai ốc trong bộ lắp ghép mô hình kỹ thuật là gì?",
+          options: ["Cờ-lê và tua-vít (vít)", "Kéo cắt giấy", "Kim chỉ khâu", "Búa tạ đập đá"],
+          correct: 0,
+          explanation: "Tua-vít và cờ-lê là hai dụng cụ chuyên dụng dùng để giữ và siết chặt mối ghép ren ốc vít kỹ thuật."
+        },
+        {
+          id: "it4_4_10",
+          level: 2,
+          question: "Khi lắp ghép một chi tiết bằng vít và đai ốc, trình tự thao tác an toàn và chuẩn xác là gì?",
+          options: ["Xâu vít qua lỗ của hai chi tiết ➔ Vặn đai ốc vào ren vít bằng tay ➔ Dùng tua-vít và cờ-lê siết chặt mối ghép", "Lấy búa đóng mạnh vít vào lỗ", "Bôi keo dán sắt vào ren ốc rồi ép lại", "Dùng răng cắn chặt đai ốc"],
+          correct: 0,
+          explanation: "Quy trình vặn ren chuẩn: định vị ốc vít, mồi ren bằng tay cho khớp bước ren rồi dùng cờ-lê siết chặt."
+        },
+        {
+          id: "it4_4_11",
+          level: 2,
+          question: "Trong bộ lắp ghép mô hình kỹ thuật lớp 4, chi tiết nào dùng để làm trục quay giúp bánh xe quay trơn tru?",
+          options: ["Thanh trục kim loại dài tròn và vòng hãm", "Tấm chữ U", "Thanh thẳng 11 lỗ", "Bánh đai cố định"],
+          correct: 0,
+          explanation: "Trục quay kim loại kết hợp vòng hãm định vị giúp bánh xe hoặc cánh quạt quay êm ái."
+        },
+        {
+          id: "it4_4_12",
+          level: 3,
+          question: "Khi lắp ghép mô hình 'Chiếc xe nôi' hoặc 'Cái đu', bước lắp ráp nào cần thực hiện trước tiên?",
+          options: ["Lắp ráp từng bộ phận riêng lẻ (như khung giá, bánh xe, tay đẩy) rồi mới ghép nối các bộ phận lại với nhau", "Lắp các chi tiết nhỏ nhất trước", "Lắp ráp hoàn thiện ngay từ bước 1 mà không cần theo thứ tự", "Bao giờ cũng lắp bánh xe sau cùng"],
+          correct: 0,
+          explanation: "Nguyên tắc kỹ thuật: Lắp ráp các cụm chi tiết/bộ phận cơ bản trước, sau đó lắp ráp tổng thành thành mô hình hoàn chỉnh."
+        },
+        {
+          id: "it4_4_13",
+          level: 3,
+          question: "Sau khi kết thúc tiết thực hành lắp ghép mô hình, quy tắc an toàn và ngăn nắp đòi hỏi học sinh phải làm gì?",
+          options: ["Tháo rời từng chi tiết cẩn thận, đếm đủ số lượng và xếp ngay ngắn vào từng ô của hộp đồ nghề", "Vứt bừa bãi ốc vít trên sàn nhà", "Đem ốc vít về nhà chơi bắn bi", "Để nguyên mô hình bẻ gãy thanh sắt"],
+          correct: 0,
+          explanation: "Thu dọn cẩn thận, phân loại ốc vít vào đúng ngăn giúp bảo quản bộ đồ dùng không bị rơi mất và đảm bảo an toàn phòng học."
+        },
+        {
+          id: "it4_4_14",
+          level: 4,
+          question: "Môn học Công nghệ và Lắp ghép mô hình kỹ thuật rèn luyện cho học sinh những phẩm chất tư duy quý báu nào?",
+          options: ["Tư duy logic, óc quan sát không gian, tính cẩn thận, khéo léo và khả năng sáng tạo kỹ thuật", "Thói quen làm ẩu làm nhanh", "Chỉ biết làm theo máy móc không suy nghĩ", "Không mang lại lợi ích gì cho việc học"],
+          correct: 0,
+          explanation: "Lắp ghép kỹ thuật khơi dậy niềm đam mê STEM, khả năng sáng chế và tính kiên nhẫn, tỉ mỉ cho học sinh."
         }
       ]
     }

@@ -134,6 +134,54 @@ window.ETHICS4_DATA = {
           ],
           correct: 0,
           explanation: "Các câu tục ngữ, ca dao răn dạy công ơn dạy dỗ trời biển của người thầy đối với sự trưởng thành của học trò."
+        },
+        {
+          id: "et4_1_9",
+          level: 1,
+          question: "Ngày 20 tháng 11 hàng năm ở nước ta là ngày lễ tôn vinh ai?",
+          options: ["Ngày Nhà giáo Việt Nam (tôn vinh các Thầy giáo, Cô giáo)", "Ngày Quốc tế Phụ nữ", "Ngày Quốc tế Thiếu nhi", "Ngày Thầy thuốc Việt Nam"],
+          correct: 0,
+          explanation: "Ngày 20/11 là Ngày Nhà giáo Việt Nam - ngày hội tôn sư trọng đạo tri ân thầy cô giáo."
+        },
+        {
+          id: "et4_1_10",
+          level: 2,
+          question: "Hành động nào sau đây thể hiện sự tôn trọng và biết ơn đối với người lao động quét rác vệ sinh đường phố?",
+          options: ["Bỏ rác đúng nơi quy định, chào hỏi lễ phép khi gặp bác lao công", "Tiện tay vứt rác ra đường vì cho rằng đã có người dọn", "Chế giễu công việc vất vả của bác lao công", "Bấm còi xe thật to khi đi qua xe rác"],
+          correct: 0,
+          explanation: "Mọi nghề nghiệp lao động chân chính đều đáng quý và xứng đáng nhận được sự tôn trọng của xã hội."
+        },
+        {
+          id: "et4_1_11",
+          level: 2,
+          question: "Khi gặp một bạn học sinh có hoàn cảnh khuyết tật hoặc có điểm khác biệt về ngoại hình, em nên ứng xử thế nào?",
+          options: ["Thân thiện, tôn trọng, động viên và sẵn sàng giúp đỡ bạn hòa nhập", "Chỉ trỏ, bàn tán và trêu chọc bạn", "Xa lánh không chơi cùng bạn", "Cười nhạo khi bạn gặp khó khăn"],
+          correct: 0,
+          explanation: "Tôn trọng sự khác biệt và giúp đỡ người yếu thế là biểu hiện của lòng nhân ái và văn minh."
+        },
+        {
+          id: "et4_1_12",
+          level: 3,
+          question: "Tục ngữ 'Không thầy đố mày làm nên' và 'Một chữ cũng là thầy, nửa chữ cũng là thầy' nhắc nhở chúng ta điều gì?",
+          options: ["Công ơn dạy dỗ to lớn của thầy cô và truyền thống tôn sư trọng đạo của dân tộc", "Không nên tự học một mình", "Chỉ cần tôn trọng thầy giáo dạy chữ to", "Phải tặng thật nhiều quà đắt tiền cho thầy cô"],
+          correct: 0,
+          explanation: "Truyền thống tôn sư trọng đạo dạy chúng ta luôn kính trọng và khắc ghi công lao dạy bảo của thầy cô."
+        },
+        {
+          id: "et4_1_13",
+          level: 3,
+          question: "Để bày tỏ lòng biết ơn các anh hùng liệt sĩ đã hy sinh vì độc lập tự do của Tổ quốc, trường em thường có hoạt động nào ý nghĩa?",
+          options: ["Viếng nghĩa trang liệt sĩ, chăm sóc di tích lịch sử và thăm hỏi Bà mẹ Việt Nam Anh hùng", "Chỉ xem tivi ở nhà", "Tổ chức cắm trại ăn uống ồn ào ở khu tưởng niệm", "Không tham gia vì cho rằng chuyện đã qua lâu"],
+          correct: 0,
+          explanation: "Hoạt động 'Đền ơn đáp nghĩa' thể hiện đạo lý 'Uống nước nhớ nguồn' của tuổi trẻ đối với các thế hệ cha anh."
+        },
+        {
+          id: "et4_1_14",
+          level: 4,
+          question: "Em và các bạn cùng lớp đang thảo luận nhóm, một bạn đưa ra ý kiến trái ngược với số đông. Cách hành xử văn minh nhất của em là gì?",
+          options: ["Lắng nghe bạn trình bày, tôn trọng ý kiến khác biệt và cùng nhau trao đổi tìm ra giải pháp tốt nhất", "Lập tức ngắt lời và quát bạn vô lý", "Ép buộc bạn phải rút lại ý kiến", "Bỏ nhóm không thèm thảo luận nữa"],
+          correct: 0,
+          explanation: "Lắng nghe, tôn trọng quan điểm cá nhân và cùng nhau xây dựng là kỹ năng làm việc nhóm văn minh."
         }
       ]
     },
@@ -260,6 +308,54 @@ window.ETHICS4_DATA = {
           ],
           correct: 1,
           explanation: "Cũng như ngọc quý phải qua mài giũa tỉ mỉ, con người muốn thành tài phải kiên tâm vượt khó rèn đức luyện tài."
+        },
+        {
+          id: "et4_2_9",
+          level: 1,
+          question: "Việc làm nào sau đây thể hiện tính tự lập trong học tập của học sinh lớp 4?",
+          options: ["Tự giác làm bài tập về nhà, chuẩn bị sách vở theo thời khóa biểu không cần bố mẹ nhắc nhở", "Chờ bố mẹ ngồi kèm mới chịu mở sách ra học", "Chép bài của bạn để hoàn thành cho nhanh", "Nhờ anh chị giải bài hộ để nộp cô giáo"],
+          correct: 0,
+          explanation: "Tự lập là khả năng tự giác làm việc của mình, không ỷ lại và dựa dẫm vào người khác."
+        },
+        {
+          id: "et4_2_10",
+          level: 2,
+          question: "Khi gặp một bài toán khó hoặc một nhiệm vụ học tập phức tạp, thái độ nào thể hiện tinh thần vượt khó?",
+          options: ["Kiên trì đọc kĩ đề bài, thử nhiều cách giải và hỏi thầy cô, bạn bè khi thực sự chưa hiểu", "Lập tức gấp vở lại và bỏ cuộc", "Khóc nhè và than vãn bài quá khó", "Lên mạng chép đáp án mà không thèm suy nghĩ"],
+          correct: 0,
+          explanation: "Vượt khó là kiên trì nỗ lực tìm tòi giải pháp, không lùi bước trước thử thách gian nan."
+        },
+        {
+          id: "et4_2_11",
+          level: 2,
+          question: "Ở gia đình, học sinh lớp 4 có thể tự lập thực hiện những công việc vừa sức nào để giúp đỡ bố mẹ?",
+          options: ["Gấp chăn màn, quét nhà, rửa bát đũa và tự giặt tất chân của mình", "Sửa chữa đường dây điện cao thế", "Lái xe máy đi chợ mua đồ", "Chỉ ngồi chơi để bố mẹ phục vụ"],
+          correct: 0,
+          explanation: "Học sinh lớp 4 hoàn toàn có thể tự chăm sóc bản thân và phụ giúp việc nhà nhẹ nhàng vừa sức."
+        },
+        {
+          id: "et4_2_12",
+          level: 3,
+          question: "Tấm gương thầy giáo Nguyễn Ngọc Ký - dù bị liệt cả hai tay từ nhỏ nhưng kiên cường luyện viết bằng chân và trở thành Nhà giáo Ưu tú là biểu tượng sáng ngời của phẩm chất gì?",
+          options: ["Nghị lực phi thường, tự lập và ý chí vượt khó vươn lên đỉnh cao tri thức", "Khả năng vẽ tranh bằng chân", "Sự may mắn ngẫu nhiên", "Tài năng bẩm sinh không cần khổ luyện"],
+          correct: 0,
+          explanation: "Thầy Nguyễn Ngọc Ký là tấm gương sáng ngời về nghị lực phi thường chiến thắng số phận cho nhiều thế hệ học trò noi theo."
+        },
+        {
+          id: "et4_2_13",
+          level: 3,
+          question: "Nếu luôn có thói quen ỷ lại, trông chờ người khác làm hộ bài tập và dọn dẹp đồ đạc thì hậu quả sẽ là gì?",
+          options: ["Bản thân sẽ trở nên thụ động, lười biếng, kém kỹ năng sống và khó thành công trong tương lai", "Sẽ được nhiều người yêu quý hơn", "Học ngày càng giỏi hơn", "Có nhiều thời gian rảnh hơn"],
+          correct: 0,
+          explanation: "Ỷ lại làm mòn ý chí và kỹ năng sinh tồn của con người, khiến bản thân không thể trưởng thành độc lập."
+        },
+        {
+          id: "et4_2_14",
+          level: 4,
+          question: "Mục tiêu rèn luyện 'tự lập' từ nhỏ giúp học sinh hình thành được năng lực cốt lõi nào trong cuộc sống?",
+          options: ["Biết tự chịu trách nhiệm về hành vi của mình, tự tin giải quyết vấn đề và thích ứng tốt với mọi hoàn cảnh", "Không bao giờ cần đến sự giúp đỡ của bất kỳ ai", "Trở nên xa lánh mọi người xung quanh", "Làm việc gì cũng chỉ theo ý thích cá nhân"],
+          correct: 0,
+          explanation: "Tự lập đi liền với tinh thần trách nhiệm, sự tự tin và bản lĩnh tự chủ trên đường đời."
         }
       ]
     },
@@ -391,6 +487,54 @@ window.ETHICS4_DATA = {
           ],
           correct: 1,
           explanation: "Tiết kiệm không phải là keo kiệt bủn xỉn, mà là sự chừng mực, trân trọng thành quả lao động để tích lũy tương lai bền vững."
+        },
+        {
+          id: "et4_3_9",
+          level: 1,
+          question: "Tài sản nào sau đây thuộc về tài sản công cộng (của công) mà mọi người cùng có trách nhiệm giữ gìn?",
+          options: ["Bàn ghế lớp học, bảng đen, thư viện trường, ghế đá công viên và biển báo giao thông", "Chiếc xe đạp riêng của em", "Đôi giày của bạn cùng bàn", "Chiếc điện thoại của mẹ"],
+          correct: 0,
+          explanation: "Tài sản công cộng là tài sản chung của Nhà nước và xã hội phục vụ lợi ích của toàn dân."
+        },
+        {
+          id: "et4_3_10",
+          level: 2,
+          question: "Hành vi nào sau đây là VI PHẠM quy định bảo vệ của công tại trường học?",
+          options: ["Vẽ bậy, khắc tên lên mặt bàn học và làm gãy cây xanh trong sân trường", "Xếp gọn bàn ghế ngay ngắn sau giờ học", "Tắt điện và quạt trước khi ra khỏi phòng học", "Mượn sách thư viện đọc cẩn thận và trả đúng hẹn"],
+          correct: 0,
+          explanation: "Viết vẽ bậy lên bàn ghế, tường lớp học phá hoại cảnh quan và hủy hoại tài sản chung của nhà trường."
+        },
+        {
+          id: "et4_3_11",
+          level: 2,
+          question: "Hành động nào thể hiện đức tính tiết kiệm điện và nước trong đời sống hàng ngày?",
+          options: ["Tắt đèn khi ra khỏi phòng, khóa chặt vòi nước sau khi rửa tay và tận dụng ánh sáng tự nhiên", "Bật quạt chạy suốt ngày đêm dù không có người trong phòng", "Để nước chảy tràn bồn rửa", "Bật tất cả bóng đèn trong nhà cho sáng rực rỡ"],
+          correct: 0,
+          explanation: "Tiết kiệm điện nước giúp giảm chi phí cho gia đình và góp phần bảo vệ tài nguyên thiên nhiên của đất nước."
+        },
+        {
+          id: "et4_3_12",
+          level: 3,
+          question: "Câu nói 'Của bền tại người' khuyên chúng ta bài học đạo đức gì?",
+          options: ["Đồ vật sử dụng có bền đẹp hay không phụ thuộc rất lớn vào ý thức giữ gìn, bảo quản cẩn thận của con người", "Đồ đắt tiền thì không bao giờ hỏng", "Cứ dùng thoải mái rồi mua cái mới", "Không nên sử dụng đồ vật vì sợ hỏng"],
+          correct: 0,
+          explanation: "Ý thức trân trọng, nâng niu bảo quản của con người quyết định độ bền đẹp lâu dài của tài sản."
+        },
+        {
+          id: "et4_3_13",
+          level: 3,
+          question: "Khi nhìn thấy bạn cùng trường đang bẻ cành cây non trong công viên hoặc đu lên lan can hành lang, em nên làm gì?",
+          options: ["Lịch sự khuyên ngăn bạn dừng lại và giải thích hành vi đó vừa nguy hiểm vừa phá hoại của công", "Cổ vũ bạn bẻ thêm cành nữa", "Làm ngơ coi như không thấy", "Lấy máy ảnh chụp lại để trêu chọc bạn"],
+          correct: 0,
+          explanation: "Mỗi công dân nhỏ tuổi cần có tinh thần đấu tranh, khuyên nhủ bạn bè cùng giữ gìn tài sản chung của cộng đồng."
+        },
+        {
+          id: "et4_3_14",
+          level: 4,
+          question: "Thực hành 'tiết kiệm' khác hoàn toàn với tính 'keo kiệt, bủn xỉn' ở điểm mấu chốt nào?",
+          options: ["Tiết kiệm là chi tiêu hợp lý, đúng lúc đúng việc và sẵn lòng chia sẻ khi cần; keo kiệt là ky bo không dám chi tiêu ngay cả việc chính đáng", "Hai từ hoàn toàn giống nhau", "Tiết kiệm là không bao giờ mua sách vở học tập", "Keo kiệt là người biết lo cho tương lai"],
+          correct: 0,
+          explanation: "Tiết kiệm là sử dụng của cải khoa học, ý nghĩa và giàu lòng sẻ chia; hoàn toàn khác thói keo kiệt ích kỷ."
         }
       ]
     },
@@ -517,6 +661,54 @@ window.ETHICS4_DATA = {
           ],
           correct: 2,
           explanation: "Nói KHÔNG với bạo lực mạng (cyberbullying), bảo vệ nạn nhân và ngăn chặn tin giả là trách nhiệm công dân số văn minh của học sinh thời đại mới."
+        },
+        {
+          id: "et4_4_9",
+          level: 1,
+          question: "Quy tắc 5 ngón tay giúp học sinh ghi nhớ điều quan trọng nào để tự bảo vệ bản thân?",
+          options: ["Khoảng cách an toàn và quy tắc tiếp xúc với 5 nhóm người để phòng chống xâm hại thân thể", "Cách đếm số từ 1 đến 5", "Kỹ thuật chơi bóng chuyền 5 ngón", "Cách vẽ bàn tay trên giấy"],
+          correct: 0,
+          explanation: "Quy tắc 5 ngón tay là bài học sinh tồn quan trọng giúp trẻ nhận diện vùng an toàn trong giao tiếp phòng tránh xâm hại."
+        },
+        {
+          id: "et4_4_10",
+          level: 2,
+          question: "Theo Quy tắc 5 ngón tay, 'Vùng đồ bơi' (vùng kín riêng tư) trên cơ thể chỉ có ai mới được chạm vào khi cần thiết?",
+          options: ["Chính bản thân em, bố mẹ khi tắm rửa hoặc bác sĩ khi thăm khám bệnh (có sự đồng ý và chứng kiến của bố mẹ)", "Bất kỳ người lạ nào cho quà bánh", "Bạn bè cùng lớp trong giờ ra chơi", "Bác hàng xóm khi ở một mình"],
+          correct: 0,
+          explanation: "Vùng đồ bơi là vùng riêng tư bất khả xâm phạm. Tuyệt đối không ai được phép nhìn hoặc chạm vào khi chưa có lý do y tế hợp pháp."
+        },
+        {
+          id: "et4_4_11",
+          level: 2,
+          question: "Khi ở nhà một mình và có người lạ bấm chuông gõ cửa xưng là bạn của bố mẹ muốn vào nhà, em nên làm gì?",
+          options: ["Tuyệt đối không mở cửa, khóa chốt an toàn và gọi điện thoại ngay cho bố mẹ để xác minh", "Mở toang cửa mời người lạ vào nhà ngồi uống nước", "Đi theo người lạ ra ngoài mua kem", "Mở cửa rồi chạy sang nhà khác trốn"],
+          correct: 0,
+          explanation: "Không mở cửa cho người lạ khi ở nhà một mình để phòng ngừa nguy cơ trộm cắp, bắt cóc nguy hiểm."
+        },
+        {
+          id: "et4_4_12",
+          level: 3,
+          question: "Khi chẳng may xảy ra hỏa hoạn cháy nhà có nhiều khói độc, kỹ năng thoát hiểm đúng đắn là gì?",
+          options: ["Dùng khăn ướt bịt mũi miệng, cúi thật thấp người hoặc bò sát mặt sàn để di chuyển ra lối thoát hiểm", "Chạy vào thang máy để xuống tầng trệt cho nhanh", "Trốn vào tủ quần áo hoặc gầm giường đóng chặt cửa", "Hít thật sâu rồi chạy đứng thẳng người"],
+          correct: 0,
+          explanation: "Khói độc nhẹ hơn không khí nên bốc lên cao. Khăn ướt lọc khí độc và bò sát mặt sàn giúp duy trì dưỡng khí thoát hiểm."
+        },
+        {
+          id: "et4_4_13",
+          level: 3,
+          question: "Số điện thoại khẩn cấp quốc gia để liên hệ lực lượng Cứu hỏa PCCC khi có cháy nổ là số nào?",
+          options: ["114", "113", "115", "111"],
+          correct: 0,
+          explanation: "114: Cứu hỏa PCCC & Cứu nạn cứu hộ. (113: Cảnh sát phản ứng nhanh; 115: Cấp cứu y tế; 111: Tổng đài Quốc gia bảo vệ trẻ em)."
+        },
+        {
+          id: "et4_4_14",
+          level: 4,
+          question: "Nếu có ai đó đe dọa hoặc ép buộc em giữ một bí mật khiến em cảm thấy lo sợ, bứt rứt hoặc không thoải mái, em cần làm gì?",
+          options: ["Nói ngay với bố mẹ, thầy cô giáo hoặc người lớn đáng tin cậy nhất để được che chở và bảo vệ", "Giữ im lặng và giấu kín mãi mãi một mình", "Làm theo mọi yêu cầu của kẻ xấu vì sợ hãi", "Nghỉ học ở nhà không đi học nữa"],
+          correct: 0,
+          explanation: "Quy tắc an toàn: Không bao giờ giữ 'bí mật xấu'. Hãy dũng cảm chia sẻ với bố mẹ, thầy cô để được giúp đỡ kịp thời."
         }
       ]
     }

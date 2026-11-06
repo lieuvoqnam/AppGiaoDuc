@@ -45,10 +45,10 @@
   <!-- NAVIGATION CONTROL BAR -->
   <nav id="nav-bar">
     <div class="mode-tabs">
-      <button class="mode-tab-btn" data-mode="theory">
+      <button class="mode-tab-btn active" data-mode="theory">
         <span>📖</span> Giá Trị & Bài Học Sống
       </button>
-      <button class="mode-tab-btn active" data-mode="practice">
+      <button class="mode-tab-btn" data-mode="practice">
         <span>🎯</span> Xử Lý Tình Huống
       </button>
       <button class="mode-tab-btn" data-mode="exam">
@@ -67,7 +67,7 @@
     </div>
 
     <!-- 1. THEORY VIEW -->
-    <section id="theory-view" class="hidden">
+    <section id="theory-view">
       <div class="theory-header-card">
         <div id="theory-header-icon" class="theory-header-icon">❤️</div>
         <div class="theory-header-info">
@@ -82,7 +82,7 @@
     </section>
 
     <!-- 2. PRACTICE VIEW -->
-    <section id="practice-view">
+    <section id="practice-view" class="hidden">
       <div class="practice-filter-bar">
         <div id="level-filters" class="level-filters">
           <span class="level-filter-label">Cấp độ tình huống:</span>
@@ -94,8 +94,8 @@
         </div>
         <div class="practice-actions">
           <span class="lock-hint-tag">🔒 Lời giải chi tiết chỉ mở sau khi Nộp bài</span>
-          <button id="btn-reroll-practice" class="btn-reroll" title="Đổi thứ tự câu hỏi và phương án">
-            <span>🎲</span> Trộn Đề Mới
+          <button id="btn-reroll-practice" class="btn-reroll" title="Đổi câu hỏi mới và xáo trộn ngẫu nhiên các phương án A, B, C, D">
+            <span>🎲</span> Đổi Đề Mới (Đổi Câu & Đáp Án)
           </button>
         </div>
       </div>

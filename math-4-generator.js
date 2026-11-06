@@ -795,12 +795,12 @@ window.Math4Generator = (function () {
   /**
    * Sinh danh sách bài tập ngẫu nhiên theo chủ đề và mức độ
    */
-  function generatePractice(topicId, level = 'all', count = 6) {
+  function generatePractice(topicId, level = 'all', count = 10) {
     const topicGens = generators[topicId] || generators.natural_numbers;
     let questions = [];
 
     // Tạo các câu hỏi ngẫu nhiên từ generators
-    for (let i = 0; i < count * 2; i++) {
+    for (let i = 0; i < count * 4; i++) {
       const genFunc = randChoice(topicGens);
       let q = genFunc();
       if (q.id.includes('gen_st_1')) q = fixProbGen(q);

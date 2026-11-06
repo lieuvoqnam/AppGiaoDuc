@@ -6,7 +6,7 @@
   'use strict';
 
   const state = {
-    mode: 'practice', // 'theory', 'practice', 'exam'
+    mode: 'theory', // 'theory', 'practice', 'exam'
     topicId: 'natural_numbers',
     level: 'all', // 'all', 1, 2, 3, 4
     practiceAnswers: {}, // { [qId]: selectedOptIdx }
@@ -48,7 +48,7 @@
     initUserWidget();
     renderTopicPills();
     bindEvents();
-    switchMode('practice');
+    switchMode('theory');
   }
 
   // User Profile
@@ -259,7 +259,7 @@
     state.isPracticeSubmitted = false;
     state.practiceAnswers = {};
     if (window.Math4Generator && typeof window.Math4Generator.generatePractice === 'function') {
-      state.practiceQuestions = window.Math4Generator.generatePractice(state.topicId, state.level, 6);
+      state.practiceQuestions = window.Math4Generator.generatePractice(state.topicId, state.level, 10);
     } else if (window.MATH4_DATA) {
       const topic = window.MATH4_DATA.topics.find(t => t.id === state.topicId);
       if (topic) {
@@ -593,10 +593,13 @@
     let badgeClass = 'perfect';
     let msg = `Tuyệt vời! Bạn đã trả lời đúng ${data.correctCount}/${data.totalCount} câu hỏi! Bấm "Xem Lời Giải Chi Tiết" để xem lời giải mẫu bên dưới nhé.`;
 
-    if (data.score >= 9) {
+    if (data.score >= 8.5) {
       playSnd('victory');
-      if (typeof window.confetti === 'function') window.confetti({ particleCount: 120, spread: 80, origin: { y: 0.6 } });
+      if (typeof window.launchConfetti === 'function') window.launchConfetti();
+      else if (typeof window.confetti === 'function') window.confetti({ particleCount: 120, spread: 80, origin: { y: 0.6 } });
     } else if (data.score >= 7) {
+      playSnd('victory');
+      if (typeof window.launchConfetti === 'function') window.launchConfetti();
       badgeText = 'Khá Giỏi! 👍';
       badgeClass = 'good';
       msg = `Làm tốt lắm! Bạn đúng ${data.correctCount}/${data.totalCount} câu. Bấm "Xem Lời Giải Chi Tiết" để đối chiếu các bước giải chi tiết nhé.`;

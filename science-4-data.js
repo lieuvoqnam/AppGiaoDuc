@@ -134,6 +134,54 @@ window.SCIENCE4_DATA = {
           ],
           correct: 1,
           explanation: "Nhiệt mặt trời làm bốc hơi nước ➔ lên cao gặp lạnh ngưng tụ thành mây ➔ nặng hạt tạo thành mưa rơi xuống ➔ thấm vào đất và chảy về sông biển tạo thành vòng tuần hoàn khép kín."
+        },
+        {
+          id: "sc4_1_9",
+          level: 1,
+          question: "Nước có những tính chất vật lý cơ bản nào sau đây?",
+          options: ["Chất lỏng trong suốt, không màu, không mùi, không vị, không có hình dạng nhất định", "Chất lỏng màu trắng đục, có vị ngọt nhẹ", "Chất rắn có hình khối lập phương cố định", "Chất khí có mùi thơm và màu xanh nhạt"],
+          correct: 0,
+          explanation: "Nước nguyên chất là chất lỏng trong suốt, không màu, không mùi, không vị, chảy từ cao xuống thấp và lan ra khắp mọi phía."
+        },
+        {
+          id: "sc4_1_10",
+          level: 2,
+          question: "Hiện tượng nước đá trong cốc tan chảy thành nước lỏng ở nhiệt độ phòng là sự chuyển thể nào của nước?",
+          options: ["Sự nóng chảy", "Sự đông đặc", "Sự bay hơi", "Sự ngưng tụ"],
+          correct: 0,
+          explanation: "Sự chuyển từ thể rắn sang thể lỏng của chất được gọi là sự nóng chảy."
+        },
+        {
+          id: "sc4_1_11",
+          level: 2,
+          question: "Thành phần của không khí gồm những chất khí chủ yếu nào sau đây?",
+          options: ["Khí ni-tơ (khoảng 78%), khí ô-xi (khoảng 21%) và một lượng nhỏ khí các-bô-níc, hơi nước", "100% là khí ô-xi tinh khiết", "Chủ yếu là khí các-bô-níc và khói bụi", "Khí hi-đrô và khí clo"],
+          correct: 0,
+          explanation: "Không khí là hỗn hợp các khí, trong đó khí ni-tơ chiếm khoảng 78%, khí ô-xi duy trì sự sống chiếm khoảng 21%."
+        },
+        {
+          id: "sc4_1_12",
+          level: 3,
+          question: "Khi úp ngược một chiếc cốc thủy tinh lên ngọn nến đang cháy, sau vài giây ngọn nến tắt dần. Hiện tượng này chứng minh điều gì?",
+          options: ["Nến đã đốt cháy hết khí ô-xi bên trong cốc giúp duy trì sự cháy", "Cốc thủy tinh tạo ra nước làm tắt nến", "Gió bên ngoài làm nến bị thổi tắt", "Không khí bên trong cốc bị bốc hơi hết"],
+          correct: 0,
+          explanation: "Khí ô-xi cần thiết để duy trì sự cháy. Khi úp cốc, lượng ô-xi có hạn bị đốt cháy hết thì ngọn nến sẽ lụi tắt."
+        },
+        {
+          id: "sc4_1_13",
+          level: 3,
+          question: "Vòng tuần hoàn của nước trong tự nhiên diễn ra liên tục theo trình tự nào?",
+          options: ["Nước bề mặt bay hơi ➔ Ngưng tụ thành mây ➔ Mưa rơi xuống đất ➔ Nước chảy về sông biển", "Mưa rơi xuống ➔ Đông đặc thành đá ➔ Bay hơi thành mây", "Nước ngấm xuống đất ➔ Biến mất vĩnh viễn", "Hơi nước biến thành tuyết ➔ Đọng lại trên mây không rơi"],
+          correct: 0,
+          explanation: "Dưới ánh nắng mặt trời, nước bay hơi thành hơi nước, bay lên cao gặp lạnh ngưng tụ thành mây, nặng hạt rơi xuống thành mưa."
+        },
+        {
+          id: "sc4_1_14",
+          level: 4,
+          question: "Để bảo vệ nguồn nước sạch và không khí trong lành ở gia đình và trường học, hành động nào là đúng đắn?",
+          options: ["Khóa vòi nước khi không dùng, không xả rác bừa bãi và trồng thêm cây xanh", "Xả nước tràn bồn rửa tay để nước tự làm sạch sàn", "Đốt rác thải nhựa nilon ở sân trường", "Đổ dầu mỡ thừa trực tiếp xuống cống thoát nước sinh hoạt"],
+          correct: 0,
+          explanation: "Tiết kiệm nước, trồng cây xanh lọc không khí và phân loại rác thải là hành động thiết thực bảo vệ môi trường."
         }
       ]
     },
@@ -260,6 +308,54 @@ window.SCIENCE4_DATA = {
           ],
           correct: 1,
           explanation: "Khi vật cản sáng lại gần nguồn sáng, góc chắn sáng rộng hơn khiến bóng tối đổ trên màn chắn phía sau to hơn."
+        },
+        {
+          id: "sc4_2_9",
+          level: 1,
+          question: "Vật nào sau đây là vật tự phát ra ánh sáng (nguồn sáng tự nhiên)?",
+          options: ["Mặt Trời", "Mặt Trăng", "Gương soi phẳng", "Tấm kính cửa sổ"],
+          correct: 0,
+          explanation: "Mặt Trời là ngôi sao tự phát sáng. Mặt Trăng hay gương soi chỉ phản chiếu ánh sáng từ nguồn sáng khác chiếu vào."
+        },
+        {
+          id: "sc4_2_10",
+          level: 2,
+          question: "Âm thanh truyền được qua các môi trường nào sau đây?",
+          options: ["Chất rắn, chất lỏng và chất khí", "Chỉ truyền được trong không khí", "Chỉ truyền được trong chất lỏng", "Truyền tốt nhất trong môi trường chân không tuyệt đối"],
+          correct: 0,
+          explanation: "Âm thanh truyền được qua chất rắn, chất lỏng và chất khí (truyền tốt nhất qua chất rắn và không truyền được trong chân không)."
+        },
+        {
+          id: "sc4_2_11",
+          level: 2,
+          question: "Vật liệu nào sau đây dẫn nhiệt tốt, thường được dùng làm đáy nồi nấu bếp?",
+          options: ["Nhôm, đồng, inox (kim loại)", "Gỗ khô", "Nhựa dẻo", "Thủy tinh xốp"],
+          correct: 0,
+          explanation: "Các kim loại như nhôm, đồng, sắt dẫn nhiệt rất tốt, giúp truyền nhiệt nhanh từ bếp vào thức ăn."
+        },
+        {
+          id: "sc4_2_12",
+          level: 3,
+          question: "Tại sao quai ấm đun nước hoặc cán chảo thường được bọc bằng nhựa hoặc gỗ?",
+          options: ["Vì nhựa và gỗ là chất dẫn nhiệt kém, giúp người cầm không bị bỏng tay", "Để làm ấm đun nước nhẹ hơn", "Để nước mau sôi hơn", "Để tạo màu sắc đẹp cho chảo"],
+          correct: 0,
+          explanation: "Nhựa và gỗ dẫn nhiệt kém (cách nhiệt tốt), ngăn nhiệt truyền từ thân kim loại sang tay người nấu."
+        },
+        {
+          id: "sc4_2_13",
+          level: 3,
+          question: "Bóng tối của một vật xuất hiện ở phía nào của vật khi có ánh sáng chiếu vào?",
+          options: ["Phía sau vật cản sáng (ngược hướng với nguồn sáng)", "Phía trước vật cản sáng (hướng về nguồn sáng)", "Bên trong lòng của vật", "Bóng tối chỉ xuất hiện vào ban đêm"],
+          correct: 0,
+          explanation: "Ánh sáng truyền theo đường thẳng, khi gặp vật cản sáng tạo ra vùng bóng tối ở phía sau vật."
+        },
+        {
+          id: "sc4_2_14",
+          level: 4,
+          question: "Ô nhiễm tiếng ồn (tiếng còi xe inh ỏi kéo dài, tiếng loa công suất lớn) có thể gây tác hại gì cho sức khỏe con người?",
+          options: ["Gây căng thẳng thần kinh, giảm thính lực và mất ngủ", "Làm tăng sức đề kháng của cơ thể", "Giúp tập trung học tập tốt hơn", "Làm giọng nói trầm ấm hơn"],
+          correct: 0,
+          explanation: "Tiếng ồn kéo dài làm tổn thương màng nhĩ, suy giảm thính lực, gây nhức đầu và căng thẳng thần kinh."
         }
       ]
     },
@@ -381,6 +477,54 @@ window.SCIENCE4_DATA = {
           ],
           correct: 1,
           explanation: "Không có ánh sáng, cây không thể quang hợp tạo chất bột đường để nuôi cơ thể, diệp lục không hình thành khiến lá vàng vọt và cây lụi tàn dần."
+        },
+        {
+          id: "sc4_3_9",
+          level: 1,
+          question: "Cây xanh có khả năng tự chế tạo chất dinh dưỡng nuôi cây nhờ quá trình quang hợp dưới ánh sáng mặt trời là nhờ chất diệp lục có ở bộ phận nào?",
+          options: ["Lá cây", "Rễ cây", "Vỏ thân cây", "Hạt quả"],
+          correct: 0,
+          explanation: "Lá cây chứa chất diệp lục màu xanh hấp thụ năng lượng ánh sáng mặt trời để thực hiện quá trình quang hợp."
+        },
+        {
+          id: "sc4_3_10",
+          level: 2,
+          question: "Trong quá trình quang hợp vào ban ngày có ánh sáng, cây xanh lấy vào khí gì và thải ra khí gì?",
+          options: ["Lấy vào khí các-bô-níc, thải ra khí ô-xi", "Lấy vào khí ô-xi, thải ra khí các-bô-níc", "Lấy vào khí ni-tơ, thải ra hơi nước", "Lấy vào khí hi-đrô, thải ra khí mê-tan"],
+          correct: 0,
+          explanation: "Quang hợp: Cây xanh hấp thụ khí các-bô-níc và nước dưới tác dụng của ánh sáng mặt trời để tổng hợp chất hữu cơ và giải phóng khí ô-xi."
+        },
+        {
+          id: "sc4_3_11",
+          level: 2,
+          question: "Chuỗi thức ăn trong tự nhiên thường được bắt đầu bằng mắt xích sinh vật nào sau đây?",
+          options: ["Sinh vật sản xuất (cây xanh, thực vật)", "Động vật ăn thịt", "Động vật ăn cỏ", "Vi khuẩn phân hủy"],
+          correct: 0,
+          explanation: "Thực vật (cây xanh) là sinh vật tự dưỡng sản xuất chất hữu cơ đầu tiên trong hầu hết các chuỗi thức ăn tự nhiên."
+        },
+        {
+          id: "sc4_3_12",
+          level: 3,
+          question: "Xem xét chuỗi thức ăn: Cỏ ➔ Sâu rau ➔ Chim sâu ➔ Đại bàng. Nếu số lượng chim sâu bị săn bắt giảm sút mạnh thì điều gì sẽ xảy ra?",
+          options: ["Số lượng sâu rau sẽ bùng phát phá hoại mùa màng", "Cỏ sẽ mọc tốt hơn", "Số lượng đại bàng sẽ tăng vọt", "Mọi loài đều không bị ảnh hưởng"],
+          correct: 0,
+          explanation: "Chim sâu là thiên địch ăn sâu rau. Mất chim sâu, sâu rau không còn bị tiêu diệt sẽ sinh sôi mạnh phá hoại mùa màng."
+        },
+        {
+          id: "sc4_3_13",
+          level: 3,
+          question: "Nấm rơm, nấm linh chi, nấm mộc nhĩ thuộc giới sinh vật nào và có vai trò gì quan trọng trong tự nhiên?",
+          options: ["Thuộc giới Nấm; giúp phân hủy cành lá khô, xác hữu cơ thành chất mùn nuôi đất", "Là động vật di chuyển dưới lòng đất", "Là loài cỏ dại có hoa rực rỡ", "Chỉ là các hạt bụi vô sinh tích tụ lại"],
+          correct: 0,
+          explanation: "Nấm không có chất diệp lục, đóng vai trò sinh vật phân hủy xác động thực vật mục nát thành chất khoáng làm giàu cho đất."
+        },
+        {
+          id: "sc4_3_14",
+          level: 4,
+          question: "Để cây trồng trong nhà phát triển xanh tốt, chúng ta cần đảm bảo cung cấp đầy đủ những yếu tố thiết yếu nào?",
+          options: ["Nước, ánh sáng mặt trời, không khí, chất khoáng trong đất và nhiệt độ thích hợp", "Chỉ cần tưới thật nhiều nước ngập rễ mỗi ngày", "Chỉ cần để trong bóng tối tuyệt đối", "Bọc kín túi nilon không cho tiếp xúc không khí"],
+          correct: 0,
+          explanation: "Thực vật cần đủ 5 yếu tố sinh trưởng: nước, ánh sáng, không khí, chất dinh dưỡng (chất khoáng) và nhiệt độ môi trường thích hợp."
         }
       ]
     },
@@ -492,6 +636,54 @@ window.SCIENCE4_DATA = {
           options: ["Vitamin C", "Vitamin D", "Vitamin K", "Vitamin B12"],
           correct: 0,
           explanation: "Vitamin C có tác dụng tăng cường thành mạch máu, chống chảy máu chân răng (bệnh Scorbut) và nâng cao sức đề kháng hệ miễn dịch."
+        },
+        {
+          id: "sc4_4_9",
+          level: 1,
+          question: "Bốn nhóm chất dinh dưỡng cần thiết hàng ngày trong bữa ăn của con người là gì?",
+          options: ["Chất bột đường, chất đạm, chất béo, vi-ta-min và chất khoáng", "Chỉ có đường, muối, mỡ và nước ngọt", "Chỉ có chất đạm từ thịt bò", "Bánh kẹo, nước ngọt có ga, khoai tây chiên và snack"],
+          correct: 0,
+          explanation: "Tháp dinh dưỡng cân đối bao gồm: nhóm chất bột đường, chất đạm, chất béo cùng vi-ta-min, chất khoáng (và chất xơ, nước)."
+        },
+        {
+          id: "sc4_4_10",
+          level: 2,
+          question: "Thực phẩm nào sau đây là nguồn cung cấp chất đạm (protein) dồi dào giúp cơ thể phát triển chiều cao và cơ bắp?",
+          options: ["Thịt, cá, trứng, sữa, đậu phụ", "Cơm trắng, khoai lang, bánh mì", "Dầu ăn, mỡ lợn, bơ", "Mía, kẹo đường"],
+          correct: 0,
+          explanation: "Thịt, cá, trứng, sữa và các loại hạt đậu đỗ cung cấp protein xây dựng tế bào và cơ bắp cho cơ thể đang lớn."
+        },
+        {
+          id: "sc4_4_11",
+          level: 2,
+          question: "Bệnh còi xương, suy dinh dưỡng ở trẻ em thường do chế độ ăn uống thiếu hụt dưỡng chất nào?",
+          options: ["Can-xi, vi-ta-min D và chất đạm", "Thừa chất đường ngọt", "Uống quá nhiều nước lọc", "Ăn quá nhiều rau xanh"],
+          correct: 0,
+          explanation: "Thiếu can-xi và vi-ta-min D khiến xương mềm yếu, dẫn đến bệnh còi xương ở trẻ nhỏ."
+        },
+        {
+          id: "sc4_4_12",
+          level: 3,
+          question: "Để phòng tránh bệnh bướu cổ và kém phát triển trí tuệ, trong bữa ăn hàng ngày chúng ta nên sử dụng loại muối nào?",
+          options: ["Muối có bổ sung I-ốt", "Muối hạt thô không qua chế biến", "Đường hóa học thay cho muối", "Bột ngọt mì chính"],
+          correct: 0,
+          explanation: "I-ốt là vi chất quan trọng giúp tuyến giáp tổng hợp hormone. Thiếu I-ốt dễ mắc bệnh bướu cổ và thiểu năng trí tuệ."
+        },
+        {
+          id: "sc4_4_13",
+          level: 3,
+          question: "Thói quen ăn uống nào sau đây lành mạnh giúp phòng tránh bệnh béo phì và tim mạch?",
+          options: ["Ăn nhiều rau xanh, củ quả tươi, hạn chế đồ chiên rán nhiều dầu mỡ và nước ngọt có ga", "Ăn thật nhiều đồ ngọt trước khi đi ngủ", "Uống trà sữa trân châu thay nước lọc cả ngày", "Bỏ bữa sáng và ăn thật nhiều vào ban đêm"],
+          correct: 0,
+          explanation: "Rau xanh cung cấp chất xơ và vitamin; giảm dầu mỡ và đường đơn giúp kiểm soát cân nặng và bảo vệ tim mạch."
+        },
+        {
+          id: "sc4_4_14",
+          level: 4,
+          question: "Khi phát hiện một bạn cùng lớp bị đuối nước hoặc gặp tai nạn ngã gãy tay, hành vi cấp cứu ban đầu đúng nhất của em là gì?",
+          options: ["Hô to kêu gọi người lớn đến ứng cứu ngay lập tức và gọi số điện thoại cấp cứu y tế 115", "Tự mình nhảy xuống dòng nước sâu để kéo bạn lên", "Bỏ chạy và giấu kín sự việc", "Lôi kéo mạnh tay bạn để nắn xương"],
+          correct: 0,
+          explanation: "Học sinh tiểu học tuyệt đối không tự nhảy xuống nước cứu người; cần hô to cầu cứu người lớn và liên hệ y tế khẩn cấp 115."
         }
       ]
     }

@@ -129,6 +129,56 @@ window.VIETNAMESE4_DATA = {
           ],
           correct: 1,
           explanation: "Các tính từ trong câu là: 'già nua' (chỉ đặc điểm chiếc lá), 'khẳng khiu' (chỉ hình dáng cành cây), 'chúm chím' (chỉ hình dáng nụ hoa đang hé)."
+        },
+        {
+          id: "vn4_1_9",
+          level: 1,
+          question: "Từ nào sau đây là Danh từ chỉ hiện tượng thiên nhiên?",
+          options: ["Cơn mưa", "Chảy róc rách", "Xanh mướt", "Bay lượn"],
+          correct: 0,
+          explanation: "'Cơn mưa' là danh từ chỉ hiện tượng tự nhiên. 'Chảy, bay' là động từ, 'xanh mướt' là tính từ."
+        },
+        {
+          id: "vn4_1_10",
+          level: 2,
+          question: "Dãy từ nào sau đây gồm toàn các Động từ chỉ hoạt động của con người?",
+          options: ["Viết, đọc, chạy, nhảy, múa", "Vở, bút, sách, cặp", "Chăm chỉ, cần cù, thật thà", "Ngôi nhà, dòng sông, ngọn núi"],
+          correct: 0,
+          explanation: "Viết, đọc, chạy, nhảy, múa đều là động từ chỉ hành động vận động của con người."
+        },
+        {
+          id: "vn4_1_11",
+          level: 2,
+          question: "Trong câu: 'Những đóa hoa sen hồng tỏa hương thơm ngát.', từ 'thơm ngát' thuộc từ loại nào?",
+          options: ["Tính từ", "Động từ", "Danh từ", "Đại từ"],
+          correct: 0,
+          explanation: "'Thơm ngát' là tính từ chỉ đặc điểm mùi hương dịu ngọt lan tỏa của hoa sen."
+        },
+        {
+          id: "vn4_1_12",
+          level: 3,
+          question: "Tìm danh từ riêng trong câu văn sau: 'Bác Hồ kính yêu đã đọc Tuyên ngôn Độc lập tại Quảng trường Ba Đình.'",
+          options: ["Bác Hồ, Quảng trường Ba Đình", "Tuyên ngôn", "Đọc", "Kính yêu"],
+          correct: 0,
+          explanation: "'Bác Hồ' và 'Quảng trường Ba Đình' là danh từ riêng chỉ người và địa danh cụ thể, phải viết hoa chữ cái đầu mỗi tiếng."
+        },
+        {
+          id: "vn4_1_13",
+          level: 3,
+          question: "Từ 'niềm vui' trong câu: 'Thầy cô mang lại niềm vui cho chúng em.' thuộc từ loại nào?",
+          options: ["Danh từ trừu tượng", "Động từ", "Tính từ", "Số từ"],
+          correct: 0,
+          explanation: "Khi thêm 'niềm, nỗi, sự, cuộc' vào trước động từ/tính từ, ta được danh từ trừu tượng (niềm vui, nỗi buồn, sự kiên trì)."
+        },
+        {
+          id: "vn4_1_14",
+          level: 4,
+          question: "Xác định từ loại của từ 'ước mơ' trong hai câu sau:
+(1) Em ước mơ trở thành phi công.
+(2) Ước mơ của em là trở thành bác sĩ.",
+          options: ["Câu (1) là động từ; Câu (2) là danh từ", "Cả hai câu đều là động từ", "Cả hai câu đều là danh từ", "Câu (1) là tính từ; Câu (2) là động từ"],
+          correct: 0,
+          explanation: "Trong câu (1), 'ước mơ' là vị ngữ chỉ hành động ➔ Động từ. Trong câu (2), 'ước mơ' làm chủ ngữ ➔ Danh từ."
         }
       ]
     },
@@ -255,6 +305,54 @@ window.VIETNAMESE4_DATA = {
           ],
           correct: 1,
           explanation: "Câu B có so sánh ('như người lính gác khổng lồ') và nhân hóa ('dang rộng cánh tay lực lưỡng che chở cho đàn chim')."
+        },
+        {
+          id: "vn4_2_9",
+          level: 1,
+          question: "Từ so sánh trong câu thơ: 'Mặt trời đỏ rực như quả cầu lửa' là từ nào?",
+          options: ["như", "đỏ rực", "mặt trời", "quả cầu"],
+          correct: 0,
+          explanation: "'như' là từ nối chỉ quan hệ so sánh ngang bằng giữa hai sự vật."
+        },
+        {
+          id: "vn4_2_10",
+          level: 2,
+          question: "Câu thơ nào sau đây sử dụng biện pháp nghệ thuật Nhân hóa?",
+          options: ["Bác kim giờ thận trọng / Nhích từng bước, từng bước", "Mặt trăng tròn như chiếc đĩa bạc", "Dòng sông dài chảy ra biển cả", "Cánh đồng lúa chín vàng ươm"],
+          correct: 0,
+          explanation: "Chiếc kim giờ vô tri được gọi là 'Bác' và có hành động 'thận trọng, nhích từng bước' như con người ➔ Biện pháp nhân hóa."
+        },
+        {
+          id: "vn4_2_11",
+          level: 2,
+          question: "Trong câu: 'Những đám mây trắng xốp dạo chơi trên bầu trời xanh thẳm', tác giả nhân hóa đám mây bằng cách nào?",
+          options: ["Dùng từ ngữ tả hoạt động của con người ('dạo chơi')", "Gọi mây bằng đại từ xưng hô", "Trò chuyện trực tiếp với mây", "So sánh mây với đàn cừu"],
+          correct: 0,
+          explanation: "'Dạo chơi' là hành động của con người được gán cho đám mây ➔ Nhân hóa sinh động."
+        },
+        {
+          id: "vn4_2_12",
+          level: 3,
+          question: "Dấu ngoặc kép trong câu sau có tác dụng gì: 'Bác Hồ từng căn dặn thiếu nhi: "Non sông Việt Nam có trở nên tươi đẹp hay không... chính là nhờ một phần lớn ở công học tập của các em." '",
+          options: ["Dẫn lời nói trực tiếp của Bác Hồ", "Đánh dấu từ ngữ được dùng với ý nghĩa mỉa mai", "Đánh dấu tên một tác phẩm", "Tách các thành phần liệt kê"],
+          correct: 0,
+          explanation: "Dấu ngoặc kép dùng để dẫn nguyên văn lời căn dặn thiêng liêng của Chủ tịch Hồ Chí Minh."
+        },
+        {
+          id: "vn4_2_13",
+          level: 3,
+          question: "Dấu hai chấm trong câu sau có tác dụng gì: 'Vườn nhà bà em trồng rất nhiều loại hoa đẹp: hoa hồng, hoa cúc, hoa huệ và hoa mẫu đơn.'",
+          options: ["Báo hiệu phần liệt kê các loại hoa chi tiết phía sau", "Báo hiệu lời thoại của bà", "Kết thúc câu kể", "Dùng để hỏi"],
+          correct: 0,
+          explanation: "Dấu hai chấm dùng để báo hiệu phần liệt kê cụ thể các sự vật giải thích cho bộ phận đứng trước."
+        },
+        {
+          id: "vn4_2_14",
+          level: 4,
+          question: "Xác định Chủ ngữ của câu sau: 'Dưới ánh trăng rằm vằng vặc, những chú đom đóm thắp đèn bay lập lòe.'",
+          options: ["những chú đom đóm", "Dưới ánh trăng rằm vằng vặc", "thắp đèn bay lập lòe", "ánh trăng rằm"],
+          correct: 0,
+          explanation: "'Dưới ánh trăng rằm vằng vặc' là trạng ngữ chỉ nơi chốn/hoàn cảnh. Ai thắp đèn? ➔ 'những chú đom đóm' là Chủ ngữ."
         }
       ]
     },
@@ -381,6 +479,54 @@ window.VIETNAMESE4_DATA = {
           ],
           correct: 1,
           explanation: "Chàng tiều phu không nhận lưỡi rìu vàng bạc lấp lánh mà chỉ nhận đúng chiếc rìu sắt của mình, ca ngợi đức tính trung thực, liêm khiết."
+        },
+        {
+          id: "vn4_3_9",
+          level: 1,
+          question: "Câu tục ngữ 'Uống nước nhớ nguồn' khuyên dạy chúng ta phẩm chất đạo đức gì?",
+          options: ["Lòng biết ơn sâu sắc", "Tinh thần dũng cảm", "Tính cẩn thận", "Tính kiên nhẫn"],
+          correct: 0,
+          explanation: "Câu tục ngữ nhắc nhở chúng ta luôn ghi nhớ, tri ân công ơn của người đã đem lại thành quả, hạnh phúc cho mình."
+        },
+        {
+          id: "vn4_3_10",
+          level: 2,
+          question: "Trong bài thơ 'Mẹ vắng nhà ngày bão', tình cảm của hai bạn nhỏ dành cho mẹ được thể hiện qua hành động nào?",
+          options: ["Tự giác làm việc nhà, chăm đàn lợn và luôn mong ngóng mẹ trở về", "Ngồi chơi điện tử cả ngày", "Khóc nhè và không chịu ăn cơm", "Chạy ra ngoài chơi dưới trời mưa bão"],
+          correct: 0,
+          explanation: "Các bạn nhỏ thấu hiểu nỗi vất vả của mẹ nên đã ngoan ngoãn chia sẻ công việc nhà và yêu thương mẹ tha thiết."
+        },
+        {
+          id: "vn4_3_11",
+          level: 2,
+          question: "Hình ảnh 'hạt gạo làng ta' được tác giả Trần Đăng Khoa miêu tả có những hương vị và công sức nào đọng lại?",
+          options: ["Có vị phù sa sông Kinh Thầy, có hương sen thơm ngát và bao giọt mồ hôi cay đắng của mẹ cha", "Chỉ là hạt tinh bột thông thường", "Vị đắng của thuốc sâu", "Hương thơm của bánh kẹo hiện đại"],
+          correct: 0,
+          explanation: "Hạt gạo quý báu kết tinh tinh hoa của trời đất phù sa cùng nỗi vất vả 'một nắng hai sương' của người nông dân."
+        },
+        {
+          id: "vn4_3_12",
+          level: 3,
+          question: "Chi tiết người em trong truyện cổ tích 'Cây khế' chỉ may túi ba gang đúng lời chim dặn thể hiện phẩm chất gì?",
+          options: ["Tính tình thật thà, chất phác và không tham lam", "Sự ngốc nghếch thiếu tính toán", "Sự lười biếng không muốn khâu túi to", "Sự sợ hãi chim đại bàng"],
+          correct: 0,
+          explanation: "Túi ba gang tượng trưng cho sự biết đủ, tấm lòng chân thật, không tham lam của người em nhân hậu."
+        },
+        {
+          id: "vn4_3_13",
+          level: 3,
+          question: "Bài học nhân văn sâu sắc nhất rút ra từ truyện cổ tích 'Bút thần' của Mã Lương là gì?",
+          options: ["Tài năng chỉ thực sự có ý nghĩa khi phục vụ cho nhân dân lao động nghèo khổ và bảo vệ lẽ phải", "Cứ có bút vẽ đẹp là trở thành trạng nguyên", "Vẽ thuyền ra biển để chôn vùi kẻ thù", "Không nên học vẽ tranh phong cảnh"],
+          correct: 0,
+          explanation: "Mã Lương chỉ dùng bút thần giúp đỡ dân nghèo (cày cuốc, tưới tiêu) và kiên quyết trừng phạt bọn quan lại tham tàn độc ác."
+        },
+        {
+          id: "vn4_3_14",
+          level: 4,
+          question: "Muốn đọc hiểu tốt và cảm thụ sâu sắc một văn bản nghệ thuật, em cần rèn luyện phương pháp đọc nào?",
+          options: ["Đọc kĩ từng câu chữ, rung cảm trước hình ảnh đẹp, suy ngẫm thông điệp tác giả gửi gắm và liên hệ bài học bản thân", "Đọc lướt thật nhanh để lấy điểm số", "Chỉ đọc câu đầu và câu cuối bài", "Nhờ người khác đọc hộ"],
+          correct: 0,
+          explanation: "Đọc sâu, kết nối cảm xúc và suy ngẫm ý nghĩa nhân sinh là chìa khóa cảm thụ văn học đích thực."
         }
       ]
     },
@@ -512,6 +658,54 @@ window.VIETNAMESE4_DATA = {
           ],
           correct: 1,
           explanation: "Đoạn văn nhầm lẫn đặc điểm các mùa: mùa đông cây bàng rụng lá đỏ chỉ còn cành trơ trụi, không thể vừa đâm chồi nảy lộc vừa tỏa bóng mát rượi."
+        },
+        {
+          id: "vn4_4_9",
+          level: 1,
+          question: "Bố cục chuẩn của một bài văn miêu tả cây cối hoặc con vật gồm có những phần nào?",
+          options: ["3 phần: Mở bài, Thân bài, Kết bài", "2 phần: Giới thiệu và Kể chuyện", "4 phần: Tên bài, Lời chào, Tả chi tiết, Cảm nghĩ", "Chỉ cần 1 đoạn văn thật dài"],
+          correct: 0,
+          explanation: "Mọi bài văn miêu tả đều tuân theo kết cấu 3 phần hoàn chỉnh: Mở bài, Thân bài và Kết bài."
+        },
+        {
+          id: "vn4_4_10",
+          level: 2,
+          question: "Thế nào là Mở bài gián tiếp trong bài văn miêu tả cây cối?",
+          options: ["Nói chuyện khác, cảnh vật khác hoặc kỉ niệm rồi mới dẫn vào giới thiệu cây định tả", "Giới thiệu trực tiếp ngay tên cây định tả ở câu đầu tiên", "Chỉ nêu cảm xúc ở cuối năm học", "Tả quả của cây trước"],
+          correct: 0,
+          explanation: "Mở bài gián tiếp tạo sự lôi cuốn, mượt mà khi dẫn dắt từ âm thanh, mùa vụ hoặc cảm xúc để vào đề."
+        },
+        {
+          id: "vn4_4_11",
+          level: 2,
+          question: "Khi miêu tả hình dáng con mèo mướp, chi tiết nào sau đây thể hiện sự quan sát tinh tường?",
+          options: ["Bộ lông mềm mượt như tơ màu tro pha sọc vằn, bốn bàn chân có đệm thịt êm ái giúp chú bước đi không hề phát ra tiếng động", "Con mèo có bốn cái chân để đi", "Con mèo kêu meo meo suốt ngày", "Mèo thích ăn cơm với cá rán"],
+          correct: 0,
+          explanation: "Câu văn miêu tả chi tiết đặc trưng (đệm thịt dưới chân, lông mềm như tơ) làm nổi bật đặc tính của loài mèo."
+        },
+        {
+          id: "vn4_4_12",
+          level: 3,
+          question: "Thế nào là Kết bài mở rộng trong bài văn miêu tả loài cây em yêu?",
+          options: ["Nêu tình cảm, bình luận thêm về ích lợi của cây đối với đời sống, con người và liên hệ ý thức chăm sóc, bảo vệ", "Chỉ kết thúc bằng một câu: Em rất yêu cây này.", "Kể thêm một câu chuyện cổ tích khác", "Liệt kê tên các loại cây khác trong vườn"],
+          correct: 0,
+          explanation: "Kết bài mở rộng bộc lộ suy nghĩ sâu sắc, liên tưởng rộng mở và gửi gắm tình cảm chân thành của người viết."
+        },
+        {
+          id: "vn4_4_13",
+          level: 3,
+          question: "Biện pháp tu từ nào thường được vận dụng khéo léo để bài văn miêu tả đồ vật (như chiếc cặp sách, chiếc đồng hồ) trở nên gần gũi, đáng yêu?",
+          options: ["Biện pháp Nhân hóa (coi đồ vật như người bạn nhỏ thân thiết)", "Biện pháp Liệt kê số liệu kích thước milimet", "Chỉ dùng các câu cảm thán ngắn", "Không dùng bất kỳ từ ngữ so sánh nào"],
+          correct: 0,
+          explanation: "Nhân hóa biến đồ vật vô tri thành người bạn tri kỉ đồng hành cùng học sinh mỗi ngày tới lớp."
+        },
+        {
+          id: "vn4_4_14",
+          level: 4,
+          question: "Đoạn văn nào sau đây tả hoa phượng vĩ mùa hè đặc sắc và giàu sức gợi cảm nhất?",
+          options: ["Mỗi độ hè về, từng chùm phượng vĩ bừng nở đỏ rực như những đốm lửa bập bùng thắp sáng cả góc sân trường, xôn xao hòa cùng tiếng ve ngân rộn rã báo hiệu mùa thi.", "Cây phượng ở trường em nở hoa màu đỏ.", "Hoa phượng có cánh màu đỏ và nhị màu vàng.", "Cây phượng rất to và cao lớn trên sân trường."],
+          correct: 0,
+          explanation: "Đoạn văn kết hợp so sánh 'như những đốm lửa bập bùng', từ gợi tả 'xôn xao', 'rộn rã' gợi không khí mùa hè náo nức."
         }
       ]
     },
@@ -628,6 +822,54 @@ window.VIETNAMESE4_DATA = {
           ],
           correct: 0,
           explanation: "'Trân trọng', 'chắt chiu', 'xuất sắc', 'sản xuất' đều là những từ viết đúng chuẩn chính tả tiếng Việt."
+        },
+        {
+          id: "vn4_5_9",
+          level: 1,
+          question: "Thành ngữ nào sau đây mang ý nghĩa ca ngợi sự đoàn kết, đồng lòng vượt qua mọi thử thách?",
+          options: ["Đồng tâm hiệp lực (Một cây làm chẳng nên non / Ba cây chụm lại nên hòn núi cao)", "Đứng núi này trông núi nọ", "Được voi đòi tiên", "Mèo khen mèo dài đuôi"],
+          correct: 0,
+          explanation: "'Đồng tâm hiệp lực' ngợi ca sức mạnh vô địch của tinh thần đoàn kết một lòng."
+        },
+        {
+          id: "vn4_5_10",
+          level: 2,
+          question: "Điền từ thích hợp vào chỗ trống trong câu thành ngữ: 'Lá lành đùm lá ...'",
+          options: ["rách", "xanh", "vàng", "khô"],
+          correct: 0,
+          explanation: "'Lá lành đùm lá rách' là truyền thống tương thân tương ái, cưu mang giúp đỡ người gặp khó khăn hoạn nạn."
+        },
+        {
+          id: "vn4_5_11",
+          level: 2,
+          question: "Từ nào sau đây viết ĐÚNG chính tả tiếng Việt?",
+          options: ["Xinh xắn", "Sinh xắn", "Xinh sắn", "Sinh sắn"],
+          correct: 0,
+          explanation: "'Xinh xắn' viết đúng phụ âm đầu 'x'."
+        },
+        {
+          id: "vn4_5_12",
+          level: 3,
+          question: "Cặp từ nào sau đây là Cặp từ đồng nghĩa chỉ đức tính tốt đẹp của học sinh?",
+          options: ["Chăm chỉ - Cần cù", "Thật thà - Gian dối", "Dũng cảm - Nhút nhát", "Nhanh nhẹn - Chậm chạp"],
+          correct: 0,
+          explanation: "'Chăm chỉ' và 'Cần cù' cùng mang ý nghĩa siêng năng, chịu khó rèn luyện."
+        },
+        {
+          id: "vn4_5_13",
+          level: 3,
+          question: "Thành ngữ 'Học đi đôi với hành' nhắc nhở chúng ta phương pháp học tập đúng đắn nào?",
+          options: ["Kiến thức lý thuyết học được phải luôn gắn liền với thực hành và vận dụng vào thực tế cuộc sống", "Chỉ cần đi học đúng giờ là đủ", "Học xong để đấy không cần làm bài tập", "Vừa đi bộ vừa đọc sách trên đường"],
+          correct: 0,
+          explanation: "Học phải đi đôi với hành thì kiến thức mới trở nên sống động, thiết thực và biến thành năng lực thật sự."
+        },
+        {
+          id: "vn4_5_14",
+          level: 4,
+          question: "Trong câu: 'Những đóa hoa sen ... sắc rực rỡ dưới nắng hè.', từ nào viết đúng chính tả điền vào chỗ trống?",
+          options: ["khoe", "khoe khoang", "khooe", "khue"],
+          correct: 0,
+          explanation: "'Khoe sắc' (hoa nở phô vẻ đẹp) viết đúng chính tả là 'khoe'."
         }
       ]
     }

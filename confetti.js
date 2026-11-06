@@ -111,3 +111,19 @@ class ConfettiEngine {
 }
 
 window.confettiEngine = new ConfettiEngine();
+
+
+window.confetti = function(options) {
+  if (window.confettiEngine) {
+    const count = options && options.particleCount ? options.particleCount : 120;
+    window.confettiEngine.burst(count);
+  }
+};
+
+window.launchConfetti = function() {
+  if (window.confettiEngine) {
+    window.confettiEngine.burst(120);
+    setTimeout(() => { if (window.confettiEngine) window.confettiEngine.burst(90); }, 250);
+    setTimeout(() => { if (window.confettiEngine) window.confettiEngine.burst(70); }, 500);
+  }
+};
