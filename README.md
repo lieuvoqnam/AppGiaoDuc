@@ -1,108 +1,107 @@
-# 🎓 Cổng Học Liệu Số Tương Tác Lớp 1 - 12 (Bản Đồ Việt Nam & Bản Đồ Thế Giới)
-
-Cổng thông tin và học liệu số tương tác toàn diện dành cho học sinh từ **Lớp 1 đến Lớp 12** theo Chương trình Giáo dục Phổ thông (GDPT 2018). Tích hợp 2 ứng dụng học liệu số cốt lõi trực thuộc bộ môn **Lịch sử và Địa lý**:
-1. 🇻🇳 **Em Yêu Bản Đồ Việt Nam** (34 Tỉnh Thành mới & 63 Tỉnh Thành truyền thống)
-2. 🌍 **Em Khám Phá Bản Đồ Thế Giới** (5 Châu Lục, Quốc kỳ & Kỳ quan nhân loại)
-
----
-
-## 🏛️ Kiến Trúc Hệ Thống
-
-```
-├── index.html              # 🏠 Trang chủ Cổng Học Liệu Số Tương Tác (Lớp 1 - 12)
-├── portal.css              # Giao diện Cổng Học Liệu Số (Responsive, Modern)
-├── portal-data.js          # Dữ liệu phân phối chương trình các môn học từ Lớp 1 đến 12
-├── portal.js               # Logic điều khiển Cổng, chuyển lớp, lọc môn & trình diễn ứng dụng
-│
-├── game.html               # 🇻🇳 Game Ghép Hình Bản Đồ Việt Nam 34/63 Tỉnh Thành
-├── style.css               # Giao diện Game Bản Đồ Việt Nam
-├── app.js                  # Cơ chế kéo thả, hút dính (snap), đố vui, độ khó (bỏ highlight ở Vừa & Khó)
-├── provinces-34-data.js    # Dữ liệu 34 Tỉnh Thành Mới (5 Vùng Địa Lý)
-├── provinces-data.js       # Dữ liệu 63 Tỉnh Thành Cũ
-│
-├── world-game.html         # 🌍 Game Ghép Hình Bản Đồ Thế Giới 5 Châu Lục
-├── world-style.css         # Giao diện Game Bản Đồ Thế Giới
-├── world-app.js            # Cơ chế kéo thả thế giới, đố vui quốc kỳ, bách khoa toàn thư
-├── world-data.js           # Dữ liệu 5 Châu Lục & các Quốc Gia Tiêu Biểu
-│
-├── auth.js                 # Hệ thống Đăng ký, Đăng nhập học sinh, Lưu tiến độ & Bảng Vàng (SSO)
-├── audio.js & confetti.js  # Hệ thống âm thanh tương tác và hiệu ứng chúc mừng
-└── server.py               # Máy chủ Web chia sẻ qua mạng LAN / Wifi lớp học
-```
-
----
-
-## 📚 Phân Bổ Môn Học Theo Cấp (Lớp 1 - 12)
-
-Cổng học tập chia thành 3 Cấp học và 12 Khối lớp theo chuẩn Bộ GD&ĐT:
-
-### 1. 🎒 Cấp Tiểu Học (Lớp 1 - Lớp 5)
-- **Lớp 2** (Đã số hóa 5 môn tương tác): Toán Học (`math-2.html`), Tiếng Việt (`vietnamese-2.html`), Tự Nhiên & Xã Hội (`tnxh-2.html`), Tiếng Anh (`english-2.html`), Đạo Đức (`ethics-2.html`).
-- **Lớp 3** (Đã số hóa 7 môn tương tác chuẩn GDPT 2018):
-  - 📐 **Toán Học 3** (`math-3.html`): Bảng nhân chia 6-9, số đến 100.000, số La Mã, góc vuông, chu vi & diện tích, toán 2 bước rút về đơn vị.
-  - 📖 **Tiếng Việt 3** (`vietnamese-3.html`): 7 chủ điểm từ ngữ, nghệ thuật so sánh & nhân hóa, dấu hai chấm & ngoặc kép, chính tả, tập làm văn.
-  - 🌱 **Tự Nhiên & Xã Hội 3** (`tnxh-3.html`): 6 chủ đề chuẩn GDPT (Gia đình hỏa hoạn, Trường học, Cộng đồng làng nghề, Cơ quan thực - động vật, Tuần hoàn - thần kinh - bài tiết, 4 phương trời & Trái Đất).
-  - 💻 **Tin Học & Công Nghệ 3** (`it-3.html`): Thao tác chuột, định vị phím F & J hàng phím cơ sở gõ 10 ngón, an toàn thông tin mạng, an toàn thiết bị điện & thủ công sáng tạo.
-  - 🌍 **Tiếng Anh 3 (English Explorer)** (`english-3.html`): 6 Unit Global Success, phát âm chuẩn Text-to-Speech native, ngữ pháp câu hỏi & đề thi thử học kỳ.
-  - ❤️ **Đạo Đức & Kỹ Năng Sống 3** (`ethics-3.html`): Bác Hồ kính yêu & 5 điều Bác dạy, giữ lời hứa & trung thực, hiếu thảo gia đình, tự lập học tập, tôn trọng sự khác biệt & số khẩn cấp 111-115.
-- **Lớp 4 - 5**: Môn **Lịch sử và Địa lý** chính thức được đưa vào chương trình giảng dạy.
-  - 👉 **Ứng dụng tích hợp**: Trò chơi *"Em Yêu Bản Đồ Việt Nam"* - Khám phá các tỉnh thành, đặc sản, danh lam thắng cảnh và chủ quyền biển đảo (`game.html`), cùng hệ thống 6 môn học cốt lõi lớp 4 (`math-4.html`, `vietnamese-4.html`, `science-4.html`, `it-4.html`, `english-4.html`, `ethics-4.html`).
-
-### 2. 🏫 Cấp Trung Học Cơ Sở (Lớp 6 - Lớp 9)
-- Ngữ văn, Toán, Ngoại ngữ 1, Khoa học Tự nhiên (KHTN), Giáo dục công dân, Tin học, Công nghệ...
-- **Môn Lịch sử và Địa lý**: Dạy tích hợp phân môn Lịch sử và Địa lý tự nhiên, dân cư, kinh tế - xã hội các vùng miền.
-  - 👉 **Ứng dụng tích hợp**: Bản đồ 34 Tỉnh Thành Mới, đối chiếu 63 tỉnh cũ, tìm hiểu cơ cấu 5 vùng kinh tế - địa lý.
-
-### 3. 🏛️ Cấp Trung Học Phổ Thông (Lớp 10 - Lớp 12)
-- Các môn bắt buộc và môn tự chọn theo định hướng nghề nghiệp.
-- **Môn Địa lý** & **Môn Lịch sử**: Đi sâu vào Địa lý kinh tế - xã hội Việt Nam, phân vùng lãnh thổ kinh tế, chủ quyền biển đảo và an ninh quốc gia.
-  - 👉 **Ứng dụng tích hợp**: Rèn luyện kỹ năng đọc bản đồ (Atlat số), xác định vị trí chiến lược của các trung tâm kinh tế biển, cụm đô thị mới.
-
----
-
-## 🗺️ Vị Trí Của Ứng Dụng Trong Môn Lịch Sử & Địa Lý
-
-Khi học sinh chọn bất kỳ khối lớp nào từ **Lớp 4 đến Lớp 12** và bấm vào môn **Lịch sử và Địa lý** (hoặc môn **Địa lý** ở THPT), Cổng sẽ tự động làm nổi bật thẻ bài học tương tác:
-
-- **Tên ứng dụng**: *Em Yêu Bản Đồ Việt Nam*
-- **Hình thức**: Trò chơi ghép hình 34 Tỉnh Thành (kèm tùy chọn 63 Tỉnh Thành)
-- **Yêu cầu cần đạt**: Nhận biết vị trí địa lý, danh lam thắng cảnh, phân biệt 5 vùng địa lý tự nhiên và khẳng định chủ quyền Hoàng Sa & Trường Sa.
-- **Nút điều hướng**: Bấm `[Vào Học & Chơi Ngay ➔]` để chuyển trực tiếp sang `game.html`.
-- **Nút quay lại**: Trên thanh công cụ của game có nút `[🏠 Cổng Học Tập]` để quay lại trang chủ bất cứ lúc nào.
-
----
-
-## 🌟 34 Đơn Vị Hành Chính Cấp Tỉnh Mới & 5 Vùng Địa Lý
-
-1. **Trung du & Miền núi phía Bắc (9 tỉnh)**: Cao Bằng, Tuyên Quang (+Hà Giang), Lào Cai (+Yên Bái), Thái Nguyên (+Bắc Kạn), Lạng Sơn, Phú Thọ (+Vĩnh Phúc +Hòa Bình), Điện Biên, Lai Châu, Sơn La.
-2. **Đồng bằng Sông Hồng (6 tỉnh/thành)**: Hà Nội, Hải Phòng (+Hải Dương), Quảng Ninh, Bắc Ninh (+Bắc Giang), Hưng Yên (+Thái Bình), Ninh Bình (+Nam Định +Hà Nam).
-3. **Bắc Trung Bộ, Duyên hải Miền Trung & Tây Nguyên (11 tỉnh/thành)**: Thanh Hóa, Nghệ An, Hà Tĩnh, Quảng Trị (+Quảng Bình), TP Huế, TP Đà Nẵng (+Quảng Nam +Hoàng Sa), Quảng Ngãi (+Kon Tum), Khánh Hòa (+Ninh Thuận +Trường Sa), Gia Lai (+Bình Định), Đắk Lắk (+Phú Yên), Lâm Đồng (+Đắk Nông +Bình Thuận).
-4. **Đông Nam Bộ (3 tỉnh/thành)**: TP Hồ Chí Minh (+Bình Dương +BR-VT), Đồng Nai (+Bình Phước), Tây Ninh (+Long An).
-5. **Đồng bằng Sông Cửu Long (5 tỉnh/thành)**: Cần Thơ (+Hậu Giang +Sóc Trăng), Vĩnh Long (+Bến Tre +Trà Vinh), Đồng Tháp (+Tiền Giang), An Giang (+Kiên Giang), Cà Mau (+Bạc Liêu).
-
----
-
-## 🔐 Đăng Ký, Đăng Nhập & Bảng Vàng (SSO Đồng Bộ)
-
-- **Đồng bộ xuyên suốt (Single Sign-On)**: Tài khoản đăng nhập ở trang Cổng (`index.html`) sẽ tự động được sử dụng trong Game (`game.html`) và ngược lại.
-- **Hồ sơ học sinh**: Họ tên, Lớp & Trường, Avatar ngộ nghĩnh (🎓, 🦁, 🐼, 🚀, 🌟...), Mật khẩu mã hóa SHA-256.
-- **Bảng Vàng Thi Đua (Leaderboard)**: Tự động ghi nhận Điểm số cao nhất, Chuỗi combo và Danh hiệu học tập để vinh danh Top 10 học sinh toàn trường.
-
----
-
-## 🚀 Hướng Dẫn Sử Dụng & Chia Sẻ
-
-### 1. Mở trực tiếp trên máy tính
-Nhấp đúp chuột vào file [`index.html`](index.html) để mở trên trình duyệt bất kỳ.
-
-### 2. Chạy Server cục bộ & Chia sẻ qua Wifi lớp học
-Mở terminal và gõ:
-```bash
-python server.py
-```
-- Mở trên máy giáo viên: `http://localhost:8080/index.html`
-- Học sinh kết nối cùng mạng Wifi chỉ cần gõ địa chỉ IP hiển thị trên màn hình:
-  `http://192.168.x.x:8080/index.html` (trên iPad, điện thoại, máy tính học sinh).
-
-### 3. Đưa lên Internet (Miễn phí)
-- Kéo thả toàn bộ thư mục dự án này lên **Netlify Drop** (https://app.netlify.com/drop) hoặc đẩy lên **GitHub Pages** để nhận link web trực tuyến chia sẻ toàn trường.
+# 🎓 Cổng Học Liệu Số Tương Tác Lớp 1 - 12 (Bản Đồ Việt Nam & Bản Đồ Thế Giới)
+
+Cổng thông tin và học liệu số tương tác toàn diện dành cho học sinh từ **Lớp 1 đến Lớp 12** theo Chương trình Giáo dục Phổ thông (GDPT 2018). Tích hợp 2 ứng dụng học liệu số cốt lõi trực thuộc bộ môn **Lịch sử và Địa lý**:
+1. 🇻🇳 **Em Yêu Bản Đồ Việt Nam** (34 Tỉnh Thành mới & 63 Tỉnh Thành truyền thống)
+2. 🌍 **Em Khám Phá Bản Đồ Thế Giới** (5 Châu Lục, Quốc kỳ & Kỳ quan nhân loại)
+
+---
+
+## 🏛️ Kiến Trúc Hệ Thống
+
+```
+├── index.html              # 🏠 Trang chủ Cổng Học Liệu Số Tương Tác (Lớp 1 - 12)
+├── portal.css              # Giao diện Cổng Học Liệu Số (Responsive, Modern)
+├── portal-data.js          # Dữ liệu phân phối chương trình các môn học từ Lớp 1 đến 12
+├── portal.js               # Logic điều khiển Cổng, chuyển lớp, lọc môn & trình diễn ứng dụng
+│
+├── game.html               # 🇻🇳 Game Ghép Hình Bản Đồ Việt Nam 34/63 Tỉnh Thành
+├── style.css               # Giao diện Game Bản Đồ Việt Nam
+├── app.js                  # Cơ chế kéo thả, hút dính (snap), đố vui, độ khó (bỏ highlight ở Vừa & Khó)
+├── provinces-34-data.js    # Dữ liệu 34 Tỉnh Thành Mới (5 Vùng Địa Lý)
+├── provinces-data.js       # Dữ liệu 63 Tỉnh Thành Cũ
+│
+├── world-game.html         # 🌍 Game Ghép Hình Bản Đồ Thế Giới 5 Châu Lục
+├── world-style.css         # Giao diện Game Bản Đồ Thế Giới
+├── world-app.js            # Cơ chế kéo thả thế giới, đố vui quốc kỳ, bách khoa toàn thư
+├── world-data.js           # Dữ liệu 5 Châu Lục & các Quốc Gia Tiêu Biểu
+│
+├── auth.js                 # Hệ thống Đăng ký, Đăng nhập học sinh, Lưu tiến độ & Bảng Vàng (SSO)
+├── audio.js & confetti.js  # Hệ thống âm thanh tương tác và hiệu ứng chúc mừng
+└── server.py               # Máy chủ Web chia sẻ qua mạng LAN / Wifi lớp học
+```
+
+---
+
+## 📚 Phân Bổ Môn Học Theo Cấp (Lớp 1 - 12)
+
+Cổng học tập chia thành 3 Cấp học và 12 Khối lớp theo chuẩn Bộ GD&ĐT:
+
+### 1. 🎒 Cấp Tiểu Học (Lớp 1 - Lớp 5)
+- **Lớp 2** (Đã số hóa 5 môn tương tác): Toán Học (`math-2.html`), Tiếng Việt (`vietnamese-2.html`), Tự Nhiên & Xã Hội (`tnxh-2.html`), Tiếng Anh (`english-2.html`), Đạo Đức (`ethics-2.html`).
+- **Lớp 3** (Đã số hóa 7 môn tương tác chuẩn GDPT 2018):
+  - 📐 **Toán Học 3** (`math-3.html`): Bảng nhân chia 6-9, số đến 100.000, số La Mã, góc vuông, chu vi & diện tích, toán 2 bước rút về đơn vị.
+  - 📖 **Tiếng Việt 3** (`vietnamese-3.html`): 7 chủ điểm từ ngữ, nghệ thuật so sánh & nhân hóa, dấu hai chấm & ngoặc kép, chính tả, tập làm văn.
+  - 🌱 **Tự Nhiên & Xã Hội 3** (`tnxh-3.html`): 6 chủ đề chuẩn GDPT (Gia đình hỏa hoạn, Trường học, Cộng đồng làng nghề, Cơ quan thực - động vật, Tuần hoàn - thần kinh - bài tiết, 4 phương trời & Trái Đất).
+  - 💻 **Tin Học & Công Nghệ 3** (`it-3.html`): Thao tác chuột, định vị phím F & J hàng phím cơ sở gõ 10 ngón, an toàn thông tin mạng, an toàn thiết bị điện & thủ công sáng tạo.
+  - 🌍 **Tiếng Anh 3 (English Explorer)** (`english-3.html`): 6 Unit Global Success, phát âm chuẩn Text-to-Speech native, ngữ pháp câu hỏi & đề thi thử học kỳ.
+  - ❤️ **Đạo Đức & Kỹ Năng Sống 3** (`ethics-3.html`): Bác Hồ kính yêu & 5 điều Bác dạy, giữ lời hứa & trung thực, hiếu thảo gia đình, tự lập học tập, tôn trọng sự khác biệt & số khẩn cấp 111-115.
+- **Lớp 4 - 5**: Môn **Lịch sử và Địa lý** chính thức được đưa vào chương trình giảng dạy.
+  - 👉 **Ứng dụng tích hợp**: Trò chơi *"Em Yêu Bản Đồ Việt Nam"* - Khám phá các tỉnh thành, đặc sản, danh lam thắng cảnh và chủ quyền biển đảo (`game.html`), cùng hệ thống 6 môn học cốt lõi lớp 4 (`math-4.html`, `vietnamese-4.html`, `science-4.html`, `it-4.html`, `english-4.html`, `ethics-4.html`).
+
+### 2. 🏫 Cấp Trung Học Cơ Sở (Lớp 6 - Lớp 9)
+- Ngữ văn, Toán, Ngoại ngữ 1, Khoa học Tự nhiên (KHTN), Giáo dục công dân, Tin học, Công nghệ...
+- **Môn Lịch sử và Địa lý**: Dạy tích hợp phân môn Lịch sử và Địa lý tự nhiên, dân cư, kinh tế - xã hội các vùng miền.
+  - 👉 **Ứng dụng tích hợp**: Bản đồ 34 Tỉnh Thành Mới, đối chiếu 63 tỉnh cũ, tìm hiểu cơ cấu 5 vùng kinh tế - địa lý.
+
+### 3. 🏛️ Cấp Trung Học Phổ Thông (Lớp 10 - Lớp 12)
+- Các môn bắt buộc và môn tự chọn theo định hướng nghề nghiệp.
+- **Môn Địa lý** & **Môn Lịch sử**: Đi sâu vào Địa lý kinh tế - xã hội Việt Nam, phân vùng lãnh thổ kinh tế, chủ quyền biển đảo và an ninh quốc gia.
+  - 👉 **Ứng dụng tích hợp**: Rèn luyện kỹ năng đọc bản đồ (Atlat số), xác định vị trí chiến lược của các trung tâm kinh tế biển, cụm đô thị mới.
+
+---
+
+## 🗺️ Vị Trí Của Ứng Dụng Trong Môn Lịch Sử & Địa Lý
+
+Khi học sinh chọn bất kỳ khối lớp nào từ **Lớp 4 đến Lớp 12** và bấm vào môn **Lịch sử và Địa lý** (hoặc môn **Địa lý** ở THPT), Cổng sẽ tự động làm nổi bật thẻ bài học tương tác:
+
+- **Tên ứng dụng**: *Em Yêu Bản Đồ Việt Nam*
+- **Hình thức**: Trò chơi ghép hình 34 Tỉnh Thành (kèm tùy chọn 63 Tỉnh Thành)
+- **Yêu cầu cần đạt**: Nhận biết vị trí địa lý, danh lam thắng cảnh, phân biệt 5 vùng địa lý tự nhiên và khẳng định chủ quyền Hoàng Sa & Trường Sa.
+- **Nút điều hướng**: Bấm `[Vào Học & Chơi Ngay ➔]` để chuyển trực tiếp sang `game.html`.
+- **Nút quay lại**: Trên thanh công cụ của game có nút `[🏠 Cổng Học Tập]` để quay lại trang chủ bất cứ lúc nào.
+
+---
+
+## 🌟 34 Đơn Vị Hành Chính Cấp Tỉnh Mới & 4 Vùng Địa Lý (Chuẩn SGK GDPT 2018)
+
+1. **Trung du và Miền núi Bắc bộ (9 tỉnh)**: Cao Bằng, Tuyên Quang (+Hà Giang), Lào Cai (+Yên Bái), Thái Nguyên (+Bắc Kạn), Lạng Sơn, Phú Thọ (+Vĩnh Phúc +Hòa Bình), Điện Biên, Lai Châu, Sơn La.
+2. **Đồng bằng Bắc bộ (6 tỉnh/thành)**: Hà Nội, Hải Phòng (+Hải Dương), Quảng Ninh, Bắc Ninh (+Bắc Giang), Hưng Yên (+Thái Bình), Ninh Bình (+Nam Định +Hà Nam).
+3. **Duyên hải Miền Trung và Tây nguyên (11 tỉnh/thành)**: Thanh Hóa, Nghệ An, Hà Tĩnh, Quảng Trị (+Quảng Bình), TP Huế, TP Đà Nẵng (+Quảng Nam +Hoàng Sa), Quảng Ngãi (+Kon Tum), Khánh Hòa (+Ninh Thuận +Trường Sa), Gia Lai (+Bình Định), Đắk Lắk (+Phú Yên), Lâm Đồng (+Đắk Nông +Bình Thuận).
+4. **Nam bộ (8 tỉnh/thành)**: TP Hồ Chí Minh (+Bình Dương +BR-VT), Đồng Nai (+Bình Phước), Tây Ninh (+Long An), Cần Thơ (+Hậu Giang +Sóc Trăng), Vĩnh Long (+Bến Tre +Trà Vinh), Đồng Tháp (+Tiền Giang), An Giang (+Kiên Giang), Cà Mau (+Bạc Liêu).
+
+---
+
+## 🔐 Đăng Ký, Đăng Nhập & Bảng Vàng (SSO Đồng Bộ)
+
+- **Đồng bộ xuyên suốt (Single Sign-On)**: Tài khoản đăng nhập ở trang Cổng (`index.html`) sẽ tự động được sử dụng trong Game (`game.html`) và ngược lại.
+- **Hồ sơ học sinh**: Họ tên, Lớp & Trường, Avatar ngộ nghĩnh (🎓, 🦁, 🐼, 🚀, 🌟...), Mật khẩu mã hóa SHA-256.
+- **Bảng Vàng Thi Đua (Leaderboard)**: Tự động ghi nhận Điểm số cao nhất, Chuỗi combo và Danh hiệu học tập để vinh danh Top 10 học sinh toàn trường.
+
+---
+
+## 🚀 Hướng Dẫn Sử Dụng & Chia Sẻ
+
+### 1. Mở trực tiếp trên máy tính
+Nhấp đúp chuột vào file [`index.html`](index.html) để mở trên trình duyệt bất kỳ.
+
+### 2. Chạy Server cục bộ & Chia sẻ qua Wifi lớp học
+Mở terminal và gõ:
+```bash
+python server.py
+```
+- Mở trên máy giáo viên: `http://localhost:8080/index.html`
+- Học sinh kết nối cùng mạng Wifi chỉ cần gõ địa chỉ IP hiển thị trên màn hình:
+  `http://192.168.x.x:8080/index.html` (trên iPad, điện thoại, máy tính học sinh).
+
+### 3. Đưa lên Internet (Miễn phí)
+- Kéo thả toàn bộ thư mục dự án này lên **Netlify Drop** (https://app.netlify.com/drop) hoặc đẩy lên **GitHub Pages** để nhận link web trực tuyến chia sẻ toàn trường.

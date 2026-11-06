@@ -1,7 +1,16 @@
+/**
+ * provinces-34-data.js - Dữ liệu 34 Tỉnh & Thành phố Việt Nam (Địa Giới Sáp Nhập Mới Nhất)
+ * Cập nhật tên 4 vùng miền chuẩn theo SGK Lịch sử & Địa lý:
+ * 1. Trung du và Miền núi Bắc bộ (9 tỉnh)
+ * 2. Đồng bằng Bắc bộ (6 tỉnh/thành)
+ * 3. Duyên hải Miền Trung và Tây nguyên (11 tỉnh/thành)
+ * 4. Nam bộ (8 tỉnh/thành)
+ */
+
 window.VIETNAM_REGIONS_34 = [
   {
     "id": "bac_bo",
-    "name": "Trung du & Miền núi phía Bắc",
+    "name": "Trung du và Miền núi Bắc bộ",
     "badge": "🏔️",
     "count": 9,
     "color": "#0284c7",
@@ -9,7 +18,7 @@ window.VIETNAM_REGIONS_34 = [
   },
   {
     "id": "song_hong",
-    "name": "Đồng bằng Sông Hồng",
+    "name": "Đồng bằng Bắc bộ",
     "badge": "🌾",
     "count": 6,
     "color": "#059669",
@@ -17,29 +26,22 @@ window.VIETNAM_REGIONS_34 = [
   },
   {
     "id": "mien_trung_tay_nguyen",
-    "name": "Bắc Trung Bộ, Duyên hải Miền Trung & Tây Nguyên",
+    "name": "Duyên hải Miền Trung và Tây nguyên",
     "badge": "🌊",
     "count": 11,
     "color": "#ea580c",
     "desc": "Dải đất nối liền từ quê Bác Nghệ An, Cố đô Huế, Đà Nẵng, biển đảo Hoàng Sa - Trường Sa đến đại ngàn cồng chiêng Tây Nguyên và ngàn hoa Đà Lạt."
   },
   {
-    "id": "dong_nam_bo",
-    "name": "Đông Nam Bộ",
-    "badge": "🏙️",
-    "count": 3,
-    "color": "#db2777",
-    "desc": "Đầu tàu kinh tế sôi động nhất nước với Siêu đô thị TP. Hồ Chí Minh, đại sân bay Long Thành và núi Bà Đen."
-  },
-  {
-    "id": "song_cuu_long",
-    "name": "Đồng bằng Sông Cửu Long",
-    "badge": "🛶",
-    "count": 5,
+    "id": "nam_bo",
+    "name": "Nam bộ",
+    "badge": "🌴",
+    "count": 8,
     "color": "#0d9488",
-    "desc": "Vựa lúa miền Tây trù phú, thành phố đảo ngọc Phú Quốc, chợ nổi rộn ràng và đất Mũi Cà Mau Cực Nam."
+    "desc": "Vùng đất Nam bộ trù phú, năng động với Siêu đô thị TP. Hồ Chí Minh, vùng đất Chín Rồng màu mỡ, thành phố đảo Phú Quốc và đất Mũi Cà Mau."
   }
 ];
+
 window.VIETNAM_PROVINCES_34 = [
   {
     "id": "ha_noi",
@@ -47,7 +49,7 @@ window.VIETNAM_PROVINCES_34 = [
     "shortName": "Hà Nội",
     "type": "thành phố",
     "regionId": "song_hong",
-    "regionName": "Đồng bằng Sông Hồng",
+    "regionName": "Đồng bằng Bắc bộ",
     "color": "#059669",
     "capital": "Thủ đô Hà Nội",
     "mergedFrom": [
@@ -84,7 +86,7 @@ window.VIETNAM_PROVINCES_34 = [
     "shortName": "Bắc Ninh",
     "type": "tỉnh",
     "regionId": "song_hong",
-    "regionName": "Đồng bằng Sông Hồng",
+    "regionName": "Đồng bằng Bắc bộ",
     "color": "#059669",
     "capital": "TP. Bắc Ninh",
     "mergedFrom": [
@@ -123,7 +125,7 @@ window.VIETNAM_PROVINCES_34 = [
     "shortName": "Quảng Ninh",
     "type": "tỉnh",
     "regionId": "song_hong",
-    "regionName": "Đồng bằng Sông Hồng",
+    "regionName": "Đồng bằng Bắc bộ",
     "color": "#059669",
     "capital": "TP. Hạ Long",
     "mergedFrom": [
@@ -160,7 +162,7 @@ window.VIETNAM_PROVINCES_34 = [
     "shortName": "Hải Phòng",
     "type": "thành phố",
     "regionId": "song_hong",
-    "regionName": "Đồng bằng Sông Hồng",
+    "regionName": "Đồng bằng Bắc bộ",
     "color": "#059669",
     "capital": "TP. Hải Phòng",
     "mergedFrom": [
@@ -199,7 +201,7 @@ window.VIETNAM_PROVINCES_34 = [
     "shortName": "Hưng Yên",
     "type": "tỉnh",
     "regionId": "song_hong",
-    "regionName": "Đồng bằng Sông Hồng",
+    "regionName": "Đồng bằng Bắc bộ",
     "color": "#059669",
     "capital": "TP. Hưng Yên",
     "mergedFrom": [
@@ -238,7 +240,7 @@ window.VIETNAM_PROVINCES_34 = [
     "shortName": "Ninh Bình",
     "type": "tỉnh",
     "regionId": "song_hong",
-    "regionName": "Đồng bằng Sông Hồng",
+    "regionName": "Đồng bằng Bắc bộ",
     "color": "#059669",
     "capital": "TP. Ninh Bình",
     "mergedFrom": [
@@ -279,7 +281,7 @@ window.VIETNAM_PROVINCES_34 = [
     "shortName": "Cao Bằng",
     "type": "tỉnh",
     "regionId": "bac_bo",
-    "regionName": "Trung du & Miền núi phía Bắc",
+    "regionName": "Trung du và Miền núi Bắc bộ",
     "color": "#0284c7",
     "capital": "TP. Cao Bằng",
     "mergedFrom": [
@@ -316,7 +318,7 @@ window.VIETNAM_PROVINCES_34 = [
     "shortName": "Tuyên Quang",
     "type": "tỉnh",
     "regionId": "bac_bo",
-    "regionName": "Trung du & Miền núi phía Bắc",
+    "regionName": "Trung du và Miền núi Bắc bộ",
     "color": "#0284c7",
     "capital": "TP. Tuyên Quang",
     "mergedFrom": [
@@ -355,7 +357,7 @@ window.VIETNAM_PROVINCES_34 = [
     "shortName": "Lào Cai",
     "type": "tỉnh",
     "regionId": "bac_bo",
-    "regionName": "Trung du & Miền núi phía Bắc",
+    "regionName": "Trung du và Miền núi Bắc bộ",
     "color": "#0284c7",
     "capital": "TP. Lào Cai",
     "mergedFrom": [
@@ -394,7 +396,7 @@ window.VIETNAM_PROVINCES_34 = [
     "shortName": "Thái Nguyên",
     "type": "tỉnh",
     "regionId": "bac_bo",
-    "regionName": "Trung du & Miền núi phía Bắc",
+    "regionName": "Trung du và Miền núi Bắc bộ",
     "color": "#0284c7",
     "capital": "TP. Thái Nguyên",
     "mergedFrom": [
@@ -433,7 +435,7 @@ window.VIETNAM_PROVINCES_34 = [
     "shortName": "Lạng Sơn",
     "type": "tỉnh",
     "regionId": "bac_bo",
-    "regionName": "Trung du & Miền núi phía Bắc",
+    "regionName": "Trung du và Miền núi Bắc bộ",
     "color": "#0284c7",
     "capital": "TP. Lạng Sơn",
     "mergedFrom": [
@@ -470,7 +472,7 @@ window.VIETNAM_PROVINCES_34 = [
     "shortName": "Phú Thọ",
     "type": "tỉnh",
     "regionId": "bac_bo",
-    "regionName": "Trung du & Miền núi phía Bắc",
+    "regionName": "Trung du và Miền núi Bắc bộ",
     "color": "#0284c7",
     "capital": "TP. Việt Trì",
     "mergedFrom": [
@@ -511,7 +513,7 @@ window.VIETNAM_PROVINCES_34 = [
     "shortName": "Điện Biên",
     "type": "tỉnh",
     "regionId": "bac_bo",
-    "regionName": "Trung du & Miền núi phía Bắc",
+    "regionName": "Trung du và Miền núi Bắc bộ",
     "color": "#0284c7",
     "capital": "TP. Điện Biên Phủ",
     "mergedFrom": [
@@ -548,7 +550,7 @@ window.VIETNAM_PROVINCES_34 = [
     "shortName": "Lai Châu",
     "type": "tỉnh",
     "regionId": "bac_bo",
-    "regionName": "Trung du & Miền núi phía Bắc",
+    "regionName": "Trung du và Miền núi Bắc bộ",
     "color": "#0284c7",
     "capital": "TP. Lai Châu",
     "mergedFrom": [
@@ -585,7 +587,7 @@ window.VIETNAM_PROVINCES_34 = [
     "shortName": "Sơn La",
     "type": "tỉnh",
     "regionId": "bac_bo",
-    "regionName": "Trung du & Miền núi phía Bắc",
+    "regionName": "Trung du và Miền núi Bắc bộ",
     "color": "#0284c7",
     "capital": "TP. Sơn La",
     "mergedFrom": [
@@ -622,7 +624,7 @@ window.VIETNAM_PROVINCES_34 = [
     "shortName": "Thanh Hóa",
     "type": "tỉnh",
     "regionId": "mien_trung_tay_nguyen",
-    "regionName": "Miền Trung & Tây Nguyên",
+    "regionName": "Duyên hải Miền Trung và Tây nguyên",
     "color": "#ea580c",
     "capital": "TP. Thanh Hoá",
     "mergedFrom": [
@@ -659,7 +661,7 @@ window.VIETNAM_PROVINCES_34 = [
     "shortName": "Nghệ An",
     "type": "tỉnh",
     "regionId": "mien_trung_tay_nguyen",
-    "regionName": "Miền Trung & Tây Nguyên",
+    "regionName": "Duyên hải Miền Trung và Tây nguyên",
     "color": "#ea580c",
     "capital": "TP. Vinh",
     "mergedFrom": [
@@ -696,7 +698,7 @@ window.VIETNAM_PROVINCES_34 = [
     "shortName": "Hà Tĩnh",
     "type": "tỉnh",
     "regionId": "mien_trung_tay_nguyen",
-    "regionName": "Miền Trung & Tây Nguyên",
+    "regionName": "Duyên hải Miền Trung và Tây nguyên",
     "color": "#ea580c",
     "capital": "TP. Hà Tĩnh",
     "mergedFrom": [
@@ -733,7 +735,7 @@ window.VIETNAM_PROVINCES_34 = [
     "shortName": "Quảng Trị",
     "type": "tỉnh",
     "regionId": "mien_trung_tay_nguyen",
-    "regionName": "Miền Trung & Tây Nguyên",
+    "regionName": "Duyên hải Miền Trung và Tây nguyên",
     "color": "#ea580c",
     "capital": "TP. Đông Hà",
     "mergedFrom": [
@@ -772,7 +774,7 @@ window.VIETNAM_PROVINCES_34 = [
     "shortName": "TP. Huế",
     "type": "thành phố",
     "regionId": "mien_trung_tay_nguyen",
-    "regionName": "Miền Trung & Tây Nguyên",
+    "regionName": "Duyên hải Miền Trung và Tây nguyên",
     "color": "#ea580c",
     "capital": "TP. Huế",
     "mergedFrom": [
@@ -809,7 +811,7 @@ window.VIETNAM_PROVINCES_34 = [
     "shortName": "Đà Nẵng",
     "type": "thành phố",
     "regionId": "mien_trung_tay_nguyen",
-    "regionName": "Miền Trung & Tây Nguyên",
+    "regionName": "Duyên hải Miền Trung và Tây nguyên",
     "color": "#ea580c",
     "capital": "TP. Đà Nẵng",
     "mergedFrom": [
@@ -850,7 +852,7 @@ window.VIETNAM_PROVINCES_34 = [
     "shortName": "Quảng Ngãi",
     "type": "tỉnh",
     "regionId": "mien_trung_tay_nguyen",
-    "regionName": "Miền Trung & Tây Nguyên",
+    "regionName": "Duyên hải Miền Trung và Tây nguyên",
     "color": "#ea580c",
     "capital": "TP. Quảng Ngãi",
     "mergedFrom": [
@@ -889,7 +891,7 @@ window.VIETNAM_PROVINCES_34 = [
     "shortName": "Khánh Hòa",
     "type": "tỉnh",
     "regionId": "mien_trung_tay_nguyen",
-    "regionName": "Miền Trung & Tây Nguyên",
+    "regionName": "Duyên hải Miền Trung và Tây nguyên",
     "color": "#ea580c",
     "capital": "TP. Nha Trang",
     "mergedFrom": [
@@ -930,7 +932,7 @@ window.VIETNAM_PROVINCES_34 = [
     "shortName": "Gia Lai",
     "type": "tỉnh",
     "regionId": "mien_trung_tay_nguyen",
-    "regionName": "Miền Trung & Tây Nguyên",
+    "regionName": "Duyên hải Miền Trung và Tây nguyên",
     "color": "#ea580c",
     "capital": "TP. Pleiku",
     "mergedFrom": [
@@ -969,7 +971,7 @@ window.VIETNAM_PROVINCES_34 = [
     "shortName": "Đắk Lắk",
     "type": "tỉnh",
     "regionId": "mien_trung_tay_nguyen",
-    "regionName": "Miền Trung & Tây Nguyên",
+    "regionName": "Duyên hải Miền Trung và Tây nguyên",
     "color": "#ea580c",
     "capital": "TP. Buôn Ma Thuột",
     "mergedFrom": [
@@ -1008,7 +1010,7 @@ window.VIETNAM_PROVINCES_34 = [
     "shortName": "Lâm Đồng",
     "type": "tỉnh",
     "regionId": "mien_trung_tay_nguyen",
-    "regionName": "Miền Trung & Tây Nguyên",
+    "regionName": "Duyên hải Miền Trung và Tây nguyên",
     "color": "#ea580c",
     "capital": "TP. Đà Lạt",
     "mergedFrom": [
@@ -1048,8 +1050,8 @@ window.VIETNAM_PROVINCES_34 = [
     "name": "Tỉnh Tây Ninh",
     "shortName": "Tây Ninh",
     "type": "tỉnh",
-    "regionId": "dong_nam_bo",
-    "regionName": "Đông Nam Bộ",
+    "regionId": "nam_bo",
+    "regionName": "Nam bộ",
     "color": "#db2777",
     "capital": "TP. Tây Ninh",
     "mergedFrom": [
@@ -1087,8 +1089,8 @@ window.VIETNAM_PROVINCES_34 = [
     "name": "Thành phố Đồng Nai",
     "shortName": "Đồng Nai",
     "type": "thành phố",
-    "regionId": "dong_nam_bo",
-    "regionName": "Đông Nam Bộ",
+    "regionId": "nam_bo",
+    "regionName": "Nam bộ",
     "color": "#db2777",
     "capital": "TP. Biên Hoà",
     "mergedFrom": [
@@ -1126,8 +1128,8 @@ window.VIETNAM_PROVINCES_34 = [
     "name": "Thành phố Hồ Chí Minh",
     "shortName": "TP. Hồ Chí Minh",
     "type": "thành phố",
-    "regionId": "dong_nam_bo",
-    "regionName": "Đông Nam Bộ",
+    "regionId": "nam_bo",
+    "regionName": "Nam bộ",
     "color": "#db2777",
     "capital": "TP. Hồ Chí Minh",
     "mergedFrom": [
@@ -1167,8 +1169,8 @@ window.VIETNAM_PROVINCES_34 = [
     "name": "Tỉnh Vĩnh Long",
     "shortName": "Vĩnh Long",
     "type": "tỉnh",
-    "regionId": "song_cuu_long",
-    "regionName": "Đồng bằng Sông Cửu Long",
+    "regionId": "nam_bo",
+    "regionName": "Nam bộ",
     "color": "#0d9488",
     "capital": "TP. Vĩnh Long",
     "mergedFrom": [
@@ -1208,8 +1210,8 @@ window.VIETNAM_PROVINCES_34 = [
     "name": "Tỉnh Đồng Tháp",
     "shortName": "Đồng Tháp",
     "type": "tỉnh",
-    "regionId": "song_cuu_long",
-    "regionName": "Đồng bằng Sông Cửu Long",
+    "regionId": "nam_bo",
+    "regionName": "Nam bộ",
     "color": "#0d9488",
     "capital": "TP. Cao Lãnh",
     "mergedFrom": [
@@ -1247,8 +1249,8 @@ window.VIETNAM_PROVINCES_34 = [
     "name": "Tỉnh An Giang",
     "shortName": "An Giang",
     "type": "tỉnh",
-    "regionId": "song_cuu_long",
-    "regionName": "Đồng bằng Sông Cửu Long",
+    "regionId": "nam_bo",
+    "regionName": "Nam bộ",
     "color": "#0d9488",
     "capital": "TP. Long Xuyên",
     "mergedFrom": [
@@ -1286,8 +1288,8 @@ window.VIETNAM_PROVINCES_34 = [
     "name": "Thành phố Cần Thơ",
     "shortName": "Cần Thơ",
     "type": "thành phố",
-    "regionId": "song_cuu_long",
-    "regionName": "Đồng bằng Sông Cửu Long",
+    "regionId": "nam_bo",
+    "regionName": "Nam bộ",
     "color": "#0d9488",
     "capital": "TP. Cần Thơ",
     "mergedFrom": [
@@ -1327,8 +1329,8 @@ window.VIETNAM_PROVINCES_34 = [
     "name": "Tỉnh Cà Mau",
     "shortName": "Cà Mau",
     "type": "tỉnh",
-    "regionId": "song_cuu_long",
-    "regionName": "Đồng bằng Sông Cửu Long",
+    "regionId": "nam_bo",
+    "regionName": "Nam bộ",
     "color": "#0d9488",
     "capital": "TP. Cà Mau",
     "mergedFrom": [
